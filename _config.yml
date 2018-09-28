@@ -16,7 +16,7 @@
 title: Solar Forecast Arbiter
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Solar Forecasting 2 project site.
+  Solar Forecast Arbiter project site.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  lboeman
@@ -28,12 +28,7 @@ plugins:
   - jekyll-feed
 
 # custom vars
-project_name: Solar Forecasting 2
-menu_items:
-  Team: '/team/'
-  Metrics: '/metrics/'
-  Contribute: '/contribute/'
-  Help: '/help/'
+project_name: Solar Forecastm Arbiter
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
