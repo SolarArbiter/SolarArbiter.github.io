@@ -28,7 +28,7 @@ plugins:
   - jekyll-feed
 
 # custom vars
-project_name: Solar Forecastm Arbiter
+project_name: Solar Forecast Arbiter
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
