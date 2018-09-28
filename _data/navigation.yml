@@ -1,8 +1,11 @@
 - name: Team
-  link: /team.html
-- name:   Metrics
-  link: /metrics.html
+  link: /team/
+
+- name: Metrics
+  link: /metrics/
+
 - name: Contribute
-  link: /contribute.html
+  link: /contribute/
+
 - name: Help
-  link: /help.html
+  link: /help/
