@@ -2,7 +2,24 @@
 
 /* General css */
 
+@media (min-width: 769px) {
+	div.teamlogo-wrapper {
+        max-width: 30%;
+    }
+}
+@media (max-width: 768px) {
+	div.teamlogo-wrapper {
+		max-width: 45%;
+    }
+}
 img.teamlogo {
-    max-width: 50%;
     max-height: 150px;
+	max-width: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+div.teamlogo-wrapper{
+	max-height: 150px;
+	display: inline-block;
+	margin: 1.5%;
 }
