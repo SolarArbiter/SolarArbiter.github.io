@@ -18,11 +18,17 @@ Deterministic
 * MAE: Mean absolute error
 * MAPE: Mean absolute percentage error
 * MBE: Mean bias error
+* RMSE: Root mean squared error
 * NRMSE: Normalized root mean squared error
 * CRMSE: Centered (unbiased) root mean squared error
 * r: Pearson correlation coefficient
-* CSI: Critical success index
 * KSI: Kolmogorov-Smirnov Integral
+* FS: Forecast skill (based on RMSE)
+* CSI: Critical success index
+* Ramp metrics: to be determined.
+
+Deterministic metrics must be understood within the context of the forecast
+and observation mean and standard deviation.
 
 
 Probabilistic
