@@ -26,7 +26,6 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-
 # custom vars
 project_name: Solar Forecast Arbiter
 # Exclude from processing.

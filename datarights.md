@@ -2,16 +2,14 @@
 layout: base
 permalink: /datarights/
 ---
-<h2>Data Rights -- DRAFT</h2>
+## Data Rights -- DRAFT
 
-{% markdown %}
 This page contains a **DRAFT** data rights and policies proposal.
 
 This page describes the disclosure levels for observational (generation
 and environmental) and forecast data submitted to the framework, as well
 as data derived from the process of comparing forecast fields to
 observations (e.g. summary statistics).
-
 
 Guiding Principles
 ------------------
@@ -119,5 +117,3 @@ contributed what data. This would require super user access on the
 servers. This access will be restricted to the smallest number of people
 possible. Data contributors that want to prevent this possibility can
 use a VPN.
-
-{% endmarkdown %}
