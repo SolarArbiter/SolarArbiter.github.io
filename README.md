@@ -28,10 +28,4 @@ Main navigation is defined in the `_data/navigation.yml` file. New menu items ca
 
 Pages can be added by creating a new html or markdown file in the root directory of this repo. 
 
-You may  include markdown in your html pages by using the markdown tags as follows:
-
-```
-{% markdown %}
-<markdown content>
-{% endmarkdown %} 
-```
+If you wish to use a mixture of markdown and html, you may do so with a .md file.
