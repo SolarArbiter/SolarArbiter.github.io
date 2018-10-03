@@ -9,7 +9,14 @@ The Arbiter will include a capability to evaluate and create benchmark
 irradiance, power, and net load forecasts. Comparisons of test forecasts
 against benchmark forecasts can help forecast users and developers to
 understand the relative merits of models. The most appropriate benchmark
-will depend on the use case and forecast horizon.
+will depend on the use case and forecast horizon. We believe that the
+following benchmark forecast attributes are appropriate for most use
+cases:
+
+* Available throughout the US
+* Freely available or easily implemented
+* Provide quantities of interest to both forecast users and providers
+* Stakeholder buy-in
 
 Additional information on the Arbiter's benchmark forecast capabilities
 will be available in January, 2019.
@@ -40,6 +47,10 @@ Intraday and longer horizons
 * RAP irradiance
 * NAM cloud cover to irradiance
 * GFS cloud cover to irradiance
+
+The Arbiter derives irradiance forecasts from NAM and GFS cloud cover
+forecasts to properly account for the solar position and time averaging. The
+Arbiter will include options for bias-corrected NWP-based benchmark forecasts.
 
 
 Probabilistic
