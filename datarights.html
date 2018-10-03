@@ -39,10 +39,11 @@ and control of its data. Each framework user is a member of an
 organization and contributes data on behalf of the organization.
 
 Through the framework web interface or API calls, the user associates
-data with data access roles. These roles allow specific organizations/users
-to access to the data. Example roles are shown below. The web interface
-will show an organization a list of all of the submitted data/metadata
-it owns and the roles that can access each data source.
+data with data access policies. These policies allow specific
+organizations/users to access to the data. Example policies are shown
+below. The web interface will show an organization a list of all of the
+submitted data/metadata it owns and the users/organizations that can
+access each data source.
 
 
 Deleting data
@@ -63,11 +64,11 @@ administrators and data contributors will need to resign new NDAs.
 Users may delete data sooner than the end of the funding period.
 
 
-Data access roles
------------------
+Data access policies
+--------------------
 
-A data access role defines the ways in which the data can accessed by users.
-The framework supports the following data access roles, ordered from least
+A data access policy defines the ways in which the data can accessed by users.
+The framework supports the following data access policies, ordered from least
 to most permissible.
 
 * No access
@@ -77,14 +78,14 @@ to most permissible.
 * Multiparty Confidential Access anonymized
     * Groups of organizations/users will be defined in response to each need
       e.g. a particular forecast trial.
-    * Anonymized data accessible is to all users within a specific group
-    * Anonymized data not accessible by users outside of the group (or general public)
-    * True identities not known by framework administrators (see note below)
+    * Anonymized data accessible is accessible to all users within a specific group.
+    * Anonymized data is not accessible by users outside of the group (or general public).
+    * True owners of anonymized data are not known by framework administrators (see note below).
 * Multiparty Confidential Access
     * Groups of organizations/users will be defined in response to each need
       e.g. a particular trial.
-    * Data accessible to all users within a specific group
-    * Data not accessible by users outside of the group (or general public)
+    * Data accessible is accessible to all users within a specific group.
+    * Data is not accessible by users outside of the group (or general public).
 * Public (with required sign on)
     * Reference data such as SURFRAD, SOLRAD, Sandia, NREL MIDC, U Oregon,
       DOE Data Acquisition and Archive Portal (DAP), etc.
