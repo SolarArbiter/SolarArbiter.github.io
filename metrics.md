@@ -26,7 +26,7 @@ Deterministic
 * CRMSE: Centered (unbiased) root mean squared error
 * r: Pearson correlation coefficient
 * KSI: Kolmogorov-Smirnov Integral
-* FS: Forecast skill (based on RMSE)
+* FS: Forecast skill scores (typically based on RMSE of one or more benchmark forecasts)
 * CSI: Critical success index
 * Ramp metrics: to be determined.
 
@@ -77,6 +77,20 @@ Graphics
 * Taylor diagrams
 * Reliability diagrams
 * QQ diagrams
+
+
+Customization
+-------------
+
+Framework adminstrators and users will be able to customize the
+reporting of metrics. Options may include:
+
+* Choice of metrics and graphics
+* Time of year
+* Time of day
+* Solar position
+* Forecast lead time
+* Magnitude and direction of error
 
 
 Concepts
