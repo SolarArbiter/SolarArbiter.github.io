@@ -48,7 +48,7 @@ Intraday and longer horizons
 * NAM cloud cover to irradiance
 * GFS cloud cover to irradiance
 
-The Arbiter derives irradiance forecasts from NAM and GFS cloud cover
+The Arbiter will derive irradiance forecasts from NAM and GFS cloud cover
 forecasts to properly account for the solar position and time averaging. The
 Arbiter will include options for bias-corrected NWP-based benchmark forecasts.
 
@@ -87,11 +87,11 @@ Net load forecasts
 ==================
 
 Net load is defined here as true system load minus behind the meter PV.
-That is it. We make no allowance for wind power or utility scale solar power.
 Net load is the load that must be served with utility scale resources,
-regardless of whether or not they are dispatchable, conventional, or renewable.
-Therefore, net load is *not equal* to the load that must be served with
-conventional generation.
+regardless of whether or not they are dispatchable, conventional, or
+renewable. We make no allowance for wind power or utility scale solar
+power. Therefore, net load is *not equal* to the load that must be
+served with conventional generation.
 
 The Arbiter will include the capability to create benchmark net load
 forecasts as defined above. This requires the development of a simple
