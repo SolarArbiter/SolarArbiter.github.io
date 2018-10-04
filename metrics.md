@@ -26,7 +26,7 @@ Deterministic
 * CRMSE: Centered (unbiased) root mean squared error
 * r: Pearson correlation coefficient
 * KSI: Kolmogorov-Smirnov Integral
-* FS: Forecast skill scores (typically based on RMSE of one or more benchmark forecasts)
+* FS: Forecast skill scores (typically based on RMSE of one or more [benchmark forecasts](../benchmarks))
 * CSI: Critical success index
 * Ramp metrics: to be determined.
 
