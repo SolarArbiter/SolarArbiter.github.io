@@ -7,7 +7,8 @@ permalink: /metrics/
 
 *Metric: a standard of measurement* -- [Merriam-Webster](https://www.merriam-webster.com/dictionary/metric)
 
-This page will contain summaries of the metrics that the Arbiter uses to assess forecasts. Check back soon for more information.
+This page contains summaries of the metrics that the Arbiter uses to
+assess forecasts. Check back soon for more information.
 
 Please send feedback to Will Holmgren at <a href="mailto:holmgren@email.arizona.edu">holmgren@email.arizona.edu</a>
 
@@ -15,6 +16,8 @@ Please send feedback to Will Holmgren at <a href="mailto:holmgren@email.arizona.
 Deterministic
 -------------
 
+* forecast and observation means
+* forecast and observation variance/standard deviation
 * MAE: Mean absolute error
 * MAPE: Mean absolute percentage error
 * MBE: Mean bias error
@@ -34,7 +37,10 @@ and observation mean and standard deviation.
 Probabilistic
 -------------
 
-* BS: Brier score (and variance, reliability, resolution decomposition)
+* REL: Reliability
+* RES: Resolution
+* Uncertainty
+* BS: Brier score (and reliability, resolution, uncertainty decomposition)
 * BSS: Brier skill score
 * RPS: Ranked probability score
 * RPSS: Ranked probability skill score
@@ -44,7 +50,22 @@ Probabilistic
 Cost
 ----
 
-To be announced Dec. 2018 - Jan. 2019.
+Accurately determining economic loss or savings from forecasts is a
+complicated problem that is unique to each forecast user. The Arbiter
+will provide features to help users estimate the cost of forecast errors
+and potential savings from improved forecasts. To do so, the Arbiter
+relies on users to supply some amount of $/MW information:
+
+* User supplied fixed $/MW (1 number)
+* User supplied time of day $/MW (max 1440 numbers)
+* User supplied time series of $/MW (N numbers)
+* User supplied time series of $/MW for predefined MW error bins (NxM numbers)
+
+The input data could be informed by the typical marginal cost of
+generation, optionally as a function of time of day or year. More
+complicated analyses can use the binned error approach to support an
+approximation of a stack of resources that may be called upon depending
+on the magnitude and direction of forecast error.
 
 
 Graphics
@@ -63,6 +84,13 @@ Concepts
 
 * Dimensionality
 * Propriety
+
+
+Examples
+--------
+
+This section will include examples of forecast errors. The examples will
+show how bulk error statistics can illuminate and mislead.
 
 
 
