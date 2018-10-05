@@ -5,9 +5,9 @@ permalink: /benchmarks/
 
 ## Benchmark Forecasts -- DRAFT
 
-The Arbiter will include a capability to evaluate and create benchmark
+The Arbiter will include the capability to create and evaluate benchmark
 irradiance, power, and net load forecasts. Comparisons of test forecasts
-against benchmark forecasts can help forecast users and developers to
+against benchmark forecasts can help forecast users and developers 
 understand the relative merits of models. The most appropriate benchmark
 will depend on the use case and forecast horizon. We believe that the
 following benchmark forecast attributes are appropriate for most use
@@ -77,7 +77,7 @@ PV power forecasts
 ==================
 
 The Arbiter will include functionality for converting benchmark solar
-irradiance forecasts into benchmark solar power forecasts in simple,
+irradiance forecasts into benchmark solar power forecasts in a simple,
 auditable manner. The Arbiter will use solar power modeling functions
 from the [pvlib-python](https://pvlib-python.readthedocs.io/en/latest/)
 library.
