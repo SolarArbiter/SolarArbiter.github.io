@@ -23,3 +23,11 @@ div.teamlogo-wrapper{
 	display: inline-block;
 	margin: 1.5%;
 }
+
+/* Mailchimp overrides */
+div.mc-field-group.input-group{
+	display: block;
+}
+form#mc-embedded-subscribe-form{
+    max-width: 600px;
+}
