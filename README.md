@@ -1,7 +1,7 @@
 # Solar Forecast Arbiter Project site.
 This site hosts static content for the Solar Forecast Arbiter project.
 
-It's build using [Jekyll](https://jekyllrb.com/). 
+It's built using [Jekyll](https://jekyllrb.com/). 
 
 ### Architecture
 Directory structure:
