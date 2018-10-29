@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    {% include header.html %}
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include navbar.html %}
+    </header>
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+      <div class="container mt-4">
+	    <h2>{{ page.title }}</h2>
+	    <p><span class="font-weight-bold author">{{ page.author }}, </span><i> {{ page.date | date: "%b %d, %y" }}</i></p>
+	    {{ content }}
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+  	  	{% include footer.html %}
+      </div>
+    </footer>
+  </body>
+</html>
