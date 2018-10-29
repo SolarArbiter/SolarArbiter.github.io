@@ -9,7 +9,7 @@ title: Solar Forecast Arbiter Blog
   <div class="blog-post">
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
     <p class="author font-weight-bold">{{ post.author }}
-      <span class="date"><i>{{ post.date | date: "%b %d, %y" }}</i></span>
+      <span class="date"><i>{{ post.date | date: "%b %d, %Y" }}</i></span>
     </p>
     <div class="excerpt">
       {{ post.content | strip_html | truncatewords: 50 }}
