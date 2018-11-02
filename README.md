@@ -29,3 +29,7 @@ Main navigation is defined in the `_data/navigation.yml` file. New menu items ca
 Pages can be added by creating a new html or markdown file in the root directory of this repo. 
 
 If you wish to use a mixture of markdown and html, you may do so with a .md file.
+
+#### Blog Posts
+
+Blog posts can be added in the `_posts` directory, with the format `<year>-<month>-<day>-<dash-separated-title>` in `.md` or `.html`. You should set the `author` field in the front-matter as well as setting the layout to `blog`, these values will be rendered in the blog post listing and the blog post page.
