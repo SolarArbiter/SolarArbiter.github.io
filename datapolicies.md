@@ -1,10 +1,10 @@
 ---
 layout: base
-permalink: /datarights/
+permalink: /datapolicies/
 ---
-## Data Rights -- DRAFT
+## Data Policies -- DRAFT
 
-This page contains a **DRAFT** data rights and policies proposal.
+This page contains a **DRAFT** data policies proposal.
 
 This page describes the disclosure levels for observational (generation
 and environmental) and forecast data submitted to the framework, as well
@@ -94,7 +94,7 @@ Non-Disclosure Agreements
 -------------------------
 
 The creator of an organization account must agree to common terms before
-the account may be activated. The terms describe the data rights and
+the account may be activated. The terms describe the data policies and
 procedures outlined in this document. The representative of the
 organization that agrees to the terms must have the authority to do so.
 Only then can the user view data or add new members to the organization.
