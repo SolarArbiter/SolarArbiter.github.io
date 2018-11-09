@@ -23,18 +23,20 @@ div.teamlogo-wrapper{
 	display: inline-block;
 	margin: 1.5%;
 }
-
-ul.dropdown-menu.subnav.show a{
+li.nav-item.dropdown:hover ul.dropdown-menu{
+	display: block;
+}
+ul.dropdown-menu.subnav a{
 	display: block;
 	padding-left: .5em;
 	color: #333;
 }
 
-ul.dropdown-menu.subnav.show li:hover{
+ul.dropdown-menu.subnav li:hover{
   background-color: #333;
 }
 
-ul.dropdown-menu.subnav.show li:hover  a{
+ul.dropdown-menu.subnav li:hover  a{
   color: #fff;
   text-decoration: none;
 }
