@@ -24,6 +24,21 @@ div.teamlogo-wrapper{
 	margin: 1.5%;
 }
 
+ul.dropdown-menu.subnav.show a{
+	display: block;
+	padding-left: .5em;
+	color: #333;
+}
+
+ul.dropdown-menu.subnav.show li:hover{
+  background-color: #333;
+}
+
+ul.dropdown-menu.subnav.show li:hover  a{
+  color: #fff;
+  text-decoration: none;
+}
+
 /* Mailchimp overrides */
 div.mc-field-group.input-group{
 	display: block;
