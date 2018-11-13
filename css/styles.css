@@ -23,6 +23,27 @@ div.teamlogo-wrapper{
 	display: inline-block;
 	margin: 1.5%;
 }
+li.nav-item.dropdown:hover ul.dropdown-menu{
+	display: block;
+}
+ul.dropdown-menu.subnav a{
+	width: 100%;
+	white-space: nowrap;
+	display: block;
+	padding: .25em 1em;
+	color: #333;
+}
+
+ul.dropdown-menu.subnav li:hover{
+  background-color: #333;
+}
+ul.dropdown-menu.subnav li{
+    width: 100%;
+}
+ul.dropdown-menu.subnav li:hover  a{
+  color: #fff;
+  text-decoration: none;
+}
 
 /* Mailchimp overrides */
 div.mc-field-group.input-group{

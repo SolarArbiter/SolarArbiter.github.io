@@ -20,8 +20,23 @@ permalink: /<path/
 ```
 Note: Declaring a permalink provides a way for jekyll to link to pages regardless of where they reside in the directory structure or filename. 
 
-Main navigation is defined in the `_data/navigation.yml` file. New menu items can be added by creating a yaml object with name and link attributes where name is the link text to display and link is the permalink, path or url to the target.  
 
+### Navigation
+Main navigation is defined in the `_data/navigation.yml` file. New menu items can be added by creating a yaml object with `name` and `link` attributes where name is the link text to display and link is the permalink, path or url to the target. Dropdown sub-navigation can be defined by creating a top level object with a `name` and `links` attribute, where the links attribute is a list of objects with `name` and `link` attributes. 
+
+```
+Example: Top level menu item
+
+- name: Team
+  link: /team/
+
+Example: Subnav Dropdown
+
+- name: Key Topics
+  links:
+  - name: Use Cases
+    link: /usecases/
+```
 
 
 ### Adding Content

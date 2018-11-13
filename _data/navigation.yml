@@ -1,20 +1,26 @@
+- name: Key Topics
+  links:
+  - name: Metrics
+    link: /metrics/
+
+  - name: Data Policies
+    link: /datapolicies/
+
+  - name: Benchmark Forecasts
+    link: /benchmarks/
+
+  - name: Use Cases
+    link: /usecases/
+
+  - name: Reference Data
+    link: /referencedata/
+
 - name: Team
   link: /team/
-
-- name: Metrics
-  link: /metrics/
-
-- name: Data Policies
-  link: /datapolicies/
-
-- name: Benchmark Forecasts
-  link: /benchmarks/
 
 - name: Contribute
   link: /contribute/
 
+
 - name: Blog
   link: /blog/
-
-- name: Help
-  link: /help/
