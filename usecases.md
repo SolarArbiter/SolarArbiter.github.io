@@ -280,7 +280,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - All requirements associated with Use Case 1.A.
 - User can select conditions to associate forecast error with system impact.
 - Framework uses user-selected conditions to calculate system impact.
-- Framework finds subset of forecast times corresponding to user-defined &#39;large&#39; system impacts.
+- Framework finds subset of forecast times corresponding to user-defined "large" system impacts.
 - Framework provides a report for user download.
 
 
@@ -368,7 +368,7 @@ Functional requirements are capabilities not specific to a use case but which th
 
 **Requirements** :
 
-- The framework&#39;s API is documented on the framework website.
+- The framework's API is documented on the framework website.
 - Users can interact with the framework via url requests.
 - Users can request forecast evaluations via script (stretch).
 
