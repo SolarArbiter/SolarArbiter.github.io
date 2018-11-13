@@ -212,7 +212,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 #### 1.F. Conduct forecast trial {#uc1F}
 
-**Use case narrative** : The framework administrator, in consultation with trial participants, defines trial period, locations, forecast quantities, time horizons, time resolutions, etc. of a forecast trial. The trial may be either retrospective or live, and may involve a test period followed by an evaluation period.
+**Use case narrative** : The framework administrator, in consultation with trial participants, defines trial period, locations, forecast quantities, time horizons, time resolutions, etc. of a forecast trial. The trial may be either retrospective or live, and may involve a test period followed by an evaluation period. Separate trials may be administered for multiple forecast parameters (e.g. hour ahead and day ahead forecast evaluations for the same set of locations).
 
 **Requirements** :
 
