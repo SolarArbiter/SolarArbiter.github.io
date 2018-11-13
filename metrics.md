@@ -3,7 +3,7 @@ layout: base
 permalink: /metrics/
 ---
 
-## Metrics -- DRAFT
+# Metrics -- DRAFT
 
 *Metric: a standard of measurement* -- [Merriam-Webster](https://www.merriam-webster.com/dictionary/metric)
 
