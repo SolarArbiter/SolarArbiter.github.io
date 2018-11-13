@@ -44,7 +44,17 @@ ul.dropdown-menu.subnav li:hover  a{
   color: #fff;
   text-decoration: none;
 }
-
+/* adjust padding for internal links */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: -50px;
+    padding-top: 50px;
+    display: block;
+}
 /* Mailchimp overrides */
 div.mc-field-group.input-group{
 	display: block;
