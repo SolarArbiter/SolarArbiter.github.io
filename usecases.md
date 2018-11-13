@@ -26,16 +26,16 @@ Framework functional capabilities are grouped into three categories:
 <ul>
   <li><a href="#definitions">Definitions</a></li>
     <ol>
-      <li><a href="#forecastdef">Forecast run vs. Forecast vs. Forecasts</a></li>
+      <li><a href="#forecastdef">Forecast and Forecast runs</a></li>
       <li><a href="#forecastparams">Forecast parameters</a></li>
-      <li><a href="#users">Users</a></li>
+      <li><a href="#users">Framework User and Framework Administrator</a></li>
     </ol>
   <li><a href="#usecases">Use Cases</a></li>
     <ol>
       <li><a href="#evaluatefx">Evaluate forecasts</a></li>
         <ol type="A">
           <li><a href="#uc1A">Compare a forecast to measurements</a></li>
-          <li><a href="#uc1B"> Compare a probabilistic forecast to measurements</a></li>
+          <li><a href="#uc1B">Compare a probabilistic forecast to measurements</a></li>
           <li><a href="#uc1C">Compare multiple forecasts to measurements</a></li>
           <li><a href="#uc1D">Compare forecasts to measurements for sites and aggregates</a></li>
           <li><a href="#uc1E">Evaluate an event forecast</a></li>
