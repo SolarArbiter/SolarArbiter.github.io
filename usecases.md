@@ -123,6 +123,7 @@ A _forecast_ is a piecewise-continuous time series of values parameterized by:
 3. Intervals per submission
 4. Forecast issue frequency
 5. Value type (e.g. mean, max, 95th percentile, instantaneous)
+6. Interval label (start or end)
 
 Each of the examples below is a valid forecast:
 
@@ -162,7 +163,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - User can select among forecast performance metrics (3.A).
 - Framework provides metric values and visuals of forecast performance (3.A).
 - Framework provides a report for download.
-- Framework protects forecasts and uploaded data as user-owned: user can specify other users who can see/use the uploaded forecasts, data, and summary error statistics.
+- Framework protects forecasts and uploaded data as user-owned: user can specify other users and/or groups who can see/use the uploaded forecasts, data, or summary error statistics.
 
 ### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
 
@@ -247,7 +248,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error for a selection of metrics, forecast lead time, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
+- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error (bias), forecast lead time, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
 - User can select among forecast performance metrics (3.A).
 - Framework applies data quality checks to uploaded data (4.E).
 - Framework provides metric values and visuals of forecast performance (3.A).
