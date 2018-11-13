@@ -2,11 +2,11 @@
 layout: base
 permalink: /usecases/
 ---
-## Use Cases
+# Use Cases
 
 
-
-# Purpose and Summary {#purpose}
+{% include to_top.html %}
+## Purpose and Summary {#purpose}
 
 This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
 
@@ -21,7 +21,7 @@ Framework functional capabilities are grouped into three categories:
 2. Administer the framework
 3. Archive data and forecasts
 
-# Contents  {#contents}
+## Contents  {#contents}
 <div>
 <ul>
   <li><a href="#definitions">Definitions</a></li>
@@ -76,9 +76,9 @@ Framework functional capabilities are grouped into three categories:
 </ul>
 </div>
 
-# Definitions  {#definitions}
+## Definitions  {#definitions}
 
-## Forecast and Forecast runs {#forecastdef}
+### Forecast and Forecast runs {#forecastdef}
 
 It is essential that we are clear about the definition of a _forecast_ within the framework.
 
@@ -100,21 +100,19 @@ It is essential that we are clear about the definition of a _forecast_ within th
 From these three runs, the user could upload an hour ahead, hour interval forecast of:
 
 - {(13:00, 10MW), (14:00, 7MW), (15:00, 5MW)}
-
-![timeline_concat_1h](/images/timeline_concat_1h.svg)
-
+ ![timeline_concat_1h](/images/timeline_concat_1h.svg){: .usecase-figure}
 The framework also supports the concatenation of submissions with more than one interval, so long as the intervals do not overlap. The example below shows how three different hour ahead, 15 minute interval, hour duration forecast runs may be concatenated into a single forecast for evaluation.
 
- ![timeline_concat](/images/timeline_concat.svg)
+ ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
 
 The framework is primarily designed to assess a _forecast_. For most use cases (1A-1E), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case (1F), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
 
 A stretch goal is to support the use case of analyzing multiple forecast runs with the same valid times (1G). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
- ![timeline_merge](/images/timeline_merged.svg)
+ ![timeline_merge](/images/timeline_merged.svg){: .usecase-figure}
 
 
-## Forecast parameters {#forecastparams}
+### Forecast parameters {#forecastparams}
 
 A _forecast_ is a piecewise-continuous time series of values parameterized by:
 
@@ -133,7 +131,7 @@ Each of the examples below is a valid forecast:
 
 A collection of forecasts is not required to share all parameters. For example, forecasts could be compared across different lead times or interval durations.
 
-## Framework User and Framework Administrator {#users}
+### Framework User and Framework Administrator {#users}
 
 A _framework user_ is an individual or organization that uses the capabilities of Solar Forecast Arbiter to evaluate and analyze forecasts. A framework user can be a _forecast provider_ (one who creates a forecast), a _forecast user_ (one using a forecast for a defined purpose), researchers and others.
 
@@ -141,13 +139,13 @@ The _framework administrator_ operates Solar Forecast Arbiter, ensures data secu
 
 
 
-# Use cases  {#usecases}
+## Use cases  {#usecases}
 
 A use case describes a sequence of actions taken by a framework user to achieve a goal. Use cases are grouped into two categories: Evaluate forecasts, and Analyze forecasts. From each use case a list of framework requirements is developed. A use case may adopt, expand or modify the requirements of another use case.
 
-## 1. Evaluate forecasts  {#evaulatefx}
+### 1. Evaluate forecasts  {#evaulatefx}
 
-### 1.A. Compare a forecast to measurements {#uc1A}
+#### 1.A. Compare a forecast to measurements {#uc1A}
 
 **Use case narrative** : A framework user uploads a forecast or selects a benchmark forecast, uploads corresponding measured data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
 
@@ -164,7 +162,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - Framework provides a report for download.
 - Framework protects forecasts and uploaded data as user-owned: user can specify other users who can see/use the uploaded forecasts, data, and summary error statistics.
 
-### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
+#### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
 
 **Use case narrative** : A framework user uploads a probabilistic forecast, uploads corresponding data or selects reference data, specifies filters, and selects metrics. The framework calculates probabilistic metrics and provides a visual display of probabilistic forecast performance.
 
@@ -175,7 +173,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - User can select among probabilistic forecast performance metrics (3.A).
 - Framework provides probabilistic metric values for comparison among forecasts, visual displays of probabilistic forecast performance for comparison (3.A).
 
-### 1.C. Compare multiple forecasts to measurements {#uc1C}
+#### 1.C. Compare multiple forecasts to measurements {#uc1C}
 
 **Use case narrative** : Framework users upload forecasts, select benchmark forecasts, or invite other users to share forecasts. Framework users upload corresponding data or select reference data, specify data filters, specify temporal averaging, and select metrics. The framework calculates metrics and provides a visual display of forecast performance and forecast errors for download, and a visual display comparing the forecasts. The framework user can share results with other users.
 
@@ -187,7 +185,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - Framework protects forecasts as specified by each forecast owner.
 - Framework provides metric values for the comparison among forecasts, a visual display of comparison results, and a report for download.
 
-### 1.D. Compare forecasts to measurements for sites and aggregates {#uc1D}
+#### 1.D. Compare forecasts to measurements for sites and aggregates {#uc1D}
 
 **Use case narrative** : A framework administrator defines an aggregate of locations. A framework user uploads forecasts for locations in the aggregate and a forecast for the aggregation of locations. A framework user uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The forecasts and data may represent individual point sensors, power plants, or aggregated quantities. The framework calculates metrics and provides a visual display comparing the forecasts across scales.
 
@@ -198,7 +196,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - Framework computes observations, as specified.
 - Framework provides metric values for the comparison among forecasts, a visual display of comparison results, and a report for download.
 
-### 1.E. Evaluate an event forecast {#uc1E}
+#### 1.E. Evaluate an event forecast {#uc1E}
 
 **Use case narrative** : A framework user can analyze an event forecast.
 
@@ -211,7 +209,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - Framework provides metric values and visuals of event forecast performance (3.A).
 - Framework provides a report for user download.
 
-### 1.F. Conduct forecast trial {#uc1F}
+#### 1.F. Conduct forecast trial {#uc1F}
 
 **Use case narrative** : The framework administrator, in consultation with trial participants, defines trial period, locations, forecast quantities, time horizons, time resolutions, etc. of a forecast trial. The trial may be either retrospective or live, and may involve a test period followed by an evaluation period.
 
@@ -223,7 +221,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - Framework accepts and allows for download of streaming data.
 - Framework generates intermediate reports during the trial.
 
-### 1.G. Compare multiple forecast runs to measurements (stretch) {#uc1G}
+#### 1.G. Compare multiple forecast runs to measurements (stretch) {#uc1G}
 
 **Use case narrative** : A framework user uploads a sequence of forecast runs at a regular interval, uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
 
@@ -239,9 +237,9 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 
 
-## 2. Analyze forecasts {#analyzefx}
+### 2. Analyze forecasts {#analyzefx}
 
-### 2.A. Select subsets of forecasts and data {#uc2A}
+#### 2.A. Select subsets of forecasts and data {#uc2A}
 
 **Use case narrative** : A framework user selects a subset of an uploaded forecast, and the corresponding data, based on one or more conditions, for detailed analysis.  The framework calculates metrics and provides a visual display of forecast performance.
 
@@ -255,7 +253,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 
 
-### 2.B. Identify events {#uc2B}
+#### 2.B. Identify events {#uc2B}
 
 **Use case narrative** : The framework assists a user to identify events in a forecast or in data.
 
@@ -271,7 +269,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 
 
-### 2.C. Find forecasts errors with large impacts (stretch) {#uc2C}
+#### 2.C. Find forecasts errors with large impacts (stretch) {#uc2C}
 
 **Use case narrative** : A framework user can associate forecast errors with system impact, and can filter forecasts based on system impact.
 
@@ -285,7 +283,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 
 
-# Framework functional capabilities {#capabilities}
+## Framework functional capabilities {#capabilities}
 
 Functional requirements are capabilities not specific to a use case but which the framework requires in order to satisfy the use cases. Functional requirements are grouped into three categories:
 
@@ -293,9 +291,9 @@ Functional requirements are capabilities not specific to a use case but which th
 - Administer the framework.
 - Archive forecasts and data.
 
-## 3. Perform forecast evaluation in a standard manner {#evaluation}
+### 3. Perform forecast evaluation in a standard manner {#evaluation}
 
-### 3.A. Calculate forecast error metrics {#uc3A}
+#### 3.A. Calculate forecast error metrics {#uc3A}
 
 **Use case narrative** : The framework provides a set of well-documented metrics which can be selected by a framework user for evaluating or analyzing forecasts.
 
@@ -306,7 +304,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Metrics can be selected by a framework user.
 - Metrics are available for probabilistic forecasts.
 
-### 3.B. Calculate forecast error impacts (stretch) {#uc3B}
+#### 3.B. Calculate forecast error impacts (stretch) {#uc3B}
 
 **Use case narrative** : The framework provides a set of well-documented functions to associate forecast error with system impact, including cost.
 
@@ -316,7 +314,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Functions are coded.
 - Function parameters can be selected by a framework user.
 
-### 3.C. Communicate probabilistic forecasts {#uc3C}
+#### 3.C. Communicate probabilistic forecasts {#uc3C}
 
 **Use case narrative** : The framework communicates probabilistic forecast information in a meaningful, well-documented manner.
 
@@ -325,7 +323,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Quantities and terms used to describe and present probabilistic forecasts are documented on the framework website.
 - Framework presents visuals for probabilistic forecasts.
 
-### 3.D. Facilitate communication of forecasts and forecast metrics {#uc3D}
+#### 3.D. Facilitate communication of forecasts and forecast metrics {#uc3D}
 
 **Use case narrative** : The framework aids a forecast provider to communicate forecast performance.
 
@@ -338,9 +336,9 @@ Functional requirements are capabilities not specific to a use case but which th
 
 
 
-## 4. Administer the framework {#administer}
+### 4. Administer the framework {#administer}
 
-### 4.A. Manage users and organizations {#uc4A}
+#### 4.A. Manage users and organizations {#uc4A}
 
 **Use case narrative** : The framework administrator can manage users and organizations.
 
@@ -350,7 +348,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Administrator can enable data upload privileges based on email communication.
 - Administrator can reset user passwords.
 
-### 4.B. Manage data {#uc4B}
+#### 4.B. Manage data {#uc4B}
 
 **Use case narrative** : The framework administrator can manage data storage, and can delete data upon request or at the end of the DOE funding period.
 
@@ -362,7 +360,7 @@ Functional requirements are capabilities not specific to a use case but which th
 
 
 
-### 4.C. Provide the framework API {#uc4C}
+#### 4.C. Provide the framework API {#uc4C}
 
 **Use case narrative** : The framework provides a documented API and appropriate services for client users.
 
@@ -372,7 +370,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Users can interact with the framework via url requests.
 - Users can request forecast evaluations via script (stretch).
 
-### 4.D. Provide reference forecasts {#uc4D}
+#### 4.D. Provide reference forecasts {#uc4D}
 
 **Use case narrative** : The framework provides a set of documented reference forecasts for irradiance and power, for various locations, at various intervals and horizons.
 
@@ -386,7 +384,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - The framework can provide load and net load forecasts from user-uploaded data using persistence (stretch).
 - Reference forecasts and forecast methods are documented on the framework website.
 
-### 4.E. Provide reference data {#uc4E}
+#### 4.E. Provide reference data {#uc4E}
 
 **Use case narrative** : The framework provides reference weather and power data at selected locations.
 
@@ -396,7 +394,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - The framework provides reference power data from a selection of PV systems.
 - The framework provides metadata for reference PV systems.
 
-### 4.F. Protect forecasts and data {#uc4F}
+#### 4.F. Protect forecasts and data {#uc4F}
 
 **Use case narrative** : The framework protects data and forecasts according to user-selected conditions.
 
@@ -408,7 +406,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Data owners can set permissions on data for viewing and downloading.
 - Forecast owners can set permission on forecasts for viewing, downloading and attribution.
 
-### 4.G. Perform data quality checks {#uc4G}
+#### 4.G. Perform data quality checks {#uc4G}
 
 **Use case narrative** : The framework applies data quality checks when a user uploads data, provides visuals and text reports of data quality check results, and offers download of user data with data quality flags.
 
@@ -421,9 +419,9 @@ Functional requirements are capabilities not specific to a use case but which th
 
 
 
-## 5. Archive data and forecasts {#archive}
+### 5. Archive data and forecasts {#archive}
 
-### 5.A. Provide historical data, forecasts and forecast errors {#uc5A}
+#### 5.A. Provide historical data, forecasts and forecast errors {#uc5A}
 
 **Use case narrative** : The framework provides archive service for data and forecasts.
 
