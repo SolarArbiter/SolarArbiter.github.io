@@ -55,6 +55,9 @@ h6 {
 	margin-bottom: .5em;
     display: block;
 }
+h1, h2{
+	font-weight: 700;
+}
 /* Mailchimp overrides */
 div.mc-field-group.input-group{
 	display: block;
@@ -69,6 +72,8 @@ form#mc-embedded-subscribe-form{
     z-index: 99;
     padding: 10px;
     border-radius: 5px;
+	box-shadow: 1px 1px 2px #777;
+	border-width: 0;
 }
 
 #to-top:hover {
@@ -88,4 +93,13 @@ main > .container{
 
 code {
     font-size: 80%;
+}
+.usecase-figure{
+	max-width: 100%;
+}
+
+@media screen and (min-width: 992px){
+	.usecase-figure{
+		padding: 0 10%;
+	}
 }

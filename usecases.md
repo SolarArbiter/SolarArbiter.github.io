@@ -2,11 +2,11 @@
 layout: base
 permalink: /usecases/
 ---
-## Use Cases
+# Use Cases
 
 
 {% include to_top.html %}
-### Purpose and Summary {#purpose}
+## Purpose and Summary {#purpose}
 
 This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
 
@@ -21,7 +21,7 @@ Framework functional capabilities are grouped into three categories:
 2. Administer the framework
 3. Archive data and forecasts
 
-### Contents  {#contents}
+## Contents  {#contents}
 <div>
 <ul>
   <li><a href="#definitions">Definitions</a></li>
@@ -100,18 +100,16 @@ It is essential that we are clear about the definition of a _forecast_ within th
 From these three runs, the user could upload an hour ahead, hour interval forecast of:
 
 - {(13:00, 10MW), (14:00, 7MW), (15:00, 5MW)}
-
-![timeline_concat_1h](/images/timeline_concat_1h.svg)
-
+ ![timeline_concat_1h](/images/timeline_concat_1h.svg){: .usecase-figure}
 The framework also supports the concatenation of submissions with more than one interval, so long as the intervals do not overlap. The example below shows how three different hour ahead, 15 minute interval, hour duration forecast runs may be concatenated into a single forecast for evaluation.
 
- ![timeline_concat](/images/timeline_concat.svg)
+ ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
 
 The framework is primarily designed to assess a _forecast_. For most use cases (1A-1E), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case (1F), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
 
 A stretch goal is to support the use case of analyzing multiple forecast runs with the same valid times (1G). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
- ![timeline_merge](/images/timeline_merged.svg)
+ ![timeline_merge](/images/timeline_merged.svg){: .usecase-figure}
 
 
 ### Forecast parameters {#forecastparams}
