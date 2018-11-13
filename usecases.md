@@ -91,7 +91,7 @@ It is essential that we are clear about the definition of a _forecast_ within th
 5. Value unit (MW)
 6. Value type (average)
 
-**Forecast**. A _forecast_ is a serially complete time series of (Time, Value) pairs spanning from a s_tart time_ to an e_nd time_. A single forecast run is a forecast. A forecast can also comprise the concatenation of a series of identically specified forecast runs with different issue times, as shown in the figures below. For example, three forecast runs (green) could be:
+**Forecast**. A _forecast_ is a serially complete time series of (Time, Value) pairs spanning from a _start time_ to an _end time_. A single forecast run is a forecast. A forecast can also comprise the concatenation of a series of identically specified forecast runs with different issue times, as shown in the figures below. For example, three forecast runs (green) could be:
 
 - {(13:00, 10MW)} issued at 12:00, and
 - {(14:00, 7MW)} issued at 13:00, and
@@ -149,11 +149,11 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 ### 1.A. Compare a forecast to measurements {#uc1A}
 
-**Use case narrative** : A framework user uploads a forecast or selects a benchmark forecast, uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
+**Use case narrative** : A framework user uploads a forecast or selects a benchmark forecast, uploads corresponding measured data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
 
 **Requirements** :
 
-- User can upload data, select from previously uploaded data, or select a location/period with reference data (4.E).
+- User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data (4.E).
   - If uploading data, user must define relevant metadata including location, data type, and units.
   - Data type can be irradiance, power, or net-load.
 - User can upload a corresponding forecast or select corresponding benchmark forecast. The forecast value type must be deterministic and single-valued.
@@ -162,7 +162,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - User can select among forecast performance metrics (3.A).
 - Framework provides metric values and visuals of forecast performance (3.A).
 - Framework provides a report for download.
-- Framework protects forecasts and uploaded data as user-owned: user can specify other users who can see/use the uploaded forecasts and data.
+- Framework protects forecasts and uploaded data as user-owned: user can specify other users who can see/use the uploaded forecasts, data, and summary error statistics.
 
 ### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
 
@@ -247,7 +247,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error, forecast horizon, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
+- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error for a selection of metrics, forecast lead time, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
 - User can select among forecast performance metrics (3.A).
 - Framework applies data quality checks to uploaded data (4.E).
 - Framework provides metric values and visuals of forecast performance (3.A).
