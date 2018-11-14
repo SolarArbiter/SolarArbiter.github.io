@@ -57,6 +57,9 @@ h6 {
 h1, h2{
 	font-weight: 700;
 }
+h3.anchor, h4.anchor {
+    margin-top: 2em;
+}
 /* add pseudo elements so anchors clear sticky header */
 .anchor:before{
     display: block; 
