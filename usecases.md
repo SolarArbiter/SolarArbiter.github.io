@@ -12,14 +12,14 @@ This document describes Solar Forecast Arbiter use cases and their associated re
 
 Use cases are grouped into two categories:
 
-1. Evaluate forecasts. These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
-2. Analyze forecasts. These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors and other quantities.
+1. [Evaluate forecasts](#evaulatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
+2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors and other quantities.
 
 Framework functional capabilities are grouped into three categories:
 
-1. Perform forecast evaluation in a standard manner
-2. Administer the framework
-3. Archive data and forecasts
+1. [Perform forecast evaluation in a standard manner](#evaluation)
+2. [Administer the framework](#administer)
+3. [Archive data and forecasts](#archive)
 
 Additional documents will be created to refine topics including metrics, benchmark forecasts, data formats, data sharing, and legal considerations through continued stakeholder engagement.
 
@@ -111,9 +111,9 @@ The framework also supports the concatenation of submissions with more than one 
 
  ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
 
-The framework is primarily designed to assess a _forecast_. For most use cases (1A-1E), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case (1F), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
+The framework is primarily designed to assess a _forecast_. For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case ([1.F](#uc1F)), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
 
-A stretch goal is to support the use case of analyzing multiple forecast runs with the same valid times (1G). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
+A stretch goal is to support the use case of analyzing multiple forecast runs with the same valid times ([1.G](#uc1G)). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
  ![timeline_merge](/images/timeline_merged.svg){: .usecase-figure}
 
@@ -305,9 +305,9 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 Functional requirements are capabilities not specific to a use case but which the framework requires in order to satisfy the use cases. Functional requirements are grouped into three categories:
 
-- Perform forecast evaluation in a standard manner.
-- Administer the framework.
-- Archive forecasts and data.
+- [Perform forecast evaluation in a standard manner](#evaluation)
+- [Administer the framework](#administer)
+- [Archive data and forecasts](#archive)
 
 ### 3. Perform forecast evaluation in a standard manner {#evaluation}
 {: .anchor}
