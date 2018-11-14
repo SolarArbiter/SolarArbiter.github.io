@@ -2,7 +2,7 @@
 layout: base
 permalink: /datapolicies/
 ---
-## Data Policies -- DRAFT
+# Data Policies -- DRAFT
 
 This page contains a **DRAFT** data policies proposal.
 

@@ -3,7 +3,7 @@ layout: base
 permalink: /benchmarks/
 ---
 
-## Benchmark Forecasts -- DRAFT
+# Benchmark Forecasts -- DRAFT
 
 The Arbiter will include the capability to create and evaluate benchmark
 irradiance, power, and net load forecasts. Comparisons of test forecasts
@@ -27,21 +27,21 @@ Forecasts
 on Monday, January 7 from 4:00 - 6:00 PM.
 
 
-Built-in benchmark forecasts
-============================
+## Built-in benchmark forecasts
+
 
 The Arbiter will provide built-in support for the following benchmark options.
 
-Intrahour horizons
-------------------
+### Intrahour horizons
+
 
 * Persistence
 * Persistence of clear sky index
 * ARIMA
 
 
-Intraday and longer horizons
-----------------------------
+### Intraday and longer horizons
+
 
 * HRRR irradiance
 * RAP irradiance
@@ -53,16 +53,16 @@ forecasts to properly account for the solar position and time averaging. The
 Arbiter will include options for bias-corrected NWP-based benchmark forecasts.
 
 
-Probabilistic
--------------
+### Probabilistic
+
 
 * HRRRE
 
 Calibration of probabilistic benchmark forecasts is a topic of discussion.
 
 
-User-supplied benchmark forecasts
-=================================
+## User-supplied benchmark forecasts
+
 
 Some evalulation applications may require users to provide their own
 benchmark forecasts. For example, Solar Forecasting 2, Topic Area 2
@@ -73,8 +73,8 @@ will accept uploaded forecasts for predefined evaluation point or
 area-average values. The framework will not accept gridded datasets.
 
 
-PV power forecasts
-==================
+## PV power forecasts
+
 
 The Arbiter will include functionality for converting benchmark solar
 irradiance forecasts into benchmark solar power forecasts in a simple,
@@ -83,8 +83,8 @@ from the [pvlib-python](https://pvlib-python.readthedocs.io/en/latest/)
 library.
 
 
-Net load forecasts
-==================
+## Net load forecasts
+
 
 Net load is defined here as true system load minus behind the meter PV.
 Net load is the load that must be served with utility scale resources,
