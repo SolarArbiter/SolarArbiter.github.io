@@ -57,16 +57,16 @@ h6 {
 h1, h2{
 	font-weight: 700;
 }
-h3.anchor, h4.anchor {
+h2.anchor, h3.anchor, h4.anchor {
     margin-top: 2em;
 }
 /* add pseudo elements so anchors clear sticky header */
 .anchor:before{
-    display: block; 
-    content: " "; 
-    margin-top: -75px; 
-    height: 75px; 
-    visibility: hidden; 
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    height: 75px;
+    visibility: hidden;
 }
 
 
@@ -80,7 +80,7 @@ form#mc-embedded-subscribe-form{
 #to-top {
     position: fixed;
     bottom: 30px;
-    right: 30px; 
+    right: 30px;
     z-index: 99;
     padding: 10px;
     border-radius: 5px;
