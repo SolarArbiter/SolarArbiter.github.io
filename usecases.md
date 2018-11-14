@@ -142,7 +142,7 @@ A collection of forecasts is not required to share all parameters. For example, 
 ### Framework User and Framework Administrator {#users}
 {: .anchor}
 
-A _framework user_ is an individual or organization that uses the capabilities of Solar Forecast Arbiter to evaluate and analyze forecasts. A framework user can be a _forecast provider_ (one who creates a forecast), a _forecast user_ (one using a forecast for a defined purpose), researchers and others.
+A _framework user_ is an individual or organization that uses the capabilities of Solar Forecast Arbiter to evaluate and analyze forecasts. A framework user can be a _forecast provider_ (one who creates a forecast), a _forecast user_ (one using a forecast for a defined purpose), researchers, and others.
 
 The _framework administrator_ operates Solar Forecast Arbiter, ensures data security and anonymity, establishes standards for forecast evaluation, and provides benchmark forecasts.
 
@@ -166,7 +166,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data ([4.E](#uc4E)).
   - If uploading data, user must define relevant metadata including location, data type, and units.
   - Data type can be irradiance, power, or net-load.
-- User can upload a corresponding forecast ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast value type must be deterministic.
+- User can upload a corresponding [forecast](#forecastdef) ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast value type must be deterministic.
 - Framework applies data quality checks to uploaded data and forecasts ([4.G](#uc4G)).
 - User can specify filters to exclude forecast or data points (a subset of (time, value) pairs), by time or by value ([2.A](#uc2A)).
 - User can select among forecast performance metrics ([3.A](#uc3A)).
@@ -184,7 +184,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 - All requirements as listed for Use Case [1.A](#uc1A) with the following modifications.
 - A forecast value must be an empirical probability distribution at each time point (a sequence of {quantile, value} or {Prob(X), X} pairs).
 - User can select among probabilistic forecast performance metrics ([3.A](#uc3A)).
-- Framework provides probabilistic metric values for comparison among forecasts, visual displays of probabilistic forecast performance for comparison ([3.A](#uc3A)).
+- Framework provides probabilistic metric values for comparison among forecasts ([3.A](#uc3A)), visual displays of probabilistic forecast performance, and a report for download ([3.D](#uc3D)).
 
 #### 1.C. Compare multiple forecasts to measurements {#uc1C}
 {: .anchor}
@@ -246,7 +246,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 **Requirements** :
 
 - All requirements as listed for Use Case [1.A](#uc1A), for each forecast run.
-- Each forecast run must be identically specified.
+- Each [forecast run](#forecastdef) must be identically specified.
 - Forecast runs are issued at a regular interval (e.g., every 6 hours).
 - User can upload multiple forecast runs. Each forecast run must be:
   - A time series of uniform forecast intervals, duration, and value type (e.g. 5 minute interval, interval average forecasts through 24 hours from the start time)
