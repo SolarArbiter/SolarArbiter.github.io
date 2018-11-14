@@ -59,6 +59,7 @@ Additional documents will be created to refine topics including metrics, benchma
           <li><a href="#uc3B">Calculate forecast impacts (stretch)</a></li>
           <li><a href="#uc3C">Communicate probabilistic forecasts</a></li>
           <li><a href="#uc3D">Facilitate communication of forecasts and forecast metrics</a></li>
+          <li><a href="#uc3E">Compute aggregate observations</a></li>
         </ol>
       <li><a href="#administer">Administer the framework</a></li>
         <ol type="A">
@@ -352,7 +353,7 @@ Functional requirements are capabilities not specific to a use case but which th
 - Framework users can share forecasts, forecast evaluation reports, and data with other framework users.
 - Framework protects forecasts and uploaded data as specified by the user.
 
-#### 3.E. Compute aggregate observations {#uc3C}
+#### 3.E. Compute aggregate observations {#uc3E}
 {: .anchor}
 
 **Use case narrative** : The framework computes aggregates of observational data, accounting for missing data and flagged data, in a well-documented manner.
