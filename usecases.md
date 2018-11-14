@@ -190,7 +190,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 - All requirements as listed for Use Case [1.A](#uc1A) or [1.B](#uc1B) for each forecast in the comparison.
 - User can share forecast specifications (e.g., quantity, interval, horizon, averaging, lead times) with other framework users and invite other framework users to share forecasts for the comparison ([4.F](#uc4F)).
-- Framework supports anonymous forecast comparison.
+- Framework supports anonymous forecast comparison ([4.F](#uc4F)).
 - Framework protects forecasts as specified by each forecast owner ([4.F](#uc4F)).
 - Framework provides metric values for the comparison among forecasts ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
 
@@ -203,7 +203,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 - All requirements as listed for Use Case [1.A](#uc1A), [1.B](#uc1B), or [1.C](#uc1C), as appropriate.
 - User uploads an aggregation of forecasts with weights specified by the framework ([4.C](#uc4C)).
-- Framework computes observations, as specified.
+- Framework computes observations, as specified ([3.E](#uc3E)).
 - Framework provides metric values for the comparison among forecasts ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
 
 #### 1.E. Evaluate an event forecast {#uc1E}
@@ -352,6 +352,16 @@ Functional requirements are capabilities not specific to a use case but which th
 - Framework users can share forecasts, forecast evaluation reports, and data with other framework users.
 - Framework protects forecasts and uploaded data as specified by the user.
 
+#### 3.E. Compute aggregate observations {#uc3C}
+{: .anchor}
+
+**Use case narrative** : The framework computes aggregates of observational data, accounting for missing data and flagged data, in a well-documented manner.
+
+**Requirements** :
+
+- Aggregation functions are coded in the framework.
+- Aggregation functions are documented on the framework website.
+
 
 
 ### 4. Administer the framework {#administer}
@@ -425,7 +435,7 @@ Functional requirements are capabilities not specific to a use case but which th
 
 - The data sharing agreement terms are posted on the framework website.
 - The framework provides user identification services (account management, password services).
-- The framework records an owner for uploaded forecasts and data.
+- The framework records an owner, optionally under an anonymous pseudonym, for uploaded forecasts and data.
 - Data owners can set permissions on data for viewing and downloading.
 - Forecast owners can set permission on forecasts for viewing, downloading and attribution.
 
