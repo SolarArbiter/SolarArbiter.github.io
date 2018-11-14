@@ -44,7 +44,6 @@ ul.dropdown-menu.subnav li:hover  a{
   color: #fff;
   text-decoration: none;
 }
-/* adjust padding for internal links */
 h1,
 h2,
 h3,
@@ -58,6 +57,16 @@ h6 {
 h1, h2{
 	font-weight: 700;
 }
+/* add pseudo elements so anchors clear sticky header */
+.anchor:before{
+    display: block; 
+    content: " "; 
+    margin-top: -75px; 
+    height: 75px; 
+    visibility: hidden; 
+}
+
+
 /* Mailchimp overrides */
 div.mc-field-group.input-group{
 	display: block;
