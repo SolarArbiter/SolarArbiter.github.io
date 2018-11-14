@@ -84,16 +84,15 @@ Additional documents will be created to refine topics including metrics, benchma
 ### Forecast and Forecast runs {#forecastdef}
 {: .anchor}
 
-It is essential that we are clear about the definition of a _forecast_ within the framework.
-
 **Forecast run**. A _forecast run_ is a sequence of one or more (_Time_, _Value_) pairs issued at a particular time. _Time_ can label a moment in time or an interval of time, e.g., a _Time_ of 17:00 can label the hour-long interval from 17:00 to 18:00. _Value_ has a unit (e.g., MW) and a type (e.g., mean, 95th percentile) determined by the corresponding observation. An example forecast run for the average hourly power issued at 16:00 for the next three hours could be {(17:00, 5MW), (18:00, 10MW), (19:00, 7 MW)}. A forecast run is defined by the following parameters, illustrated by the example forecast run:
 
-1. Issue time (16:00)
-2. Number of intervals (3)
+1. Start time (17:00)
+2. Lead time to start of forecast (1 hour)
 3. Interval duration (1 hour)
-4. Interval label (left endpoint)
-5. Value unit (MW)
-6. Value type (average)
+4. Number of intervals per submission (3)
+5. Forecast issue frequency (once)
+6. Value type (mean)
+7. Interval label (start)
 
 **Forecast**. A _forecast_ is a serially complete time series of (Time, Value) pairs spanning from a _start time_ to an _end time_. A single forecast run is a forecast. A forecast can also comprise the concatenation of a series of identically specified forecast runs with different issue times, as shown in the figures below. For example, three forecast runs (green) could be:
 
@@ -111,7 +110,9 @@ The framework also supports the concatenation of submissions with more than one 
 
  ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
 
-The framework is primarily designed to assess a _forecast_. For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case ([1.F](#uc1F)), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
+This concept also applies to the evaluation of day-ahead forecasts issued at a particular time of day. For example, hour average forecasts for next day as of 16:00 previous day can be represented by a concatenation of forecasts with start time of midnight, 8 hour lead time to start, 1 hour interval, 24 intervals per submission, and 1 day frequency.
+
+For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case ([1.F](#uc1F)), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
 
 A stretch goal is to support the use case of analyzing multiple forecast runs with the same valid times ([1.G](#uc1G)). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
@@ -123,21 +124,15 @@ A stretch goal is to support the use case of analyzing multiple forecast runs wi
 
 A _forecast_ is a piecewise-continuous time series of values parameterized by:
 
-1. Lead time to start of forecast
-2. Interval duration
-3. Intervals per submission
-4. Forecast issue frequency
-5. Value type (e.g. mean, max, 95th percentile, instantaneous)
-6. Interval label (start or end)
+1. Start time
+2. Lead time to start of forecast
+3. Interval duration
+4. Intervals per submission
+5. Forecast issue frequency
+6. Value type (e.g. mean, max, 95th percentile, instantaneous)
+7. Interval label (start or end)
 
-Each of the examples below is a valid forecast:
-
-- 5 minute lead time, 5 minute interval, 1 interval per submission, 5 minute frequency
-- 1 hour lead time, 1 hour interval, 1 interval per submission, 1 hour frequency
-- 75 minute lead time, 1 hour interval, 1 interval per submission, 1 hour frequency
-- 8 hour lead time, 1 hour interval, 24 intervals per submission, 1 day frequency (hour average forecasts for next day as of 16:00 previous day)
-
-A collection of forecasts is not required to share all parameters. For example, forecasts could be compared across different lead times or interval durations.
+See the [Forecast and Forecast runs](#forecastdef) section above for examples.
 
 ### Framework User and Framework Administrator {#users}
 {: .anchor}
