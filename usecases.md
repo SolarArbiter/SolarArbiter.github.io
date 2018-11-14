@@ -6,7 +6,7 @@ permalink: /usecases/
 
 
 {% include to_top.html %}
-## Purpose and Summary {#purpose} 
+## Purpose and Summary {#purpose}
 {: .anchor }
 This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
 
@@ -20,6 +20,8 @@ Framework functional capabilities are grouped into three categories:
 1. Perform forecast evaluation in a standard manner
 2. Administer the framework
 3. Archive data and forecasts
+
+Additional documents will be created to refine topics including metrics, benchmark forecasts, data formats, data sharing, and legal considerations through continued stakeholder engagement.
 
 ## Contents  {#contents}
 <div>
@@ -297,7 +299,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 - All requirements associated with Use Case 1.A.
 - User can select conditions to associate forecast error with system impact.
-- Framework uses user-selected conditions to calculate system impact.
+- Framework uses user-selected conditions to calculate system impact (3.B).
 - Framework finds subset of forecast times corresponding to user-defined "large" system impacts.
 - Framework provides a report for user download.
 
@@ -318,24 +320,24 @@ Functional requirements are capabilities not specific to a use case but which th
 #### 3.A. Calculate forecast error metrics {#uc3A}
 {: .anchor}
 
-**Use case narrative** : The framework provides a set of well-documented metrics which can be selected by a framework user for evaluating or analyzing forecasts.
+**Use case narrative** : The framework provides a set of well-documented metrics which can be selected by a framework user for evaluating or analyzing forecasts. Metrics include, for example, statistics for forecast error, and cost estimated by a user-supplied $/MW-error.
 
 **Requirements** :
 
 - Metrics are documented on the framework website.
-- Metrics are coded.
+- Metrics are coded in the framework.
 - Metrics can be selected by a framework user.
 - Metrics are available for probabilistic forecasts.
 
 #### 3.B. Calculate forecast error impacts (stretch) {#uc3B}
 {: .anchor}
 
-**Use case narrative** : The framework provides a set of well-documented functions to associate forecast error with system impact, including cost.
+**Use case narrative** : The framework provides a set of well-documented functions to associate forecast error with system impact. System impact may include, for example, increase or decrease in reserve requirements.
 
 **Requirements** :
 
-- Functions for system impact are documented on the framework website.
-- Functions are coded.
+- Functions for estimating system impact are documented on the framework website.
+- Functions are coded in the framework.
 - Function parameters can be selected by a framework user.
 
 #### 3.C. Communicate probabilistic forecasts {#uc3C}
@@ -357,7 +359,7 @@ Functional requirements are capabilities not specific to a use case but which th
 
 - The framework produces reports of forecast evaluation and analysis for user download.
 - The framework website includes pages that aid in explaining forecasts and their use.
-- Framework users can share forecasts, forecast evaluation reports and data with other framework users.
+- Framework users can share forecasts, forecast evaluation reports, and data with other framework users.
 - Framework protects forecasts and uploaded data as specified by the user.
 
 
@@ -409,7 +411,7 @@ Functional requirements are capabilities not specific to a use case but which th
 
 - The framework provides a reference irradiance forecast at hourly intervals out to 60 hours for CONUS.
 - The framework provides a reference irradiance forecast at user-selected intervals (5 to 60 minutes) out to 24 hours, using smart persistence of user-uploaded data.
-- The framework provides a reference forecast for air temperature and windspeed to accompany the reference irradiance forecasts.
+- The framework provides a reference forecast for air temperature and wind speed to accompany the reference irradiance forecasts.
 - The framework provides a reference model for translating irradiance to power.
 - The framework provides a reference forecast for power, using user-uploaded power and a persistence method.
 - The framework can provide load and net load forecasts from user-uploaded data using persistence (stretch).
