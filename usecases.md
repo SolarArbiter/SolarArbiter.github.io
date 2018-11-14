@@ -163,16 +163,16 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data (4.E).
+- User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data ([4.E](#uc4E)).
   - If uploading data, user must define relevant metadata including location, data type, and units.
   - Data type can be irradiance, power, or net-load.
-- User can upload a corresponding forecast (4.C) or select corresponding benchmark forecast (4.D). The forecast value type must be deterministic.
-- Framework applies data quality checks to uploaded data and forecasts (4.G).
-- User can specify filters to exclude forecast or data points (a subset of (time, value) pairs), by time or by value (2.A).
-- User can select among forecast performance metrics (3.A).
-- Framework provides metric values and visuals of forecast performance (3.A).
-- Framework provides a report for download (3.D).
-- Framework protects forecasts and uploaded data as user-owned: user can specify other users and/or groups who can see/use the uploaded forecasts, data, or summary error statistics (4.F).
+- User can upload a corresponding forecast ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast value type must be deterministic.
+- Framework applies data quality checks to uploaded data and forecasts ([4.G](#uc4G)).
+- User can specify filters to exclude forecast or data points (a subset of (time, value) pairs), by time or by value ([2.A](#uc2A)).
+- User can select among forecast performance metrics ([3.A](#uc3A)).
+- Framework provides metric values and visuals of forecast performance ([3.A](#uc3A)).
+- Framework provides a report for download ([3.D](#uc3D)).
+- Framework protects forecasts and uploaded data as user-owned: user can specify other users and/or groups who can see/use the uploaded forecasts, data, or summary error statistics ([4.F](#uc4F)).
 
 #### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
 {: .anchor}
@@ -181,10 +181,10 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed for Use Case 1.A with the following modifications.
+- All requirements as listed for Use Case [1.A](#uc1A) with the following modifications.
 - A forecast value must be an empirical probability distribution at each time point (a sequence of {quantile, value} or {Prob(X), X} pairs).
-- User can select among probabilistic forecast performance metrics (3.A).
-- Framework provides probabilistic metric values for comparison among forecasts, visual displays of probabilistic forecast performance for comparison (3.A).
+- User can select among probabilistic forecast performance metrics ([3.A](#uc3A)).
+- Framework provides probabilistic metric values for comparison among forecasts, visual displays of probabilistic forecast performance for comparison ([3.A](#uc3A)).
 
 #### 1.C. Compare multiple forecasts to measurements {#uc1C}
 {: .anchor}
@@ -193,11 +193,11 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed for Use Case 1.A or 1.B for each forecast in the comparison.
-- User can share forecast specifications (e.g., quantity, interval, horizon, averaging, lead times) with other framework users and invite other framework users to share forecasts for the comparison (4.F).
+- All requirements as listed for Use Case [1.A](#uc1A) or [1.B](#uc1B) for each forecast in the comparison.
+- User can share forecast specifications (e.g., quantity, interval, horizon, averaging, lead times) with other framework users and invite other framework users to share forecasts for the comparison ([4.F](#uc4F)).
 - Framework supports anonymous forecast comparison.
-- Framework protects forecasts as specified by each forecast owner (4.F).
-- Framework provides metric values for the comparison among forecasts (3.A), a visual display of comparison results, and a report for download (3.D).
+- Framework protects forecasts as specified by each forecast owner ([4.F](#uc4F)).
+- Framework provides metric values for the comparison among forecasts ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
 
 #### 1.D. Compare forecasts to measurements for sites and aggregates {#uc1D}
 {: .anchor}
@@ -206,10 +206,10 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed for Use Case 1.A, 1.B, or 1.C, as appropriate.
-- User uploads an aggregation of forecasts with weights specified by the framework (4.C).
+- All requirements as listed for Use Case [1.A](#uc1A), [1.B](#uc1B), or [1.C](#uc1C), as appropriate.
+- User uploads an aggregation of forecasts with weights specified by the framework ([4.C](#uc4C)).
 - Framework computes observations, as specified.
-- Framework provides metric values for the comparison among forecasts (3.A), a visual display of comparison results, and a report for download (3.D).
+- Framework provides metric values for the comparison among forecasts ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
 
 #### 1.E. Evaluate an event forecast {#uc1E}
 {: .anchor}
@@ -218,12 +218,12 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed by Use Case 1.A, 1.B, or 1.C, as appropriate.
-- User can upload an event forecast, e.g., a time series of true/false values, or a time series of event occurrence likelihood (4.C).
-- User can upload corresponding event data or connect to a saved event time series (2.B).
-- User can select among event forecast performance metrics (3.A).
-- Framework provides metric values and visuals of event forecast performance (3.A).
-- Framework provides a report for user download (3.D).
+- All requirements as listed by Use Case [1.A](#uc1A), [1.B](#uc1B), or [1.C](#uc1C), as appropriate.
+- User can upload an event forecast, e.g., a time series of true/false values, or a time series of event occurrence likelihood ([4.C](#uc4C)).
+- User can upload corresponding event data or connect to a saved event time series ([2.B](#uc2B)).
+- User can select among event forecast performance metrics ([3.A](#uc3A)).
+- Framework provides metric values and visuals of event forecast performance ([3.A](#uc3A)).
+- Framework provides a report for user download ([3.D](#uc3D)).
 
 #### 1.F. Conduct forecast trial {#uc1F}
 {: .anchor}
@@ -232,11 +232,11 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed for Use Case 1.C.
-- Administrator, in consultation with trial participants, defines data sources, forecast run intervals/horizons, trial period, metrics, filters (4.C).
-- Framework concatenates regularly posted forecast runs into a continuous forecast (4.C).
-- Framework accepts and allows for download of streaming data (4.C).
-- Framework generates intermediate reports during the trial (3.D).
+- All requirements as listed for Use Case [1.C](#uc1C).
+- Administrator, in consultation with trial participants, defines data sources, forecast run intervals/horizons, trial period, metrics, filters ([4.C](#uc4C)).
+- Framework concatenates regularly posted forecast runs into a continuous forecast ([4.C](#uc4C)).
+- Framework accepts and allows for download of streaming data ([4.C](#uc4C)).
+- Framework generates intermediate reports during the trial ([3.D](#uc3D)).
 
 #### 1.G. Compare multiple forecast runs to measurements (stretch) {#uc1G}
 {: .anchor}
@@ -245,7 +245,7 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements as listed for Use Case 1.A, for each forecast run.
+- All requirements as listed for Use Case [1.A](#uc1A), for each forecast run.
 - Each forecast run must be identically specified.
 - Forecast runs are issued at a regular interval (e.g., every 6 hours).
 - User can upload multiple forecast runs. Each forecast run must be:
@@ -265,10 +265,10 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 **Requirements** :
 
 - User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error (bias), forecast lead time, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
-- User can select among forecast performance metrics (3.A).
-- Framework applies data quality checks to uploaded data (4.E).
-- Framework provides metric values and visuals of forecast performance (3.A).
-- Framework provides a report for user download (3.D).
+- User can select among forecast performance metrics ([3.A](#uc3A)).
+- Framework applies data quality checks to uploaded data ([4.E](#uc4E)).
+- Framework provides metric values and visuals of forecast performance ([3.A](#uc3A)).
+- Framework provides a report for user download ([3.D](#uc3D)).
 
 #### 2.B. Identify events {#uc2B}
 {: .anchor}
@@ -277,12 +277,12 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- User can upload a forecast (4.C).
-- User can upload data (4.C).
-- Framework applies data quality checks to uploaded data (4.E).
+- User can upload a forecast ([4.C](#uc4C)).
+- User can upload data ([4.C](#uc4C)).
+- Framework applies data quality checks to uploaded data ([4.E](#uc4E)).
 - User can specify conditions (e.g., ramp rates) used to identify events occurring in a forecast or in data.
-- Framework provides visual display of identified events (3.D).
-- Framework provides a report for user download (3.D).
+- Framework provides visual display of identified events ([3.D](#uc3D)).
+- Framework provides a report for user download ([3.D](#uc3D)).
 - User can save event data, i.e., a time series of true/false values.
 
 #### 2.C. Find forecasts errors with large impacts (stretch) {#uc2C}
@@ -292,11 +292,11 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 
 **Requirements** :
 
-- All requirements associated with Use Case 1.A.
-- User can select conditions to associate forecast error with system impact (3.B).
-- Framework uses user-selected conditions to calculate system impact (3.B).
+- All requirements associated with Use Case [1.A](#uc1A).
+- User can select conditions to associate forecast error with system impact ([3.B](#uc3B)).
+- Framework uses user-selected conditions to calculate system impact ([3.B](#uc3B)).
 - Framework finds subset of forecast times corresponding to user-defined "large" system impacts.
-- Framework provides a report for user download (3.D).
+- Framework provides a report for user download ([3.D](#uc3D)).
 
 
 
