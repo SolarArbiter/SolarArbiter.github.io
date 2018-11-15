@@ -3,6 +3,6 @@ layout: base
 permalink: /referencedata/
 ---
 
-## Reference Data
+# Reference Data
 
 {% include reference_map.html %}

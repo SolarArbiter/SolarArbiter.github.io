@@ -2,12 +2,12 @@
 layout: base
 title: Solar Forecast Arbiter Blog
 ---
-<h2>{{ page.title }}</h2>
+<h1>{{ page.title }}</h1>
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
   <hr/>
   <div class="blog-post">
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
     <p class="author font-weight-bold">{{ post.author }}
       <span class="date"><i>{{ post.date | date: "%b %d, %Y" }}</i></span>
     </p>
