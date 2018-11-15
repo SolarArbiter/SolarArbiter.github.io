@@ -10,6 +10,8 @@ permalink: /usecases/
 {: .anchor }
 This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
 
+The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general purpose weather forecast analysis tool.
+
 Use cases are grouped into two categories:
 
 1. [Evaluate forecasts](#evaulatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
@@ -21,7 +23,7 @@ Framework functional capabilities are grouped into three categories:
 2. [Administer the framework](#administer)
 3. [Archive data and forecasts](#archive)
 
-Additional documents will be created to refine topics including metrics, benchmark forecasts, data formats, data sharing, and legal considerations through continued stakeholder engagement.
+Metrics, benchmark forecasts, data formats, data sharing policies, and legal considerations will be detailed in other documents.
 
 ## Contents  {#contents}
 <div>
@@ -82,20 +84,33 @@ Additional documents will be created to refine topics including metrics, benchma
 ## Definitions  {#definitions}
 {: .anchor}
 
+This section is important. The use cases will not make sense without a clear understanding of these terms. Please let us know how we can better explain these concepts.
+
+The precise definition of a *forecast* is often a source of confusion in the forecasting industry. Consider these statements that use the term *forecast*:
+
+<ol type="A">
+  <li>"The <em>Vendor A</em> forecast for the next 3 hours is 5 MW, 10 MW, 7 MW."</li>
+  <li>"The <em>Vendor B</em> hour ahead forecast was good this morning, but it was bad this afternoon."</li>
+</ol>
+
+In statement A, the user refers to a series of expected values issued at a single point in time. In statement B, the user refers to a series of expected values issued at different points in time.
+
+A meaningful statistical analysis of forecast accuracy usually requires many samples of similarly constructed forecasts. The forecast of statement B is naturally suited to support statistical analysis. The forecast of statement B is also likely tied to a series of similar business decisions or a market bid process. Therefore, the Solar Forecast Arbiter parameterizes forecasts to match this use case. The [Forecast and Forecast runs](#forecastdef) section explains how forecast data is parameterized in the Solar Forecast Arbiter. The [Forecast parameters](#forecastparams) section summarizes the parameters for reference.
+
 ### Forecast and Forecast runs {#forecastdef}
 {: .anchor}
 
-**Forecast run**. A _forecast run_ is a sequence of one or more (_Time_, _Value_) pairs issued at a particular time. _Time_ can label a moment in time or an interval of time, e.g., a _Time_ of 17:00 can label the hour-long interval from 17:00 to 18:00. _Value_ has a unit (e.g., MW) and a type (e.g., mean, 95th percentile) determined by the corresponding observation. An example forecast run for the average hourly power issued at 16:00 for the next three hours could be {(17:00, 5MW), (18:00, 10MW), (19:00, 7 MW)}. A forecast run is defined by the following parameters, illustrated by the example forecast run:
+**Forecast run**. A _forecast run_ is a sequence of one or more (_Time_, _Value_) pairs issued at a particular time. _Time_ can label a moment in time or an interval of time, e.g., a _Time_ of 17:00 can label the hour-long interval from 17:00 to 18:00. _Value_ has a type (e.g., mean, 95th percentile). An example forecast run for the average hourly power issued at 16:00 for the next three hours could be {(17:00, 5MW), (18:00, 10MW), (19:00, 7 MW)}. A forecast run is defined by the following parameters, illustrated by the example forecast run:
 
-1. Start time (17:00)
-2. Lead time to start of forecast (1 hour)
+1. Issue time (16:00)
+2. Lead time to start (1 hour)
 3. Interval duration (1 hour)
 4. Number of intervals per submission (3)
 5. Forecast issue frequency (once)
 6. Value type (mean)
 7. Interval label (start)
 
-**Forecast**. A _forecast_ is a serially complete time series of (Time, Value) pairs spanning from a _start time_ to an _end time_. A single forecast run is a forecast. A forecast can also comprise the concatenation of a series of identically specified forecast runs with different issue times, as shown in the figures below. For example, three forecast runs (green) could be:
+**Forecast**. A _forecast_ is a serially complete time series of (*Time*, *Value*) pairs spanning from a _start time_ to an _end time_. A single forecast run is a forecast. A forecast can also comprise the concatenation of a series of identically specified forecast runs with different issue times, as shown in the figure below. For example, three forecast runs (green) could be:
 
 - {(13:00, 10MW)} issued at 12:00, and
 - {(14:00, 7MW)} issued at 13:00, and
@@ -125,13 +140,15 @@ A stretch goal is to support the use case of analyzing multiple forecast runs wi
 
 A _forecast_ is a piecewise-continuous time series of values parameterized by:
 
-1. Start time
-2. Lead time to start of forecast
-3. Interval duration
-4. Intervals per submission
-5. Forecast issue frequency
-6. Value type (e.g. mean, max, 95th percentile, instantaneous)
-7. Interval label (start or end)
+1. Issue time - The time of day that a forecast is issued, e.g. 13:00. Multiple issue times are uniquely determined by any one issue time and *forecast issue frequency*.
+2. Lead time to start - The difference between each *issue time* and the start of the first forecast interval, e.g. 1 hour.
+3. Interval duration - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
+4. Intervals per submission - The number of intervals in each forecast submission, e.g. 12.
+5. Forecast issue frequency - The frequency at which new forecasts are issued, e.g. 1 hour, 6 hours, 1 day.
+6. Value type - The type of the data in the forecast, e.g. mean, max, 95th percentile, instantaneous.
+7. Interval label - Indicates if a *time* labels the start or the end of an interval.
+
+A forecast must be associated with a pre-defined observation data point. The observation data point defines forecast parameters such as geographic location and units; the forecast does not define these parameters.
 
 See the [Forecast and Forecast runs](#forecastdef) section above for examples.
 
@@ -147,7 +164,7 @@ The _framework administrator_ operates Solar Forecast Arbiter, ensures data secu
 ## Use cases  {#usecases}
 {: .anchor}
 
-A use case describes a sequence of actions taken by a framework user to achieve a goal. Use cases are grouped into two categories: Evaluate forecasts, and Analyze forecasts. From each use case a list of framework requirements is developed. A use case may adopt, expand, or modify the requirements of another use case.
+A use case describes a sequence of actions to achieve a goal. Use cases are grouped into two categories: Evaluate forecasts, and Analyze forecasts. From each use case a list of framework requirements is developed. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
 
 ### 1. Evaluate forecasts  {#evaulatefx}
 {: .anchor}
@@ -253,10 +270,10 @@ A use case describes a sequence of actions taken by a framework user to achieve 
 ### 2. Analyze forecasts {#analyzefx}
 {: .anchor}
 
-#### 2.A. Select subsets of forecasts and data {#uc2A}
+#### 2.A. Analyze subsets of forecasts and data {#uc2A}
 {: .anchor}
 
-**Use case narrative** : A framework user selects a subset of an uploaded forecast, and the corresponding data, based on one or more conditions, for detailed analysis.  The framework calculates metrics and provides a visual display of forecast performance.
+**Use case narrative** : A framework user selects a subset of an uploaded forecast, and the corresponding data, based on one or more conditions, for detailed analysis. The framework calculates metrics and provides a visual display of forecast performance.
 
 **Requirements** :
 
