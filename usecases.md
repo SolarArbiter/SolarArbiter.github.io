@@ -14,7 +14,7 @@ The Solar Forecast Arbiter is primarily designed to support the evaluation of so
 
 Use cases are grouped into two categories:
 
-1. [Evaluate forecasts](#evaulatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
+1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
 2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors and other quantities.
 
 Framework functional capabilities are grouped into three categories:
@@ -30,9 +30,9 @@ Metrics, benchmark forecasts, data formats, data sharing policies, and legal con
 <ul>
   <li><a href="#definitions">Definitions</a></li>
     <ol>
-      <li><a href="#forecastdef">Forecasts, Forecast Runs, and Forecast Datapoints</a></li>
+      <li><a href="#forecastdef">Forecasts, forecast funs, and forecast datapoints</a></li>
       <li><a href="#forecastattrs">Forecast attributes</a></li>
-      <li><a href="#users">Framework User and Framework Administrator</a></li>
+      <li><a href="#users">Framework user and framework administrator</a></li>
     </ol>
   <li><a href="#usecases">Use Cases</a></li>
     <ol>
@@ -104,10 +104,10 @@ The Solar Forecast Arbiter provides a taxonomy to allow forecast users and forec
 The sections below define and illustrate the key terms and concepts.
 
 
-### Forecasts, Forecast Runs, and Forecast Datapoints {#forecastdef}
+### Forecasts, forecast runs, and forecast datapoints {#forecastdef}
 {: .anchor}
 
-**Forecast Datapoint**. A *forecast datapoint* is a single (*Time*, *Value*) data pair. Time can label a moment in time or an interval of time, as defined by the interval type label. For example, a Time of 17:00 can label the hour-long interval beginning from 17:00 to 18:00 (period beginning label), 16:00 to 17:00 (period ending label) or instantaneously at 17:00 (instantaneous label). Value has a *quantity* (e.g., mean, 95th percentile) and *type* (e.g. power, GHI). The type defines the unit.
+**Forecast datapoint**. A *forecast datapoint* is a single (*Time*, *Value*) data pair. Time can label a moment in time or an interval of time, as defined by the interval type label. For example, a Time of 17:00 can label the hour-long interval beginning from 17:00 to 18:00 (period beginning label), 16:00 to 17:00 (period ending label) or instantaneously at 17:00 (instantaneous label). Value has a *quantity* (e.g., mean, 95th percentile) and *type* (e.g. power, GHI). The type defines the unit.
 
 **Forecast run**. A _forecast run_ is a sequence of one or more *forecast datapoints* issued at the same time.  An example forecast run for the average hourly power at Power Plant X, issued at 16:00 for the next three hours, could be {(17:00, 5MW), (18:00, 10MW), (19:00, 7 MW)}. A forecast run is described by the following attributes (with the values relevant to this example in parentheses):
 
@@ -160,13 +160,13 @@ A _forecast_ is a serially complete time series of values parameterized by:
 5.	Forecast issue frequency - The frequency at which new forecasts are issued, e.g. 1 hour, 6 hours, 1 day.
 6.	Interval label - Indicates if a time labels the start or the end of an interval, or indicates an instantaneous value.
 7.	Value type - The type of the data in the forecast, e.g. mean, max, 95th percentile.
-8.	Variable – The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
-9.	Site – The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
+8.	Variable - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
+9.	Site - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
 
-A forecast must be associated with a pre-defined site. The site, not the forecast, defines geographic location and the value type determines the units.
+A forecast must be associated with a pre-defined site. The site, not the forecast, defines geographic location and the variable determines the units.
 
 
-### Framework User and Framework Administrator {#users}
+### Framework user and framework administrator {#users}
 {: .anchor}
 
 A _framework user_ is an individual or organization that uses the capabilities of Solar Forecast Arbiter to evaluate and analyze forecasts. A framework user can be a _forecast provider_ (one who creates a forecast), a _forecast user_ (one using a forecast for a defined purpose), researchers, and others.
@@ -180,7 +180,7 @@ The _framework administrator_ operates Solar Forecast Arbiter, ensures data secu
 
 A use case describes a sequence of actions to achieve a goal. Use cases are grouped into two categories: [Evaluate forecasts](#evaluatefx), and [Analyze forecasts](#analyzefx). From each use case a list of framework requirements is developed. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
 
-### 1. Evaluate forecasts  {#evaulatefx}
+### 1. Evaluate forecasts  {#evaluatefx}
 {: .anchor}
 
 #### 1.A. Compare a forecast to measurements {#uc1A}
@@ -315,7 +315,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 2.C. Find forecasts errors with large impacts (stretch) {#uc2C}
 {: .anchor}
 
-**Use case narrative**: A framework user can associate forecast errors with system impact, and can filter forecasts based on system impact.
+**Use case narrative**: A framework user can associate forecast errors with system impact and can filter forecasts based on system impact.
 
 **Requirements**:
 
