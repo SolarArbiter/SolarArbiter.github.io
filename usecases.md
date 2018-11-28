@@ -10,12 +10,12 @@ permalink: /usecases/
 {: .anchor }
 This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
 
-The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general-purpose weather forecast analysis tool, though it may extended to incorporate wind and load forecast analysis.
+The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general-purpose weather forecast analysis tool, though it may eventually be extended to incorporate wind power and load forecast analysis.
 
 Use cases are grouped into two categories:
 
-1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts and probabilistic forecasts.
-2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors and other quantities.
+1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts, and probabilistic forecasts.
+2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors, and other quantities.
 
 Framework functional capabilities are grouped into three categories:
 
@@ -30,8 +30,8 @@ Metrics, benchmark forecasts, data formats, data sharing policies, and legal con
 <ul>
   <li><a href="#definitions">Definitions</a></li>
     <ol>
-      <li><a href="#forecastdef">Forecasts, forecast funs, and forecast datapoints</a></li>
-      <li><a href="#forecastattrs">Forecast attributes</a></li>
+      <li><a href="#forecastdef">Forecast evaluation timeseries, forecast runs, and forecast datapoints</a></li>
+      <li><a href="#forecastattrs">Forecast evaluation timeseries attributes</a></li>
       <li><a href="#users">Framework user and framework administrator</a></li>
     </ol>
   <li><a href="#usecases">Use Cases</a></li>
@@ -97,19 +97,19 @@ An evaluation challenge arises if Statement A is extended to include a new 48 ho
 
 Statement B suggests an alternative strategy: the forecast user or the forecast provider parses forecast data into a timeseries for evaluation according to her **application**. For example, from many 48 hour length forecasts, a timeseries of forecast values with lead times of 1 hour ahead could be compiled to evaluate forecasts that support participation in a particular market. Or, a timeseries of forecast values for each hour of the day ahead could be compiled from forecasts issued at the same time each day to evaluate forecasts input to a production cost model. In each case, the forecast under evaluation is a continuous, non-overlapping timeseries that can be compared to observations.
 
-The Solar Forecast Arbiter is designed to analyze these user-supplied, continuous, non-overlapping timeseries.
+The Solar Forecast Arbiter is designed to analyze these user-supplied, continuous, non-overlapping timeseries. We refer to this as a *forecast evaluation timeseries*.
 
 The Solar Forecast Arbiter provides a taxonomy to allow forecast users and forecast providers to clearly and completely describe each forecast evaluation timeseries. For most use cases, the user is required to consider the forecast application, parse the forecast data into a continuous, non-overlapping timeseries for evaluation, and provide the parsed data to the Solar Forecast Arbiter for analysis – not the individual forecast runs that went into the parsed forecast.
 
 The sections below define and illustrate the key terms and concepts.
 
 
-### Forecasts, forecast runs, and forecast datapoints {#forecastdef}
+### Forecast evaluation timeseries, forecast runs, and forecast datapoints {#forecastdef}
 {: .anchor}
 
 **Forecast datapoint**. A *forecast datapoint* is a single (*Time*, *Value*) data pair. Time can label a moment in time or an interval of time, as defined by the interval type label. For example, a Time of 17:00 can label the hour-long interval beginning from 17:00 to 18:00 (period beginning label), 16:00 to 17:00 (period ending label) or instantaneously at 17:00 (instantaneous label). Value has a *quantity* (e.g., mean, 95th percentile) and *type* (e.g. power, GHI). The type defines the unit.
 
-**Forecast run**. A _forecast run_ is a sequence of one or more *forecast datapoints* issued at the same time.  An example forecast run for the average hourly power at Power Plant X, issued at 16:00 for the next three hours, could be {(17:00, 5MW), (18:00, 10MW), (19:00, 7 MW)}. A forecast run is described by the following attributes (with the values relevant to this example in parentheses):
+**Forecast run**. A _forecast run_ is a sequence of one or more *forecast datapoints* issued at the same time.  An example forecast run for the average hourly power at Power Plant X, issued at 16:00 for the next three hours, could be {(17:00, 5 MW), (18:00, 10 MW), (19:00, 7 MW)}. A forecast run is described by the following attributes (with the values relevant to this example in parentheses):
 
 1.	Issue time (16:00)
 2.	Lead time to start (1 hour)
@@ -121,7 +121,7 @@ The sections below define and illustrate the key terms and concepts.
 8.	Variable (power)
 9.	Site (Power Plant X)
 
-**Forecast**. A _forecast_ is a serially complete time series of (*forecast datapoints*) spanning from a _start time_ to an _end time_. For example, a single *forecast run* is a *forecast*. A *forecast* can be the concatenation of a series of identically specified forecast runs with sequential issue times, as shown in the figure below. For example, three forecast runs (green) could be:
+**Forecast evaluation timeseries**. A _forecast evaluation timeseries_ is a complete series of (*forecast datapoints*) spanning from a _start time_ to an _end time_. For example, a single *forecast run* is a *forecast evaluation timeseries*. Typically, a *forecast evaluation timeseries* is the concatenation of a series of identically specified forecast runs with sequential issue times, as shown in the figure below. For example, three forecast runs (green) could be:
 
 - {(13:00, 10MW)} issued at 12:00, and
 - {(14:00, 7MW)} issued at 13:00, and
@@ -133,25 +133,25 @@ From these three runs, the user could upload an hour ahead, hour interval foreca
 
  ![timeline_concat_1h](/images/timeline_concat_1h.svg){: .usecase-figure}
 
-The framework also supports *forecasts* that are the concatenation of *forecast runs* with more than one interval, so long as the intervals do not overlap. The example below shows how three different hour-ahead, 15-minute interval, 1-hour duration *forecast runs* may be concatenated into a single forecast for evaluation.
+The framework also supports *forecast evaluation timeseries* that are the concatenation of *forecast runs* with more than one interval, so long as the intervals do not overlap. The example below shows how three different hour-ahead, 15-minute interval, 1-hour duration *forecast runs* may be parsed and concatenated into a single forecast evaluation timeseries.
 
  ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
 
 This concept also applies to the evaluation of day-ahead forecasts issued at a particular time of day. For example, hour average forecasts for next day as of 16:00 previous day can be represented by a concatenation of forecasts with start time of midnight, 8-hour lead time to start, 1-hour interval, 24 intervals per submission, and 1 day frequency.
 
-For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a _forecast_. For the Forecast Trial use case ([1.F](#uc1F)), the framework expects forecast providers to upload a series of _forecast runs_ that the framework can concatenate into a _forecast_ for evaluation.
+For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a *forecast evaluation timeseries*. For the Forecast Trial use case ([1.F](#uc1F)), the Solar Forecast Arbiter expects forecast providers to regularly upload a _forecast runs_ that the Solar Forecast Arbiter can concatenate into a *forecast evaluation timeseries*.
 
 A stretch goal is to support the use case of uploading and analyzing multiple forecast runs with the same valid times ([1.G](#uc1G)). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
  ![timeline_merge](/images/timeline_merged.svg){: .usecase-figure}
 
 
-### Forecast attributes {#forecastattrs}
+### Forecast evaluation timeseries attributes {#forecastattrs}
 {: .anchor}
 
-The Solar Forecast Arbiter uses the set of attributes defined below to describe the characteristics of a forecast timeseries. This structure allows any type of forecast typically utilized in the solar energy field to be evaluated.
+The Solar Forecast Arbiter uses the set of attributes defined below to describe the characteristics of a forecast evaluation timeseries. This structure allows any type of forecast typically utilized in the solar energy field to be evaluated.
 
-A _forecast_ is a serially complete time series of values parameterized by:
+A *forecast evaluation timeseries* is a serially complete time series of values with the following attributes:
 
 1.	Issue time - The time of day that a forecast is issued, e.g. 13:00. Multiple issue times are uniquely determined by any one issue time and forecast issue frequency.
 2.	Lead time to start - The difference between each issue time and the start of the first forecast interval, e.g. 1 hour.
@@ -179,6 +179,8 @@ The _framework administrator_ operates Solar Forecast Arbiter, ensures data secu
 {: .anchor}
 
 A use case describes a sequence of actions to achieve a goal. Use cases are grouped into two categories: [Evaluate forecasts](#evaluatefx), and [Analyze forecasts](#analyzefx). From each use case a list of framework requirements is developed. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
+
+**In this section, for brevity, a *forecast* refers to the *[forecast evaluation timeseries](#forecastdef)* defined above.**
 
 ### 1. Evaluate forecasts  {#evaluatefx}
 {: .anchor}
