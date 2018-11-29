@@ -29,11 +29,10 @@ We’ve combined this outreach message with our first stakeholder task: provide 
 
 So stakeholders please:
 1. [Sign up for the Stakeholder Committee email list](/emaillist) (1 minute)
-  * Or email [Will Holmgren](mailto:holmgren@email.arizona.edu) or [Justin Sharp](mailto:justin@sharply-focused.com)
 
-And if you are interested in the top level use cases:
+And if you are interested in the top level Use Cases:
 
 2. Review the proposed Use Cases (10 – 15 minutes): [solarforecastarbiter.org/usecases](/usecases)
 3. Fill out the Use Cases Feedback Form (5 – 15 minutes): [link](https://goo.gl/forms/F1qq08JppsKBMUtj2)
 
-**The deadline for use cases feedback is December 7, 2018.**
+**The deadline for Use Cases feedback is December 7, 2018.**
