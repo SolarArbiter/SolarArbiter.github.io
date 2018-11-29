@@ -18,7 +18,7 @@ email: lboeman@email.arizona.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Solar Forecast Arbiter project site.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "solararbiter.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://solarforecastarbiter.org" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  SolarArbiter
 
 # Build settings
