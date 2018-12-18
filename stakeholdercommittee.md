@@ -36,4 +36,4 @@ And if you are interested in the top level Use Cases:
 2. Review the proposed Use Cases (10 – 15 minutes): [solarforecastarbiter.org/usecases](/usecases)
 3. Fill out the Use Cases Feedback Form (5 – 15 minutes): [link](https://goo.gl/forms/F1qq08JppsKBMUtj2)
 
-**The deadline for Use Cases feedback is December 7, 2018.**
+**The deadline for Use Cases feedback is December 21, 2018.**
