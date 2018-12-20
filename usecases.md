@@ -4,7 +4,7 @@ permalink: /usecases/
 ---
 # Use Cases
 
-*We are currently asking stakeholders to provide feedback on the Solar Forecast Arbiter use cases. Please take just a couple of minutes to provide simple feedback using this [form](https://goo.gl/forms/F1qq08JppsKBMUtj2). Stakeholders may also markup this [word document](/assets/Use cases 20181128.docx) and email it to a team member or [info@solarforecastarbiter.org](mailto:info@solarforecastarbiter.org).*
+*We are currently asking stakeholders to provide feedback on the Solar Forecast Arbiter use cases. Please take just a couple of minutes to provide simple feedback using this [form](https://docs.google.com/forms/d/e/1FAIpQLScSzF7x2E0mIWly37zKNLu2HTEpDeYF_UgfTVW8kCVC5hV6Kg/viewform?usp=sf_link). Stakeholders may also markup this [word document](/assets/Use cases 20181128.docx) and email it to a team member or [info@solarforecastarbiter.org](mailto:info@solarforecastarbiter.org).*
 
 {% include to_top.html %}
 ## Purpose and Summary {#purpose}
