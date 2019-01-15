@@ -11,6 +11,13 @@ and environmental) and forecast data submitted to the framework, as well
 as data derived from the process of comparing forecast fields to
 observations (e.g. summary statistics).
 
+An **organization** is an entity that owns data or obtains license to submit
+data to the framework. A **user** is an individual working for an organization
+that performs the tasks of submitting data to the framework, granting other
+users or organizations rights to view data, and downloads data from the
+framework.
+
+
 Guiding Principles
 ------------------
 
@@ -18,15 +25,14 @@ The following principles guide our data policies.
 
 1. Organizations retain ownership of the data they upload to the framework.
 2. Users upload data to the framework on behalf of organizations.
-2. Users have complete control over how their data may be accessed by other users.
-2. Users may delete data from the framework.
-2. A forecast trial may require that data owners relinquish control of a
-   copy of their data (optionally anonymized) to ensure trial fairness,
-   transparency, and reproducibility. The terms of a trial and its data
-   permissions will be fully defined before users contribute data to it.
-2. The framework will not sell the data that it controls.
+2. Users have complete control over how their organization's data may be
+   accessed by other users within organizations.
+2. Users may delete their organization's data from the framework at any time.
+2. The framework will not sell, donate, or otherwise disclose the data that it
+   controls without express written consent of the data owner.
 2. All non-public data will be securely deleted by the conclusion of the DOE
-   funding period (June 30, 2021).
+   funding period (June 30, 2021) unless express written permission to
+   retain it is obtained.
 
 
 Contributing data
@@ -40,8 +46,13 @@ Through the framework web interface or API calls, the user associates
 data with data access policies. These policies allow specific
 organizations/users to access to the data. Example policies are shown
 below. The web interface will show an organization a list of all of the
-submitted data/metadata it owns and the users/organizations that can
+submitted metadata/data it owns and the users/organizations that can
 access each data source.
+
+Under some use cases, anonymized time series data and or summary statistics
+derived from the data are owned by the framework. This ensures trial fairness,
+transparency, and reproducibility. The framework is not allowed
+to sell, donate, or otherwise disclose anonymized data or statistics.
 
 
 Deleting data
@@ -51,15 +62,10 @@ An organization may delete its data from the framework at any time, or
 an organization may ask the framework administrators to delete its data
 from the framework.
 
-Anonymized time series data and summary statistics
-derived from the data are owned by the framework and not deleted.
-(Framework is not allowed to sell anonymized data or statistics.)
-
 All non-public data will be securely deleted at the conclusion of the
-DOE funding period (June 30, 2021). The post-DOE-funding framework
-administrators and data contributors will need to resign new NDAs.
-
-Users may delete data sooner than the end of the funding period.
+DOE funding period (June 30, 2021) unless express written consent is
+granted by both the data contributor and the post-DOE-funding framework
+administrator.
 
 
 Data access policies
@@ -69,20 +75,21 @@ A data access policy defines the ways in which the data can accessed by users.
 The framework supports the following data access policies, ordered from least
 to most permissible.
 
-* No access
+* Owner-only
     * Default access level for data uploaded by users.
 * Peer-to-peer
-    * A single user grants another user permission to view data.
+    * A single user, working on behalf of an organization, grants another user
+      working on behalf of another organization permission to view data.
 * Multiparty Confidential Access anonymized
     * Groups of organizations/users will be defined in response to each need
       e.g. a particular forecast trial.
-    * Anonymized data accessible is accessible to all users within a specific group.
+    * Anonymized data is accessible to all users within a specific group.
     * Anonymized data is not accessible by users outside of the group (or general public).
     * True owners of anonymized data are not known by framework administrators (see note below).
 * Multiparty Confidential Access
     * Groups of organizations/users will be defined in response to each need
       e.g. a particular trial.
-    * Data accessible is accessible to all users within a specific group.
+    * Data is accessible to all users within a specific group.
     * Data is not accessible by users outside of the group (or general public).
 * Public (with required sign on)
     * Reference data such as SURFRAD, SOLRAD, Sandia, NREL MIDC, U Oregon,
@@ -112,7 +119,7 @@ The framework will use national standards and best practices for
 security of stored data and data transmission.
 
 On anonymity from framework administrator/operator... with some study of
-IP logs the framework operator could potentially figure out who
+IP logs the framework operator could potentially determine who
 contributed what data. This would require super user access on the
 servers. This access will be restricted to the smallest number of people
 possible. Data contributors that want to prevent this possibility can
