@@ -17,6 +17,7 @@ that performs the tasks of submitting data to the framework, granting other
 users or organizations rights to view data, and downloads data from the
 framework.
 
+
 Guiding Principles
 ------------------
 
@@ -115,7 +116,7 @@ Other
 -----
 
 The framework will use national standards and best practices for
-security of stored data and data transmission. *For example*...
+security of stored data and data transmission.
 
 On anonymity from framework administrator/operator... with some study of
 IP logs the framework operator could potentially determine who
