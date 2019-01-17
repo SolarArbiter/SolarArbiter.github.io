@@ -96,6 +96,7 @@ main > .container{
 	padding-top: 4em;
 }
 .footer {
+    z-index: 10;
     background-color: #f5f5f5;
 }
 .footer > .container {
@@ -114,4 +115,28 @@ code {
 	.usecase-figure{
 		padding: 0 10%;
 	}
+
+    div.sidebar{
+      position: fixed;
+      width: 300px;
+      font-size: 12px;
+      height: 100%;
+      border-right: 1px solid #343a40;
+      padding-right: 1em;
+      overflow: auto;
+    }
+    div.contents-menu h2{
+      font-size: 2em;
+    }
+    div.sidebar ul.contents-list{
+      list-style: none;
+      padding-left: 0;
+    }
+    ul.contents-list ol, ul.contents-list ol ol{
+      padding-left: 1.5em;
+    }
+    div.content-wrapper-sidebar{
+     margin-left: 300px;
+     padding-left: 1em;
+    }
 }
