@@ -117,26 +117,27 @@ code {
 	}
 
     div.sidebar{
-      position: fixed;
-      width: 300px;
-      font-size: 12px;
-      height: 100%;
-      border-right: 1px solid #343a40;
-      padding-right: 1em;
-      overflow: auto;
+        position: fixed;
+        width: 300px;
+        font-size: 12px;
+        height: 100%;
+        border-right: 1px solid #343a40;
+        padding-right: 1em;
+        padding-bottom: 4em;
+        overflow: auto;
     }
     div.contents-menu h2{
-      font-size: 2em;
+        font-size: 2em;
     }
     div.sidebar ul.contents-list{
-      list-style: none;
-      padding-left: 0;
+        list-style: none;
+        padding-left: 0;
     }
     ul.contents-list ol, ul.contents-list ol ol{
-      padding-left: 1.5em;
+        padding-left: 1.5em;
     }
     div.content-wrapper-sidebar{
-     margin-left: 300px;
-     padding-left: 1em;
+        margin-left: 300px;
+        padding-left: 1em;
     }
 }
