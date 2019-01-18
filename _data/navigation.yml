@@ -15,14 +15,20 @@
   - name: Reference Data
     link: /referencedata/
 
+- name: About
+  links:
+  - name: Team
+    link: /team/
+  - name: Contact
+    link: /contact/
+  - name: Funding
+    link: /funding/
+
+- name: Publications
+  link: /publications/
+
 - name: Stakeholder Committee
   link: /stakeholdercommittee/
-
-- name: Team
-  link: /team/
-
-- name: Contribute
-  link: /contribute/
 
 - name: Email List
   link: /emaillist/

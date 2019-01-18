@@ -1,5 +1,11 @@
 /* Bootstrap overrides */
-
+nav.navbar.fixed-top{
+    padding-bottom: 0
+}
+.dropdown-menu{
+    margin-top: 0;
+    padding: 0;
+}
 /* General css */
 
 @media (min-width: 769px) {
@@ -23,6 +29,8 @@ div.teamlogo-wrapper{
 	display: inline-block;
 	margin: 1.5%;
 }
+
+
 li.nav-item.dropdown:hover ul.dropdown-menu{
 	display: block;
 }
@@ -103,6 +111,12 @@ main > .container{
     padding-right: 15px;
     padding-left: 15px;
 }
+.footer a.navbar-brand{
+    color: #333;
+}
+footer .footer-link{
+	vertical-align: bottom;
+}
 
 code {
     font-size: 80%;
@@ -140,4 +154,10 @@ code {
         margin-left: 300px;
         padding-left: 3em;
     }
+}
+.gh-link{
+  max-width: 80px;
+}
+h2#presentations, h2#posters{
+  font-size: 1.5em;
 }
