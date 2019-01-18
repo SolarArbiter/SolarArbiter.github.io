@@ -1,7 +1,8 @@
 ---
-layout: base
+layout: usecases
 permalink: /usecases/
 ---
+
 # Use Cases
 
 *We are currently asking stakeholders to provide feedback on the Solar Forecast Arbiter use cases. Please take just a couple of minutes to provide simple feedback using this [form](https://docs.google.com/forms/d/e/1FAIpQLScSzF7x2E0mIWly37zKNLu2HTEpDeYF_UgfTVW8kCVC5hV6Kg/viewform?usp=sf_link). Stakeholders may also markup this [word document](/assets/Use cases 20181128.docx) and email it to a team member or [info@solarforecastarbiter.org](mailto:info@solarforecastarbiter.org).*
@@ -26,61 +27,6 @@ Framework functional capabilities are grouped into three categories:
 
 Metrics, benchmark forecasts, data formats, data sharing policies, and legal considerations will be detailed in other documents.
 
-## Contents  {#contents}
-<div>
-<ul>
-  <li><a href="#definitions">Definitions</a></li>
-    <ol>
-      <li><a href="#forecastdef">Forecast evaluation timeseries, forecast runs, and forecast datapoints</a></li>
-      <li><a href="#forecastattrs">Forecast evaluation timeseries attributes</a></li>
-      <li><a href="#users">Framework user and framework administrator</a></li>
-    </ol>
-  <li><a href="#usecases">Use Cases</a></li>
-    <ol>
-      <li><a href="#evaluatefx">Evaluate forecasts</a></li>
-        <ol type="A">
-          <li><a href="#uc1A">Compare a forecast to measurements</a></li>
-          <li><a href="#uc1B">Compare a probabilistic forecast to measurements</a></li>
-          <li><a href="#uc1C">Compare multiple forecasts to measurements</a></li>
-          <li><a href="#uc1D">Compare forecasts to measurements for sites and aggregates</a></li>
-          <li><a href="#uc1E">Evaluate an event forecast</a></li>
-          <li><a href="#uc1F">Conduct forecast trial</a></li>
-          <li><a href="#uc1G">Compare multiple forecast runs to measurements (stretch)</a></li>
-        </ol>
-      <li><a href="#analyzefx">Analyze forecasts</a></li>
-        <ol type="A">
-          <li><a href="#uc2A">Select subsets of forecasts and data</a></li>
-          <li><a href="#uc2A">Identify events</a></li>
-          <li><a href="#uc2A">Find forecasts errors with large impacts (stretch)</a></li>
-        </ol>
-      </ol>
-  <li><a href="#capabilities">Framework functional capabilities</a></li>
-    <ol start="3">
-      <li><a href="#evaluation">Perform forecast evaluation in a standard manner</a></li>
-        <ol type="A">
-          <li><a href="#uc3A">Calculate forecast error metrics</a></li>
-          <li><a href="#uc3B">Calculate forecast impacts (stretch)</a></li>
-          <li><a href="#uc3C">Communicate probabilistic forecasts</a></li>
-          <li><a href="#uc3D">Facilitate communication of forecasts and forecast metrics</a></li>
-          <li><a href="#uc3E">Compute aggregate observations</a></li>
-        </ol>
-      <li><a href="#administer">Administer the framework</a></li>
-        <ol type="A">
-          <li><a href="#uc4A">Manage users and organizations</a></li>
-          <li><a href="#uc4B">Manage data</a></li>
-          <li><a href="#uc4C">Provide the framework API</a></li>
-          <li><a href="#uc4D">Provide reference forecasts</a></li>
-          <li><a href="#uc4E">Provide reference data</a></li>
-          <li><a href="#uc4F">Protect forecasts and data</a></li>
-          <li><a href="#uc4G">Perform data quality checks</a></li>
-        </ol>
-      <li><a href="#archive">Archive data and forecasts</a></li>
-        <ol type="A">
-          <li><a href="#uc5A">Provide historical data, forecasts and forecast errors</a></li>
-        </ol>
-    </ol>
-</ul>
-</div>
 
 ## Definitions  {#definitions}
 {: .anchor}
