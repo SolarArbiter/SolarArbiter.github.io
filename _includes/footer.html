@@ -1,1 +1,8 @@
-<div class="text-center"><p>{{ site.project_name }}</p></div>
+<a class="navbar-brand" href="/">
+  {% if site.project_logo %}
+    <img src="{{ site.project_logo }}"/>
+  {% else %}
+      {{ site.project_name }}
+  {% endif %}
+</a>
+<p class="float-md-right">Contribute on <a href="https://github.com/solararbiter"><img class="gh-link" alt="Solar Forecast Arbiter GitHub" src="/images/logos/GitHub.png"></a>
