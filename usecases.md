@@ -5,7 +5,6 @@ permalink: /usecases/
 
 # Use Cases
 
-*We are currently asking stakeholders to provide feedback on the Solar Forecast Arbiter use cases. Please take just a couple of minutes to provide simple feedback using this [form](https://docs.google.com/forms/d/e/1FAIpQLScSzF7x2E0mIWly37zKNLu2HTEpDeYF_UgfTVW8kCVC5hV6Kg/viewform?usp=sf_link). Stakeholders may also markup this [word document](/assets/Use cases 20181128.docx) and email it to a team member or [info@solarforecastarbiter.org](mailto:info@solarforecastarbiter.org).*
 
 {% include to_top.html %}
 ## Purpose and Summary {#purpose}
@@ -16,8 +15,8 @@ The Solar Forecast Arbiter is primarily designed to support the evaluation of so
 
 Use cases are grouped into two categories:
 
-1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts, and probabilistic forecasts.
-2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating correlations between forecasts, forecast errors, and other quantities.
+1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to observation data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts, and probabilistic forecasts.
+2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating relationships between forecasts, forecast errors, and other quantities. Examples might include the spread between probabilistic forecasts, the standard deviation of a forecast, or the hit rate of forecasting a specific event (like a large change in power).
 
 Framework functional capabilities are grouped into three categories:
 
@@ -38,79 +37,107 @@ The precise definition of a *forecast* is often a source of confusion in the for
   <li>"The hour ahead forecast this morning was 5 MW, 10 MW, 7 MW..."</li>
 </ol>
 
-In Statement A, the user refers to a series of expected values issued at a **single** point in time. In Statement B, the user refers to a series of expected values with the **same** lead time that are issued at **different** points in time.
+In Statement A, the user refers to a series of expected values issued from a single forecast. In Statement B, the user refers to a series of expected values with the **same** look-ahead time that are issued from **different** forecasts.
 
-An evaluation challenge arises if Statement A is extended to include a new 48 hour duration forecast every hour. In this scenario, many forecasts exist at each evaluation time. More information is needed to focus the analysis to a particular application.
+An evaluation challenge arises if Statement A is extended to include a new 48-hour duration forecast every hour. In this scenario, many forecasts exist at each evaluation time. More information is needed to focus the analysis to a particular application.
 
-Statement B suggests an alternative strategy: the forecast user or the forecast provider parses forecast data into a timeseries for evaluation according to her **application**. For example, from many 48 hour length forecasts, a timeseries of forecast values with lead times of 1 hour ahead could be compiled to evaluate forecasts that support participation in a particular market. Or, a timeseries of forecast values for each hour of the day ahead could be compiled from forecasts issued at the same time each day to evaluate forecasts input to a production cost model. In each case, the forecast under evaluation is a continuous, non-overlapping timeseries that can be compared to observations.
+Statement B suggests an alternative strategy: the forecast user or the forecast provider parses forecast data into a time series for evaluation according to her **application**. For example, from many 48-hour length forecasts, a time series of forecast values with lead times of 1-hour ahead could be compiled to evaluate forecasts that support participation in a particular market. Or, a time series of forecast values for each hour of the day ahead could be compiled from forecasts issued at the same time each day to evaluate forecasts input to a production cost model. In each case, the forecast under evaluation is a continuous, non-overlapping time series that can be compared to observations.
 
-The Solar Forecast Arbiter is designed to analyze these user-supplied, continuous, non-overlapping timeseries. We refer to this as a *forecast evaluation timeseries*.
+The Solar Forecast Arbiter is designed to analyze these user-supplied, continuous, non-overlapping time series. We refer to this as a *forecast evaluation time series*.
 
-The Solar Forecast Arbiter provides a taxonomy to allow forecast users and forecast providers to clearly and completely describe each forecast evaluation timeseries. For most use cases, the user is required to consider the forecast application, parse the forecast data into a continuous, non-overlapping timeseries for evaluation, and provide the parsed data to the Solar Forecast Arbiter for analysis – not the individual forecast runs that went into the parsed forecast.
+The Solar Forecast Arbiter provides a taxonomy to allow forecast users and forecast providers to clearly and completely describe each forecast evaluation time series. For most use cases, the user is required to consider the forecast application, parse the forecast data into a continuous, non-overlapping time series for evaluation, and provide the parsed data to the Solar Forecast Arbiter for analysis – not the individual forecast runs that went into the parsed forecast.
 
-The sections below define and illustrate the key terms and concepts.
+The sections below define and illustrate the key concepts (forecast data points, runs, and evaluation time series) and the attributes that describe forecasts.
 
 
-### Forecast evaluation timeseries, forecast runs, and forecast datapoints {#forecastdef}
+### Forecast data point {#forecastdatapoint}
 {: .anchor}
 
-**Forecast datapoint**. A *forecast datapoint* is a single (*Time*, *Value*) data pair. Time can label a moment in time or an interval of time, as defined by the interval type label. For example, a Time of 17:00 can label the hour-long interval beginning from 17:00 to 18:00 (period beginning label), 16:00 to 17:00 (period ending label) or instantaneously at 17:00 (instantaneous label). Value has a *quantity* (e.g., mean, 95th percentile) and *type* (e.g. power, GHI). The type defines the unit.
+A *forecast data point* is a single (*time*, *value*) data pair. Time can label a moment in time or an interval of time, as defined by the *interval  label*. For example, a time of 17:00 can label the 1-hour *interval length* period from 17:00 to 18:00 (*beginning* label), 16:00 to 17:00 (*ending* label) or instantaneously at 17:00 (*instantaneous* label). Value has a *value type* (e.g., mean, 95th percentile) and *variable* (e.g. power, GHI). The variable defines the unit.
 
-**Forecast run**. A _forecast run_ is a sequence of one or more *forecast datapoints* issued at the same time.  An example forecast run for the average hourly power at Power Plant X, issued at 16:00 for the next three hours, could be {(17:00, 5 MW), (18:00, 10 MW), (19:00, 7 MW)}. A forecast run is described by the following attributes (with the values relevant to this example in parentheses):
 
-1.	Issue time (16:00)
-2.	Lead time to start (1 hour)
-3.	Interval duration (1 hour)
-4.	Number of intervals per submission (3)
-5.	Forecast issue frequency (3 hr)
-6.	Interval label (start)
-7.	Value type (mean)
-8.	Variable (power)
-9.	Site (Power Plant X)
+### Forecast run {#forecastrun}
+{: .anchor}
 
-**Forecast evaluation timeseries**. A _forecast evaluation timeseries_ is a complete series of (*forecast datapoints*) spanning from a _start time_ to an _end time_. For example, a single *forecast run* is a *forecast evaluation timeseries*. Typically, a *forecast evaluation timeseries* is the concatenation of a series of identically specified forecast runs with sequential issue times, as shown in the figure below. For example, three forecast runs (green) could be:
+A _forecast run_ is a sequence of one or more *forecast data points* issued at the same *issue time*. The time between the issue time and the first forecast data point time is the *lead time to start*. The *run length* is the time between the first forecast data point and the last forecast data point.
+
+Most forecast runs in the Solar Forecast Arbiter are only as long as the predetermined evaluation scenario requires. For example, evaluations of forecasts with 15-minute interval, 1-hour length require a series of forecast runs that each contain only 4 forecast data points. Forecast providers often create runs that are longer than a particular Solar Forecast Arbiter evaluation scenario requires. Typically, forecast providers must parse these forecast runs into a *forecast evaluation time series* (discussed next).
+
+Individual forecast runs are not archived or searchable except under the stretch goal [1.G.](#uc1G)
+
+
+### Forecast evaluation time series {#forecastevalts}
+{: .anchor}
+
+A _forecast evaluation time series_ is the concatenation of a series of  non-overlapping forecast runs with sequential issue times, as shown in Figure 1 below. Each forecast run has the same attributes, except for the issue time. For example, three forecast runs (shown in green in Figure 1) could be:
 
 - {(13:00, 10MW)} issued at 12:00, and
 - {(14:00, 7MW)} issued at 13:00, and
 - {(15:00, 5MW)} issued at 14:00.
 
-From these three runs, the user could upload an hour ahead, hour interval forecast of:
+From these three runs, the user could upload an hour-ahead, hour-interval forecast evaluation time series of:
 
 - {(13:00, 10MW), (14:00, 7MW), (15:00, 5MW)}
 
- ![timeline_concat_1h](/images/timeline_concat_1h.svg){: .usecase-figure}
+These three runs have a 1-hour *run length / issue frequency*. The runs must have the same run length and issue frequency to create a continuous, non-overlapping forecast evaluation time series.
 
-The framework also supports *forecast evaluation timeseries* that are the concatenation of *forecast runs* with more than one interval, so long as the intervals do not overlap. The example below shows how three different hour-ahead, 15-minute interval, 1-hour duration *forecast runs* may be parsed and concatenated into a single forecast evaluation timeseries.
+<img src="/images/timeline_concat_1h.svg" alt="timeline_concat_1h" class="usecase-figure">
+<figcaption class="usecase-figure">Figure 1. Forecast runs with 1-hour intervals concatenated into a forecast evaluation time series.</figcaption>
+<br>
+The framework also supports forecast evaluation time series that are the concatenation of forecast runs with more than one interval, so long as the intervals do not overlap. Figure 2 shows how three different 75-minute-ahead, 15-minute interval, 1-hour length forecast runs may be parsed and concatenated into a single forecast evaluation time series.
 
- ![timeline_concat](/images/timeline_concat.svg){: .usecase-figure}
+<img src="/images/timeline_concat.svg" alt="timeline_concat" class="usecase-figure">
+<figcaption class="usecase-figure">Figure 2. Forecast runs with 15-minute intervals concatenated into a forecast evaluation time series.</figcaption>
+<br>
+In most cases, the original forecast interval is retained, (e.g., 15-minutes in Figure 2) or intervals are combined to a longer interval (e.g., 15-minute values averaged to hourly values).
 
-This concept also applies to the evaluation of day-ahead forecasts issued at a particular time of day. For example, hour average forecasts for next day as of 16:00 previous day can be represented by a concatenation of forecasts with start time of midnight, 8-hour lead time to start, 1-hour interval, 24 intervals per submission, and 1 day frequency.
+The *issue time of day* attribute describes the time of day at which a forecast is issued. For example, a user may require a day ahead forecast to be issued by 16:00 each day. As shown in Figures 1 and 2, a forecast evaluation time series is often constructed of forecast runs that are issued multiple times within a single day. In this case, the *issue time of day* describes the first time of day that the forecast is issued. Subsequent issue times are uniquely determined by the first issue time and the *run length / issue frequency*. This approach allows users to succinctly describe both intraday and longer forecast applications using a common set of attributes. See Forecast Evaluation Time Series attributes for more examples.
 
-For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the framework expects forecast providers to upload a *forecast evaluation timeseries*. For the Forecast Trial use case ([1.F](#uc1F)), the Solar Forecast Arbiter expects forecast providers to regularly upload a _forecast runs_ that the Solar Forecast Arbiter can concatenate into a *forecast evaluation timeseries*.
+For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the Solar Forecast Arbiter expects forecast providers to upload a *forecast evaluation time series*. For the Forecast Trial use case ([1.F](#uc1F)), the Solar Forecast Arbiter expects forecast providers to regularly upload a _forecast runs_ that the Solar Forecast Arbiter can concatenate into a *forecast evaluation time series*. For some forecast trials, the Solar Forecast Arbiter will allow the upload of a forecast run that is longer than the *run length / issue frequency* attribute. This behavior is analogous to a forecast user falling back on an older forecast if a new forecast is not submitted on time. Some applications may not support this flexibility (e.g. a market with strict data formats) and therefore the Solar Forecast Arbiter will reject forecast runs that are longer than *run length / issue frequency*. The setting is determined before the trial starts.
 
-A stretch goal is to support the use case of uploading and analyzing multiple forecast runs with the same valid times ([1.G](#uc1G)). For example, the user could upload each of the forecast runs specified above, and then use the framework to merge the forecast runs into a 0, 1, or 2 hour ahead forecast for evaluation. The figure below shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
+A stretch goal is to support the use case of uploading and analyzing multiple forecast runs, optionally with the same valid times ([1.G](#uc1G)). For example, the user could upload a new 24-hour length forecast that is issued each hour of the day. Later, the user could then use the framework to merge the forecast runs into a 0-, 1-, or 2-hour ahead forecast for evaluation. Figure 3 shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
- ![timeline_merge](/images/timeline_merged.svg){: .usecase-figure}
+<img src="/images/timeline_merged.svg" alt="timeline_merged" class="usecase-figure">
+<figcaption class="usecase-figure">Figure 3. Forecast runs merged to create two distinct forecast evaluation time series. The blue forecast evaluation time series retains the 15-minute intervals of the forecast runs. The red forecast evaluate time series is created by averaging the 15-minute values to hourly values within each forecast run.</figcaption>
 
 
-### Forecast evaluation timeseries attributes {#forecastattrs}
+### Forecast evaluation time series attributes {#forecastattrs}
 {: .anchor}
 
-The Solar Forecast Arbiter uses the set of attributes defined below to describe the characteristics of a forecast evaluation timeseries. This structure allows any type of forecast typically utilized in the solar energy field to be evaluated.
+The Solar Forecast Arbiter uses the set of attributes defined below to describe the characteristics of a forecast evaluation time series. This structure allows any type of forecast typically utilized in the solar energy field to be evaluated.
 
-A *forecast evaluation timeseries* is a serially complete time series of values with the following attributes:
+A *forecast evaluation time series* is described by the following attributes:
 
-1.	Issue time - The time of day that a forecast is issued, e.g. 13:00. Multiple issue times are uniquely determined by any one issue time and forecast issue frequency.
-2.	Lead time to start - The difference between each issue time and the start of the first forecast interval, e.g. 1 hour.
-3.	Interval duration - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
-4.	Intervals per submission - The number of intervals in each forecast submission, e.g. 12.
-5.	Forecast issue frequency - The frequency at which new forecasts are issued, e.g. 1 hour, 6 hours, 1 day.
-6.	Interval label - Indicates if a time labels the start or the end of an interval, or indicates an instantaneous value.
-7.	Value type - The type of the data in the forecast, e.g. mean, max, 95th percentile.
-8.	Variable - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
-9.	Site - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
+1.	*Issue time of day* - The time of day that a forecast run is issued, e.g. 00:30. For forecast runs issued multiple times within one day (e.g. hourly), this specifies the first issue time of day. Additional issue times are uniquely determined by the first issue time and the run length & issue frequency attribute.
+2.	*Lead time to start* - The difference between the issue time and the start of the first forecast interval, e.g. 1 hour.
+3.	*Interval length* - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
+4.	*Run length / issue frequency* - The total length of a single issued forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping sequence, this is equal to the forecast run issue frequency.
+5.	*Interval label* - Indicates if a time labels the beginning or the ending of an interval average, or indicates an instantaneous value, e.g. beginning, ending, instant
+6.	*Value type* - The type of the data in the forecast, e.g. mean, max, 95th percentile.
+7.	*Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
+8.	*Site* - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
 
-A forecast must be associated with a pre-defined site. The site, not the forecast, defines geographic location and the variable determines the units.
+A forecast must be associated with a pre-defined site. The site, not the forecast, defines geographic location and time zone. The variable determines the content of the forecast evaluation time series.
+
+The table below shows the attributes for three different examples. We assume all intervals are labeled with the interval beginning time in these examples.
+
+* Forecast User A requires hourly forecasts of average GHI at Sensor X located in the America/Denver time zone. The forecasts are to have 5-minute intervals and be updated 75-minute ahead of the hour.
+
+* Forecast User B requires day ahead forecasts of hourly average power at Power Plant Y issued at 13:00 each day in the Etc/GMT+7 time zone.
+
+* Forecast User C requires intraday forecasts for 5th percentile of power for Aggregate Z specified in the America/Phoenix time zone. The forecasts are to be issued every 3 hours with 15-minute interval length and 3-hour forecast length.
+
+| Attribute	| User A | User B |	User C |
+|-----------|:------:|:------:|:------:|
+| Issue time of day	| 00:45 | 13:00 | 00:00 |
+| Lead time to start | 75 minutes | 11 hours | 0 minutes |
+| Interval length | 5 minutes | 1 hour | 15 minutes |
+| Run length / issue freq. | 1 hour | 24 hours | 3 hours |
+| Interval label | Beginning | Beginning | Beginning |
+| Value type | Mean | Mean | 5th Percentile |
+| Variable | GHI (W/m2) | Power (MW) | Power (MW) |
+| Site | Sensor X (America/Denver) | Power Plant Y (Etc/GMT+7) | Aggregate Z (America/Phoenix) |
+
 
 
 ### Framework user and framework administrator {#users}
@@ -118,7 +145,7 @@ A forecast must be associated with a pre-defined site. The site, not the forecas
 
 A _framework user_ is an individual or organization that uses the capabilities of Solar Forecast Arbiter to evaluate and analyze forecasts. A framework user can be a _forecast provider_ (one who creates a forecast), a _forecast user_ (one using a forecast for a defined purpose), researchers, and others.
 
-The _framework administrator_ operates Solar Forecast Arbiter, ensures data security and anonymity, establishes standards for forecast evaluation, and provides benchmark forecasts.
+The _framework administrator_ operates Solar Forecast Arbiter, ensures data security and anonymity, establishes standards for forecast evaluation, supports observational and forecast data exchange among users, and provides benchmark forecasts.
 
 
 
@@ -127,7 +154,7 @@ The _framework administrator_ operates Solar Forecast Arbiter, ensures data secu
 
 A use case describes a sequence of actions to achieve a goal. Use cases are grouped into two categories: [Evaluate forecasts](#evaluatefx), and [Analyze forecasts](#analyzefx). From each use case a list of framework requirements is developed. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
 
-**In this section, for brevity, a *forecast* refers to the *[forecast evaluation timeseries](#forecastdef)* defined above.**
+**In this section, for brevity, a *forecast* refers to the *[forecast evaluation time series](#forecastevalts)* defined in the [Definitions section](#definitions).**
 
 ### 1. Evaluate forecasts  {#evaluatefx}
 {: .anchor}
@@ -135,14 +162,13 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 1.A. Compare a forecast to measurements {#uc1A}
 {: .anchor}
 
-**Use case narrative**: A framework user uploads a forecast or selects a benchmark forecast, uploads corresponding measured data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
+**Use case narrative**: A framework user uploads a forecast or selects a benchmark forecast for a single location, uploads corresponding measured data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
 
 **Requirements**:
 
 - User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data ([4.E](#uc4E)).
   - If uploading data, user must define relevant metadata including location, data type, and units.
-  - Data type can be irradiance, power, or net-load.
-- User can upload a corresponding [forecast](#forecastdef) ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast value type must be deterministic.
+- User can upload a corresponding [forecast](#forecastdef) ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast must be single-valued (e.g. mean or 95th percentile) at each time.
 - Framework applies data quality checks to uploaded data and forecasts ([4.G](#uc4G)).
 - User can specify filters to exclude forecast or data points (a subset of (time, value) pairs), by time or by value ([2.A](#uc2A)).
 - User can select among forecast performance metrics ([3.A](#uc3A)).
@@ -153,7 +179,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 1.B. Compare a probabilistic forecast to measurements {#uc1B}
 {: .anchor}
 
-**Use case narrative**: A framework user uploads a probabilistic forecast, uploads corresponding data or selects reference data, specifies filters, and selects metrics. The framework calculates probabilistic metrics and provides a visual display of probabilistic forecast performance.
+**Use case narrative**: A framework user uploads a probabilistic forecast for a single location, uploads corresponding data or selects reference data, specifies filters, and selects metrics. The framework calculates probabilistic metrics and provides a visual display of probabilistic forecast performance.
 
 **Requirements**:
 
@@ -165,7 +191,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 1.C. Compare multiple forecasts to measurements {#uc1C}
 {: .anchor}
 
-**Use case narrative**: Framework users upload forecasts, select benchmark forecasts, or invite other users to share forecasts. Framework users upload corresponding data or select reference data, specify data filters, specify temporal averaging, and select metrics. The framework calculates metrics and provides a visual display of forecast performance and forecast errors for download, and a visual display comparing the forecasts. The framework user can share results with other users.
+**Use case narrative**: Framework users upload forecasts, select benchmark forecasts, or invite other users to share forecasts for a single location. Framework users upload corresponding data or select reference data, specify data filters, specify temporal averaging, and select metrics. The framework calculates metrics and provides a visual display of forecast performance and forecast errors for download, and a visual display comparing the forecasts. The framework user can share results with other users.
 
 **Requirements**:
 
@@ -178,25 +204,25 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 1.D. Compare forecasts to measurements for sites and aggregates {#uc1D}
 {: .anchor}
 
-**Use case narrative**: A framework administrator defines an aggregate of locations. A framework user uploads forecasts for locations in the aggregate and a forecast for the aggregation of locations. A framework user uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The forecasts and data may represent individual point sensors, power plants, or aggregated quantities. The framework calculates metrics and provides a visual display comparing the forecasts across scales.
+**Use case narrative**: A framework administrator defines an aggregate of locations. A framework user uploads forecasts for each location in the aggregate and a forecast for the aggregation of locations. A framework user uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The forecasts and data may represent individual point sensors, power plants, or aggregated quantities. The framework calculates metrics and provides a visual display comparing the forecasts across scales.
 
 **Requirements**:
 
 - All requirements as listed for Use Case [1.A](#uc1A), [1.B](#uc1B), or [1.C](#uc1C), as appropriate.
-- User uploads an aggregation of forecasts with weights specified by the framework ([4.C](#uc4C)).
-- Framework computes observations, as specified ([3.E](#uc3E)).
-- Framework provides metric values for the comparison among forecasts ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
+- User uploads of individual sites and the aggregate ([4.C](#uc4C)).
+- Framework computes observations, as specified by the framework's aggregate definition weights ([3.E](#uc3E)).
+- Framework provides metric values for the comparison among forecasts, including sites vs. aggregate ([3.A](#uc3A)), a visual display of comparison results, and a report for download ([3.D](#uc3D)).
 
 #### 1.E. Evaluate an event forecast {#uc1E}
 {: .anchor}
 
-**Use case narrative**: A framework user can analyze an event forecast.
+**Use case narrative**: A framework user can analyze an event forecast for a single location.
 
 **Requirements**:
 
 - All requirements as listed by Use Case [1.A](#uc1A), [1.B](#uc1B), or [1.C](#uc1C), as appropriate.
 - User can upload an event forecast, e.g., a time series of true/false values, or a time series of event occurrence likelihood ([4.C](#uc4C)).
-- User can upload corresponding event data or connect to a saved event time series ([2.B](#uc2B)).
+- User can upload observed event data or select a saved event time series ([2.B](#uc2B)). The observed event data must be the same variable type and units as the event forecast.
 - User can select among event forecast performance metrics ([3.A](#uc3A)).
 - Framework provides metric values and visuals of event forecast performance ([3.A](#uc3A)).
 - Framework provides a report for user download ([3.D](#uc3D)).
@@ -204,30 +230,52 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 #### 1.F. Conduct forecast trial {#uc1F}
 {: .anchor}
 
-**Use case narrative**: The framework administrator, in consultation with trial participants, defines trial period, locations, forecast quantities, time horizons, time resolutions, etc. of a forecast trial. The trial may be either retrospective or live, and may involve a test period followed by an evaluation period. Separate trials may be administered for multiple forecast parameters (e.g. hour ahead and day ahead forecast evaluations for the same set of locations).
+**Use case narrative**: The framework administrator, in consultation with trial participants, defines trial period, metrics, locations, forecast quantities, time horizons, time resolutions, etc. of a forecast trial. The trial may be retrospective or live, and may involve a debugging period followed by an evaluation period. Separate trials may be administered for multiple forecast parameters (e.g. hour ahead and day ahead forecast evaluations for the same set of locations).
+
+**Example 1**: Forecast User 1 would like to evaluate the operational performance of many forecast providers. Forecast User 1 and the Framework Administrator announce the opportunity to Forecast Providers A-F. User 1 may announce its intention to contract with one or more Providers at the conclusion of the trial, but this is outside the scope of the Solar Forecast Arbiter.
+
+The User, Administrator, and Providers discuss the many possible forecasts that could be evaluated and determine that two trials will be conducted to support particular business needs. Trial 1 is a 1-hour ahead, 1-hour interval average trial and Trial 2 is day ahead as of 13:00, 1-hour interval trial. The full forecast evaluation time series attributes are defined for each trial. For both trials, the start date is Jan 1, 2020, the end date is March 31, 2020, the evaluation metrics are average hourly MAE and RMSE, and missing forecasts will be assumed to be 0. Trial 1 will include a persistence benchmark, and Trial 2 will include a benchmark based on the NOAA NAM model.
+
+Forecast User 1 creates the Sites, Observations, and Aggregate, uploads 12 months of training data, and shares the data with Forecast Providers A-F. Forecast Providers A-F download the training data and create their models. An anonymous user is automatically generated for each Provider and the Framework Administrator does not keep a record of the user mapping. Separately for each trial, Forecast Providers upload their forecast runs during the debugging period, fix any issues, and continue to regularly upload runs during the evaluation period. Forecasters that fail to submit a forecast run are penalized according to predefined rules. At the conclusion of the trials, reports are automatically generated for all participants.
+
 
 **Requirements**:
 
 - All requirements as listed for Use Case [1.C](#uc1C).
 - Administrator, in consultation with trial participants, defines data sources, forecast run intervals/horizons, trial period, metrics, filters ([4.C](#uc4C)).
-- Framework concatenates regularly posted forecast runs into a continuous forecast ([4.C](#uc4C)).
-- Framework accepts and allows for download of streaming data ([4.C](#uc4C)).
+- Framework concatenates regularly posted forecast runs into a continuous forecast evaluation time series([4.C](#uc4C)).
+- Framework accepts uploads of regularly updated data and allows for download of regularly updated data ([4.C](#uc4C)).
 - Framework generates intermediate reports during the trial ([3.D](#uc3D)).
 
-#### 1.G. Compare multiple forecast runs to measurements (stretch) {#uc1G}
+#### 1.G. Compare multiple overlapping forecast runs to measurements (stretch) {#uc1G}
 {: .anchor}
 
-**Use case narrative**: A framework user uploads a sequence of forecast runs at a regular interval, uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
+**Use case narrative**: A framework user uploads a sequence of overlapping forecast runs issued at a regular interval for a single site or aggregate, uploads corresponding data or selects reference data, specifies filters, specifies temporal averaging, and selects metrics. The framework calculates metrics, provides a visual display of forecast performance and an evaluation report for download.
+
+**Example 1**: Forecast Provider A creates a new 24-hour length forecast run at each hour of the day. Forecast User 1 would like to analyze the accuracy of points in these forecasts as a function of lead time. Forecast Provider A uploads all forecasts to the framework and shares them with Forecast User 1. Forecast User 1 uses the framework to analyze forecast performance across lead times.
 
 **Requirements**:
 
 - All requirements as listed for Use Case [1.A](#uc1A), for each forecast run.
 - Each [forecast run](#forecastdef) must be identically specified.
 - Forecast runs are issued at a regular interval (e.g., every 6 hours).
-- User can upload multiple forecast runs. Each forecast run must be:
-  - A time series of uniform forecast intervals, duration, and value type (e.g. 5 minute interval, interval average forecasts through 24 hours from the start time)
-- User can define forecast evaluation intervals, horizons, and temporal averaging.
+- User can upload multiple overlapping forecast runs. Each forecast run can have a different issue time, but must have the same forecast interval (duration and label), forecast length and value type (e.g. 5-minute interval, 5-minute interval-ending label, 24 hours in length, average power forecast).
+- User can define forecast evaluation intervals, lead times, and temporal averaging.
 
+#### 1.H. Establish a long-term performance baseline of state-of-the-art operational forecasts (stretch) {#uc1H}
+{: .anchor}
+
+**Use case narrative**: The framework administrator, in consultation with providers of operational forecasts, defines metrics, locations, forecast quantities, time horizons, time resolutions, etc. for a long-term, open-ended forecast evaluation. Separate evaluations may be administered for multiple forecast parameters (e.g. hour ahead and day ahead forecast evaluations for the same set of locations). Forecast performance is used to establish a long-term performance baseline of state-of-the-art operational forecasts.
+
+**Example 1**: Forecast Providers A-F anonymously submit operational forecasts to the framework for all SURFRAD sites and handful of PV power plants across the country. Forecasts include 24-hour lead time, hourly interval and 1-hour lead time, 5-minute interval. Analysis of forecasts during the trial provide a baseline of operational forecast performance. Later, an organization funds a research effort to improve forecasts. In a retrospective or live trial scenario, the research effort submits its new forecasts to the framework for comparison against the operational forecast baseline.
+
+**Requirements**:
+
+- All requirements as listed for Use Case [1.F](#uc1F).
+- Framework tracks and reports forecast metrics over time.
+- Framework allows summary statistics from long-term trials to be used as a point of reference in reports generated for other use cases.
+- Framework archives forecasts and observation data for extended periods [5.A](#uc5A).
+- Framework protects anonymity of forecast providers over a multi-year period.
 
 
 ### 2. Analyze forecasts {#analyzefx}
@@ -240,7 +288,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 
 **Requirements**:
 
-- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error (bias), forecast lead time, time of day, weather (irradiance, temperature, wind). Framework returns selected subsets from the forecast and corresponding data.
+- User can select a subset of points in a forecast or its corresponding data based on one or more conditions: forecast error (bias), forecast lead time, time of day, time of year, weather (irradiance, temperature, wind), presence or absence of data flags. Framework returns selected subsets from the forecast and corresponding data.
 - User can select among forecast performance metrics ([3.A](#uc3A)).
 - Framework applies data quality checks to uploaded data ([4.E](#uc4E)).
 - Framework provides metric values and visuals of forecast performance ([3.A](#uc3A)).
@@ -256,7 +304,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 - User can upload a forecast ([4.C](#uc4C)).
 - User can upload data ([4.C](#uc4C)).
 - Framework applies data quality checks to uploaded data ([4.E](#uc4E)).
-- User can specify conditions (e.g., ramp rates) used to identify events occurring in a forecast or in data.
+- User can specify conditions (e.g., ramp rates, clear-sky threshold) used to identify events occurring in a forecast or in data.
 - Framework provides visual display of identified events ([3.D](#uc3D)).
 - Framework provides a report for user download ([3.D](#uc3D)).
 - User can save event data, i.e., a time series of true/false values.
@@ -378,7 +426,7 @@ Functional requirements are capabilities not specific to a use case but which th
 **Requirements**:
 
 - The framework's API is documented on the framework website.
-- Users can interact with the framework via url requests.
+- Users can interact with the framework via HTTP requests.
 - Users can request forecast evaluations via script (stretch).
 
 #### 4.D. Provide reference forecasts {#uc4D}
@@ -388,10 +436,10 @@ Functional requirements are capabilities not specific to a use case but which th
 
 **Requirements**:
 
-- The framework provides a reference irradiance forecast at hourly intervals out to 60 hours for CONUS.
-- The framework provides a reference irradiance forecast at user-selected intervals (5 to 60 minutes) out to 24 hours, using smart persistence of user-uploaded data.
+- The framework provides a reference irradiance forecast at hourly intervals for at least 72 hours for CONUS.
+- The framework provides a reference irradiance forecast at user-selected intervals (5 to 60 minutes) out to 24 hours, using persistence of measured values, persistence of clearsky index, or persistence of clearness index of user-uploaded data.
 - The framework provides a reference forecast for air temperature and wind speed to accompany the reference irradiance forecasts.
-- The framework provides a reference model for translating irradiance to power.
+- The framework uses and makes available a reference model for translating irradiance and weather variables to power.
 - The framework provides a reference forecast for power, using user-uploaded power and a persistence method.
 - The framework can provide load and net load forecasts from user-uploaded data using persistence (stretch).
 - Reference forecasts and forecast methods are documented on the framework website.
@@ -403,9 +451,10 @@ Functional requirements are capabilities not specific to a use case but which th
 
 **Requirements**:
 
-- The framework provides reference irradiance data from a selection of stations e.g. SURFRAD stations.
+- The framework provides reference irradiance and other weather data from a selection of stations e.g. SURFRAD stations.
 - The framework provides reference power data from a selection of PV systems.
 - The framework provides metadata for reference PV systems.
+- The framework provides availability and status for reference PV systems.
 
 #### 4.F. Protect forecasts and data {#uc4F}
 {: .anchor}
@@ -427,9 +476,9 @@ Functional requirements are capabilities not specific to a use case but which th
 
 **Requirements**:
 
-- Time stamps are checked for timezone consistency, increasing order, gaps.
-- Irradiance data are checked for missing values, non-physical values, periods of constant values, consistency of irdiance components.
-- Power data are checked for missing values, non-physical values, periods of curtailment, periods of inverter clipping, miligned trackers, incorrect system metadata.
+- Time stamps are checked for time zone consistency, increasing order, gaps.
+- Irradiance data are checked for missing values, non-physical values, periods of constant values, consistency of irradiance components.
+- Power data are checked for missing values, non-physical values, periods of curtailment, periods of inverter clipping, misaligned trackers, incorrect system metadata.
 - Data quality algorithms are coded and documented on the framework.
 
 
