@@ -18,11 +18,12 @@ Use cases are grouped into two categories:
 1. [Evaluate forecasts](#evaluatefx). These use cases anticipate a framework user whose primary interest is comparing one or more forecasts to observation data. Forecast quantities can include irradiance, power or net load, and can vary in lead time, interval and horizon. The framework can evaluate deterministic forecasts, event forecasts, and probabilistic forecasts.
 2. [Analyze forecasts](#analyzefx). These use cases anticipate a framework user whose primary interest is investigating relationships between forecasts, forecast errors, and other quantities. Examples might include the spread between probabilistic forecasts, the standard deviation of a forecast, or the hit rate of forecasting a specific event (like a large change in power).
 
-Framework functional capabilities are grouped into three categories:
+Framework functional capabilities are grouped into three additional categories:
 
+{:start="3"}
 1. [Perform forecast evaluation in a standard manner](#evaluation)
-2. [Administer the framework](#administer)
-3. [Archive data and forecasts](#archive)
+1. [Administer the framework](#administer)
+1. [Archive data and forecasts](#archive)
 
 Metrics, benchmark forecasts, data formats, data sharing policies, and legal considerations will be detailed in other documents.
 
