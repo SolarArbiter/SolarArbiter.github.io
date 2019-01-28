@@ -26,14 +26,4 @@ All committee members will be able keep up with stakeholder topics and dive in w
 
 We need your help so that Solar Forecast Arbiter not only meets the SF2 goals, but continues to have lasting value to both forecasters and end-users after the SF2 is complete.
 
-We’ve combined this outreach message with our first stakeholder task: provide feedback on the use cases that we developed with input from the stakeholder workshop held in St. Paul in June, 2018.
-
-So stakeholders please:
-1. [Sign up for the Stakeholder Committee email list](/emaillist) (1 minute)
-
-And if you are interested in the top level Use Cases:
-
-2. Review the proposed Use Cases (10 – 15 minutes): [solarforecastarbiter.org/usecases](/usecases)
-3. Fill out the Use Cases Feedback Form (5 – 15 minutes): [link](https://docs.google.com/forms/d/e/1FAIpQLScSzF7x2E0mIWly37zKNLu2HTEpDeYF_UgfTVW8kCVC5hV6Kg/viewform?usp=sf_link)
-
-**The deadline for Use Cases feedback is January 4, 2019.**
+So stakeholders please take 1 minute and [sign up for the Stakeholder Committee email list](/emaillist)! You can unsubscribe at any time.
