@@ -53,7 +53,7 @@ The sections below define and illustrate the key concepts (forecast data points,
 ### Forecast data point {#forecastdatapoint}
 {: .anchor}
 
-A *forecast data point* is a single (*time*, *value*) data pair. Time can label a moment in time or an interval of time, as defined by the *interval  label*. For example, a time of 17:00 can label the 1-hour *interval length* period from 17:00 to 18:00 (*beginning* label), 16:00 to 17:00 (*ending* label) or instantaneously at 17:00 (*instantaneous* label). Value has a *value type* (e.g., mean, 95th percentile) and *variable* (e.g. power, GHI). The variable defines the unit.
+A *forecast data point* is a single (*time*, *value*) data pair. Time can label a moment in time or an interval of time, as defined by the *interval label*. For example, a time of 17:00 can label the 1-hour *interval length* period from 17:00 to 18:00 (*beginning* label), 16:00 to 17:00 (*ending* label) or instantaneously at 17:00 (*instantaneous* label). Value has a *value type* (e.g., mean, 95th percentile) and *variable* (e.g. power, GHI). The variable defines the unit.
 
 
 ### Forecast run {#forecastrun}
@@ -63,13 +63,13 @@ A _forecast run_ is a sequence of one or more *forecast data points* issued at t
 
 Most forecast runs in the Solar Forecast Arbiter are only as long as the predetermined evaluation scenario requires. For example, evaluations of forecasts with 15-minute interval, 1-hour length require a series of forecast runs that each contain only 4 forecast data points. Forecast providers often create runs that are longer than a particular Solar Forecast Arbiter evaluation scenario requires. Typically, forecast providers must parse these forecast runs into a *forecast evaluation time series* (discussed next).
 
-Individual forecast runs are not archived or searchable except under the stretch goal [1.G.](#uc1G)
+Individual forecast runs are not archived or searchable except under the stretch goal [1.G. Compare multiple overlapping forecast runs to measurements](#uc1G).
 
 
 ### Forecast evaluation time series {#forecastevalts}
 {: .anchor}
 
-A _forecast evaluation time series_ is the concatenation of a series of  non-overlapping forecast runs with sequential issue times, as shown in Figure 1 below. Each forecast run has the same attributes, except for the issue time. For example, three forecast runs (shown in green in Figure 1) could be:
+A _forecast evaluation time series_ is the concatenation of a series of non-overlapping forecast runs with sequential issue times, as shown in Figure 1 below. Each forecast run has the same attributes, except for the issue time. For example, three forecast runs (shown in green in Figure 1) could be:
 
 - {(13:00, 10MW)} issued at 12:00, and
 - {(14:00, 7MW)} issued at 13:00, and
@@ -91,9 +91,9 @@ The framework also supports forecast evaluation time series that are the concate
 <br>
 In most cases, the original forecast interval is retained, (e.g., 15-minutes in Figure 2) or intervals are combined to a longer interval (e.g., 15-minute values averaged to hourly values).
 
-The *issue time of day* attribute describes the time of day at which a forecast is issued. For example, a user may require a day ahead forecast to be issued by 16:00 each day. As shown in Figures 1 and 2, a forecast evaluation time series is often constructed of forecast runs that are issued multiple times within a single day. In this case, the *issue time of day* describes the first time of day that the forecast is issued. Subsequent issue times are uniquely determined by the first issue time and the *run length / issue frequency*. This approach allows users to succinctly describe both intraday and longer forecast applications using a common set of attributes. See Forecast Evaluation Time Series attributes for more examples.
+The *issue time of day* attribute describes the time of day at which a forecast is issued. For example, a user may require a day ahead forecast to be issued by 16:00 each day. As shown in Figures 1 and 2, a forecast evaluation time series is often constructed of forecast runs that are issued multiple times within a single day. In this case, the *issue time of day* describes the first time of day that the forecast is issued. Subsequent issue times are uniquely determined by the first issue time and the *run length / issue frequency*. This approach allows users to succinctly describe both intraday and longer forecast applications using a common set of attributes. See [Forecast evaluation time series attributes](#forecastattrs) for more examples.
 
-For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the Solar Forecast Arbiter expects forecast providers to upload a *forecast evaluation time series*. For the Forecast Trial use case ([1.F](#uc1F)), the Solar Forecast Arbiter expects forecast providers to regularly upload a _forecast runs_ that the Solar Forecast Arbiter can concatenate into a *forecast evaluation time series*. For some forecast trials, the Solar Forecast Arbiter will allow the upload of a forecast run that is longer than the *run length / issue frequency* attribute. This behavior is analogous to a forecast user falling back on an older forecast if a new forecast is not submitted on time. Some applications may not support this flexibility (e.g. a market with strict data formats) and therefore the Solar Forecast Arbiter will reject forecast runs that are longer than *run length / issue frequency*. The setting is determined before the trial starts.
+For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the Solar Forecast Arbiter expects forecast providers to upload a *forecast evaluation time series*. For the Forecast Trial use case ([1.F](#uc1F)), the Solar Forecast Arbiter expects forecast providers to regularly upload a _forecast run_ that the Solar Forecast Arbiter can append to a *forecast evaluation time series*. For some forecast trials, the Solar Forecast Arbiter will allow the upload of a forecast run that is longer than the *run length / issue frequency* attribute. This behavior is analogous to a forecast user falling back on an older forecast if a new forecast is not submitted on time. Some applications may not support this flexibility (e.g. a market with strict data formats) and therefore the Solar Forecast Arbiter will reject forecast runs that are longer than *run length / issue frequency*. The setting is determined before the trial starts.
 
 A stretch goal is to support the use case of uploading and analyzing multiple forecast runs, optionally with the same valid times ([1.G](#uc1G)). For example, the user could upload a new 24-hour length forecast that is issued each hour of the day. Later, the user could then use the framework to merge the forecast runs into a 0-, 1-, or 2-hour ahead forecast for evaluation. Figure 3 shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
@@ -108,14 +108,14 @@ The Solar Forecast Arbiter uses the set of attributes defined below to describe 
 
 A *forecast evaluation time series* is described by the following attributes:
 
-1.	*Issue time of day* - The time of day that a forecast run is issued, e.g. 00:30. For forecast runs issued multiple times within one day (e.g. hourly), this specifies the first issue time of day. Additional issue times are uniquely determined by the first issue time and the run length & issue frequency attribute.
-2.	*Lead time to start* - The difference between the issue time and the start of the first forecast interval, e.g. 1 hour.
-3.	*Interval length* - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
-4.	*Run length / issue frequency* - The total length of a single issued forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping sequence, this is equal to the forecast run issue frequency.
-5.	*Interval label* - Indicates if a time labels the beginning or the ending of an interval average, or indicates an instantaneous value, e.g. beginning, ending, instant
-6.	*Value type* - The type of the data in the forecast, e.g. mean, max, 95th percentile.
-7.	*Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
-8.	*Site* - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
+1. *Issue time of day* - The time of day that a forecast run is issued, e.g. 00:30. For forecast runs issued multiple times within one day (e.g. hourly), this specifies the first issue time of day. Additional issue times are uniquely determined by the first issue time and the *run length / issue frequency* attribute.
+2. *Lead time to start* - The difference between the issue time and the start of the first forecast interval, e.g. 1 hour.
+3. *Interval length* - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
+4. *Run length / issue frequency* - The total length of a single issued forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping sequence, this is equal to the forecast run issue frequency.
+5. *Interval label* - Indicates if a time labels the beginning or the ending of an interval average, or indicates an instantaneous value, e.g. beginning, ending, instant
+6. *Value type* - The type of the data in the forecast, e.g. mean, max, 95th percentile.
+7. *Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
+8. *Site* - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
 
 A forecast must be associated with a pre-defined site. The site, not the forecast, defines geographic location and time zone. The variable determines the content of the forecast evaluation time series.
 
@@ -127,9 +127,9 @@ The table below shows the attributes for three different examples. We assume all
 
 * Forecast User C requires intraday forecasts for 5th percentile of power for Aggregate Z specified in the America/Phoenix time zone. The forecasts are to be issued every 3 hours with 15-minute interval length and 3-hour forecast length.
 
-| Attribute	| User A | User B |	User C |
+| Attribute | User A | User B | User C |
 |-----------|:------:|:------:|:------:|
-| Issue time of day	| 00:45 | 13:00 | 00:00 |
+| Issue time of day | 00:45 | 13:00 | 00:00 |
 | Lead time to start | 75 minutes | 11 hours | 0 minutes |
 | Interval length | 5 minutes | 1 hour | 15 minutes |
 | Run length / issue freq. | 1 hour | 24 hours | 3 hours |
@@ -234,7 +234,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 
 **Example 1**: Forecast User 1 would like to evaluate the operational performance of many forecast providers. Forecast User 1 and the Framework Administrator announce the opportunity to Forecast Providers A-F. User 1 may announce its intention to contract with one or more Providers at the conclusion of the trial, but this is outside the scope of the Solar Forecast Arbiter.
 
-The User, Administrator, and Providers discuss the many possible forecasts that could be evaluated and determine that two trials will be conducted to support particular business needs. Trial 1 is a 1-hour ahead, 1-hour interval average trial and Trial 2 is day ahead as of 13:00, 1-hour interval trial. The full forecast evaluation time series attributes are defined for each trial. For both trials, the start date is Jan 1, 2020, the end date is March 31, 2020, the evaluation metrics are average hourly MAE and RMSE, and missing forecasts will be assumed to be 0. Trial 1 will include a persistence benchmark, and Trial 2 will include a benchmark based on the NOAA NAM model.
+The User, Administrator, and Providers discuss the many possible forecasts that could be evaluated and determine that two trials will be conducted to support particular business needs. Trial 1 is a 1-hour ahead, 1-hour interval average trial and Trial 2 is day ahead as of 13:00, 1-hour interval trial. The full forecast evaluation time series attributes are defined for each trial. For both trials, the start date is Jan 1, 2020, the end date is March 31, 2020, the evaluation metrics are average hourly MAE and RMSE, and missing forecasts will be assumed to be 0. Trial 1 will include a persistence benchmark, and Trial 2 will include a benchmark based on transparent processing of the NOAA NAM model.
 
 Forecast User 1 creates the Sites, Observations, and Aggregate, uploads 12 months of training data, and shares the data with Forecast Providers A-F. Forecast Providers A-F download the training data and create their models. An anonymous user is automatically generated for each Provider and the Framework Administrator does not keep a record of the user mapping. Separately for each trial, Forecast Providers upload their forecast runs during the debugging period, fix any issues, and continue to regularly upload runs during the evaluation period. Forecasters that fail to submit a forecast run are penalized according to predefined rules. At the conclusion of the trials, reports are automatically generated for all participants.
 
