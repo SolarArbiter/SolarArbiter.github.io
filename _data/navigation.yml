@@ -12,6 +12,9 @@
   - name: Use Cases
     link: /usecases/
 
+  - name: Data Model
+    link: /datamodel/
+
   - name: Reference Data
     link: /referencedata/
 

@@ -82,13 +82,13 @@ From these three runs, the user could upload an hour-ahead, hour-interval foreca
 
 These three runs have a 1-hour *run length / issue frequency*. The runs must have the same run length and issue frequency to create a continuous, non-overlapping forecast evaluation time series.
 
-<img src="/images/timeline_concat_1h.svg" alt="timeline_concat_1h" class="usecase-figure">
-<figcaption class="usecase-figure">Figure 1. Forecast runs with 1-hour intervals concatenated into a forecast evaluation time series.</figcaption>
+<img src="/images/timeline_concat_1h.svg" alt="timeline_concat_1h" class="figure">
+<figcaption class="figure">Figure 1. Forecast runs with 1-hour intervals concatenated into a forecast evaluation time series.</figcaption>
 <br>
 The framework also supports forecast evaluation time series that are the concatenation of forecast runs with more than one interval, so long as the intervals do not overlap. Figure 2 shows how three different 75-minute-ahead, 15-minute interval, 1-hour length forecast runs may be parsed and concatenated into a single forecast evaluation time series.
 
-<img src="/images/timeline_concat.svg" alt="timeline_concat" class="usecase-figure">
-<figcaption class="usecase-figure">Figure 2. Forecast runs with 15-minute intervals concatenated into a forecast evaluation time series.</figcaption>
+<img src="/images/timeline_concat.svg" alt="timeline_concat" class="figure">
+<figcaption class="figure">Figure 2. Forecast runs with 15-minute intervals concatenated into a forecast evaluation time series.</figcaption>
 <br>
 In most cases, the original forecast interval is retained, (e.g., 15-minutes in Figure 2) or intervals are combined to a longer interval (e.g., 15-minute values averaged to hourly values).
 
@@ -98,8 +98,8 @@ For most use cases ([1.A](#uc1A)-[1.E](#uc1E)), the Solar Forecast Arbiter expec
 
 A stretch goal is to support the use case of uploading and analyzing multiple forecast runs, optionally with the same valid times ([1.G](#uc1G)). For example, the user could upload a new 24-hour length forecast that is issued each hour of the day. Later, the user could then use the framework to merge the forecast runs into a 0-, 1-, or 2-hour ahead forecast for evaluation. Figure 3 shows three forecasts runs (green) merged into two different evaluation forecasts (blue, red).
 
-<img src="/images/timeline_merged.svg" alt="timeline_merged" class="usecase-figure">
-<figcaption class="usecase-figure">Figure 3. Forecast runs merged to create two distinct forecast evaluation time series. The blue forecast evaluation time series retains the 15-minute intervals of the forecast runs. The red forecast evaluate time series is created by averaging the 15-minute values to hourly values within each forecast run.</figcaption>
+<img src="/images/timeline_merged.svg" alt="timeline_merged" class="figure">
+<figcaption class="figure">Figure 3. Forecast runs merged to create two distinct forecast evaluation time series. The blue forecast evaluation time series retains the 15-minute intervals of the forecast runs. The red forecast evaluate time series is created by averaging the 15-minute values to hourly values within each forecast run.</figcaption>
 
 
 ### Forecast evaluation time series attributes {#forecastattrs}
