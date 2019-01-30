@@ -249,8 +249,8 @@ units. Data not in in the correct units must be converted before it is
 uploaded. The forecast/observation variables and units that are
 permitted are as follows:
 
--   *surface temperature* - degrees Celsius
--   *surface wind speed* - meters per second
+-   *Surface temperature* - degrees Celsius
+-   *Surface wind speed* - meters per second
 -   *Global horizontal irradiance* - Watts per meter squared
 -   *Direct normal irradiance* - Watts per meter squared
 -   *Diffuse horizontal irradiance* - Watts per meter squared
