@@ -121,12 +121,12 @@ footer .footer-link{
 code {
     font-size: 80%;
 }
-.usecase-figure{
+.figure{
 	max-width: 100%;
 }
 
 @media screen and (min-width: 992px){
-	.usecase-figure{
+	.figure{
 		padding: 0 10%;
 	}
 
@@ -160,4 +160,8 @@ code {
 }
 h2#presentations, h2#posters{
   font-size: 1.5em;
+}
+pre.highlight{
+  background-color: #f6f8fa;
+  padding: 1em;
 }
