@@ -3,14 +3,14 @@ layout: datamodel
 permalink: /datamodel/
 ---
 
-Data Model -- Draft
-===================
+Data Model
+==========
 {: .anchor}
 The goal of this document is to explain the Solar Forecast Arbiter data
 model. To keep the framework architecture simple and secure, the API
 closely follows this data model. Therefore, it is worthwhile for API
 users to understand the data model. Please see
-[*dev-api.solarforecastarbiter.org*](https://dev-api.solarforecastarbiter.org/)
+[dev-api.solarforecastarbiter.org](https://dev-api.solarforecastarbiter.org/)
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
 model. The Dashboard may contain additional features and abstractions to
@@ -29,17 +29,17 @@ steps in order:
 
 2.  For each Observation,
 
-    a.  Define the Observation: name, variable (e.g., GHI), value type
-        (instantaneous or average), interval label (N/A, beginning,
-        ending), uncertainty.
+	a. Define the Observation: name, variable (e.g., GHI), value type
+	   (instantaneous or average), interval label (N/A, beginning,
+	   ending), uncertainty.
 
-    b.  Upload a timeseries with each element in the series being a
-        triplet of values: Time, Value, Quality Flag.
+	b. Upload a time series with each element in the series being a
+	   triplet of values: Time, Value, Quality Flag.
 
 In this model, each of several Observations (e.g., GHI, air temperature,
 wind speed) is uploaded as a separate time series. Because each
 Observation is associated with a predefined set of metadata, users do
-not supply metadata in the upload of timeseries data. Separate uploads
+not supply metadata in the upload of time series data. Separate uploads
 for each Observation allows the API to tightly mimic the internal data
 model, simplifies the data templates, and supports flexible analyses.
 The Dashboard may contain features to allow users to upload a single csv
@@ -73,11 +73,11 @@ Observations and Forecasts associated with it (e.g. temperature, GHI, AC
 power). In turn, Observations and Forecasts rely on the associated Site
 for location information.
 
-An **Observation** or **Forecast** contain timeseries data and specify
+An **Observation** or **Forecast** contain time series data and specify
 the data’s associated variable, units, and Site. Forecasts and
 Observations require specification of the variable being described in
 the provided data so that they can be properly paired for analysis (see
-[*Variables and Units*](#variables-and-units)). Forecasts and Observations
+[Variables and Units](#variables-and-units)). Forecasts and Observations
 each have additional required parameters described below.
 
 An **Aggregate** is an aggregation of many Observations. The Sites
@@ -105,63 +105,45 @@ Each Site will have a number of required parameters that identify the
 Site. They are:
 
 -   Name: name for the Site, e.g. Desert Rock
-
 -   Latitude: latitude of the Site in decimal degrees north of the
     equator, e.g. 36.62373
-
 -   Longitude: longitude of the Site in decimal degrees east of the
     prime meridian, e.g. -116.01947
-
 -   Elevation: Elevation of the Site in meters above sea level, e.g.
     1007
-
 -   Timezone: IANA timezone of the Site, e.g.
     Etc/GMT+8
 
 Additional parameters will be optional when creating a site:
 
 -   Network: measurement network name, e.g. SURFRAD
-
 -   Well-Known Text: describes a geometric area for a Site which may be
-    physically extended, i.e. a polygon over a city for a Site of
-    distributed generation PV systems.
+    physically extended, e.g. a polygon over a city for a Site that
+	describes many distributed generation PV systems.
 
 Sites that are solar power plants will require additional parameters
 that enable power forecasts. These parameters will be listed under a
 “modeling parameters” key as follows:
 
 -   Modeling parameters:
-
-    -   AC power: nameplate AC power rating
-
-    -   DC power: nameplate DC power rating
-
+    -   AC power: nameplate AC power rating in megawatts
+    -   DC power: nameplate DC power rating in megawatts
     -   Temperature Coefficient: The temperature coefficient of DC power
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
-
     -   Tracking type: type of tracking system, i.e. fixed, single axis,
         two axis
-
     -   For fixed tilt systems:
-
         -   Surface tilt: tilt from horizontal of a fixed tilt system,
             degrees
-
         -   Surface azimuth: azimuth angle of a fixed tilt system,
             degrees
-
     -   For single-axis tracked systems:
-
         -   Axis tilt: tilt from horizontal of the tracker axis, degrees
-
         -   Axis azimuth: azimuth angle of the tracker axis, degrees
-
-        -   Ground coverage ratio: ground coverage ratio of a tracking
+        -   Ground coverage ratio: ratio of total width of modules on a tracker to the distance between tracker axes. For example, for trackers each with two modules of 1m width each, and a spacing between tracker axes of 7m, the ground coverage ratio is 0.286(=2/7).
             system
-
         -   Backtrack: True/False indicator of if a tracking system uses
             backtracking
-
         -   Maximum rotation angle: maximum rotation from horizontal of
             a single axis tracker, degrees
 
@@ -174,27 +156,21 @@ owner.
 ### Observations
 {: .anchor}
 
-An Observation must be associated with a Site which contains important
-information such as location. A Site object must be created before an
-Observation.
+An Observation must be associated with a Site. A Site object must 
+be created before an Observation.
 
 Creation of Observations will have the following required parameters:
 
 -   Name: name of the Observation
-
 -   Variable: variable name, e.g. power, GHI. Each allowed variable has
     an associated pre-defined unit.
-
 -   Value type: The type of the data in the observation. Typically
     interval mean or instantaneous, but additional types may be defined
     for events.
-
 -   Interval label - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
-
 -   Site: the site that this Observation was generated for.
-
 -   Uncertainty: a measure of the uncertainty of the observation values.
     The format will be determined later.
 
@@ -212,37 +188,29 @@ information such as location. A Site object must be created before a
 Forecast can be associated with it.
 
 Creation of Forecasts will have the following required parameters (see
-[*Use Cases*](https://solarforecastarbiter.org/usecases/#forecastdef)
+[Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
 for more detailed explanation of forecast parameters):
 
 -   Name: name of the Forecast
-
 -   Issue time of day - The time of day that a forecast run is issued,
     e.g. 00:30. For forecast runs issued multiple times within one day
     (e.g. hourly), this specifies the first issue time of day.
     Additional issue times are uniquely determined by the first issue
     time and the run length & issue frequency attribute.
-
 -   Lead time to start - The difference between the issue time and the
     start of the first forecast interval, e.g. 1 hour.
-
 -   Interval length - The length of time that each data point
     represents, e.g. 5 minutes, 1 hour.
-
 -   Run length / issue frequency - The total length of a single issued
     forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping
     sequence, this is equal to the forecast run issue frequency.
-
 -   Interval label - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
-
 -   Value type - The type of the data in the forecast, e.g. mean, max,
     95th percentile.
-
 -   Variable - The variable in the forecast, e.g. power, GHI, DNI. Each
     variable is associated with a standard unit.
-
 -   Site - The predefined site that the forecast is for, e.g. Power
     Plant X or Aggregate Y.
 
@@ -268,12 +236,9 @@ the aggregated quantity.
 Aggregates have the following required parameters:
 
 -   Name: Name of the Aggregate
-
 -   Description: A description of the makeup of the Aggregate, e.g. all
     utility scale solar in ISO region
-
 -   Timezone: IANA timezone of the site, e.g. Etc/GMT+8
-
 -   Observations: A list of Observations that make up the aggregate
 
 ## Variables and Units
@@ -285,25 +250,15 @@ uploaded. The forecast/observation variables and units that are
 permitted are as follows:
 
 -   surface temperature: degrees Celsius
-
 -   surface wind speed: meters per second
-
 -   Global Horizontal Irradiance: Watts per meter squared
-
 -   Direct Normal Irradiance: Watts per meter squared
-
 -   Diffuse Horizontal Irradiance: Watts per meter squared
-
 -   Plane of array irradiance: Watts per meter squared
-
 -   Relative humidity: %
-
 -   AC power: megawatts
-
 -   DC power: megawatts
-
 -   PDF probability: %
-
 -   CDF value:
 
 Timestamp and timezone formatting is addressed below.
@@ -319,11 +274,10 @@ fields determined by the data’s type listed below:
 #### Observations
 {: .anchor}
 
--   Timestamp: A timestamp in ISO-8601 format including a timezone, e.g.
-    2018-12-05T23:01:45-07:00 or 20181206T060145Z.
+-   Timestamp: A timestamp in ISO-8601 format including a timezone. e.g.
+	`2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 
 -   Value: Values for the variable in units defined above.
-
 -   Quality Flag: A flag indicating if the value is questionable. Either
     0 or 1.
 
@@ -334,9 +288,7 @@ Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
 -   Timestamp: A timestamp in ISO-8601 format
-    including a timezone, e.g. 2018-12-05T23:01:45-07:00 or
-    20181206T060145Z.
-
+    including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 
 -   Value: Values for the variable in units defined above.
 
@@ -369,14 +321,12 @@ under “values”.
 ```
 # name: Power Plant 1 Power
 # id: testid
-timestamp,value,questionable
+timestamp,value,quality_flag
 2018-11-22T12:01:48Z,10.23,0
 2018-11-22T12:07:38Z,10.67,0
 ```
-
 #### JSON
 {: .anchor}
-
 
     {
       “name”: “Power Plant 1 Power”,
@@ -388,12 +338,12 @@ timestamp,value,questionable
         {
           “timestamp”: “2018-11-22T12:01:48Z”,
           “value”: 10.23,
-          “questionable”: 0
+          “quality_flag”: 0
         },
         {
           “timestamp”: “2018-11-22T12:07:38Z”,
           “value”: 10.67,
-          “questionable”: 0
+          “quality_flag”: 0
         }
       ]
     }
@@ -405,10 +355,10 @@ timestamp,value,questionable
 Data may be uploaded to Solar Forecast Arbiter either through the API or
 the dashboard in either CSV or JSON format. Valid files must have
 timestamps in ISO-8601 format with time zone. They must also include the
-value of the data, and a questionable flag of either 0 or 1. Each file
+value of the data, and a quality flag of either 0 or 1. Each file
 may only contain data for **one** observation or forecast variable.
 Multiple observation or forecast variables require multiple file
-uploads.
+uploads to their respective dashboard pages or API end points.
 
 #### CSV
 {: .anchor}
@@ -417,11 +367,11 @@ The CSV file may have comment lines at the top of the file beginning
 with one of # ; //. Comment lines are ignored - no metadata is parsed
 from them. CSV columns must be delimited by “,” and rows must be
 delimited by “\n”. The CSV must contain a header line of
-“timestamp,value,questionable” followed by the data rows.
+“timestamp,value,quality_flag” followed by the data rows.
 
 ```
 # optional header, ignored by Solar Forecast Arbiter
-timestamp,value,questionable
+timestamp,value,quality_flag
 2018-11-22T12:01:48Z,10.23,0
 2018-11-22T12:07:38Z,10.67,0
 ```
@@ -430,7 +380,7 @@ timestamp,value,questionable
 {: .anchor}
 
 The JSON file must have a “values” list that contains a data object of
-“values”, “timestamp”, and “questionable”.
+“values”, “timestamp”, and “quality_flag”.
 
     {
       “id”: “testid”, # optional, for uploader’s record
@@ -438,12 +388,12 @@ The JSON file must have a “values” list that contains a data object of
         {
           “timestamp”: “2018-11-22T12:01:48Z”,
           “value”: 10.23,
-          “questionable”: 0
+          “quality_flag”: 0
         },
         {
           “timestamp”: “2018-11-22T12:07:38Z”,
           “value”: 10.67,
-          “questionable”: 0
+          “quality_flag”: 0
         }
       ]
     }
