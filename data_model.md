@@ -275,7 +275,6 @@ fields determined by the data’s type listed below:
 {: .anchor}
 
 -   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
-
 -   *Value* - Values for the variable in units defined above.
 -   *Quality Flag* - A flag indicating if the value is questionable. Uploads may contain values 0 (ok) or 1 (questionable). Downloads may contain additional flags determined by the data qualification toolkit (discussed elsewhere).
 
@@ -286,7 +285,6 @@ Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
 -   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
-
 -   *Value* - Values for the variable in units defined above.
 
 Probabilistic forecasts comprise the same set of Timestamp, Value pairs
