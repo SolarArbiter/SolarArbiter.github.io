@@ -104,20 +104,20 @@ observations will be returned as JSON in the Solar Forecast Arbiter API.
 Each Site will have a number of required parameters that identify the
 Site. They are:
 
--   Name: name for the Site, e.g. Desert Rock
--   Latitude: latitude of the Site in decimal degrees north of the
+-   *Name* - name for the Site, e.g. Desert Rock
+-   *Latitude* - latitude of the Site in decimal degrees north of the
     equator, e.g. 36.62373
--   Longitude: longitude of the Site in decimal degrees east of the
+-   *Longitude* - longitude of the Site in decimal degrees east of the
     prime meridian, e.g. -116.01947
--   Elevation: Elevation of the Site in meters above sea level, e.g.
+-   *Elevation* - Elevation of the Site in meters above sea level, e.g.
     1007
--   Timezone: IANA timezone of the Site, e.g.
+-   *Timezone* - IANA timezone of the Site, e.g.
     Etc/GMT+8
 
 Additional parameters will be optional when creating a site:
 
--   Network: measurement network name, e.g. SURFRAD
--   Well-Known Text: describes a geometric area for a Site which may be
+-   *Network* - measurement network name, e.g. SURFRAD
+-   *Well-Known Text* - describes a geometric area for a Site which may be
     physically extended, e.g. a polygon over a city for a Site that
 	describes many distributed generation PV systems.
 
@@ -126,25 +126,25 @@ that enable power forecasts. These parameters will be listed under a
 “modeling parameters” key as follows:
 
 -   Modeling parameters:
-    -   AC power: nameplate AC power rating in megawatts
-    -   DC power: nameplate DC power rating in megawatts
-    -   Temperature Coefficient: The temperature coefficient of DC power
+    -   *AC power* - nameplate AC power rating in megawatts
+    -   *DC power* - nameplate DC power rating in megawatts
+    -   *Temperature* - Coefficient: The temperature coefficient of DC power
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
-    -   Tracking type: type of tracking system, i.e. fixed, single axis,
+    -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
         two axis
     -   For fixed tilt systems:
-        -   Surface tilt: tilt from horizontal of a fixed tilt system,
+        -   *Surface tilt* - tilt from horizontal of a fixed tilt system,
             degrees
-        -   Surface azimuth: azimuth angle of a fixed tilt system,
+        -   *Surface azimuth* - azimuth angle of a fixed tilt system,
             degrees
     -   For single-axis tracked systems:
-        -   Axis tilt: tilt from horizontal of the tracker axis, degrees
-        -   Axis azimuth: azimuth angle of the tracker axis, degrees
-        -   Ground coverage ratio: ratio of total width of modules on a tracker to the distance between tracker axes. For example, for trackers each with two modules of 1m width each, and a spacing between tracker axes of 7m, the ground coverage ratio is 0.286(=2/7).
+        -   *Axis tilt* - tilt from horizontal of the tracker axis, degrees
+        -   *Axis azimuth* - azimuth angle of the tracker axis, degrees
+        -   *Ground coverage ratio* - ratio of total width of modules on a tracker to the distance between tracker axes. For example, for trackers each with two modules of 1m width each, and a spacing between tracker axes of 7m, the ground coverage ratio is 0.286(=2/7).
             system
-        -   Backtrack: True/False indicator of if a tracking system uses
+        -   *Backtrack* - True/False indicator of if a tracking system uses
             backtracking
-        -   Maximum rotation angle: maximum rotation from horizontal of
+        -   *Maximum rotation angle* - maximum rotation from horizontal of
             a single axis tracker, degrees
 
 Other parameters may be included in under an “extra parameters” key. The
@@ -161,17 +161,17 @@ be created before an Observation.
 
 Creation of Observations will have the following required parameters:
 
--   Name: name of the Observation
--   Variable: variable name, e.g. power, GHI. Each allowed variable has
+-   *Name* - name of the Observation
+-   *Variable* - variable name, e.g. power, GHI. Each allowed variable has
     an associated pre-defined unit.
--   Value type: The type of the data in the observation. Typically
+-   *Value type* - The type of the data in the observation. Typically
     interval mean or instantaneous, but additional types may be defined
     for events.
--   Interval label - Indicates if a time labels the beginning or the
+-   *Interval label* - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
--   Site: the site that this Observation was generated for.
--   Uncertainty: a measure of the uncertainty of the observation values.
+-   *Site* - the site that this Observation was generated for.
+-   *Uncertainty* - a measure of the uncertainty of the observation values.
     The format will be determined later.
 
 An optional text description field can record information such as
@@ -191,27 +191,27 @@ Creation of Forecasts will have the following required parameters (see
 [Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
 for more detailed explanation of forecast parameters):
 
--   Name: name of the Forecast
--   Issue time of day - The time of day that a forecast run is issued,
+-   *Name* - name of the Forecast
+-   *Issue time of day* - The time of day that a forecast run is issued,
     e.g. 00:30. For forecast runs issued multiple times within one day
     (e.g. hourly), this specifies the first issue time of day.
     Additional issue times are uniquely determined by the first issue
     time and the run length & issue frequency attribute.
--   Lead time to start - The difference between the issue time and the
+-   *Lead time to start* - The difference between the issue time and the
     start of the first forecast interval, e.g. 1 hour.
--   Interval length - The length of time that each data point
+-   *Interval length* - The length of time that each data point
     represents, e.g. 5 minutes, 1 hour.
--   Run length / issue frequency - The total length of a single issued
+-   *Run length / issue frequency* - The total length of a single issued
     forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping
     sequence, this is equal to the forecast run issue frequency.
--   Interval label - Indicates if a time labels the beginning or the
+-   *Interval label* - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
--   Value type - The type of the data in the forecast, e.g. mean, max,
+-   *Value type* - The type of the data in the forecast, e.g. mean, max,
     95th percentile.
--   Variable - The variable in the forecast, e.g. power, GHI, DNI. Each
+-   *Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each
     variable is associated with a standard unit.
--   Site - The predefined site that the forecast is for, e.g. Power
+-   *Site* - The predefined site that the forecast is for, e.g. Power
     Plant X or Aggregate Y.
 
 Additional parameters, such as model configuration parameters, may be
@@ -235,11 +235,11 @@ the aggregated quantity.
 
 Aggregates have the following required parameters:
 
--   Name: Name of the Aggregate
--   Description: A description of the makeup of the Aggregate, e.g. all
+-   *Name* - Name of the Aggregate
+-   *Description* - A description of the makeup of the Aggregate, e.g. all
     utility scale solar in ISO region
--   Timezone: IANA timezone of the site, e.g. Etc/GMT+8
--   Observations: A list of Observations that make up the aggregate
+-   *Timezone* - IANA timezone of the site, e.g. Etc/GMT+8
+-   *Observations* - A list of Observations that make up the aggregate
 
 ## Variables and Units
 {: .anchor}
@@ -249,17 +249,17 @@ units. Data not in in the correct units must be converted before it is
 uploaded. The forecast/observation variables and units that are
 permitted are as follows:
 
--   surface temperature: degrees Celsius
--   surface wind speed: meters per second
--   Global Horizontal Irradiance: Watts per meter squared
--   Direct Normal Irradiance: Watts per meter squared
--   Diffuse Horizontal Irradiance: Watts per meter squared
--   Plane of array irradiance: Watts per meter squared
--   Relative humidity: %
--   AC power: megawatts
--   DC power: megawatts
--   PDF probability: %
--   CDF value:
+-   *surface temperature* - degrees Celsius
+-   *surface wind speed* - meters per second
+-   *Global horizontal irradiance* - Watts per meter squared
+-   *Direct normal irradiance* - Watts per meter squared
+-   *Diffuse horizontal irradiance* - Watts per meter squared
+-   *Plane of array irradiance* - Watts per meter squared
+-   *Relative humidity* - %
+-   *AC power* - megawatts
+-   *DC power* - megawatts
+-   *PDF probability* - %
+-   *CDF value*
 
 Timestamp and timezone formatting is addressed below.
 
@@ -274,8 +274,7 @@ fields determined by the data’s type listed below:
 #### Observations
 {: .anchor}
 
--   Timestamp: A timestamp in ISO-8601 format including a timezone. e.g.
-	`2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   Timestamp: A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 
 -   Value: Values for the variable in units defined above.
 -   Quality Flag: A flag indicating if the value is questionable. Either
@@ -287,8 +286,7 @@ fields determined by the data’s type listed below:
 Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
--   Timestamp: A timestamp in ISO-8601 format
-    including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   Timestamp: A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 
 -   Value: Values for the variable in units defined above.
 
