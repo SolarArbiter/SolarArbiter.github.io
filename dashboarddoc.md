@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: dashboard
 permalink: /dashboarddoc/
 ---
 
@@ -43,7 +43,6 @@ To create an Observation or Forecast, an associated site must already exist. See
 2.  You may use the “Create new Observation” button on the Site page or on the Site’s Observations listing page.
 - Site Page
 <img src="/images/Site.png"/>
-
 - Site’s Observations listing
 <img src="/images/SiteObsListing.png"/>
 
