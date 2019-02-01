@@ -20,17 +20,21 @@ When a user is filling out a form, a tooltip describing the information
 a user should enter is shown when the field’s name or options are not
 descriptive enough alone. An example of these tooltips is shown below.
 
-<img src="/images/TooltipDetail.png" class="figure"/>
+<img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
 
 Creating a Site
 ---------------
 {: .anchor}
 
 1. Navigate to sites listing page using ‘Sites’ link in the left sidebar. At the top of the Site listing click ‘Create new Site’.
-<img src="/images/SitesListing.png"/>
+<img class="my-3" src="/images/SitesListing.png"/>
 
-2. Enter the metadata for your Site. After submission, you will be redirected to a Site page which displays the new Site’s metadata. The Site page will also display links to pages listing its associated Observations and Forecasts. See [Creating an Observation or Forecast](#creating-an-observation-or-forecast).
-<img src="/images/SiteForm.png"/>
+2. Enter the metadata for your Site. Selecting a site type of 'Power Plant' will prompt you for additional fields as shown below. Sites that are power plants will require  After submission, you will be redirected to a Site page which displays the new Site’s metadata. The Site page will also display links to pages listing its associated Observations and Forecasts. See [Creating an Observation or Forecast](#creating-an-observation-or-forecast).
+- Weather Station
+<img class="my-3" src="/images/SiteForm.png"/>
+- Power Plant
+<img class="my-3" src="/images/plant_site_form.png"/>
+
 
 Creating an Observation or Forecast
 -----------------------------------
@@ -41,13 +45,16 @@ To create an Observation or Forecast, an associated site must already exist. See
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left sidebar. Select the site for which you are adding an Observation or Forecast.
 
 2.  You may use the “Create new Observation” button on the Site page or on the Site’s Observations listing page.
-- Site Page
-<img src="/images/Site.png"/>
+- Site Page<br/>
+  <i>Weather Station Site</i>
+  <img class="my-3" src="/images/weather_site.png"/>
+  <i>Power Plant Site</i>
+  <img class="my-3" src="/images/plant_site.png"/>
 - Site’s Observations listing
-<img src="/images/SiteObsListing.png"/>
+<img class="my-3" src="/images/SiteObsListing.png"/>
 
 3.  Enter metadata for your Observation. On submission, you will be redirected to an Observation page which displays the new Observation metadata and a link to add Observation data. See [Uploading Data](#uploading-data).
-<img src="/images/ObservationForm.png"/>
+<img class="my-3" src="/images/weather_obs.png"/>
 
 Uploading data
 --------------
@@ -60,11 +67,11 @@ To upload data, an associated Site and Observation or Forecast object must alrea
 2.  Click ‘Observations’ to find the Observations listing for that site.
 
 3.  Select an Observation. Click ‘Upload Data’ on the Observation page.
-<img src="/images/Observation.png"/>
+<img class="my-3" src="/images/observation.png"/>
 
 4.  Select the file type, this will display an example of the expected file format. Click ‘Choose File’ and select the data file to upload.
 
 	-  CSV format
-	<img src="/images/csv_upload.png"/>
+	<img class="my-3" src="/images/csv_upload.png"/>
 	- JSON format
-	<img src="/images/json_upload.png"/>
+	<img class="my-3" src="/images/json_upload.png"/>
