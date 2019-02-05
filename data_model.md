@@ -14,7 +14,9 @@ users to understand the data model. Please see
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
 model. The Dashboard may contain additional features and abstractions to
-expedite common use cases.
+expedite common use cases. See 
+[solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
+for a walkthrough of the proposed Dashboard user interface.
 
 Data ownership, access, and control issues will be discussed in other
 documents.
@@ -128,7 +130,7 @@ that enable power forecasts. These parameters will be listed under a
 -   Modeling parameters:
     -   *AC power* - nameplate AC power rating in megawatts
     -   *DC power* - nameplate DC power rating in megawatts
-    -   *Temperature* - Coefficient: The temperature coefficient of DC power
+    -   *Temperature Coefficient* - The temperature coefficient of DC power
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
         two axis

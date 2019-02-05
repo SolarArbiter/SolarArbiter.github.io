@@ -165,3 +165,6 @@ pre.highlight{
   background-color: #f6f8fa;
   padding: 1em;
 }
+img{
+  max-width: 100%;
+}
