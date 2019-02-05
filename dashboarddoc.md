@@ -25,26 +25,28 @@ Create a Site
    sidebar. At the top of the Site listing click ‘Create new Site’.
 <img class="my-3" src="/images/SitesListing.png"/>
 
-2. Enter the metadata for your Site. Tooltips describing the
-   information a user should enter are shown when the field’s
-   name or options are not descriptive enough alone. An
-   example of these tooltips is shown below.
-
+2. Enter the metadata for your Site. Selecting a site type of 
+   'Power Plant' will prompt you for additional fields. 
 
    <img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
+   <div class="figure mb-3">
+   Descriptive tooltips are displayed when a user selects a field. 
+   </div>
 
+   - *Weather station site creation form*
+   <img class="my-3" src="/images/SiteForm.png"/>
 
-- *Weather Station*
-<img class="my-3" src="/images/SiteForm.png"/>
-   Selecting a site type of 'Power Plant' will prompt you for additional
-   fields as shown below.
+   - *Power plant site creation form*
+   <img class="my-3" src="/images/plant_site_form.png"/>
 
-- *Power Plant*
-<img class="my-3" src="/images/plant_site_form.png"/>
-   After submission, you will be redirected to a Site
+3. After submission, you will be redirected to a Site
    page which displays the new Site’s metadata and allows you
    to create associated Observations and Forecasts. See
    [Create an Observation or Forecast](#create-an-observation-or-forecast).
+
+   *Power Plant Site Page*
+   <img class="my-3" src="/images/plant_site.png"/>
+
 
 
 Create an Observation or Forecast
@@ -54,23 +56,40 @@ Create an Observation or Forecast
 To create an Observation or Forecast, an associated site must already exist.
 See [Create a Site](#create-a-site) for instructions.
 
-1.  Navigate to the Site listing page using the ‘Sites’ link in the left
-	sidebar. Select the site for which you are adding an Observation or Forecast.
+### Create an Observation
+{: anchor} 
 
-2.  You may use the “Create new Observation” button on the Site page or
-	on the Site’s Observations listing page.
-- Site Page<br/>
-  *Weather Station Site*
+1.  Navigate to the Site listing page using the ‘Sites’ link in the left
+	sidebar. Select the site for which you are adding an Observation.
+
+2.  Click the “Create new Observation” button on the Site page.
   <img class="my-3" src="/images/weather_site.png"/>
-  *Power Plant Site*
-  <img class="my-3" src="/images/plant_site.png"/>
-- Site’s Observations listing
-<img class="my-3" src="/images/SiteObsListing.png"/>
 
 3.  Enter metadata for your Observation. On submission, you will be redirected
     to an Observation page which displays the new Observation metadata and a
-    link to add Observation data. See [Upload Data](#upload-data).
+    link to add Observation data. See [Upload Data](#upload-observation-data).
+- *Observation form*
 <img class="my-3" src="/images/weather_obs.png"/>
+- *Created Observation page*
+<img class="my-3" src="/images/observation.png"/>
+
+### Create a Forecast
+{: anchor}
+
+1.  Navigate to the Site listing page using the ‘Sites’ link in the left
+	sidebar. Select the site for which you are adding a Forecast.
+
+2.   Click the “Create new Forecast” button on the Site page.
+  <img class="my-3" src="/images/plant_site.png"/>
+
+3.  Enter metadata for your Observation. On submission, you will be redirected
+    to an Observation page which displays the new Forecast metadata and a
+    link to add Forecast data. See [Upload Data](#upload-forecast-data).
+- *Forecast form*
+<img class="my-3" src="/images/forecast_form.png"/>
+- *Created Forecast page*
+<img class="my-e" src="/images/forecast.png"/>
+
 
 Upload data
 -----------
@@ -80,9 +99,13 @@ To upload data, an associated Site and Observation or Forecast object
 must already exist. See [Create a Site](#create-a-site) or
 [Create an Observation or Forecast](#create-an-observation-or-forecast)
 for instructions. The instructions here will describe the process of
-uploading observation data. The process for uploading Forecasts is
-similar, however, the required fields will be different. A list of
-required fields by data type can be found in the [Data Model](/datamodel/).
+uploading data using the dashboard.
+Uploading data may be automated using the API, see
+[https://dev-api.solarforecastarbiter.org/](https://dev-api.solarforecastarbiter.org/)
+for detailed documentation.
+
+### Upload Observation Data
+{: anchor}
 
 1.  From Sites listing page, click on a site.
 
@@ -95,6 +118,39 @@ required fields by data type can be found in the [Data Model](/datamodel/).
 format. Click ‘Choose File’ and select the data file to upload.
 
 	-  CSV format
-	<img class="my-3" src="/images/csv_upload.png"/>
+	<img class="my-3" src="/images/obs_csv_upload.png"/>
 	- JSON format
-	<img class="my-3" src="/images/json_upload.png"/>
+	<img class="my-3" src="/images/obs_json_upload.png"/>
+
+### Upload Forecast Data
+{: anchor}
+
+1.  From Sites listing page, click on a site.
+
+2.  Click ‘Forecast’ to find the Forecasts listing for that site.
+
+3.  Select a Forecast. Click ‘Upload Data’ on the Forecast page.
+<img class="my-3" src="/images/forecast.png"/>
+
+4.  Select the file type, this will display an example of the expected file
+format. Click ‘Choose File’ and select the data file to upload.
+
+	- CSV format
+	<img class="my-3" src="/images/fx_csv_upload.png"/>
+	- JSON format
+	<img class="my-3" src="/images/fx_json_upload.png"/>
+
+
+Download Data
+-------------
+The dashboard will include tools to allow users to download data from
+an Observation or Forecast page. Users will be able to select the time
+period for which to download data. The format and field names in
+the downloaded data will be the same as for data uploads. 
+
+Users may also utilize the API to download data. See the
+[API documentation](https://dev-api.solarforecastarbiter.org/)
+for details
+
+
+<div class="my-3"></div>
