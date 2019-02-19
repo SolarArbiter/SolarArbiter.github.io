@@ -10,14 +10,44 @@ User Dashboard Interaction
 This document illustrates how a Solar Forecast Arbiter user may use the
 Dashboard to complete the following actions:
 
--   [Create a new Site](#create-a-site).
+-   [Create New Site](#create-new-site).
 
--   [Create a new Observation or Forecast](#create-an-observation-or-forecast).
+-   [Create New Observation or Forecast](#create-new-observation-or-forecast).
 
 -   [Upload Data to an Observation or Forecast](#upload-data).
 
+### User Guidance Considerations
+To assist in the user in providing the correct information and
+navigating the dashboard's interface, we've adopted the following
+features not otherwise illustrated in this guide.
 
-Create a Site
+-  To reduce clutter, the dashboard will utilize *progressive
+   disclosure* to hide unnecessary fields from view e.g. the
+   Site form will not display the *PV Modeling Paremeters* fields
+   unless a *Site Type* of *Power Plant* is selected.
+
+-  Descriptive tooltips will be displayed when a user selects a field.
+   <img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
+   <figcaption class="figure pb-2">The latitude field is selected and displays
+   a tooltip describing the data a user should enter.</figcaption>
+
+-  Basic validation will be performed on the entered data to provide
+   immediate feedback to the user. There are two possible sources of
+   error in dashboard interaction:
+
+   1.  Incorrect Input type
+
+       For example, a user entering a non-numeric value into numeric
+       field. In this case, the user would be blocked from submitting
+       their data until a valid value was provided.
+
+   2.  Input does not meet Solar Forecast Arbiter specifications
+
+	   For example, a value greater than 180 is entered into the
+	   longitude field. In this case the user would be notified
+       of the error after submission and must resubmit.
+
+Create New Site
 -------------
 {: .anchor}
 
@@ -28,11 +58,7 @@ Create a Site
 2. Enter the metadata for your Site. Selecting a site type of 
    'Power Plant' will prompt you for additional fields. 
 
-   <img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
-   <div class="figure mb-3">
-   Descriptive tooltips are displayed when a user selects a field. 
-   </div>
-
+   
    - *Weather station site creation form*
    <img class="my-3" src="/images/SiteForm.png"/>
 
@@ -41,22 +67,20 @@ Create a Site
 
 3. After submission, you will be redirected to a Site
    page which displays the new Site’s metadata and allows you
-   to create associated Observations and Forecasts. See
-   [Create an Observation or Forecast](#create-an-observation-or-forecast).
+   to create associated Observations and Forecasts(see
+   [Create New Observation or Forecast](#create-new-observation-or-forecast)).
 
    *Power Plant Site Page*
    <img class="my-3" src="/images/plant_site.png"/>
 
 
-
-Create an Observation or Forecast
+Create New Observation or Forecast
 ---------------------------------
 {: .anchor}
 
-To create an Observation or Forecast, an associated site must already exist.
-See [Create a Site](#create-a-site) for instructions.
+To create an Observation or Forecast, an associated site must already exist(see [Create New Site](#create-new-site)).
 
-### Create an Observation
+### Create New Observation
 {: anchor} 
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
@@ -67,13 +91,13 @@ See [Create a Site](#create-a-site) for instructions.
 
 3.  Enter metadata for your Observation. On submission, you will be redirected
     to an Observation page which displays the new Observation metadata and a
-    link to add Observation data. See [Upload Data](#upload-observation-data).
+    link to add Observation data(see [Upload Data](#upload-observation-data)).
 - *Observation form*
 <img class="my-3" src="/images/weather_obs.png"/>
 - *Created Observation page*
 <img class="my-3" src="/images/observation.png"/>
 
-### Create a Forecast
+### Create New Forecast
 {: anchor}
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
@@ -82,9 +106,9 @@ See [Create a Site](#create-a-site) for instructions.
 2.   Click the “Create new Forecast” button on the Site page.
   <img class="my-3" src="/images/plant_site.png"/>
 
-3.  Enter metadata for your Observation. On submission, you will be redirected
-    to an Observation page which displays the new Forecast metadata and a
-    link to add Forecast data. See [Upload Data](#upload-forecast-data).
+3.  Enter metadata for your Forecast. On submission, you will be redirected
+    to a Forecast page which displays the new Forecast metadata and a
+    link to add Forecast data(see [Upload Data](#upload-forecast-data)).
 - *Forecast form*
 <img class="my-3" src="/images/forecast_form.png"/>
 - *Created Forecast page*
@@ -96,9 +120,9 @@ Upload data
 {: .anchor}
 
 To upload data, an associated Site and Observation or Forecast object
-must already exist. See [Create a Site](#create-a-site) or
-[Create an Observation or Forecast](#create-an-observation-or-forecast)
-for instructions. The instructions here will describe the process of
+must already exist(see [Create New Site](#create-New-site) or
+[Create New Observation or Forecast](#create-new-observation-or-forecast))
+. The instructions here will describe the process of
 uploading data using the dashboard.
 Uploading data may be automated using the API, see
 [https://dev-api.solarforecastarbiter.org/](https://dev-api.solarforecastarbiter.org/)
@@ -150,7 +174,7 @@ the downloaded data will be the same as for data uploads.
 
 Users may also utilize the API to download data. See the
 [API documentation](https://dev-api.solarforecastarbiter.org/)
-for details
+for details.
 
 
 <div class="my-3"></div>
