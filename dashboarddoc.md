@@ -81,7 +81,7 @@ Create New Observation or Forecast
 To create an Observation or Forecast, an associated site must already exist (see [Create New Site](#create-new-site)).
 
 ### Create New Observation
-{: anchor} 
+{: .anchor} 
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding an Observation.
@@ -98,7 +98,7 @@ To create an Observation or Forecast, an associated site must already exist (see
 <img class="my-3" src="/images/observation.png"/>
 
 ### Create New Forecast
-{: anchor}
+{: .anchor}
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding a Forecast.
@@ -129,7 +129,7 @@ Uploading data may be automated using the API, see
 for detailed documentation.
 
 ### Upload Observation Data
-{: anchor}
+{: .anchor}
 
 1.  From Sites listing page, click on a site.
 
@@ -147,7 +147,7 @@ format. Click ‘Choose File’ and select the data file to upload.
 	<img class="my-3" src="/images/obs_json_upload.png"/>
 
 ### Upload Forecast Data
-{: anchor}
+{: .anchor}
 
 1.  From Sites listing page, click on a site.
 
@@ -167,14 +167,40 @@ format. Click ‘Choose File’ and select the data file to upload.
 
 Download Data
 -------------
-The dashboard will include tools to allow users to download data from
-an Observation or Forecast page. Users will be able to select the time
-period for which to download data. The format and field names in
-the downloaded data will be the same as for data uploads. 
+{: .anchor}
 
+The instructions here will describe the process of
+downloading data using the dashboard.
 Users may also utilize the API to download data. See the
 [API documentation](https://dev-api.solarforecastarbiter.org/)
 for details.
 
+### Download Observation data
+{: .anchor}
+
+1.  From Sites listing page, click on a site.
+
+2.  Click ‘Observations’ to find the Observations listing for that site.
+
+3.  Select an Observation. Click ‘Download Data’ on the Observation page.
+    <img class="my-3" src="/images/observation.png"/>
+
+4.  Specify a date range, timezone and format, and click download.
+
+	<img class="my-3" src="/images/obs_download.png">
+
+### Download Forecast data
+{: .anchor}
+
+1.  From Sites listing page, click on a site.
+
+2.  Click ‘Forecasts’ to find the Observations listing for that site.
+
+3.  Select a Forecast. Click ‘Download Data’ on the Forecast page.
+	<img class="my-3" src="/images/forecast.png"/>
+
+4.  Specify a date range, timezone and format, and click download.
+
+	<img class="my-3" src="/images/fx_download.png">
 
 <div class="my-3"></div>
