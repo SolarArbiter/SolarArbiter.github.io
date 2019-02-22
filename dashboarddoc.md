@@ -183,9 +183,9 @@ for details.
 2.  Click ‘Observations’ to find the Observations listing for that site.
 
 3.  Select an Observation. Click ‘Download Data’ on the Observation page.
+    <img class="my-3" src="/images/observation.png"/>
 
-4.  Specify a date range and format, and click download. Start and end
-	times must be in UTC. 
+4.  Specify a date range, timezone and format, and click download.
 
 	<img class="my-3" src="/images/obs_download.png">
 
@@ -197,9 +197,9 @@ for details.
 2.  Click ‘Forecasts’ to find the Observations listing for that site.
 
 3.  Select a Forecast. Click ‘Download Data’ on the Forecast page.
+	<img class="my-3" src="/images/forecast.png"/>
 
-4.  Specify a date range and format, and click download. Start and end
-	times must be in UTC. 
+4.  Specify a date range, timezone and format, and click download.
 
 	<img class="my-3" src="/images/fx_download.png">
 
