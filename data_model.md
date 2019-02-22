@@ -14,7 +14,7 @@ users to understand the data model. Please see
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
 model. The Dashboard may contain additional features and abstractions to
-expedite common use cases. See 
+expedite common use cases. See
 [solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
 for a walkthrough of the proposed Dashboard user interface.
 
@@ -158,7 +158,7 @@ owner.
 ### Observations
 {: .anchor}
 
-An Observation must be associated with a Site. A Site object must 
+An Observation must be associated with a Site. A Site object must
 be created before an Observation.
 
 Creation of Observations will have the following required parameters:
@@ -262,6 +262,8 @@ permitted are as follows:
 -   *DC power* - megawatts
 -   *PDF probability* - %
 -   *CDF value*
+-   *Availability* - %
+-   *Curtailment* - megawatts
 
 Timestamp and timezone formatting is addressed below.
 
