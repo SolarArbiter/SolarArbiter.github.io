@@ -128,8 +128,8 @@ that enable power forecasts. These parameters will be listed under a
 “modeling parameters” key as follows:
 
 -   Modeling parameters:
-    -   *AC power* - nameplate AC power rating in megawatts
-    -   *DC power* - nameplate DC power rating in megawatts
+    -   *AC capacity* - nameplate AC capacity rating in megawatts
+    -   *DC capacity* - nameplate DC capacity rating in megawatts
     -   *Temperature Coefficient* - The temperature coefficient of DC power
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
@@ -264,6 +264,9 @@ permitted are as follows:
 -   *CDF value*
 -   *Availability* - %
 -   *Curtailment* - megawatts
+
+Please see the [Glossary](https://github.com/SolarArbiter/solarforecastarbiter-core/wiki/Glossary)
+for variable definitions.
 
 Timestamp and timezone formatting is addressed below.
 
