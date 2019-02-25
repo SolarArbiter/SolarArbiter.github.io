@@ -14,7 +14,7 @@ users to understand the data model. Please see
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
 model. The Dashboard may contain additional features and abstractions to
-expedite common use cases. See 
+expedite common use cases. See
 [solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
 for a walkthrough of the proposed Dashboard user interface.
 
@@ -158,7 +158,7 @@ owner.
 ### Observations
 {: .anchor}
 
-An Observation must be associated with a Site. A Site object must 
+An Observation must be associated with a Site. A Site object must
 be created before an Observation.
 
 Creation of Observations will have the following required parameters:
@@ -349,13 +349,18 @@ timestamp,value,quality_flag
 ### Uploads
 {: .anchor}
 
-Data may be uploaded to Solar Forecast Arbiter either through the API or
+Data may be uploaded to the Solar Forecast Arbiter either through the API or
 the dashboard in either CSV or JSON format. Valid files must have
 timestamps in ISO-8601 format with time zone. They must also include the
-value of the data, and a quality flag of either 0 or 1. Each file
-may only contain data for **one** observation or forecast variable.
+value of the data, and a quality flag of either 0 or 1.
+
+Each file may only contain data for **one** observation or forecast variable.
 Multiple observation or forecast variables require multiple file
 uploads to their respective dashboard pages or API end points.
+
+The Solar Forecast Arbiter does not archive missing status.
+Data uploads with missing data markers such as empty fields,
+`NaN`, `NULL`, or `-999` will be rejected with a descriptive error message.
 
 #### CSV
 {: .anchor}
