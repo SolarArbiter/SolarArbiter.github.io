@@ -14,7 +14,7 @@ users to understand the data model. Please see
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
 model. The Dashboard may contain additional features and abstractions to
-expedite common use cases. See 
+expedite common use cases. See
 [solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
 for a walkthrough of the proposed Dashboard user interface.
 
@@ -128,8 +128,8 @@ that enable power forecasts. These parameters will be listed under a
 “modeling parameters” key as follows:
 
 -   Modeling parameters:
-    -   *AC power* - nameplate AC power rating in megawatts
-    -   *DC power* - nameplate DC power rating in megawatts
+    -   *AC capacity* - nameplate AC capacity rating in megawatts
+    -   *DC capacity* - nameplate DC capacity rating in megawatts
     -   *Temperature Coefficient* - The temperature coefficient of DC power
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
@@ -158,7 +158,7 @@ owner.
 ### Observations
 {: .anchor}
 
-An Observation must be associated with a Site. A Site object must 
+An Observation must be associated with a Site. A Site object must
 be created before an Observation.
 
 Creation of Observations will have the following required parameters:
@@ -262,6 +262,11 @@ permitted are as follows:
 -   *DC power* - megawatts
 -   *PDF probability* - %
 -   *CDF value*
+-   *Availability* - %
+-   *Curtailment* - megawatts
+
+Please see the [Glossary](https://github.com/SolarArbiter/solarforecastarbiter-core/wiki/Glossary)
+for variable definitions.
 
 Timestamp and timezone formatting is addressed below.
 
