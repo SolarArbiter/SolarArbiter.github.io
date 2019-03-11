@@ -384,10 +384,10 @@ The following block is an example of a valid CSV upload.
 # optional header, ignored by Solar Forecast Arbiter
 timestamp,value,quality_flag
 2019-03-01T12:00:00Z,5,0
-2019-03-01T12:00:01Z,,1
-2019-03-01T12:00:02Z,5,0
-2019-03-01T12:00:03Z,NaN,1
-2019-03-01T12:00:04Z,NULL,1
+2019-03-01T12:05:00Z,,1
+2019-03-01T12:10:00Z,5,0
+2019-03-01T12:15:00Z,NaN,1
+2019-03-01T12:20:00Z,NULL,1
 ```
 
 #### JSON
