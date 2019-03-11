@@ -365,7 +365,7 @@ Each file may only contain data for **one** observation or forecast variable.
 Multiple observation or forecast variables require multiple file
 uploads to their respective dashboard pages or API end points.
 
-Observation data uploads will be rejected if all time intervals do not match
+Observation data uploads will be rejected if any time interval does not match
 the associated metadata interval length parameter. Missing data must be
 specified with an empty field, NaN, or NULL.
 
