@@ -169,6 +169,8 @@ Creation of Observations will have the following required parameters:
 -   *Value type* - The type of the data in the observation. Typically
     interval mean or instantaneous, but additional types may be defined
     for events.
+-   *Interval length* - The length of time between consecutive data points,
+    e.g. 5 minutes, 1 hour.
 -   *Interval label* - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
@@ -201,8 +203,8 @@ for more detailed explanation of forecast parameters):
     time and the run length & issue frequency attribute.
 -   *Lead time to start* - The difference between the issue time and the
     start of the first forecast interval, e.g. 1 hour.
--   *Interval length* - The length of time that each data point
-    represents, e.g. 5 minutes, 1 hour.
+-   *Interval length* - The length of time between consecutive data points,
+    e.g. 5 minutes, 1 hour.
 -   *Run length / issue frequency* - The total length of a single issued
     forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping
     sequence, this is equal to the forecast run issue frequency.
@@ -247,7 +249,7 @@ Aggregates have the following required parameters:
 {: .anchor}
 
 Solar Forecast Arbiter will only accept a standard set of variables and
-units. Data not in in the correct units must be converted before it is
+units. Data not in the correct units must be converted before it is
 uploaded. The forecast/observation variables and units that are
 permitted are as follows:
 
@@ -354,13 +356,18 @@ timestamp,value,quality_flag
 ### Uploads
 {: .anchor}
 
-Data may be uploaded to Solar Forecast Arbiter either through the API or
+Data may be uploaded to the Solar Forecast Arbiter either through the API or
 the dashboard in either CSV or JSON format. Valid files must have
 timestamps in ISO-8601 format with time zone. They must also include the
-value of the data, and a quality flag of either 0 or 1. Each file
-may only contain data for **one** observation or forecast variable.
+value of the data, and a quality flag of either 0 or 1.
+
+Each file may only contain data for **one** observation or forecast variable.
 Multiple observation or forecast variables require multiple file
 uploads to their respective dashboard pages or API end points.
+
+Observation data uploads will be rejected if any time interval does not match
+the associated metadata interval length parameter. Missing data must be
+specified with an empty field, NaN, or NULL.
 
 #### CSV
 {: .anchor}
@@ -371,11 +378,16 @@ from them. CSV columns must be delimited by “,” and rows must be
 delimited by “\n”. The CSV must contain a header line of
 “timestamp,value,quality_flag” followed by the data rows.
 
+The following block is an example of a valid CSV upload.
+
 ```
 # optional header, ignored by Solar Forecast Arbiter
 timestamp,value,quality_flag
-2018-11-22T12:01:48Z,10.23,0
-2018-11-22T12:07:38Z,10.67,0
+2019-03-01T12:00:00Z,5,0
+2019-03-01T12:05:00Z,,1
+2019-03-01T12:10:00Z,5,0
+2019-03-01T12:15:00Z,NaN,1
+2019-03-01T12:20:00Z,NULL,1
 ```
 
 #### JSON
