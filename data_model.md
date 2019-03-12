@@ -134,6 +134,8 @@ that enable power forecasts. These parameters will be listed under a
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
         two axis
+    -   *DC loss factor* - applied to DC current. Default 0%.
+    -   *AC loss factor* - applied to inverter power output. Default 0%.
     -   For fixed tilt systems:
         -   *Surface tilt* - tilt from horizontal of a fixed tilt system,
             degrees
@@ -142,8 +144,11 @@ that enable power forecasts. These parameters will be listed under a
     -   For single-axis tracked systems:
         -   *Axis tilt* - tilt from horizontal of the tracker axis, degrees
         -   *Axis azimuth* - azimuth angle of the tracker axis, degrees
-        -   *Ground coverage ratio* - ratio of total width of modules on a tracker to the distance between tracker axes. For example, for trackers each with two modules of 1m width each, and a spacing between tracker axes of 7m, the ground coverage ratio is 0.286(=2/7).
-            system
+        -   *Ground coverage ratio* - ratio of total width of modules on a
+            tracker to the distance between tracker axes. For example, for
+            trackers each with two modules of 1m width each, and a spacing
+            between tracker axes of 7m, the ground coverage ratio is
+            0.286(=2/7).
         -   *Backtrack* - True/False indicator of if a tracking system uses
             backtracking
         -   *Maximum rotation angle* - maximum rotation from horizontal of
