@@ -134,8 +134,6 @@ that enable power forecasts. These parameters will be listed under a
         in units of 1/C. Typically -0.002 to -0.005 per degree C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
         two axis
-    -   *Irradiance loss factor* - applied to plane of array irradiance after
-        reflection losses but before spectral mismatch losses. Default 0%.
     -   *DC loss factor* - applied to DC current. Default 0%.
     -   *AC loss factor* - applied to inverter power output. Default 0%.
     -   For fixed tilt systems:
