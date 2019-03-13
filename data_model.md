@@ -196,6 +196,9 @@ Each Forecast must be associated with a Site which contains important
 information such as location. A Site object must be created before a
 Forecast can be associated with it.
 
+#### Single-valued forecasts
+{: .anchor}
+
 Creation of Forecasts will have the following required parameters (see
 [Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
 for more detailed explanation of forecast parameters):
@@ -226,9 +229,36 @@ for more detailed explanation of forecast parameters):
 Additional parameters, such as model configuration parameters, may be
 specified under the “extra parameters” key.
 
-
 Each Forecast has data associated with it. The format of this data is
 found in the Data Format section below
+
+#### Probabilistic forecasts
+{: .anchor}
+
+The Solar Forecast Arbiter supports the specification of a full
+probabilistic forecast in terms of a cumulative distribution function
+(CDF). The metadata for a probabilistic forecast container is the same
+as for a [single-valued forecast](#single-valued-forecast) with the
+addition of two attributes:
+
+-   *Axis* - The axis on which the CDF is specified. *x* corresponds to
+    fixed variable values. *y* corresponds to fixed quantiles.
+-   *Points* - The fixed variable values or fixed quantiles at which
+    the forecasts will be made.
+
+The CDF may be specified in terms of its variable values (the
+x-axis) or its in terms of its quantiles (the y-axis). The difference
+between the cases is whether the variable values or the quantiles remain
+the same at all forecast times. For a CDF specified in terms of fixed
+quantiles (e.g. `0.0, 0.1, ... 0.9, 1.0`), the user forecasts each
+corresponding variable value (e.g. `0 MW, 1.1 MW, ... 3.5 MW, 5 MW`).
+For a CDF specified in terms of fixed variable values (e.g. `0 MW, 1 MW,
+... 4 MW, 5 MW`), the user forecasts each corresponding quantile (e.g.
+`0.05, 0.19, ... 0.85, 0.98`). In either case, the end result is a
+complete set of (variable value, quantile) pairs. Users may specify as
+many variable value or quantile *points* as is needed to accurately
+communicate a probablistic forecast.
+
 
 ### Aggregates
 {: .anchor}
@@ -267,8 +297,7 @@ permitted are as follows:
 -   *Relative humidity* - %
 -   *AC power* - megawatts
 -   *DC power* - megawatts
--   *PDF probability* - %
--   *CDF value*
+-   *Cumulative distribution function (CDF)* - unitless probability from 0.0 to 1.0
 -   *Availability* - %
 -   *Curtailment* - megawatts
 
@@ -288,30 +317,35 @@ fields determined by the data’s type listed below:
 #### Observations
 {: .anchor}
 
--   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   *Timestamp* - A timestamp in ISO-8601 format including a timezone.
+    e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 -   *Value* - Values for the variable in units defined above.
--   *Quality Flag* - A flag indicating if the value is questionable. Uploads may contain values 0 (ok) or 1 (questionable). Downloads may contain additional flags determined by the data qualification toolkit (discussed elsewhere).
+-   *Quality Flag* - A flag indicating if the value is questionable. Uploads
+    may contain values 0 (ok) or 1 (questionable). Downloads may contain
+    additional flags determined by the data qualification toolkit (discussed
+    elsewhere).
 
 #### Forecasts
+{: .anchor}
+
+##### Single-valued forecasts
 {: .anchor}
 
 Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
--   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   *Timestamp* - A timestamp in ISO-8601 format including a timezone.
+    e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 -   *Value* - Values for the variable in units defined above.
 
-Probabilistic forecasts comprise the same set of Timestamp, Value pairs
-as deterministic forecasts *for each probability bin*. To upload a
-complete probabilistic forecast, users upload one forecast per
-probability bin. The metadata of the probabilistic forecast defines the
-*distribution type* (cumulative distribution function (CDF) or
-probability distribution function (PDF) and the *bins*. For a CDF, the
-Value is the quantity of MW, GHI, etc. for the quantile associated with
-each individual forecast upload. For a PDF, the Value is the probability
-corresponding the interval range of MW, GHI, etc. for each individual
-forecast upload. The full set of metadata required to describe
-probabilistic forecasts will be determined later.
+##### Probabilistic forecasts
+{: .anchor}
+
+To upload a complete probabilistic forecast, users upload one
+[single-valued forecast](#single-valued-forecasts-1) per probabilistic
+*point*. The format of each upload is the same, but the upload
+destination specified by the Solar Forecast Arbiter is different.
+
 
 ### Downloads
 {: .anchor}
