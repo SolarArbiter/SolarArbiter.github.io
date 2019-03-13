@@ -238,7 +238,7 @@ found in the Data Format section below
 The Solar Forecast Arbiter supports the specification of a full
 probabilistic forecast in terms of a cumulative distribution function
 (CDF). The metadata for a probabilistic forecast container is the same
-as for a [single-valued forecast](#single-valued-forecast) with the
+as for a [single-valued forecast](#single-valued-forecasts) with the
 addition of two attributes:
 
 -   *Axis* - The axis on which the CDF is specified. *x* corresponds to
