@@ -196,9 +196,6 @@ Each Forecast must be associated with a Site which contains important
 information such as location. A Site object must be created before a
 Forecast can be associated with it.
 
-#### Single-valued forecasts
-{: .anchor}
-
 Creation of Forecasts will have the following required parameters (see
 [Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
 for more detailed explanation of forecast parameters):
@@ -235,29 +232,16 @@ found in the Data Format section below
 #### Probabilistic forecasts
 {: .anchor}
 
-The Solar Forecast Arbiter supports the specification of a full
-probabilistic forecast in terms of a cumulative distribution function
+The Solar Forecast Arbiter supports the specification of
+probabilistic forecasts in terms of a cumulative distribution function
 (CDF). The metadata for a probabilistic forecast container is the same
-as for a [single-valued forecast](#single-valued-forecasts) with the
+as for a [forecast](#forecasts) with the
 addition of two attributes:
 
 -   *Axis* - The axis on which the CDF is specified. *x* corresponds to
     fixed variable values. *y* corresponds to fixed quantiles.
 -   *Points* - The fixed variable values or fixed quantiles at which
     the forecasts will be made.
-
-The CDF may be specified in terms of its variable values (the
-x-axis) or its in terms of its quantiles (the y-axis). The difference
-between the cases is whether the variable values or the quantiles remain
-the same at all forecast times. For a CDF specified in terms of fixed
-quantiles (e.g. `0.0, 0.1, ... 0.9, 1.0`), the user forecasts each
-corresponding variable value (e.g. `0 MW, 1.1 MW, ... 3.5 MW, 5 MW`).
-For a CDF specified in terms of fixed variable values (e.g. `0 MW, 1 MW,
-... 4 MW, 5 MW`), the user forecasts each corresponding quantile (e.g.
-`0.05, 0.19, ... 0.85, 0.98`). In either case, the end result is a
-complete set of (variable value, quantile) pairs. Users may specify as
-many variable value or quantile *points* as is needed to accurately
-communicate a probablistic forecast.
 
 
 ### Aggregates
@@ -328,9 +312,6 @@ fields determined by the data’s type listed below:
 #### Forecasts
 {: .anchor}
 
-##### Single-valued forecasts
-{: .anchor}
-
 Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
@@ -342,7 +323,7 @@ series of Timestamp, Value pairs in the following format:
 {: .anchor}
 
 To upload a complete probabilistic forecast, users upload one
-[single-valued forecast](#single-valued-forecasts-1) per probabilistic
+[forecast](#forecasts-1) per probabilistic
 *point*. The format of each upload is the same, but the upload
 destination specified by the Solar Forecast Arbiter is different.
 

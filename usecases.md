@@ -140,6 +140,74 @@ The table below shows the attributes for three different examples. We assume all
 | Site | Sensor X (America/Denver) | Power Plant Y (Etc/GMT+7) | Aggregate Z (America/Phoenix) |
 
 
+### Probabilistic forecasts
+{: .anchor}
+
+A *probabilistic forecast* in the Solar Forecast Arbiter is one or more
+[forecast evaluation time series](#forecastattrs) that describe part or all of a probability
+distribution.
+
+Let us consider a few simple examples. A probabilistic forecast may be the probability that
+generation is less than 10 MW. This probabilistic forecast is described by a
+single value (the probability) at each [forecast data point](#forecastdatapoint).
+This probability is traditionally known as a *quantile*. Another
+probabilistic forecast may be the generation that corresponds to
+the 0.5 quantile of a cumulative distribution function. Here, too, the probabilistic
+forecast is described by a single value (the generation) at each [forecast data point](#forecastdatapoint).
+These two types of probabilistic forecasts can be summarized as:
+
+| Case | Metadata specification | Value specification |
+|------|:----------------------:|:----------------------:|
+| Prob(Power < 10 MW) | Variable (Power) | Quantile |
+| p50 Power | Quantile | Variable (Power) |
+
+Probabilistic forecasts can also be a logical grouping of forecast evaluation time series
+that describe more of the probability distribution. For example, a user may be
+interested in the probabilities that power is less than a number of different powers:
+
+| Case | Metadata specification | Value specification |
+|------|:----------------------:|:----------------------:|
+| Prob(Power < 1 MW) | Variable (Power) | Quantile |
+| Prob(Power < 10 MW) | Variable (Power) | Quantile |
+| Prob(Power < 20 MW) | Variable (Power) | Quantile |
+| Prob(Power < 30 MW) | Variable (Power) | Quantile |
+| Prob(Power < 40 MW) | Variable (Power) | Quantile |
+| Prob(Power < 50 MW) | Variable (Power) | Quantile |
+
+Or, a user may be interested in the power at a number of quantiles:
+
+| Case | Metadata specification | Value specification |
+|------|:----------------------:|:----------------------:|
+| p0 Power | Quantile | Variable (Power) |
+| p5 Power | Quantile | Variable (Power) |
+| p10 Power | Quantile | Variable (Power) |
+| p30 Power | Quantile | Variable (Power) |
+| p50 Power | Quantile | Variable (Power) |
+| p70 Power | Quantile | Variable (Power) |
+| p90 Power | Quantile | Variable (Power) |
+| p95 Power | Quantile | Variable (Power) |
+| p100 Power | Quantile | Variable (Power) |
+
+Or the user may only be interested in points that correspond to a central credible interval:
+
+| Case | Metadata specification | Value specification |
+|------|:----------------------:|:----------------------:|
+| p10 Power | Quantile | Variable (Power) |
+| p90 Power | Quantile | Variable (Power) |
+
+These groupings must all contain metadata of the same type: quantile or variable.
+Users may specify as many quantile or variable *points* as is needed to accurately
+communicate a probabilistic forecast.
+
+The metadata for a probabilistic forecast container is the same
+as for a [forecast evaluation time series](#forecastattrs) with the
+addition of two attributes:
+
+-   *Axis* - The axis on which the CDF is specified. *x* corresponds to
+    fixed variable values. *y* corresponds to fixed quantiles.
+-   *Points* - The fixed variable values or fixed quantiles at which
+    the forecasts will be made.
+
 
 ### Framework user and framework administrator {#users}
 {: .anchor}
