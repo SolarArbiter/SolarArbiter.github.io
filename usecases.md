@@ -140,73 +140,88 @@ The table below shows the attributes for three different examples. We assume all
 | Site | Sensor X (America/Denver) | Power Plant Y (Etc/GMT+7) | Aggregate Z (America/Phoenix) |
 
 
-### Probabilistic forecasts
+### Probabilistic forecasts {#probforecastdef}
 {: .anchor}
 
-A *probabilistic forecast* in the Solar Forecast Arbiter is one or more
-[forecast evaluation time series](#forecastattrs) that describe part or all of a probability
-distribution.
+The Solar Forecast Arbiter uses cumulative distribution functions (CDF) to
+quantify probabilistic forecasts. A CDF is represented here as a sequence of
+(*variable value*, *percentile*) pairs, where percentiles range from 0 to 100.
 
-Let us consider a few simple examples. A probabilistic forecast may be the probability that
-generation is less than 10 MW. This probabilistic forecast is described by a
-single value (the probability) at each [forecast data point](#forecastdatapoint).
-This probability is traditionally known as a *quantile*. Another
-probabilistic forecast may be the generation that corresponds to
-the 0.5 quantile of a cumulative distribution function. Here, too, the probabilistic
-forecast is described by a single value (the generation) at each [forecast data point](#forecastdatapoint).
-These two types of probabilistic forecasts can be summarized as:
+Each [forecast data point](#forecastdatapoint) describes one (variable value, percentile)
+point of a CDF at one point in time. Therefore, each [forecast evaluation time
+series](#forecastattrs) describes (variable value, percentile) points at multiple times
+while holding either value or percentile constant.
 
-| Case | Metadata specification | Value specification |
-|------|:----------------------:|:----------------------:|
-| Prob(Power < 10 MW) | Variable (Power) | Quantile |
-| p50 Power | Quantile | Variable (Power) |
+Consider a few simple examples. A probabilistic forecast may be the probability
+that generation is less than 10 MW at each point in time. This probabilistic
+forecast is a single number (the probability) at each [forecast data
+point](#forecastdatapoint). Another probabilistic forecast may quantify the
+generation that corresponds to the 50th percentile of a CDF, i.e., the median
+generation value. Here, too, the probabilistic forecast is a single number (the
+generation) at each [forecast data point](#forecastdatapoint). These two types
+of probabilistic forecasts can be summarized as:
 
-Probabilistic forecasts can also be a logical grouping of forecast evaluation time series
-that describe more of the probability distribution. For example, a user may be
-interested in the probabilities that power is less than a number of different powers:
+| Case | Constant value | Forecast type |
+|------|:--------------:|:-------------------:|
+| Prob(Power < 10 MW) | Variable (Power) = 10 MW | Percentile |
+| p50 Power | Percentile = 50 | Variable (Power) |
 
-| Case | Metadata specification | Value specification |
-|------|:----------------------:|:----------------------:|
-| Prob(Power < 1 MW) | Variable (Power) | Quantile |
-| Prob(Power < 10 MW) | Variable (Power) | Quantile |
-| Prob(Power < 20 MW) | Variable (Power) | Quantile |
-| Prob(Power < 30 MW) | Variable (Power) | Quantile |
-| Prob(Power < 40 MW) | Variable (Power) | Quantile |
-| Prob(Power < 50 MW) | Variable (Power) | Quantile |
+Probabilistic forecasts can also be a grouping of [forecast evaluation time
+series](#forecastattrs) that describe more of the probability distribution. For
+example, a user may be interested in the probability that power is less than
+each of a range of power levels. In this case, the *constant values* are
+specified along the *x* axis of the CDF and the forecasts are percentiles:
 
-Or, a user may be interested in the power at a number of quantiles:
+| Case | Constant value | Forecast type |
+|------|:--------------:|:-------------------:|
+| Prob(Power < 1 MW) | Variable (Power) = 1 MW | Percentile |
+| Prob(Power < 10 MW) | Variable (Power) = 10 MW | Percentile |
+| Prob(Power < 20 MW) | Variable (Power) = 20 MW | Percentile |
+| Prob(Power < 30 MW) | Variable (Power) = 30 MW | Percentile |
+| Prob(Power < 40 MW) | Variable (Power) = 40 MW | Percentile |
+| Prob(Power < 50 MW) | Variable (Power) = 50 MW | Percentile |
 
-| Case | Metadata specification | Value specification |
-|------|:----------------------:|:----------------------:|
-| p0 Power | Quantile | Variable (Power) |
-| p5 Power | Quantile | Variable (Power) |
-| p10 Power | Quantile | Variable (Power) |
-| p30 Power | Quantile | Variable (Power) |
-| p50 Power | Quantile | Variable (Power) |
-| p70 Power | Quantile | Variable (Power) |
-| p90 Power | Quantile | Variable (Power) |
-| p95 Power | Quantile | Variable (Power) |
-| p100 Power | Quantile | Variable (Power) |
+Or, a user may be interested in the power at a number of percentiles. In this
+case, the *constant values* are specified along the *y* axis of the CDF and the
+forecasts are powers:
 
-Or the user may only be interested in points that correspond to a central credible interval:
+| Case | Constant value | Forecast type |
+|------|:--------------:|:-------------------:|
+| p0 Power | Percentile = 0 | Variable (Power) |
+| p5 Power | Percentile = 5 | Variable (Power) |
+| p10 Power | Percentile = 10 | Variable (Power) |
+| p30 Power | Percentile = 30 | Variable (Power) |
+| p50 Power | Percentile = 50 | Variable (Power) |
+| p70 Power | Percentile = 70 | Variable (Power) |
+| p90 Power | Percentile = 90 | Variable (Power) |
+| p95 Power | Percentile = 95 | Variable (Power) |
+| p100 Power | Percentile = 100 | Variable (Power) |
 
-| Case | Metadata specification | Value specification |
-|------|:----------------------:|:----------------------:|
-| p10 Power | Quantile | Variable (Power) |
-| p90 Power | Quantile | Variable (Power) |
+Or the user may only be interested in points that correspond to a central
+credible interval:
 
-These groupings must all contain metadata of the same type: quantile or variable.
-Users may specify as many quantile or variable *points* as is needed to accurately
-communicate a probabilistic forecast.
+| Case | Constant value | Forecast type |
+|------|:--------------:|:-------------------:|
+| p10 Power | Percentile = 10 | Variable (Power) |
+| p90 Power | Percentile = 90 | Variable (Power) |
 
-The metadata for a probabilistic forecast container is the same
-as for a [forecast evaluation time series](#forecastattrs) with the
-addition of two attributes:
+Users may specify as many percentile or variable *constant values* as is needed to
+accurately communicate a probabilistic forecast.
 
--   *Axis* - The axis on which the CDF is specified. *x* corresponds to
-    fixed variable values. *y* corresponds to fixed quantiles.
--   *Points* - The fixed variable values or fixed quantiles at which
-    the forecasts will be made.
+
+### Probabilistic forecast attributes {#probforecastattrs}
+
+The metadata for a probabilistic forecast is the same as for a [forecast
+evaluation time series](#forecastattrs) with the addition of two attributes:
+
+-   *Axis* - The axis on which the constant values of the CDF is specified. The
+    axis can be either *x* (constant variable values) or *y* (constant
+    percentiles). The axis is fixed and the same for all [forecast evaluation
+    time series](#forecastattrs) in the probabilistic forecast.
+-   *Constant values* - The variable values or percentiles for the set
+    of [forecast evaluation time series](#forecastattrs) in the probabilistic
+    forecast.
+
 
 
 ### Framework user and framework administrator {#users}
@@ -253,7 +268,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 **Requirements**:
 
 - All requirements as listed for Use Case [1.A](#uc1A) with the following modifications.
-- A forecast value must be an empirical probability distribution at each time point (a sequence of {quantile, value} or {Prob(X), X} pairs).
+- The probabilistic forecast must describe one or more points of a cumulative distribution function.
 - User can select among probabilistic forecast performance metrics ([3.A](#uc3A)).
 - Framework provides probabilistic metric values for comparison among forecasts ([3.A](#uc3A)), visual displays of probabilistic forecast performance, and a report for download ([3.D](#uc3D)).
 
