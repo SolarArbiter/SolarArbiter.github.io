@@ -197,7 +197,7 @@ information such as location. A Site object must be created before a
 Forecast can be associated with it.
 
 Creation of Forecasts will have the following required parameters (see
-[Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
+[Use Cases](../usecases/#forecastevalts)
 for more detailed explanation of forecast parameters):
 
 -   *Name* - name of the Forecast
@@ -236,7 +236,7 @@ The Solar Forecast Arbiter supports the specification of probabilistic
 forecasts in terms of a cumulative distribution function (CDF). The
 metadata for a probabilistic forecast is the same as for a
 [forecast](#forecasts) with the addition of two attributes (see [Use
-Cases](https://solarforecastarbiter.org/usecases/#probforecastdef) for
+Cases](../usecases/#probforecastdef) for
 more detailed explanation of forecast parameters):
 
 -   *Axis* - The axis on which the constant values of the CDF is
@@ -326,9 +326,10 @@ series of Timestamp, Value pairs in the following format:
 {: .anchor}
 
 To upload a complete probabilistic forecast, users upload one
-[forecast](#forecasts-1) per probabilistic
-*point*. The format of each upload is the same, but the upload
-destination specified by the Solar Forecast Arbiter is different.
+[forecast](#forecasts-1) for each of the probalistic forecast's [*constant
+values*](#probabilistic-forecasts). The format of each upload is the
+same, but the upload destination specified by the Solar Forecast Arbiter
+is different.
 
 
 ### Downloads

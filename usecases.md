@@ -162,9 +162,9 @@ generation) at each [forecast data point](#forecastdatapoint). These two types
 of probabilistic forecasts can be summarized as:
 
 | Case | Constant value | Forecast type |
-|------|:--------------:|:-------------------:|
+|------|:--------------:|:-------------:|
 | Prob(Power < 10 MW) | Variable (Power) = 10 MW | Percentile |
-| p50 Power | Percentile = 50 | Variable (Power) |
+| p50 Power | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentile = 50 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Variable (Power) |
 
 Probabilistic forecasts can also be a grouping of [forecast evaluation time
 series](#forecastattrs) that describe more of the probability distribution. For
@@ -173,20 +173,20 @@ each of a range of power levels. In this case, the *constant values* are
 specified along the *x* axis of the CDF and the forecasts are percentiles:
 
 | Case | Constant value | Forecast type |
-|------|:--------------:|:-------------------:|
+|------|:--------------:|:-------------:|
 | Prob(Power < 1 MW) | Variable (Power) = 1 MW | Percentile |
 | Prob(Power < 10 MW) | Variable (Power) = 10 MW | Percentile |
 | Prob(Power < 20 MW) | Variable (Power) = 20 MW | Percentile |
 | Prob(Power < 30 MW) | Variable (Power) = 30 MW | Percentile |
 | Prob(Power < 40 MW) | Variable (Power) = 40 MW | Percentile |
-| Prob(Power < 50 MW) | Variable (Power) = 50 MW | Percentile |
+| Prob(Power < 50 MW) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable (Power) = 50 MW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Percentile |
 
 Or, a user may be interested in the power at a number of percentiles. In this
 case, the *constant values* are specified along the *y* axis of the CDF and the
 forecasts are powers:
 
 | Case | Constant value | Forecast type |
-|------|:--------------:|:-------------------:|
+|------|:--------------:|:-------------:|
 | p0 Power | Percentile = 0 | Variable (Power) |
 | p5 Power | Percentile = 5 | Variable (Power) |
 | p10 Power | Percentile = 10 | Variable (Power) |
@@ -195,21 +195,22 @@ forecasts are powers:
 | p70 Power | Percentile = 70 | Variable (Power) |
 | p90 Power | Percentile = 90 | Variable (Power) |
 | p95 Power | Percentile = 95 | Variable (Power) |
-| p100 Power | Percentile = 100 | Variable (Power) |
+| p100 Power | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentile = 100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Variable (Power) |
 
 Or the user may only be interested in points that correspond to a central
 credible interval:
 
 | Case | Constant value | Forecast type |
-|------|:--------------:|:-------------------:|
+|------|:--------------:|:-------------:|
 | p10 Power | Percentile = 10 | Variable (Power) |
-| p90 Power | Percentile = 90 | Variable (Power) |
+| p90 Power | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentile = 90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Variable (Power) |
 
 Users may specify as many percentile or variable *constant values* as is needed to
 accurately communicate a probabilistic forecast.
 
 
 ### Probabilistic forecast attributes {#probforecastattrs}
+{: .anchor}
 
 The metadata for a probabilistic forecast is the same as for a [forecast
 evaluation time series](#forecastattrs) with the addition of two attributes:
@@ -221,7 +222,6 @@ evaluation time series](#forecastattrs) with the addition of two attributes:
 -   *Constant values* - The variable values or percentiles for the set
     of [forecast evaluation time series](#forecastattrs) in the probabilistic
     forecast.
-
 
 
 ### Framework user and framework administrator {#users}
