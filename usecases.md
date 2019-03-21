@@ -143,34 +143,44 @@ The table below shows the attributes for three different examples. We assume all
 ### Probabilistic forecasts {#probforecastdef}
 {: .anchor}
 
-The Solar Forecast Arbiter uses cumulative distribution functions (CDF) to
-quantify probabilistic forecasts. A CDF is represented here as a sequence of
+The Solar Forecast Arbiter quantifies probabilistic forecasts using cumulative
+distribution functions (CDFs). A CDF is represented here as a sequence of
 (*variable value*, *percentile*) pairs, where percentiles range from 0 to 100.
 
-Each [forecast data point](#forecastdatapoint) describes one (variable value, percentile)
-point of a CDF at one point in time. Therefore, each [forecast evaluation time
-series](#forecastattrs) describes (variable value, percentile) points at multiple times
-while holding either value or percentile constant.
+A probabilistic forecast is defined by fixing a set of values for either the
+variable being forecast, or the percentiles being forecast. For each value in
+the set, a separate [forecast evaluation time series](#forecastattrs) is
+uploaded, each [forecast data point](#forecastdatapoint) of which comprises one
+(variable value, percentile) pair of the CDF at that point in time. Therefore,
+each [forecast evaluation time series](#forecastattrs) describes (variable
+value, percentile) points at multiple times while holding either value or
+percentile constant.  At a point in time the CDF is represented by the
+collection of (variable value, percentile) pairs across the set of [forecast
+evaluation time series](#forecastattrs).
 
 Consider a few simple examples. A probabilistic forecast may be the probability
 that generation is less than 10 MW at each point in time. This probabilistic
-forecast is a single number (the probability) at each [forecast data
+forecast consists of a single [forecast evaluation time series](#forecastattrs),
+which in turn contains a single number (the probability) at each [forecast data
 point](#forecastdatapoint). Another probabilistic forecast may quantify the
 generation that corresponds to the 50th percentile of a CDF, i.e., the median
-generation value. Here, too, the probabilistic forecast is a single number (the
-generation) at each [forecast data point](#forecastdatapoint). These two types
-of probabilistic forecasts can be summarized as:
+generation value. Here, too, the probabilistic forecast is a single [forecast
+evaluation time series](#forecastattrs) containing one number (the generation)
+at each [forecast data point](#forecastdatapoint). These two probabilistic
+forecasts can be summarized as:
 
 | Case | Constant value | Forecast type |
 |------|:--------------:|:-------------:|
 | Prob(Power < 10 MW) | Variable (Power) = 10 MW | Percentile |
 | p50 Power | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentile = 50 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Variable (Power) |
 
-Probabilistic forecasts can also be a grouping of [forecast evaluation time
-series](#forecastattrs) that describe more of the probability distribution. For
+Probabilistic forecasts can also be a group of [forecast evaluation time
+series](#forecastattrs) each describing a different point on the CDF. For
 example, a user may be interested in the probability that power is less than
-each of a range of power levels. In this case, the *constant values* are
-specified along the *x* axis of the CDF and the forecasts are percentiles:
+each of a range of power levels. In this case, one [forecast evaluation time
+series](#forecastattrs) is made for each power level. The group of [forecast
+evaluation time series](#forecastattrs) is specified by fixing *constant values*
+along the *x* axis of the CDF and the forecasts are percentiles:
 
 | Case | Constant value | Forecast type |
 |------|:--------------:|:-------------:|
@@ -182,8 +192,8 @@ specified along the *x* axis of the CDF and the forecasts are percentiles:
 | Prob(Power < 50 MW) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable (Power) = 50 MW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Percentile |
 
 Or, a user may be interested in the power at a number of percentiles. In this
-case, the *constant values* are specified along the *y* axis of the CDF and the
-forecasts are powers:
+case, the group of [forecast evaluation time series](#forecastattrs) is specified
+by *constant values* along the *y* axis of the CDF and the forecasts are powers:
 
 | Case | Constant value | Forecast type |
 |------|:--------------:|:-------------:|
