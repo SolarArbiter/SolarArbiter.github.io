@@ -197,7 +197,7 @@ information such as location. A Site object must be created before a
 Forecast can be associated with it.
 
 Creation of Forecasts will have the following required parameters (see
-[Use Cases](https://solarforecastarbiter.org/usecases/#forecastdef)
+[Use Cases](../usecases/#forecastevalts)
 for more detailed explanation of forecast parameters):
 
 -   *Name* - name of the Forecast
@@ -226,9 +226,26 @@ for more detailed explanation of forecast parameters):
 Additional parameters, such as model configuration parameters, may be
 specified under the “extra parameters” key.
 
-
 Each Forecast has data associated with it. The format of this data is
 found in the Data Format section below
+
+#### Probabilistic forecasts
+{: .anchor}
+
+The Solar Forecast Arbiter supports the specification of probabilistic
+forecasts in terms of a cumulative distribution function (CDF). The
+metadata for a probabilistic forecast is the same as for a
+[forecast](#forecasts) with the addition of two attributes (see [Use
+Cases](../usecases/#probforecastdef) for
+more detailed explanation of forecast parameters):
+
+-   *Axis* - The axis on which the constant values of the CDF is
+    specified. The axis can be either *x* (constant variable values) or
+    *y* (constant percentiles). The axis is fixed and the same for all
+    [forecasts](#forecasts) in the probabilistic forecast.
+-   *Constant values* - The variable values or percentiles for the set
+    of [forecasts](#forecasts) in the probabilistic forecast.
+
 
 ### Aggregates
 {: .anchor}
@@ -267,8 +284,7 @@ permitted are as follows:
 -   *Relative humidity* - %
 -   *AC power* - megawatts
 -   *DC power* - megawatts
--   *PDF probability* - %
--   *CDF value*
+-   *Cumulative distribution function (CDF)* - unitless probability from 0.0 to 1.0
 -   *Availability* - %
 -   *Curtailment* - megawatts
 
@@ -288,9 +304,13 @@ fields determined by the data’s type listed below:
 #### Observations
 {: .anchor}
 
--   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   *Timestamp* - A timestamp in ISO-8601 format including a timezone.
+    e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 -   *Value* - Values for the variable in units defined above.
--   *Quality Flag* - A flag indicating if the value is questionable. Uploads may contain values 0 (ok) or 1 (questionable). Downloads may contain additional flags determined by the data qualification toolkit (discussed elsewhere).
+-   *Quality Flag* - A flag indicating if the value is questionable. Uploads
+    may contain values 0 (ok) or 1 (questionable). Downloads may contain
+    additional flags determined by the data qualification toolkit (discussed
+    elsewhere).
 
 #### Forecasts
 {: .anchor}
@@ -298,20 +318,19 @@ fields determined by the data’s type listed below:
 Single-valued forecasts (e.g. mean or 50<sup>th</sup> percentile) comprise a
 series of Timestamp, Value pairs in the following format:
 
--   *Timestamp* - A timestamp in ISO-8601 format including a timezone. e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
+-   *Timestamp* - A timestamp in ISO-8601 format including a timezone.
+    e.g. `2018-12-05T23:01:45-07:00` or `20181206T060145Z`.
 -   *Value* - Values for the variable in units defined above.
 
-Probabilistic forecasts comprise the same set of Timestamp, Value pairs
-as deterministic forecasts *for each probability bin*. To upload a
-complete probabilistic forecast, users upload one forecast per
-probability bin. The metadata of the probabilistic forecast defines the
-*distribution type* (cumulative distribution function (CDF) or
-probability distribution function (PDF) and the *bins*. For a CDF, the
-Value is the quantity of MW, GHI, etc. for the quantile associated with
-each individual forecast upload. For a PDF, the Value is the probability
-corresponding the interval range of MW, GHI, etc. for each individual
-forecast upload. The full set of metadata required to describe
-probabilistic forecasts will be determined later.
+##### Probabilistic forecasts
+{: .anchor}
+
+To upload a complete probabilistic forecast, users upload one
+[forecast](#forecasts-1) for each of the probalistic forecast's [*constant
+values*](#probabilistic-forecasts). The format of each upload is the
+same, but the upload destination specified by the Solar Forecast Arbiter
+is different.
+
 
 ### Downloads
 {: .anchor}
