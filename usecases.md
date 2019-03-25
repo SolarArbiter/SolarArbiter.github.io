@@ -54,7 +54,7 @@ The sections below define and illustrate the key concepts (forecast data points,
 ### Forecast data point {#forecastdatapoint}
 {: .anchor}
 
-A *forecast data point* is a single (*time*, *value*) data pair. Time can label a moment in time or an interval of time, as defined by the *interval label*. For example, a time of 17:00 can label the 1-hour *interval length* period from 17:00 to 18:00 (*beginning* label), 16:00 to 17:00 (*ending* label) or instantaneously at 17:00 (*instantaneous* label). Value has a *value type* (e.g., mean, 95th percentile) and *variable* (e.g. power, GHI). The variable defines the unit.
+A *forecast data point* is a single (*time*, *value*) data pair. Time can label a moment in time or an interval of time, as defined by the *interval label*. For example, a time of 17:00 can label the 1-hour *interval length* period from 17:00 to 18:00 (*beginning* label), 16:00 to 17:00 (*ending* label) or instantaneously at 17:00 (*instantaneous* label). Value has a *interval value type* (e.g., mean, minimum) and *variable* (e.g. power, GHI). The variable defines the unit.
 
 
 ### Forecast run {#forecastrun}
@@ -114,7 +114,7 @@ A *forecast evaluation time series* is described by the following attributes:
 3. *Interval length* - The length of time that each data point represents, e.g. 5 minutes, 1 hour.
 4. *Run length / issue frequency* - The total length of a single issued forecast run, e.g. 1 hour. To enforce a continuous, non-overlapping sequence, this is equal to the forecast run issue frequency.
 5. *Interval label* - Indicates if a time labels the beginning or the ending of an interval average, or indicates an instantaneous value, e.g. beginning, ending, instant
-6. *Value type* - The type of the data in the forecast, e.g. mean, max, 95th percentile.
+6. *Interval value type* - The type of the data in each interval of the forecast, e.g. mean, maximum, median.
 7. *Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each variable is associated with a standard unit.
 8. *Site* - The predefined site that the forecast is for, e.g. Power Plant X or Aggregate Y.
 
@@ -126,7 +126,7 @@ The table below shows the attributes for three different examples. We assume all
 
 * Forecast User B requires day ahead forecasts of hourly average power at Power Plant Y issued at 13:00 each day in the Etc/GMT+7 time zone.
 
-* Forecast User C requires intraday forecasts for 5th percentile of power for Aggregate Z specified in the America/Phoenix time zone. The forecasts are to be issued every 3 hours with 15-minute interval length and 3-hour forecast length.
+* Forecast User C requires intraday forecasts for the minimum power in each forecast interval for Aggregate Z specified in the America/Phoenix time zone. The forecasts are to be issued every 3 hours with 15-minute interval length and 3-hour forecast length.
 
 | Attribute | User A | User B | User C |
 |-----------|:------:|:------:|:------:|
@@ -135,7 +135,7 @@ The table below shows the attributes for three different examples. We assume all
 | Interval length | 5 minutes | 1 hour | 15 minutes |
 | Run length / issue freq. | 1 hour | 24 hours | 3 hours |
 | Interval label | Beginning | Beginning | Beginning |
-| Value type | Mean | Mean | 5th Percentile |
+| Interval value type | Mean | Mean | Minimum |
 | Variable | GHI (W/m2) | Power (MW) | Power (MW) |
 | Site | Sensor X (America/Denver) | Power Plant Y (Etc/GMT+7) | Aggregate Z (America/Phoenix) |
 
@@ -353,7 +353,7 @@ Forecast User 1 creates the Sites, Observations, and Aggregate, uploads 12 month
 - All requirements as listed for Use Case [1.A](#uc1A), for each forecast run.
 - Each [forecast run](#forecastdef) must be identically specified.
 - Forecast runs are issued at a regular interval (e.g., every 6 hours).
-- User can upload multiple overlapping forecast runs. Each forecast run can have a different issue time, but must have the same forecast interval (duration and label), forecast length and value type (e.g. 5-minute interval, 5-minute interval-ending label, 24 hours in length, average power forecast).
+- User can upload multiple overlapping forecast runs. Each forecast run can have a different issue time, but must have the same forecast interval (duration and label), forecast length and interval value type (e.g. 5-minute interval, 5-minute interval-ending label, 24 hours in length, interval average power forecast).
 - User can define forecast evaluation intervals, lead times, and temporal averaging.
 
 #### 1.H. Establish a long-term performance baseline of state-of-the-art operational forecasts (stretch) {#uc1H}

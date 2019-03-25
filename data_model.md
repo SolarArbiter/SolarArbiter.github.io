@@ -31,9 +31,9 @@ steps in order:
 
 2.  For each Observation,
 
-	a. Define the Observation: name, variable (e.g., GHI), value type
-	   (instantaneous or average), interval label (N/A, beginning,
-	   ending), uncertainty.
+  a. Define the Observation: name, variable (e.g., GHI), interval value
+     type (e.g. instantaneous or average), interval label (N/A, beginning,
+     ending), uncertainty.
 
 	b. Upload a time series with each element in the series being a
 	   triplet of values: Time, Value, Quality Flag.
@@ -171,9 +171,9 @@ Creation of Observations will have the following required parameters:
 -   *Name* - name of the Observation
 -   *Variable* - variable name, e.g. power, GHI. Each allowed variable has
     an associated pre-defined unit.
--   *Value type* - The type of the data in the observation. Typically
-    interval mean or instantaneous, but additional types may be defined
-    for events.
+-   *Interval value type* - The type of data in each interval of the
+    observation. Typically interval mean or instantaneous, but
+    additional types may be defined for events.
 -   *Interval length* - The length of time between consecutive data points,
     e.g. 5 minutes, 1 hour.
 -   *Interval label* - Indicates if a time labels the beginning or the
@@ -216,8 +216,8 @@ for more detailed explanation of forecast parameters):
 -   *Interval label* - Indicates if a time labels the beginning or the
     ending of an interval average, or indicates an instantaneous value,
     e.g. beginning, ending, instant
--   *Value type* - The type of the data in the forecast, e.g. mean, max,
-    95th percentile.
+-   *Interval value type* - The type of the data in each interval of the
+    forecast, e.g. mean, maximum, median.
 -   *Variable* - The variable in the forecast, e.g. power, GHI, DNI. Each
     variable is associated with a standard unit.
 -   *Site* - The predefined site that the forecast is for, e.g. Power
