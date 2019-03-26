@@ -27,3 +27,11 @@ All committee members will be able keep up with stakeholder topics and dive in w
 We need your help so that Solar Forecast Arbiter not only meets the SF2 goals, but continues to have lasting value to both forecasters and end-users after the SF2 is complete.
 
 So stakeholders please take 1 minute and [sign up for the Stakeholder Committee email list](/emaillist)! You can unsubscribe at any time.
+
+
+# Stakeholder communications
+
+1. [Use cases: Request for feedback](https://mailchi.mp/15206f8cd8cb/feedback-request-for-use-cases?e=%5BUNIQID%5D)
+1. [Use cases: Response to feedback and revisions](https://mailchi.mp/ce0724ef08ff/revised-used-cases-ready-for-review?e=%5BUNIQID%5D)
+1. [Data exchange: Request for feedback](https://mailchi.mp/c2bf820086d5/data-exchange-feedback-request)
+1. [Data exchange: Webinar recording](https://mailchi.mp/05f35ded731e/data-exchange-feedback-request-265293?e=[UNIQID])
