@@ -15,7 +15,7 @@ The revised versions of the dashboard documentation, API, and data model are now
 * [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
 * [https://solarforecastarbiter.org/datamodel/](https://solarforecastarbiter.org/datamodel/)
 
-Please review the materials fill out this very short form with any additional feedback concerning data templates:
+Please review the materials and fill out this very short form with any additional feedback concerning data templates:
 
 * [https://goo.gl/forms/pzrFFHICacvZAnsB3](https://goo.gl/forms/pzrFFHICacvZAnsB3)
 
