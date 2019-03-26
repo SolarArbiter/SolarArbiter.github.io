@@ -6,7 +6,7 @@ redirect_from: "/StakeHolderCommitteeInfo/"
 
 # Stakeholder Committee
 
-Our project development will be guided by stakeholders and we need your help to ensure that Solar Forecast Arbiter meets your needs.  Anyone who has a stake in evaluating the skill of solar irradiance and power forecasts can participate in the project stakeholder committee.  Joining is a simple as clicking this [link](/emaillist) and filling out the short form there.
+Our project development is guided by stakeholders and we need your help to ensure that Solar Forecast Arbiter meets your needs.  Anyone who has a stake in evaluating the skill of solar irradiance and power forecasts can participate in the project stakeholder committee.  Joining is a simple as clicking this [link](/emaillist) and filling out the short form there.
 
 The goal of the stakeholder committee is to ensure that we:
 * Create a framework for evaluating forecasts that meets community needs
@@ -29,9 +29,12 @@ We need your help so that Solar Forecast Arbiter not only meets the SF2 goals, b
 So stakeholders please take 1 minute and [sign up for the Stakeholder Committee email list](/emaillist)! You can unsubscribe at any time.
 
 
-# Stakeholder communications
+## Stakeholder communications
+
+Links to previous stakeholder committee communications are provided below.
 
 1. [Use cases: Request for feedback](https://mailchi.mp/15206f8cd8cb/feedback-request-for-use-cases?e=%5BUNIQID%5D)
 1. [Use cases: Response to feedback and revisions](https://mailchi.mp/ce0724ef08ff/revised-used-cases-ready-for-review?e=%5BUNIQID%5D)
 1. [Data exchange: Request for feedback](https://mailchi.mp/c2bf820086d5/data-exchange-feedback-request)
 1. [Data exchange: Webinar recording](https://mailchi.mp/05f35ded731e/data-exchange-feedback-request-265293?e=[UNIQID])
+1. [Data exchange: Response to feedback and revisions](https://mailchi.mp/206cda88a2ec/data-exchange-revisions)
