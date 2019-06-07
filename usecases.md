@@ -29,6 +29,8 @@ Metrics, benchmark forecasts, data formats, data sharing policies, and legal con
 
 The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general-purpose weather forecast analysis tool, though it may eventually be extended to incorporate wind power and load forecast analysis.
 
+## Use cases  {#usecases}
+
 ### 1. Evaluate forecasts  {#evaluatefx}
 {: .anchor}
 
