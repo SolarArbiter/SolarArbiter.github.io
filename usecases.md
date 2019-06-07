@@ -9,9 +9,7 @@ permalink: /usecases/
 {% include to_top.html %}
 ## Purpose and Summary {#purpose}
 {: .anchor }
-This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities.
-
-The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general-purpose weather forecast analysis tool, though it may eventually be extended to incorporate wind power and load forecast analysis.
+This document describes Solar Forecast Arbiter use cases and their associated requirements, and Solar Forecast Arbiter framework functional capabilities. A use case describes a sequence of actions to achieve a goal. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
 
 Use cases are grouped into two categories:
 
@@ -25,15 +23,11 @@ Framework functional capabilities are grouped into three additional categories:
 1. [Administer the framework](#administer)
 1. [Archive data and forecasts](#archive)
 
+**For brevity, a *forecast* refers to the *[forecast evaluation time series](/definitions/#forecastevalts)* defined in the [Definitions section](/definitions/).**
+
 Metrics, benchmark forecasts, data formats, data sharing policies, and legal considerations will be detailed in other documents.
 
-
-## Use cases  {#usecases}
-{: .anchor}
-
-A use case describes a sequence of actions to achieve a goal. Use cases are grouped into two categories: [Evaluate forecasts](#evaluatefx), and [Analyze forecasts](#analyzefx). From each use case a list of framework requirements is developed. To reduce repeating requirements, a use case may adopt, expand, or modify the requirements of another use case.
-
-**In this section, for brevity, a *forecast* refers to the *[forecast evaluation time series](/definitions/#forecastevalts)* defined in the [Definitions section](/definitions/).**
+The Solar Forecast Arbiter is primarily designed to support the evaluation of solar forecasts that are useful for solar forecast users. It is not a general-purpose weather forecast analysis tool, though it may eventually be extended to incorporate wind power and load forecast analysis.
 
 ### 1. Evaluate forecasts  {#evaluatefx}
 {: .anchor}
