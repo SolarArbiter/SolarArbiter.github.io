@@ -47,7 +47,7 @@ A use case describes a sequence of actions to achieve a goal. Use cases are grou
 
 - User can upload measured data, select from previously uploaded measured data, or select a location/period with reference data ([4.E](#uc4E)).
   - If uploading data, user must define relevant metadata including location, data type, and units.
-- User can upload a corresponding [forecast](/definitions/#probforecastdef) ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast must be single-valued (e.g. mean or 95th percentile) at each time.
+- User can upload a corresponding [forecast](/definitions/#forecastrun) ([4.C](#uc4C)) or select corresponding benchmark forecast ([4.D](#uc4D)). The forecast must be single-valued (e.g. mean or 95th percentile) at each time.
 - Framework applies data quality checks to uploaded data and forecasts ([4.G](#uc4G)).
 - User can specify filters to exclude forecast or data points (a subset of (time, value) pairs), by time or by value ([2.A](#uc2A)).
 - User can select among forecast performance metrics ([3.A](#uc3A)).
@@ -136,7 +136,7 @@ Forecast User 1 creates the Sites, Observations, and Aggregate, uploads 12 month
 **Requirements**:
 
 - All requirements as listed for Use Case [1.A](#uc1A), for each forecast run.
-- Each [forecast run](/definitions/#probforecastdef) must be identically specified.
+- Each [forecast run](/definitions/#forecastrun) must be identically specified.
 - Forecast runs are issued at a regular interval (e.g., every 6 hours).
 - User can upload multiple overlapping forecast runs. Each forecast run can have a different issue time, but must have the same forecast interval (duration and label), forecast length and interval value type (e.g. 5-minute interval, 5-minute interval-ending label, 24 hours in length, interval average power forecast).
 - User can define forecast evaluation intervals, lead times, and temporal averaging.
