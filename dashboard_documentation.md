@@ -18,6 +18,9 @@ use cases for the Solar Forecast Arbiter dashboard.
 
 -   [Upload Data to an Observation or Forecast](#upload-data)
 
+-   [Create New Report](#create-new-report)
+
+-   [Permissions and Role Management]
 
 Getting Started
 ---------------
@@ -96,8 +99,8 @@ To create an Observation or Forecast, an associated site must already exist (see
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding a Forecast.
 
-2.   Click the “Create new Forecast” button on the Site page.
-  <img class="my-3" src="/images/plant_site.png"/>
+2.  Click the “Create new Forecast” button on the Site page.
+    <img class="my-3" src="/images/plant_site.png"/>
 
 3.  Enter metadata for your Forecast. On submission, you will be redirected
     to a Forecast page which displays the new Forecast metadata and a
@@ -207,6 +210,58 @@ for details.
 
 2.  Enter the report name and a start and end for the period to analyze.
     Add pairs of Observations and Forecasts to compare by clicking the 'Add
-    Forecast, Observation pair' button.
+    Forecast, Observation pair' button. Check the boxes for metrics to calculate
+    in the report.
+    
      <img class="my-3" src="/images/report_form.png"/>
+    
+    After clicking submit, you will be returned to the report listing page where
+    you will see the newly created report with a status of 'pending'. The Arbiter
+    will process the report and then set its status to 'complete'. You may then
+    view the web version of the report.
 
+## Permission/Role management
+{: .anchor}
+
+User, permission and role administation can be accessed by clicking the 'User
+Administration' link in the Account menu in the top right corner of the site. 
+    <img class="my-3" src="/images/admin_menu.png"/>
+
+
+
+Note that these menus are meant to assist organization administrators in viewing
+and managing permissions, and users without admin privileges may not see anything
+on these pages.
+
+
+
+### Users
+{: .anchor}
+-   The Users tab will list the Users you have access to administer or view.
+	<img class="my-3" src="/images/users.png"/>
+
+
+-	Clicking on an individual user will list information about the user and their
+    roles.
+    <img class="my-3" src="/images/user.png"/>
+
+
+### Roles
+{: .anchor}
+-	The Roles tab will list all of the Roles you have access to administer or view.
+    <img class="my-3" src="/images/roles.png"/>
+
+-	Clicking on an individual Role will list information about it and the permissions
+    associated with it.
+    <img class="my-3" src="/images/role.png"/>
+
+
+### Permissions
+{: .anchor}
+-	The Permissions tab will list all of the Permissions you have access to administer
+    or view.
+    <img class="my-3" src="/images/permissions.png"/>
+
+-	Clicking on an individual Permission will list information about it and the objects
+    it applies to.
+    <img class="my-3" src="/images/permission.png"/>
