@@ -1,14 +1,16 @@
 ---
 layout: dashboard
-permalink: /dashboarddoc/
+permalink: /documentation/dashboard/
 ---
 
-User Dashboard Interaction
-==========================
+Dashboard Documentation
+=======================
 {: .anchor}
 
-This document illustrates how a Solar Forecast Arbiter user may use the
-Dashboard to complete the following actions:
+This documentation is intended to provide step-by-step walkthroughs of common
+use cases for the Solar Forecast Arbiter dashboard. 
+
+-   [Getting Started](#getting-started)
 
 -   [Create New Site](#create-new-site)
 
@@ -16,39 +18,30 @@ Dashboard to complete the following actions:
 
 -   [Upload Data to an Observation or Forecast](#upload-data)
 
-### User Guidance Considerations
-To assist in the user in providing the correct information and
-navigating the dashboard's interface, we've adopted the following
-features not otherwise illustrated in this guide.
 
--  To reduce clutter, the dashboard will utilize *progressive
-   disclosure* to hide unnecessary fields from view e.g. the
-   Site form will not display the *PV Modeling Paremeters* fields
-   unless a *Site Type* of *Power Plant* is selected.
+Getting Started
+---------------
+{: .anchor}
 
--  Descriptive tooltips will be displayed when a user selects a field.
-   <img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
-   <figcaption class="figure pb-2">The latitude field is selected and displays
-   a tooltip describing the data a user should enter.</figcaption>
+The alpha release of the Solar Forecast arbiter dashboard does not support automatic
+signup. In the meantime, you may use any of the credentials below to log in and
+explore the dashboard. You will be prompted to log in on the front page of the
+dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
 
--  Basic validation will be performed on the entered data to provide
-   immediate feedback to the user. There are two possible sources of
-   error in dashboard interaction:
+{: .table}
+|Email                                 | Password          |
+|--------------------------------------|-------------------|
+|testing@solarforecastarbiter.org      |Thepassword123!    |
+|utilityx@solarforecastarbiter.org     |Utilitypassword!   |   
+|forecastera@solarforecastarbiter.org  |Forecasterpassword!|
+|forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
 
-   1.  Invalid Input
+In a later release, users will be able to signup and join existing organizations with
+approval of that organization's administrators.
 
-       For example, a user entering a non-numeric value into numeric
-       field. In this case, the user will be prompted with meaningful
-       error messages and required to correct their data before submission. 
-
-   2.  Insufficient Input
-
-	   All fields will be required unless otherwise indicated. Users will
-	   not be able to submit data until they have provided valid data
-	   for all required fields.
 
 Create New Site
--------------
+---------------
 {: .anchor}
 
 1. Navigate to sites listing page using ‘Sites’ link in the left
@@ -204,3 +197,16 @@ for details.
 	<img class="my-3" src="/images/fx_download.png">
 
 <div class="my-3"></div>
+
+### Creating a Report
+{: .anchor}
+
+1.  Use the 'Reports' link on the left sidebar to view the reports listing page.
+    Click the 'Create new Report' link.
+    <img class="my-3" src="/images/reports.png"/>
+
+2.  Enter the report name and a start and end for the period to analyze.
+    Add pairs of Observations and Forecasts to compare by clicking the 'Add
+    Forecast, Observation pair' button.
+     <img class="my-3" src="/images/report_form.png"/>
+

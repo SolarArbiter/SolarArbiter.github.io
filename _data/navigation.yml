@@ -18,9 +18,6 @@
   - name: Data Model
     link: /datamodel/
 
-  - name: Dashboard Interaction
-    link: /dashboarddoc/
-
   - name: Reference Data
     link: /referencedata/
 
@@ -44,3 +41,15 @@
 
 - name: Blog
   link: /blog/
+
+- name: Documentation
+  links:
+
+  - name: Dashboard
+    link: /documentation/dashboard/
+
+  - name: API
+    link: https://api.solarforecastarbiter.org/
+
+  - name: Core
+    link: https://solarforecastarbiter-core.readthedocs.io/en/latest/
