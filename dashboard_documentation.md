@@ -20,7 +20,7 @@ use cases for the Solar Forecast Arbiter dashboard.
 
 -   [Create New Report](#create-new-report)
 
--   [Permissions and Role Management]
+-   [Permissions and Role Management](#permissionrole-management)
 
 Getting Started
 ---------------
