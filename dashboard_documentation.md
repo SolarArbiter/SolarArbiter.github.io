@@ -7,20 +7,14 @@ Dashboard Documentation
 =======================
 {: .anchor}
 
-This documentation is intended to provide step-by-step walkthroughs of common
-use cases for the Solar Forecast Arbiter dashboard. 
+This documentation will provide step-by-step examples of how to perform
+common activities on the Solar Forecast Arbiter dashboard. The Content menu
+can be used to navigate between each activity. Each section will include
+instructions and screenshots.
 
--   [Getting Started](#getting-started)
+Be sure to read the [Getting Started](#getting-started) section for instructions
+on how to access the current version of the dashboard.
 
--   [Create New Site](#create-new-site)
-
--   [Create New Observation or Forecast](#create-new-observation-or-forecast)
-
--   [Upload Data to an Observation or Forecast](#upload-data)
-
--   [Create New Report](#create-new-report)
-
--   [Permissions and Role Management](#permissionrole-management)
 
 Getting Started
 ---------------
