@@ -42,7 +42,7 @@ RMSE is a frequently used measured for evaluating forecast accuracy. It can be i
 ### Forecast Skill ($$ s $$)
 The forecast skill measures the performance of a forecast relative to a reference forecast. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
-$$ s = 1 - \frac{\text{RMSE_F}}{\text{RMSE}_{\text{ref}} $$
+$$ s = 1 - \frac{\text{RMSE}_F}{\text{RMSE}_{\text{ref}}} $$
 
 where $$ \text{RMSE}_F $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
 
