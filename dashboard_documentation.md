@@ -195,7 +195,7 @@ for details.
 
 <div class="my-3"></div>
 
-### Creating a Report
+### Create New Report
 {: .anchor}
 
 1.  Use the 'Reports' link on the left sidebar to view the reports listing page.
