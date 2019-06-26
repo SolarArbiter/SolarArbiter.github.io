@@ -1,54 +1,44 @@
 ---
 layout: dashboard
-permalink: /dashboarddoc/
+permalink: /documentation/dashboard/
 ---
 
-User Dashboard Interaction
-==========================
+Dashboard Documentation
+=======================
 {: .anchor}
 
-This document illustrates how a Solar Forecast Arbiter user may use the
-Dashboard to complete the following actions:
+This documentation will provide step-by-step examples of how to perform
+common activities on the Solar Forecast Arbiter dashboard. The Content menu
+can be used to navigate between each activity. Each section will include
+instructions and screenshots.
 
--   [Create New Site](#create-new-site)
+Be sure to read the [Getting Started](#getting-started) section for instructions
+on how to access the current version of the dashboard.
 
--   [Create New Observation or Forecast](#create-new-observation-or-forecast)
 
--   [Upload Data to an Observation or Forecast](#upload-data)
+Getting Started
+---------------
+{: .anchor}
 
-### User Guidance Considerations
-To assist in the user in providing the correct information and
-navigating the dashboard's interface, we've adopted the following
-features not otherwise illustrated in this guide.
+The alpha release of the Solar Forecast arbiter dashboard does not support automatic
+signup. In the meantime, you may use any of the credentials below to log in and
+explore the dashboard. You will be prompted to log in on the front page of the
+dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
 
--  To reduce clutter, the dashboard will utilize *progressive
-   disclosure* to hide unnecessary fields from view e.g. the
-   Site form will not display the *PV Modeling Paremeters* fields
-   unless a *Site Type* of *Power Plant* is selected.
+{: .table}
+|Email                                 | Password          |
+|--------------------------------------|-------------------|
+|testing@solarforecastarbiter.org      |Thepassword123!    |
+|utilityx@solarforecastarbiter.org     |Utilitypassword!   |   
+|forecastera@solarforecastarbiter.org  |Forecasterpassword!|
+|forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
 
--  Descriptive tooltips will be displayed when a user selects a field.
-   <img class="my-3" src="/images/TooltipDetail.png" class="figure"/>
-   <figcaption class="figure pb-2">The latitude field is selected and displays
-   a tooltip describing the data a user should enter.</figcaption>
+In a later release, users will be able to signup and join existing organizations with
+approval of that organization's administrators.
 
--  Basic validation will be performed on the entered data to provide
-   immediate feedback to the user. There are two possible sources of
-   error in dashboard interaction:
-
-   1.  Invalid Input
-
-       For example, a user entering a non-numeric value into numeric
-       field. In this case, the user will be prompted with meaningful
-       error messages and required to correct their data before submission. 
-
-   2.  Insufficient Input
-
-	   All fields will be required unless otherwise indicated. Users will
-	   not be able to submit data until they have provided valid data
-	   for all required fields.
 
 Create New Site
--------------
+---------------
 {: .anchor}
 
 1. Navigate to sites listing page using ‘Sites’ link in the left
@@ -103,8 +93,8 @@ To create an Observation or Forecast, an associated site must already exist (see
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding a Forecast.
 
-2.   Click the “Create new Forecast” button on the Site page.
-  <img class="my-3" src="/images/plant_site.png"/>
+2.  Click the “Create new Forecast” button on the Site page.
+    <img class="my-3" src="/images/plant_site.png"/>
 
 3.  Enter metadata for your Forecast. On submission, you will be redirected
     to a Forecast page which displays the new Forecast metadata and a
@@ -204,3 +194,68 @@ for details.
 	<img class="my-3" src="/images/fx_download.png">
 
 <div class="my-3"></div>
+
+### Create New Report
+{: .anchor}
+
+1.  Use the 'Reports' link on the left sidebar to view the reports listing page.
+    Click the 'Create new Report' link.
+    <img class="my-3" src="/images/reports.png"/>
+
+2.  Enter the report name and a start and end for the period to analyze.
+    Add pairs of Observations and Forecasts to compare by clicking the 'Add
+    Forecast, Observation pair' button. Check the boxes for metrics to calculate
+    in the report.
+    
+     <img class="my-3" src="/images/report_form.png"/>
+    
+    After clicking submit, you will be returned to the report listing page where
+    you will see the newly created report with a status of 'pending'. The Arbiter
+    will process the report and then set its status to 'complete'. You may then
+    view the web version of the report.
+
+## Permission/Role management
+{: .anchor}
+
+User, permission and role administation can be accessed by clicking the 'User
+Administration' link in the Account menu in the top right corner of the site. 
+    <img class="my-3" src="/images/admin_menu.png"/>
+
+
+
+Note that these menus are meant to assist organization administrators in viewing
+and managing permissions, and users without admin privileges may not see anything
+on these pages.
+
+
+
+### Users
+{: .anchor}
+-   The Users tab will list the Users you have access to administer or view.
+	<img class="my-3" src="/images/users.png"/>
+
+
+-	Clicking on an individual user will list information about the user and their
+    roles.
+    <img class="my-3" src="/images/user.png"/>
+
+
+### Roles
+{: .anchor}
+-	The Roles tab will list all of the Roles you have access to administer or view.
+    <img class="my-3" src="/images/roles.png"/>
+
+-	Clicking on an individual Role will list information about it and the permissions
+    associated with it.
+    <img class="my-3" src="/images/role.png"/>
+
+
+### Permissions
+{: .anchor}
+-	The Permissions tab will list all of the Permissions you have access to administer
+    or view.
+    <img class="my-3" src="/images/permissions.png"/>
+
+-	Clicking on an individual Permission will list information about it and the objects
+    it applies to.
+    <img class="my-3" src="/images/permission.png"/>
