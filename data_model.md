@@ -10,13 +10,12 @@ The goal of this document is to explain the Solar Forecast Arbiter data
 model. To keep the framework architecture simple and secure, the API
 closely follows this data model. Therefore, it is worthwhile for API
 users to understand the data model. Please see
-[dev-api.solarforecastarbiter.org](https://dev-api.solarforecastarbiter.org/)
+[api.solarforecastarbiter.org](https://api.solarforecastarbiter.org/)
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
-model. The Dashboard may contain additional features and abstractions to
-expedite common use cases. See
-[solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
-for a walkthrough of the proposed Dashboard user interface.
+model. The Dashboard contains additional features and abstractions to
+expedite common use cases. See [here](/documentation/dashboard/)
+for a walkthrough of the Dashboard user interface.
 
 Data ownership, access, and control issues will be discussed in other
 documents.
@@ -29,14 +28,14 @@ steps in order:
     parameters for a Site representing a power plant (e.g. AC capacity,
     DC capacity).
 
-2.  For each Observation,
+2.  For each Observation:
 
-  a. Define the Observation: name, variable (e.g., GHI), interval value
-     type (e.g. instantaneous or average), interval label (N/A, beginning,
-     ending), uncertainty.
+    a. Define the Observation: name, variable (e.g., GHI), interval value
+       type (e.g. instantaneous or average), interval label (N/A, beginning,
+       ending), uncertainty.
 
-	b. Upload a time series with each element in the series being a
-	   triplet of values: Time, Value, Quality Flag.
+	  b. Upload a time series with each element in the series being a
+	     triplet of values: Time, Value, Quality Flag.
 
 In this model, each of several Observations (e.g., GHI, air temperature,
 wind speed) is uploaded as a separate time series. Because each

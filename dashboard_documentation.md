@@ -7,20 +7,26 @@ Dashboard Documentation
 =======================
 {: .anchor}
 
-This documentation will provide step-by-step examples of how to perform
+The Solar Forecast Arbiter Dashboard is a web interface for managing solar
+observation and forecast data and for evaluating solar forecast accuracy.
+This documentation provides step-by-step examples of how to perform
 common activities on the Solar Forecast Arbiter dashboard. The Content menu
-can be used to navigate between each activity. Each section will include
+can be used to navigate between each activity. Each section includes
 instructions and screenshots.
 
 Be sure to read the [Getting Started](#getting-started) section for instructions
 on how to access the current version of the dashboard.
+Please see the [data model documentation](/datamodel/) for more details on
+how the Solar Forecast Arbiter organizes metadata (Sites, Observations, and Forecasts)
+and time series data.
+Tutorial materials are available in our [2019 Denver Workshop repository](https://github.com/SolarArbiter/2019-Denver-Workshop).
 
 
 Getting Started
 ---------------
 {: .anchor}
 
-The alpha release of the Solar Forecast arbiter dashboard does not support automatic
+The alpha release of the Solar Forecast Arbiter dashboard does not yet support automatic
 signup. In the meantime, you may use any of the credentials below to log in and
 explore the dashboard. You will be prompted to log in on the front page of the
 dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
@@ -29,7 +35,7 @@ dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecas
 |Email                                 | Password          |
 |--------------------------------------|-------------------|
 |testing@solarforecastarbiter.org      |Thepassword123!    |
-|utilityx@solarforecastarbiter.org     |Utilitypassword!   |   
+|utilityx@solarforecastarbiter.org     |Utilitypassword!   |
 |forecastera@solarforecastarbiter.org  |Forecasterpassword!|
 |forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
 
@@ -45,10 +51,9 @@ Create New Site
    sidebar. At the top of the Site listing click ‘Create new Site’.
 <img class="my-3" src="/images/SitesListing.png"/>
 
-2. Enter the metadata for your Site. Selecting a site type of 
-   'Power Plant' will prompt you for additional fields. 
+2. Enter the metadata for your Site. Selecting a site type of
+   'Power Plant' will prompt you for additional fields.
 
-   
    - *Weather station site creation form*
    <img class="my-3" src="/images/SiteForm.png"/>
 
@@ -65,13 +70,13 @@ Create New Site
 
 
 Create New Observation or Forecast
----------------------------------
+----------------------------------
 {: .anchor}
 
 To create an Observation or Forecast, an associated site must already exist (see [Create New Site](#create-new-site)).
 
 ### Create New Observation
-{: .anchor} 
+{: .anchor}
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding an Observation.
@@ -115,7 +120,7 @@ must already exist (see [Create New Site](#create-New-site) or
 The instructions here will describe the process of
 uploading data using the dashboard.
 Uploading data may be automated using the API, see
-[https://dev-api.solarforecastarbiter.org/](https://dev-api.solarforecastarbiter.org/)
+[https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
 for detailed documentation.
 
 ### Upload Observation Data
@@ -162,7 +167,7 @@ Download Data
 The instructions here will describe the process of
 downloading data using the dashboard.
 Users may also utilize the API to download data. See the
-[API documentation](https://dev-api.solarforecastarbiter.org/)
+[API documentation](https://api.solarforecastarbiter.org/)
 for details.
 
 ### Download Observation data
@@ -206,9 +211,9 @@ for details.
     Add pairs of Observations and Forecasts to compare by clicking the 'Add
     Forecast, Observation pair' button. Check the boxes for metrics to calculate
     in the report.
-    
+
      <img class="my-3" src="/images/report_form.png"/>
-    
+
     After clicking submit, you will be returned to the report listing page where
     you will see the newly created report with a status of 'pending'. The Arbiter
     will process the report and then set its status to 'complete'. You may then
@@ -218,7 +223,7 @@ for details.
 {: .anchor}
 
 User, permission and role administation can be accessed by clicking the 'User
-Administration' link in the Account menu in the top right corner of the site. 
+Administration' link in the Account menu in the top right corner of the site.
     <img class="my-3" src="/images/admin_menu.png"/>
 
 
