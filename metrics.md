@@ -36,7 +36,7 @@ The RMSE is the square root of the averaged of the squared differences between t
 
 $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
-RMSE is a frequently used measured for evaluating forecast accuracy. It can be interprest
+RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors.
 
 
 ### Forecast Skill ($$ s $$)
