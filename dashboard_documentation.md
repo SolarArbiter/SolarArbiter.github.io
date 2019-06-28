@@ -29,7 +29,7 @@ dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecas
 |Email                                 | Password          |
 |--------------------------------------|-------------------|
 |testing@solarforecastarbiter.org      |Thepassword123!    |
-|utilityx@solarforecastarbiter.org     |Utilitypassword!   |   
+|utilityx@solarforecastarbiter.org     |Utilitypassword!   |
 |forecastera@solarforecastarbiter.org  |Forecasterpassword!|
 |forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
 
@@ -45,10 +45,10 @@ Create New Site
    sidebar. At the top of the Site listing click ‘Create new Site’.
 <img class="my-3" src="/images/SitesListing.png"/>
 
-2. Enter the metadata for your Site. Selecting a site type of 
-   'Power Plant' will prompt you for additional fields. 
+2. Enter the metadata for your Site. Selecting a site type of
+   'Power Plant' will prompt you for additional fields.
 
-   
+
    - *Weather station site creation form*
    <img class="my-3" src="/images/SiteForm.png"/>
 
@@ -71,7 +71,7 @@ Create New Observation or Forecast
 To create an Observation or Forecast, an associated site must already exist (see [Create New Site](#create-new-site)).
 
 ### Create New Observation
-{: .anchor} 
+{: .anchor}
 
 1.  Navigate to the Site listing page using the ‘Sites’ link in the left
 	sidebar. Select the site for which you are adding an Observation.
@@ -206,9 +206,9 @@ for details.
     Add pairs of Observations and Forecasts to compare by clicking the 'Add
     Forecast, Observation pair' button. Check the boxes for metrics to calculate
     in the report.
-    
+
      <img class="my-3" src="/images/report_form.png"/>
-    
+
     After clicking submit, you will be returned to the report listing page where
     you will see the newly created report with a status of 'pending'. The Arbiter
     will process the report and then set its status to 'complete'. You may then
@@ -218,7 +218,7 @@ for details.
 {: .anchor}
 
 User, permission and role administation can be accessed by clicking the 'User
-Administration' link in the Account menu in the top right corner of the site. 
+Administration' link in the Account menu in the top right corner of the site.
     <img class="my-3" src="/images/admin_menu.png"/>
 
 
