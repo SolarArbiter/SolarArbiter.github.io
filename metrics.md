@@ -1,14 +1,16 @@
 ---
-layout: base
+layout: metrics
 mathjax: true
 permalink: /metrics/
 ---
 
 # Metrics
+{: .anchor } 
 The Solar Forecast Arbiter evaluation framework provides a suite of metrics for evaluating deterministic and probablistic solar forecasts. These metrics are used for different purposes, e.g., comparing the forecast and the measurement, comparing the performance of multiple forecasts, and evaluating an event forecast.
 
 
 ## Metrics for Deterministic Forecasts
+{: .anchor }
 The following metrics provide measures of the performance of deterministic forecasts. Each metric is computed from a set of $$ n $$ forecasts $$ (F_1, F_2, \dots, F_n) $$ and corresponding observations $$ (O_1, O_2, \dots, O_n) $$.
 
 In the metrics below, we adopt the following nomenclature:
@@ -20,18 +22,21 @@ In the metrics below, we adopt the following nomenclature:
 
 
 ### Mean Absolute Error (MAE)
+{: .anchor }
 The absolute error is the absolute value of the difference between the forecasted and observed values. The MAE is defined as:
 
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
 
 ### Mean Bias Error (MBE)
+{: .anchor }
 The bias is the difference between the forecasted and observed values. The MBE is defined as:
 
 $$ \text{MBE} = \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
 
 ### Root Mean Square Error (RMSE)
+{: .anchor }
 The RMSE is the square root of the averaged of the squared differences between the forecasted and observed values, and is defined as:
 
 $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
@@ -40,6 +45,7 @@ RMSE is a frequently used measure for evaluating forecast accuracy. Since the er
 
 
 ### Forecast Skill ($$ s $$)
+{: .anchor }
 The forecast skill measures the performance of a forecast relative to a reference forecast. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
 $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
@@ -48,18 +54,21 @@ where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{
 
 
 ### Mean Absolute Percentage Error (MAPE)
+{: .anchor }
 The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
 
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
 ### Normalized Root Mean Square Error (NRMSE):
+{: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
 $$ \text{RMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE)
+{: .anchor }
 The CRMSE describes the variation in errors around the mean and is defined as:
 
 $$ \text{CRMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n \left( (F_i - \bar{F}) - (O_i - \bar{O}) \right)^2 } $$
@@ -72,6 +81,7 @@ where $$ \sigma_F $$ and $$ \sigma_O $$ are the standard deviations of the forec
 
 
 ### Pearson Correlation Coefficient ($$ r $$)
+{: .anchor }
 Correlation indicates the strength and direction of a linear relationship between two variables. The Pearson correlation coefficient, aka, the sample correlation coefficient, measures the linear dependency between the forecasted and observed values, and is defined as the ratio of the covariance of the variables to the product of their standard deviation:
 
 $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
@@ -79,6 +89,7 @@ $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
 
 
 ### Coefficient of Determination ($$ R^2 $$)
+{: .anchor }
 The coefficient of determination measures the extent that the variability in the forecast errors is explained by variability in the observed values, and is defined as:
 
 $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2 } $$
@@ -87,6 +98,7 @@ By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 
 ### Kolmogorov-Smirnov Test Integral (KSI)
+{: .anchor }
 The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values, and is defined as:
 
 $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
@@ -107,6 +119,7 @@ where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V
 
 
 ### OVER
+{: .anchor }
 Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$. The OVER is calculated as:
 
 $$ OVER = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n^* dp $$
@@ -122,12 +135,14 @@ The OVER metric can be normalized using the same approach as for KSI.
 
 
 ### Combined Performance Index (CPI)
+{: .anchor }
 The CPI can be thought of as a combination of KSI, OVER, and RMSE:
 
 $$ \text{CPI} = \frac{1}{4} ( \text{KSI} + \text{OVER} + 2 \times \text{RMSE} ) $$
 
 
 ## Metrics for Deterministic Event Forecasts
+{: .anchor }
 An event is defined by values that exceed or fall below a threshold. A typical event is the ramp in power of solar generation, which is determine by:
 
 $$ | P(t + \Delta t) - P(t) | > \text{Ramp Forecasting Threshold} $$
@@ -145,36 +160,42 @@ By then counting the the number of TP, FP, TN and FN values, the following metri
 
 
 ### Probability of Detection (POD)
+{: .anchor }
 The POD is the fraction of observed events correctly forecasted as events:
 
 $$ POD = \frac{TP}{TP + FN} $$
 
 
 ### False Alarm Ratio (FAR)
+{: .anchor }
 The FAR is the fraction of forecasted events that did not occur:
 
 $$ FAR = \frac{FP}{TP + FP} $$
 
 
 ### Probability of False Detection (POFD)
+{: .anchor }
 The POFD is the fraction of observed non-events that were forecasted as events:
 
 $$ POFD = \frac{FP}{FP + TN} $$
 
 
 ### Critical Success Index (CSI)
+{: .anchor }
 The CSI evaluates how well an event forecast predicts observed events, e.g., ramps in irradiance or power. THe CSI is the relative frequency of hits, i.e., how well predicted "yes" events correspond to observed "yes" events:
 
 $$ CSI = \frac{TP}{TP + FP + FN} $$
 
 
 ### Event Bias (EBIAS)
+{: .anchor }
 The EBIAS is the ratio of counts of forecast and observed events:
 
 $$ EBIAS = \frac{TP + FP}{TP + FN} $$
 
 
 ### Event Accuracy (EA)
+{: .anchor }
 The EA is the fraction of events that were forecasted correctly, i.e., forecast = "yes" and observed = "yes" or forecast = "no" and observed = "no":
 
 $$ EA = \frac{TP + TN}{TP + FP + TN + FN} = \frac{TP + TN}{n} $$
@@ -183,6 +204,7 @@ where $$ n $$ is the number of samples.
 
 
 ## Metrics for Probablistic Forecasts
+{: .anchor }
 Probablistic forecasts represent uncertainty in the forecast quantity by providing a probability distribution or a prediction interval, rather than a single value.
 
 In the metrics below, we adopt the following nomenclature:
@@ -199,6 +221,7 @@ In the metrics below, we adopt the following nomenclature:
 
 
 ### Brier Score (BS)
+{: .anchor }
 The BS measures the accuracy of forecast probability for one or more events:
 
 $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
@@ -207,6 +230,7 @@ Smaller values of BS indicate better agreement between forecasts and observation
 
 
 ### Brier Skill Score (BSS)
+{: .anchor }
 The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
 
 $$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
@@ -219,6 +243,7 @@ $$ \text{BS} = \text{REL} + \text{RES} + \text{UNC} $$
 
 
 ### Reliability (REL)
+{: .anchor }
 The REL is given by:
 
 $$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \bar{o}_i)^2 $$
@@ -227,6 +252,7 @@ Reliability is the weighted averaged of the squared differences between the fore
 
 
 ### Resolution (RES)
+{: .anchor }
 The RES is given by:
 
 $$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
@@ -235,6 +261,7 @@ Resolution is the weighted averaged of the squared differences between the relea
 
 
 ### Uncertainty (UNC)
+{: .anchor }
 The UNC is given by:
 
 $$ \text{UNC} = \bar{o} (1 - \bar{o})$$
@@ -243,6 +270,7 @@ Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC
 
 
 ### Sharpness (SH)
+{: .anchor }
 The SH represents the degree of "concentration" of a forecast comprising a prediction interval of the form $$ [ f_l, f_u ] $$ within which the forecast quantity is expected to fall with probability $$ 1 - \beta $$. A good forecast should have a low sharpness value. The prediction interval endpoints are associated with quantiles $$ \alpha_l $$ and $$ \alpha_u $$, where $$ \alpha_u - \alpha_l = 1 - \beta $$. For a single prediction interval, the SH is:
 
 $$ \text{SH} = f_u - f_l $$
@@ -253,6 +281,7 @@ $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 
 ### Continuous Ranked Probability Score (CRPS)
+{: .anchor }
 The CRPS is a score that is a designed to measure both the realiability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
 $$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int | F_i(x) - O_i(x) | dx $$
