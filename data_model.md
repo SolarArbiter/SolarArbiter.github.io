@@ -29,14 +29,14 @@ steps in order:
     parameters for a Site representing a power plant (e.g. AC capacity,
     DC capacity).
 
-2.  For each Observation,
+2.  For each Observation:
 
-  a. Define the Observation: name, variable (e.g., GHI), interval value
-     type (e.g. instantaneous or average), interval label (N/A, beginning,
-     ending), uncertainty.
+    a. Define the Observation: name, variable (e.g., GHI), interval value
+       type (e.g. instantaneous or average), interval label (N/A, beginning,
+       ending), uncertainty.
 
-	b. Upload a time series with each element in the series being a
-	   triplet of values: Time, Value, Quality Flag.
+	  b. Upload a time series with each element in the series being a
+	     triplet of values: Time, Value, Quality Flag.
 
 In this model, each of several Observations (e.g., GHI, air temperature,
 wind speed) is uploaded as a separate time series. Because each
