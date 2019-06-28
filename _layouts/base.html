@@ -2,6 +2,9 @@
 <html lang="en" class="h-100">
   <head>
     {% include header.html %}
+    {% if page.mathjax != false %}
+        {% include mathjax.html %}
+    {% endif %}
   </head>
 
   <body class="d-flex flex-column h-100">
