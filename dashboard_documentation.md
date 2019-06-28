@@ -19,6 +19,7 @@ on how to access the current version of the dashboard.
 Please see the [data model documentation](/datamodel/) for more details on
 how the Solar Forecast Arbiter organizes metadata (Sites, Observations, and Forecasts)
 and time series data.
+Tutorial materials are available at this [link](https://github.com/SolarArbiter/2019-Denver-Workshop).
 
 
 Getting Started
