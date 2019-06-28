@@ -127,7 +127,7 @@ The CPI can be thought of as a combination of KSI, OVER, and RMSE:
 $$ \text{CPI} = \frac{1}{4} ( \text{KSI} + \text{OVER} + 2 \times \text{RMSE} ) $$
 
 
-## Metrics fo Deterministic Event Forecasts
+## Metrics for Deterministic Event Forecasts
 An event is defined by values that exceed or fall below a threshold. A typical event is the ramp in power of solar generation, which is determine by:
 
 $$ | P(t + \Delta t) - P(t) | > \text{Ramp Forecasting Threshold} $$
