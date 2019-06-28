@@ -7,16 +7,16 @@ permalink: /metrics/
 # Metrics
 The Solar Forecast Arbiter evaluation framework provides a suite of metrics for evaluating deterministic and probablistic solar forecasts. These metrics are used for different purposes, e.g., comparing the forecast and the measurement, comparing the performance of multiple forecasts, and evaluating an event forecast.
 
+
+## Metrics for Deterministic Forecasts
+The following metrics provide measures of the performance of deterministic forecasts. Each metric is computed from a set of $$ n $$ forecasts $$ (F_1, F_2, \dots, F_n) $$ and corresponding observations $$ (O_1, O_2, \dots, O_n) $$.
+
 In the metrics below, we adopt the following nomenclature:
 - $$ n : $$ number of samples
 - $$ F : $$ forecasted value
 - $$ O : $$ observed (actual) value
 - $$ \text{norm} : $$ normalizing factor (with the same units as the forecasted and observed values)
 - $$ \bar{F}, \, \bar{O} : $$ the mean of the forecasted and observed values, respectively
-
-
-## Metrics for Deterministic Forecasts
-The following metrics provide measures of the performance of deterministic forecasts. Each metric is computed from a set of $$ n $$ forecasts $$ (F_1, F_2, \dots, F_n) $$ and corresponding observations $$ (O_1, O_2, \dots, O_n) $$.
 
 
 ### Mean Absolute Error (MAE)
@@ -96,12 +96,19 @@ $$ p_k = p_{\text{min}} + kd, \enspace k = 0, 1, \dots, K, \enspace \text{and} \
 In practice, $$ K = 100 $$ is typical. A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
 
 
+### OVER
+Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$.
+
+$$ OVER = $$
+
+
 ## Metrics fo Deterministic Event Forecasts
 An event is defined by values that exceed or fall below a threshold. A typical event is the ramp in power of solar generation, which is determine by:
 
 $$ | P(t + \Delta t) - P(t) | > \text{Ramp Forecasting Threshold} $$
 
 where $$ P(t) $$ is the solar power output at time $$ t $$ and $$ \Delta t $$ is the duration of the ramp event.
+
 
 ### Probability of Detection (POD)
 
@@ -134,8 +141,8 @@ $$ EA = $$
 
 
 ## Metrics for Probablistic Forecasts
+Probablistic forecasts represent uncertainty in the forecast quantity by providing a probability distribution or a prediction interval, rather than a single value.
 
-The following metrics provide measures of the performance of probablistic forecasts. Each metric is computer
 
 ### Brier Score (BS)
 The BS
@@ -145,13 +152,30 @@ $$ BS = \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2  $$
 
 ### Brier Skill Score (BSS)
 
+$$ BSS = 1 - $$
+
+
 ### Reliability (REL)
+
+$$ REL = $$
+
 
 ### Resolution (RES)
 
+$$ RES = $$
+
+
 ### Uncertainty (UNC)
+
+$$ UNC = $$
+
 
 ### Sharpness (SH)
 
+$$ SH = $$
+
+
 ### Continuous Ranked Probability Score (CRPS)
+
+$$ CRPS = $$
 
