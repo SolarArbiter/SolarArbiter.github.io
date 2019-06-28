@@ -7,20 +7,25 @@ Dashboard Documentation
 =======================
 {: .anchor}
 
-This documentation will provide step-by-step examples of how to perform
+The Solar Forecast Arbiter Dashboard is a web interface for managing solar
+observation and forecast data and for evaluating solar forecast accuracy.
+This documentation provides step-by-step examples of how to perform
 common activities on the Solar Forecast Arbiter dashboard. The Content menu
-can be used to navigate between each activity. Each section will include
+can be used to navigate between each activity. Each section includes
 instructions and screenshots.
 
 Be sure to read the [Getting Started](#getting-started) section for instructions
 on how to access the current version of the dashboard.
+Please see the [data model documentation](/datamodel/) for more details on
+how the Solar Forecast Arbiter organizes metadata (Sites, Observations, and Forecasts)
+and time series data.
 
 
 Getting Started
 ---------------
 {: .anchor}
 
-The alpha release of the Solar Forecast arbiter dashboard does not support automatic
+The alpha release of the Solar Forecast Arbiter dashboard does not yet support automatic
 signup. In the meantime, you may use any of the credentials below to log in and
 explore the dashboard. You will be prompted to log in on the front page of the
 dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
@@ -48,7 +53,6 @@ Create New Site
 2. Enter the metadata for your Site. Selecting a site type of
    'Power Plant' will prompt you for additional fields.
 
-
    - *Weather station site creation form*
    <img class="my-3" src="/images/SiteForm.png"/>
 
@@ -65,7 +69,7 @@ Create New Site
 
 
 Create New Observation or Forecast
----------------------------------
+----------------------------------
 {: .anchor}
 
 To create an Observation or Forecast, an associated site must already exist (see [Create New Site](#create-new-site)).
@@ -115,7 +119,7 @@ must already exist (see [Create New Site](#create-New-site) or
 The instructions here will describe the process of
 uploading data using the dashboard.
 Uploading data may be automated using the API, see
-[https://dev-api.solarforecastarbiter.org/](https://dev-api.solarforecastarbiter.org/)
+[https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
 for detailed documentation.
 
 ### Upload Observation Data
@@ -162,7 +166,7 @@ Download Data
 The instructions here will describe the process of
 downloading data using the dashboard.
 Users may also utilize the API to download data. See the
-[API documentation](https://dev-api.solarforecastarbiter.org/)
+[API documentation](https://api.solarforecastarbiter.org/)
 for details.
 
 ### Download Observation data

@@ -10,13 +10,12 @@ The goal of this document is to explain the Solar Forecast Arbiter data
 model. To keep the framework architecture simple and secure, the API
 closely follows this data model. Therefore, it is worthwhile for API
 users to understand the data model. Please see
-[dev-api.solarforecastarbiter.org](https://dev-api.solarforecastarbiter.org/)
+[api.solarforecastarbiter.org](https://api.solarforecastarbiter.org/)
 for the technical API documentation. The Dashboard should be clear
 enough that users of it do not need a complete understanding of the data
-model. The Dashboard may contain additional features and abstractions to
-expedite common use cases. See
-[solarforecastarbiter.org/dashboarddoc/](/dashboarddoc/)
-for a walkthrough of the proposed Dashboard user interface.
+model. The Dashboard contains additional features and abstractions to
+expedite common use cases. See [here](/documentation/dashboard/)
+for a walkthrough of the Dashboard user interface.
 
 Data ownership, access, and control issues will be discussed in other
 documents.
