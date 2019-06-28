@@ -87,10 +87,50 @@ $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
 where $$ p_{\text{min}} $$ and $$ p_{\text{max}} $$ are the minimum and maximum values of the observations, and $$ D_n(p) $$ is the absolute difference between the two empirical CDFs:
 
-$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | ) \text{for}$$
+$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | ) \text{for} p \in \[p_k, p_{k+1} \]$$
 
 where $$ p_k $$ is defined
 
+$$ p_k = p_{\text{min}} + kd, \enspace k = 0, 1, \dots, K, \enspace \text{and} \enspace d = (p_{\text{max}} - p_{\text{min}}) / K $$
+
+In practice, $$ K = 100 $$ is typical. A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
+
+
+## Metrics fo Deterministic Event Forecasts
+An event is defined by values that exceed or fall below a threshold. A typical event is the ramp in power of solar generation, which is determine by:
+
+$$ | P(t + \Delta t) - P(t) | > \text{Ramp Forecasting Threshold} $$
+
+where $$ P(t) $$ is the solar power output at time $$ t $$ and $$ \Delta t $$ is the duration of the ramp event.
+
+### Probability of Detection (POD)
+
+$$ POD = \frac{a}{a + c} $$
+
+
+### False Alarm Ratio (FAR)
+
+$$ FAR = \frac{b}{a + b} $$
+
+
+### Probability of False Detection (POFD)
+
+$$ POFD = $$
+
+
+### Critical Success Index (CSI)
+
+$$ CSI = $$
+
+
+### Event Bias (EBIAS)
+
+$$ EBIAS = $$
+
+
+### Event Accuracy (EA)
+
+$$ EA = $$
 
 
 ## Metrics for Probablistic Forecasts
@@ -102,4 +142,16 @@ The BS
 
 $$ BS = \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2  $$
 
+
+### Brier Skill Score (BSS)
+
+### Reliability (REL)
+
+### Resolution (RES)
+
+### Uncertainty (UNC)
+
+### Sharpness (SH)
+
+### Continuous Ranked Probability Score (CRPS)
 
