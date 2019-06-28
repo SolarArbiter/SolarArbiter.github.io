@@ -109,35 +109,52 @@ $$ | P(t + \Delta t) - P(t) | > \text{Ramp Forecasting Threshold} $$
 
 where $$ P(t) $$ is the solar power output at time $$ t $$ and $$ \Delta t $$ is the duration of the ramp event.
 
+Based on the predefined threshold, all observations or forecasts can be evaluated by placing them in either the "event occurred" (Positive) or "event did not occur" (Negative) categories. Then individual pairs of forecasts and observations can be placed into one of four groups based on whether the event forecast agrees (or disagrees) with the event observed value:
+
+- True Positive (TP): Forecast = Event, Observed = Event
+- False Positive (FP): Forecast = Event, Observed = No Event
+- True Negative (TN): Forecast = No Event, Observed = No Event
+- False Negative (FN): Forecast = No Event, Observed = Event
+
+By then counting the the number of TP, FP, TN and FN values, the following metrics can be computed:
+
 
 ### Probability of Detection (POD)
+The POD is the fraction of observed events correctly forecasted as events: 
 
-$$ POD = \frac{a}{a + c} $$
+$$ POD = \frac{TP}{TP + FN} $$
 
 
 ### False Alarm Ratio (FAR)
+The FAR is the fraction of forecasted events that did not occur:
 
-$$ FAR = \frac{b}{a + b} $$
+$$ FAR = \frac{FP}{TP + FP} $$
 
 
 ### Probability of False Detection (POFD)
+The POFD is the fraction of observed non-events that were forecasted as events:
 
-$$ POFD = $$
+$$ POFD = \frac{FP}{FP + TN} $$
 
 
 ### Critical Success Index (CSI)
+The CSI evaluates how well an event forecast predicts observed events, e.g., ramps in irradiance or power. THe CSI is the relative frequency of hits, i.e., how well predicted "yes" events correspond to observed "yes" events:
 
-$$ CSI = $$
+$$ CSI = \frac{TP}{TP + FP + FN} $$
 
 
 ### Event Bias (EBIAS)
+The EBIAS is the ratio of counts of forecast and observed events:
 
-$$ EBIAS = $$
+$$ EBIAS = \frac{TP + FP}{TP + FN} $$
 
 
 ### Event Accuracy (EA)
+The EA is the fraction of events that were forecasted correctly, i.e., forecast = "yes" and observed = "yes" or forecast = "no" and observed = "no":
 
-$$ EA = $$
+$$ EA = \frac{TP + TN}{TP + FP + TN + FN} = \frac{TP + TN}{n} $$
+
+where $$ n $$ is the number of samples.
 
 
 ## Metrics for Probablistic Forecasts
