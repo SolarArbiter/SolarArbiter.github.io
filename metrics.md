@@ -42,9 +42,9 @@ RMSE is a frequently used measured for evaluating forecast accuracy. It can be i
 ### Forecast Skill ($$ s $$)
 The forecast skill measures the performance of a forecast relative to a reference forecast. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
-$$ s = 1 - \frac{\text{RMSE}_F}{\text{RMSE}_{\text{ref}}} $$
+$$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 
-where $$ \text{RMSE}_F $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
+where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
 
 
 ### Mean Absolute Percentage Error (MAPE)
@@ -120,7 +120,7 @@ By then counting the the number of TP, FP, TN and FN values, the following metri
 
 
 ### Probability of Detection (POD)
-The POD is the fraction of observed events correctly forecasted as events: 
+The POD is the fraction of observed events correctly forecasted as events:
 
 $$ POD = \frac{TP}{TP + FN} $$
 
@@ -160,39 +160,83 @@ where $$ n $$ is the number of samples.
 ## Metrics for Probablistic Forecasts
 Probablistic forecasts represent uncertainty in the forecast quantity by providing a probability distribution or a prediction interval, rather than a single value.
 
+In the metrics below, we adopt the following nomenclature:
+
+- $$ F(t_k) : $$ probability forecast for an event $$ o $$ at each time $$ t_k $$
+- $$ f_i : $$ discrete values that appear in the probability forecast $$ F $$
+- $$ o(t_k) : $$ indicator for event $$ o $$: $$ o(t_k) = 1 $$ if an event occurs at time $$ t_k $$ and $$ o(t_k) = 0 $$ otherwise
+- $$ N_i : $$ the number of times each forecast value $$ f_i $$ appears in the forecast $$ F $$
+- $$ n = \sum_{i=1}^I N_i : $$ number of forecast events
+- $$ p(f_i) = \frac{N_i}{n} : $$ the relative frequency of each forecast value $$ f_i $$ in the forecast $$ F $$
+- $$ \bar{o}_i = p(o_i \| f_i ) = \frac{1}{N_i} \sum_{k \in N_i} o_k : $$ the average of $$ o(t_k) $$ at the $$ N_i $$ times $$ t_k $$ when $$ F(t_k) = f_i $$
+
+- $$ \bar{o} = \frac{1}{n} \sum_{k=1}^n o(t_k) = \frac{1}{n} \sum_{i=1}^I N_i \bar{o}_i : $$ the average of $$ o(t_k) $$ for all times $$ t_k $$
+
 
 ### Brier Score (BS)
-The BS
+The BS measures the accuracy of forecast probability for one or more events:
 
-$$ BS = \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2  $$
+$$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
+
+Smaller values of BS indicate better agreement between forecasts and observations.
 
 
 ### Brier Skill Score (BSS)
+The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
 
-$$ BSS = 1 - $$
+$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
+
+where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
+
+When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast:
+
+$$ \text{BS} = \text{REL} + \text{RES} + \text{UNC} $$
 
 
 ### Reliability (REL)
+The REL is given by:
 
-$$ REL = $$
+$$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \hat{o}_i)^2 $$
+
+Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_i $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F(t_k) = f_i $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
 
 ### Resolution (RES)
+The RES is given by:
 
-$$ RES = $$
+$$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\hat{o}_i - \hat{o})^2 $$
+
+Resolution is the weighted averaged of the squared differences between the releative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
 
 ### Uncertainty (UNC)
+The UNC is given by:
 
-$$ UNC = $$
+$$ \text{UNC} = \bar{o} (1 - \bar{o})$$
+
+Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC indicate that the event being forecasted occurs only rarely.
 
 
 ### Sharpness (SH)
+The SH represents the degree of "concentration" of a forecast comprising a prediction interval of the form $$ [ f_l, f_u ] $$ within which the forecast quantity is expected to fall with probability $$ 1 - \beta $$. A good forecast should have a low sharpness value. The prediction interval endpoints are associated with quantiles $$ \alpha_l $$ and $$ \alpha_u $$, where $$ \alpha_u - \alpha_l = 1 - \beta $$. For a single prediction interval, the SH is:
 
-$$ SH = $$
+$$ \text{SH} = f_u - f_l $$
+
+and for a timeseries of prediction intervals, the SH is given by the average:
+
+$$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 
 ### Continuous Ranked Probability Score (CRPS)
+The CRPS is a score that is a designed to measure both the realiability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
-$$ CRPS = $$
+$$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int | F_i(x) - O_i(x) | dx $$
 
+where $$ F_i(x) $$ is the CDF of the forecast quantity $$ x $$ at time point $$ i $$, and $$ O_i(x) $$ is the CDF associated with the observed value $$ x_i $$:
+
+$$ O_i = \begin{cases}
+    \displaystyle 0 & x < x_i \\
+    \displaystyle 1 & x \geq x_i
+\end{cases} $$
+
+The CRPS reduces to the mean absolute error (MAE) if the forecast is deterministic.
