@@ -38,3 +38,6 @@ Links to previous stakeholder committee communications are provided below.
 1. [Data exchange: Request for feedback](https://mailchi.mp/c2bf820086d5/data-exchange-feedback-request)
 1. [Data exchange: Webinar recording](https://mailchi.mp/05f35ded731e/data-exchange-feedback-request-265293?e=[UNIQID])
 1. [Data exchange: Response to feedback and revisions](https://mailchi.mp/206cda88a2ec/data-exchange-revisions)
+1. [Metrics: Request for feedback](https://mailchi.mp/a1d0a5c47c59/forecast-evaluation-metrics)
+1. [2019 Solar Forecasting 2 Workshop: Save the date](https://mailchi.mp/388eaa4867d2/doe-solar-forecasting-2-stakeholder-workshop?e=[UNIQID])
+1. [2019 Solar Forecasting 2 Workshop: Agenda](https://mailchi.mp/8066feed8d91/doe-solar-forecasting-2-stakeholder-workshop-351193?e=[UNIQID])
