@@ -95,11 +95,32 @@ $$ p_k = p_{\text{min}} + kd, \enspace k = 0, 1, \dots, K, \enspace \text{and} \
 
 In practice, $$ K = 100 $$ is typical. A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
 
+KSI can be normalized as:
+
+$$ KSI (%) = \frac{100}{a_{\text{critical}}} KSI
+
+where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 $$, the normalized KSI can be interpreted as a stastical that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
+
 
 ### OVER
-Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$.
+Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$. The OVER is calculated as:
 
-$$ OVER = $$
+$$ OVER = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n^* dp $$
+
+where
+
+$$ D_n^* \begin{cases}
+    \displaystyle D_n - V & \text{if} & D_n > V_c \\
+    \displaystyle 0 & \text{if} & D_n \leq V_c
+\end{cases} $$
+
+The OVER metric can be normalized using the same approach as for KSI.
+
+
+### Combined Performance Index (CPI)
+The CPI can be thought of as a combination of KSI, OVER, and RMSE:
+
+$$ \text{CPI} = \frac{1}{4} ( \text{KSI} + \text{OVER} + 2 \times \text{RMSE} ) $$
 
 
 ## Metrics fo Deterministic Event Forecasts
