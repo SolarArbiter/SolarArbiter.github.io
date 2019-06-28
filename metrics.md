@@ -50,19 +50,25 @@ where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{
 ### Mean Absolute Percentage Error (MAPE)
 The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
 
-$$ \text{MAPE} = $$
+$$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
 ### Normalized Root Mean Square Error (NRMSE):
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
-$$ \text{RMSE} = \frac{100\%}{\text{norm}} \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
+$$ \text{RMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE)
 The CRMSE describes the variation in errors around the mean and is defined as:
 
-$$ \text{CRMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n \left( (F_i - \hat{F}) - (O_i - \hat{O}) \right)^2 } $$
+$$ \text{CRMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n \left( (F_i - \bar{F}) - (O_i - \bar{O}) \right)^2 } $$
+
+The CRMSE is related to the RMSE and MBE through $$ \text{RMSE}^2 = \text{CRMSE}^2 + \text{MBE}^2 $$, and can be decomposed into components related to the standard deviation and correlation coefficient:
+
+$$ \text{CRMSE}^2 = \sigma_F^2 + \sigma_O^2 - 2 \sigma_F \sigma_O r $$
+
+where $$ \sigma_F $$ and $$ \sigma_O $$ are the standard deviations of the forecast and observation, respectively, and $$ r $$ is the correlation coefficient.
 
 
 ### Pearson Correlation Coefficient ($$ r $$)
@@ -87,19 +93,17 @@ $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
 where $$ p_{\text{min}} $$ and $$ p_{\text{max}} $$ are the minimum and maximum values of the observations, and $$ D_n(p) $$ is the absolute difference between the two empirical CDFs:
 
-$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | ) \text{for} p \in \[p_k, p_{k+1} \]$$
+$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | ) \enspace \text{for} \enspace p \in [ p_k, p_{k+1} ] $$
 
-where $$ p_k $$ is defined
-
-$$ p_k = p_{\text{min}} + kd, \enspace k = 0, 1, \dots, K, \enspace \text{and} \enspace d = (p_{\text{max}} - p_{\text{min}}) / K $$
+where $$ p_k $$ is defined as $$ p_k = p_{\text{min}} + kd $$ for $$k = 0, 1, \dots, K $$ and $$ d = (p_{\text{max}} - p_{\text{min}}) / K $$.
 
 In practice, $$ K = 100 $$ is typical. A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
 
 KSI can be normalized as:
 
-$$ KSI (%) = \frac{100}{a_{\text{critical}}} KSI
+$$ KSI (\%) = \frac{100}{a_{\text{critical}}} KSI $$
 
-where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 $$, the normalized KSI can be interpreted as a stastical that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
+where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 , $$ the normalized KSI can be interpreted as a stastical that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
 
 
 ### OVER
@@ -217,7 +221,7 @@ $$ \text{BS} = \text{REL} + \text{RES} + \text{UNC} $$
 ### Reliability (REL)
 The REL is given by:
 
-$$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \hat{o}_i)^2 $$
+$$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \bar{o}_i)^2 $$
 
 Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_i $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F(t_k) = f_i $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
@@ -225,7 +229,7 @@ Reliability is the weighted averaged of the squared differences between the fore
 ### Resolution (RES)
 The RES is given by:
 
-$$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\hat{o}_i - \hat{o})^2 $$
+$$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
 
 Resolution is the weighted averaged of the squared differences between the releative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
