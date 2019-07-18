@@ -45,6 +45,9 @@
 - name: Documentation
   links:
 
+  - name: Framework
+    link: /documentation/framework/
+
   - name: Dashboard
     link: /documentation/dashboard/
 
