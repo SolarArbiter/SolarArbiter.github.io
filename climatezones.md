@@ -6,9 +6,10 @@ permalink: /climatezones/
 
 Eight climate zones have been identified with the objective of sub-dividing the US climate into regions experiencing similar weather and climate regimes and thus similar forecasting challenges and levels of variability and uncertainty.  The regions provided here are the result of an initial draft that was vetted during the June 2019 Solar Forecast 2 stakeholder meeting and subsequently updated.  The initial draft was considered by other forecasting experts as basically how they would sub-divide the country, but the discussion revealed that Hawaii and the US territories in the Caribbean where not considered.  It was also thought that Florida should be its own climate region due to the complexities of the sea-breeze that develops almost daily along both the eastern and western coastlines, and often converges inland bring significant enhancement to cloud generating processes.  While updating the map, it was decided to also include the Gulf Coast in the new region, as strong land-sea temperature contrasts yield significant sea-breeze and land-breeze effects that make these areas unique in their forecast challenges.
 
-The map below shows the proposed climate zones overlayed on the NREL [NSRDB](https://maps.nrel.gov/nsrdb-viewer/) annual insolation map. A second stakeholder review opportuntiy will occur in August 2019. Sign up for the [stakeholder committee](/stakeholdercommittee) for updates.
+The interactive map below shows the proposed climate zones. A second stakeholder review opportuntiy will occur in August 2019. Sign up for the [stakeholder committee](/stakeholdercommittee) for updates.
 
-![climatezones](/images/climatezones.png)
+{% include climate_zones.html %}
+
 
 ## Region 1: Pacific Coastline and Maritime Pacific Northwest
 
