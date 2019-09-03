@@ -16,7 +16,7 @@ from bokeh.tile_providers import get_provider, Vendors
 
 COLORS = [
     '#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33',
-    '#a65628', '#f781bf'
+    '#f781bf', '#a65628'
 ]
 FILL_ALPHA = 0.4
 
