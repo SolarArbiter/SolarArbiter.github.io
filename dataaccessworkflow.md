@@ -35,22 +35,24 @@ establish a new organization or join an existing organization. To
 establish a new organization, the framework administrators will provide
 the user with a non-negotiable Data Use Agreement, the user will review
 the Data Use Agreement and return the Data Use Agreement signed by an
-authorized representative of the organization. To join a previously
-established organization, framework administrators will verify
-that the organization administrator authorizes the user to join the
-organization.
+authorized representative of the organization. A point of contact will
+be established to verify future updates to the organization. To join a
+previously established organization, framework administrators will
+verify with the organization's point of contact that the user is
+authorized to join the organization.
 
 
-A point of contact will be established to for the organization to verify
-any future updates, and an organization administrator will be appointed
-to manage data access, these will typically be the user who initiated the
-request for an organization. After a user is added to the organization,
-an organization admin will use the data access controls described below
-to grant access to data in the organization. To remove a user from an
-organization, an organization admin should contact framework administrators.
-When a user if removed from an organization, they will lose all access
-to the organization's data but retain permission to view the reference
-data set.
+An organization administrator will be appointed to manage data access,
+this will typically be the user who initiated the request for an
+Organization. Organization administrators are privileged users that
+can grant and revoke access to data that their organization owns. An
+organization administrator may grantadministrative privileges to other
+users. Organization administrators will use the data access controls
+described below to grant access to data in the organization. To remove
+a user from an organization, an organization admin should contact
+framework administrators. When a user is removed from an organization, they
+will lose access to all organizations' data but retain permission to view
+the reference data set.
 
 # Data Access Controls
 {: .anchor}
