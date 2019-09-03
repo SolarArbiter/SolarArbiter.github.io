@@ -85,7 +85,7 @@ control system:
     user. A user's roles typically only grant permissions necessary for
     their job function or title. For instance, an organization
     administrator's roles will have permissions to create new roles and
-    permissions, while a user in their organization's roles may only have
+    permissions, while a non-administrative user's roles may only have
     permission to view and write data to the organization's forecasts.
     Roles may also be created to share data with users outside of the
     organization.
