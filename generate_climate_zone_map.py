@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 from bokeh.embed import autoload_static
-from bokeh.models import GeoJSONDataSource, HoverTool
+from bokeh.models import GeoJSONDataSource
 from bokeh.plotting import figure
 from bokeh.resources import CDN
 from bokeh.tile_providers import get_provider, Vendors
@@ -53,7 +53,6 @@ def main():
         with open(area, 'r') as f:
             gj = json.load(f)
         for feat in gj['features']:
-            # feat['properties']['color'] = COLORS[i]
             feat['properties']['region'] = region
             feat['properties']['geojson'] = str(area)
             geodata['features'].append(feat)
