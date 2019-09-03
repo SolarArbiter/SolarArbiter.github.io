@@ -46,7 +46,7 @@ An organization administrator will be appointed to manage data access,
 this will typically be the user who initiated the request for an
 Organization. Organization administrators are privileged users that
 can grant and revoke access to data that their organization owns. An
-organization administrator may grantadministrative privileges to other
+organization administrator may grant administrative privileges to other
 users. Organization administrators will use the data access controls
 described below to grant access to data in the organization. To remove
 a user from an organization, an organization admin should contact
