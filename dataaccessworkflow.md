@@ -8,7 +8,8 @@ permalink: /data-access-workflow/
 
 The purpose of this document is to describe the proposed process for
 creating and managing user accounts and data access in the Solar
-Forecast Arbiter.
+Forecast Arbiter. The accompanying user interface is described in
+the [dashboard documentation](/documentation/dashboard/#permissionrole-management).
 
 # Account Creation
 {: .anchor}

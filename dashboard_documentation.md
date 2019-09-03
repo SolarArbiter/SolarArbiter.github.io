@@ -222,6 +222,10 @@ for details.
 ## Permission/Role management
 {: .anchor}
 
+This section contains proposed user interface for managing data acces through
+roles and permissions. An accompanying workflow description can be found in the
+[Data Access Workflow Document](/data-access-workflow/)
+
 User, permission and role administation can be accessed by clicking the 'User
 Administration' link in the Account menu in the top right corner of the site.
     <img class="my-3" src="/images/admin_menu.png"/>
