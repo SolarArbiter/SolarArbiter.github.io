@@ -33,7 +33,7 @@ The Northern Plains climate is defined by descending and drying air coming over 
 
 ## Region 6: Southeastern Plains States, Mississippi Valley and Southern Interior
 
-Region 5 is similar to Region 4 except that the Gulf influence dominates in all seasons.  Convection is much diminished in wintertime but is still possible.
+Region 6 is similar to Region 5 except that the Gulf influence dominates in all seasons.  Convection is much diminished in wintertime but is still possible.
 
 ## Region 7: Mid-Atlantic and New England
 
