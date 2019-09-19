@@ -23,7 +23,7 @@ While the Coastal Range of Oregon and Olympic Mountains of Washington reduce the
 
 The California Coastal Range mountains block much of the marine influence into the California Central Valley, and the Sierra Nevada range effectively blocks all marine influence its east.  Climate region 3 encapsulates all the arid region in the sub-tropical region outside of the strong marine influence along the immediate California coastline.  The region extents east to the Rocky Mountain crest.  Beyond the crest, the influence from moist Gulf of Mexico air and cold Canadian interior lead to a dramatic shift to a moister climate.  As for Region 2, the generalization of climate in this area needs to be caveated with caution that the complex topography does drive significant differences in climate in local areas, especially near mountain crests.
 
-## Region 5: Rocky Mountain Lee
+## Region 4: Rocky Mountain Lee
 
 The Rocky Mountain Lee zone is the region extending eastwards for about 250 to 300 miles from the Rocky Mountain foothills where the terrain height descends (steeply at first, then gradually) from roughly 2400 m to 750 m.  The climate is defined by descending and drying air coming over the Rockies, and dry (and frigid in the winter) air coming south from interior Canada.  These air masses occassionally interact with moisture advected from the Gulf of Mexico.  This area is typically west of the [dry line](https://en.wikipedia.org/wiki/Dry_line) (i.e. on the dry side) where descending air tends to lead to many clear days.  In the winter months, the foothills act as a channel for frigid dry air to move southward. This is also a region where storms often begin to form or intensify before moving off into the plains. 
 
