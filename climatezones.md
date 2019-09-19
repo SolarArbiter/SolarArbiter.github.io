@@ -27,11 +27,11 @@ The California Coastal Range mountains block much of the marine influence into t
 
 The Rocky Mountain Lee zone is the region extending eastwards for about 250 to 300 miles from the Rocky Mountain foothills where the terrain height descends (steeply at first, then gradually) from roughly 2400 m to 750 m.  The climate is defined by descending and drying air coming over the Rockies, and dry (and frigid in the winter) air coming south from interior Canada.  These air masses occassionally interact with moisture advected from the Gulf of Mexico.  This area is typically west of the [dry line](https://en.wikipedia.org/wiki/Dry_line) (i.e. on the dry side) where descending air tends to lead to many clear days.  In the winter months, the foothills act as a channel for frigid dry air to move southward. This is also a region where storms often begin to form or intensify before moving off into the plains. 
 
-## Region 5: Northern Plains
+## Region 5: Northeastern Plains, Great Lakes and Ohio Valley
 
 The Northern Plains climate is defined by descending and drying air coming over the Rockies (particularly in the western portion of the zone), dry (and frigid in the winter) air coming south from interior Canada and humid air moving north from the Gulf of Mexico.  These influences make it one of the most interesting climate zones in the world with large extremes and sudden changes being common.  While the region has generally good solar resource, in spring, summer and to some extent autumn, this region is impacted by frequent convection, and the zone is on average east of the dry line.  Convection may be shallow, with only fair weather clouds forming, or may be deep with large supercell storms or long convective lines forming.  In both cases, accurate forecasting is challenging, and variability is high.  In the wintertime, the storm track will pass over this region bringing clouds, snow and ice, all of which are challenging to solar forecasting.
 
-## Region 6: Interior Southern Plains
+## Region 6: Southeastern Plains States, Mississippi Valley and Southern Interior
 
 Region 5 is similar to Region 4 except that the Gulf influence dominates in all seasons.  Convection is much diminished in wintertime but is still possible.
 
