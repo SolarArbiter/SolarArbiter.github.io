@@ -35,7 +35,7 @@ The Northern Plains climate is defined by descending and drying air coming over 
 
 Region 5 is similar to Region 4 except that the Gulf influence dominates in all seasons.  Convection is much diminished in wintertime but is still possible.
 
-## Region 7: Mid-Atlantic and Northeastern States
+## Region 7: Mid-Atlantic and New England
 
 This region extends mostly from the Appalachian Mountains eastward.  In the summertime it is dominated by the influence of warm moist air sourced from the Gulf of Mexico and the warm waters of the Gulf Stream running up the Atlantic seaboard.  Thus the solar climatology is hazy with frequent fair weather and precipitating cumulo-form clouds.  In the winter the climate is more frequently dominated by continental air sourced from Canada and the upper mid-west with alternation between stormy and clear periods as mid-latitude storms pass.  Occasionally in the wintertime flow from the Gulf of Mexico or from the warmer Gulfstream waters will affect this region leading to strong storms due to the large temperature and humidity contrast between the maritime and continental air masses.  This regional also sees occasional hurricanes in late summer and autumn.
 
