@@ -21,6 +21,7 @@ COLORS = [
     "#ff7f00",
     "#ffff33",
     "#f781bf",
+    "#999999",
     "#a65628",
 ]
 FILL_ALPHA = 0.4
@@ -54,7 +55,7 @@ def main():
     )
     fig.title.text_font_size = "24px"
     fig.add_tile(tile_provider)
-    for i, area in enumerate(sorted(Path("./assets/climate_zones").glob("*.geojson"))):
+    for i, area in enumerate(sorted(Path("./assets/climate_zones").glob("*.webm.geojson"))):
         geodata = {
             "type": "FeatureCollection",
             "name": "climate_zones",
