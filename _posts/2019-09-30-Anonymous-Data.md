@@ -4,7 +4,7 @@ author: Will Holmgren
 ---
 
 Several stakeholders have expressed interest in publicly sharing
-anonymous power plant data in the Solar Forecast Arbiter. While do not
+anonymous power plant data in the Solar Forecast Arbiter. While the Arbiter does not
 explicitly support anonymous data exchange, we can provide some
 recommendations for how to use the Arbiter's features to accomplish this
 goal. Please keep in mind that these are only recommendations for how to
