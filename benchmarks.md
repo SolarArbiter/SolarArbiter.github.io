@@ -108,10 +108,9 @@ Users are encouraged to track metadata about the forecast using the
 such as grid spacing and schemes, or even a whole WRF namelist, may be
 included in the extra parameters field.
 
-As explained in the
-[Data Model](https://solarforecastarbiter.org/datamodel/), the Arbiter
-will accept uploaded forecasts for predefined evaluation sites or
-aggregates. The Arbiter will not accept gridded datasets.
+As explained in the [Data Model](/datamodel/), the Arbiter will accept
+uploaded forecasts for predefined evaluation sites or aggregates. The
+Arbiter will not accept gridded datasets.
 
 ## Net load forecasts
 
