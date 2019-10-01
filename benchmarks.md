@@ -74,13 +74,13 @@ Operational benchmark forecasts are currently produced for every
 reference forecast site in the Arbiter's database. Forecasts are currently only produced
 using the [intraday and longer horizons](#Intraday-and-longer-horizons)
 models described above. For these automated benchmark forecasts, we choose to define
-[forecast attributes](/definitions/#forecastattrs) such that new forecasts
-would be issued at midnight local time for each site. Daylight Saving Time
-is not included when determining the issue time. For example, for the
-Table Mountain SURFRAD site, the following parameters apply (interval label
+[forecast attributes](/definitions/#forecastattrs) a *GFS Day Ahead*,
+*NAM Current Day*, *HRRR Intraday*, and *RAP intraday* forecast in the
+local timezones of the sites (Daylight Saving Time not considered). For example, for
+the Table Mountain SURFRAD site, the following parameters apply (interval label
 is ending and interval length is 1 hour for all):
 
-| Model | Issue time of day &nbsp;&nbsp;&nbsp;| Run length &nbsp;&nbsp;&nbsp;| Lead time to start &nbsp;&nbsp;&nbsp;|
+| Model | Issue time of day &nbsp;&nbsp;&nbsp;| Run length / Issue frequency &nbsp;&nbsp;&nbsp;| Lead time to start &nbsp;&nbsp;&nbsp;|
 |-------|:-----------------:|:----------:|:------------------:|
 | GFS day ahead | 7Z | 1 day | 1 day |
 | NAM current day | 6Z | 1 day | 1 hour |
@@ -104,9 +104,9 @@ forecast skill metrics will be calculated with respect to the benchmark.
 
 Users are encouraged to track metadata about the forecast using the
 *extra parameters* field of the forecast creation
-[form](documentation/dashboard/#create-new-forecast). Key modeling details
-such as grid spacing and schemes, or even a whole WRF namelist, may be
-included in the extra parameters field.
+[form](documentation/dashboard/#create-new-forecast). Key modeling
+details such as grid spacing and schemes, or your internal version of a
+namelist, may be included in the extra parameters field.
 
 As explained in the [Data Model](/datamodel/), the Arbiter will accept
 uploaded forecasts for predefined evaluation sites or aggregates. The
