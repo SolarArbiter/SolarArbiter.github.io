@@ -21,7 +21,7 @@ desirable attributes of a benchmark forecast:
 ## Built-in benchmark forecasts
 
 The Arbiter provides built-in support for the following benchmark
-options. Implementation details are available in the
+options. Additional implementation details are available in the
 ``solarforecastarbiter-core``
 [documentation](https://solarforecastarbiter-core.readthedocs.io/en/latest/reference-forecasts.html).
 
@@ -30,12 +30,14 @@ options. Implementation details are available in the
 * Persistence
 * Persistence of clear sky index
 
-The Arbiter provides reference implementations of persistence algorithms.
-The averaging window a benchmark persistence forecast is fixed to be
-equal to the forecast's run length, but no longer than 1 hour.
-Persistence of clear sky index uses subhourly calculations of clear sky
-expecation to accurately account for solar position regardless of data
-interval length.
+The Arbiter provides reference implementations of persistence
+algorithms. The averaging window of the Arbiter's benchmark persistence
+forecasts are fixed to be equal to a forecast's run length, but no
+longer than 1 hour. For example, a benchmark forecast for a 15 minute
+interval will use the most recent 15 minutes of data to compute the
+quantity to persist (irradiance, power, or clear sky index). Persistence
+of clear sky index accounts for the average clear sky index during an
+interval rather than simply using the interval start or end time.
 
 ### Intraday and longer horizons
 
@@ -68,7 +70,7 @@ For these models, the process is:
 
 ### Automated generation
 
-Quasi-operational benchmark forecasts are currently produced for every
+Operational benchmark forecasts are currently produced for every
 reference forecast site in the Arbiter's database. Forecasts are currently only produced
 using the [intraday and longer horizons](#Intraday-and-longer-horizons)
 models described above. For these automated benchmark forecasts, we choose to define
@@ -86,27 +88,30 @@ is ending and interval length is 1 hour for all):
 | RAP intraday | 0Z | 6 hours | 1 hour |
 
 Please contact the framework administrators if you have suggestions for
-improvements to the automatically generated benchmarks or if you require
-a custom benchmark for your application (e.g. a forecast trial).
+improvements to the configuration of the automatically generated
+benchmarks or if you require a custom benchmark configuration for your
+application (e.g. a forecast trial).
 
 ## User-supplied benchmark forecasts
 
 Some evalulation applications may require users to provide their own
 benchmark forecasts. For example, Solar Forecasting 2, Topic Area 2
 teams may choose to run an earlier version of WRF Solar and then upload
-its forecasts for particular evaluation points. Users may then select
-identify the forecast as a benchmark when creating a forecast evaluation
-[report](/documentation/dashboard/#create-new-report).
-
-The Arbiter will accept uploaded forecasts for predefined evaluation
-point or area-average values. The Arbiter will not accept gridded
-datasets.
+its forecasts for existing or new evaluation sites. Users may then
+identify the forecast as a benchmark when creating a forecast
+evaluation [report](/documentation/dashboard/#create-new-report) so that
+forecast skill metrics will be calculated with respect to the benchmark.
 
 Users are encouraged to track metadata about the forecast using the
 *extra parameters* field of the forecast creation
 [form](documentation/dashboard/#create-new-forecast). Key modeling details
 such as grid spacing and schemes, or even a whole WRF namelist, may be
 included in the extra parameters field.
+
+As explained in the
+[Data Model](https://solarforecastarbiter.org/datamodel/), the Arbiter
+will accept uploaded forecasts for predefined evaluation sites or
+aggregates. The Arbiter will not accept gridded datasets.
 
 ## Net load forecasts
 
