@@ -102,6 +102,12 @@ The Arbiter will accept uploaded forecasts for predefined evaluation
 point or area-average values. The Arbiter will not accept gridded
 datasets.
 
+Users are encouraged to track metadata about the forecast using the
+*extra parameters* field of the forecast creation
+[form](documentation/dashboard/#create-new-forecast). Key modeling details
+such as grid spacing and schemes, or even a whole WRF namelist, may be
+included in the extra parameters field.
+
 ## Net load forecasts
 
 Net load is defined here as true system load minus behind the meter PV.
