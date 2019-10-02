@@ -87,6 +87,11 @@ is ending and interval length is 1 hour for all):
 | HRRR intraday | 0Z | 6 hours | 1 hour |
 | RAP intraday | 0Z | 6 hours | 1 hour |
 
+Note that, as described in [forecast attributes](/definitions/#forecastattrs),
+the combination of *issue time of day* and *run length/issue frequency*
+may describe more than one forecast run per day. Here, the HRRR and RAP
+forecasts are issued at 0Z, 6Z, 12Z, and 18Z.
+
 Please contact the framework administrators if you have suggestions for
 improvements to the configuration of the automatically generated
 benchmarks or if you require a custom benchmark configuration for your
