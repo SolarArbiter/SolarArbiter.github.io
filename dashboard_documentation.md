@@ -298,7 +298,7 @@ outlined in <a href="#getting-started">getting started</a>.
 
 ### Create New Permission
 {: .anchor}
-1.	Navigate to the Permissions listing with the *Permissiosn* tab of the admin menu.
+1.	Navigate to the Permissions listing with the *Permissions* tab of the admin menu.
     This page will list all of the Permissions you have access to administer or view.
     <img class="my-3" src="/images/permissions.png"/>
 
