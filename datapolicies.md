@@ -50,23 +50,24 @@ organization and contributes data on behalf of the organization.
 
 Through the framework web interface or API calls, the user associates
 data with data access policies. These policies allow specific
-organizations/users to access to the data. The web interface will show
-an organization a list of all of the submitted metadata/data it owns and
-the users/organizations that can access each data source. Please see the
+users to access to the data. The web interface shows
+an organization administrator a list of all of the submitted metadata/data
+it owns and the access roles given to other users. Please see the
 [Data Access Control documentation](/data-access-workflow/) for more
 information.
 
-Under some use cases, anonymized time series data and or summary
+Under some use cases, anonymized time series data and/or summary
 statistics derived from the data are owned by the framework. This
-ensures trial fairness, transparency, and reproducibility. The framework
-is not allowed to sell, donate, or otherwise disclose anonymized data or
-statistics.
+ensures trial fairness, transparency, and reproducibility. However, the
+framework operators are not allowed to view or disclose anonymized data
+or statistics unless given permission using the data sharing features of
+the web service.
 
 ## Deleting data
 
 An organization may delete its data from the framework at any time, or
-an organization may ask the framework administrators to delete its data
-from the framework.
+an organization may ask the framework operators to delete its data from
+the framework.
 
 All non-public data will be securely deleted within 30 days of the
 termination of the project (anticipated late 2021).
@@ -78,12 +79,14 @@ for security of stored data and data transmission.
 
 Stakeholders have questioned the ability for framework operators to
 access user-contributed data. Accessing user-contributed data requires
-super user access on the servers. This access is restricted to the
-smallest number of people possible. The DUA expressly forbids the
-framework operators from analyzing or examining user-contributed data
-except when required to solve issues. Stakeholders have also questions
-the ability for framework operators to deanonymize data contributed to
-forecast trials. With some study of IP logs the framework operator could
-potentially determine who contributed what data. This too would require
-highly-restricted super user access on the servers. Data contributors
-that want to prevent this possibility can use a VPN.
+highly-restricted super user access on the servers. This access is
+restricted to the smallest number of people possible. The DUA expressly
+forbids the framework operators from analyzing or examining
+user-contributed data except when required to solve service issues.
+
+Stakeholders have also questioned the ability for framework operators to
+deanonymize data contributed to anonymous forecast trials. With some
+study of IP logs the framework operator could potentially determine who
+contributed what data. This too would require highly-restricted super
+user access on the servers. Data contributors that want to prevent this
+possibility can use a VPN.
