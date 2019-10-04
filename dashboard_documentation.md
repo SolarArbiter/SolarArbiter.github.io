@@ -208,9 +208,13 @@ for details.
     <img class="my-3" src="/images/reports.png"/>
 
 2.  Enter the report name and a start and end for the period to analyze.
-    Add pairs of Observations and Forecasts to compare by clicking the
-    **Add Forecast, Observation pair** button. Check the boxes for
-    metrics to calculate in the report.
+    To pairs of Observations and Forecasts, start by selecting a Site. The forecast
+    field will populate with a list of forecasts located at the site. Selecting a
+    forecast will populate the observation field with observations field with
+    observations that match the forecast's site and variable. Click the 
+    **Add Forecast, Observation pair** button. Multiple Pairs can be added by repeating
+    this process. Pairs can be removed by clicking the 'x' on the right side of the
+    forecast & observation table.
 
      <img class="my-3" src="/images/report_form.png"/>
 
@@ -240,31 +244,75 @@ on these pages.
 
 ### Users
 {: .anchor}
--   The Users tab will list the Users you have access to administer or view.
+
+Unlike other types of data, *Users* are only created through the signup process
+outlined in <a href="#getting-started">getting started</a>.
+
+-   The *Users* tab will list the users you have access to administer or view.
 	<img class="my-3" src="/images/users.png"/>
 
 
 -	Clicking on an individual user will list information about the user and their
-    roles.
+    roles. Roles may be revoked from the user by clicking the *Remove* link on the
+    far right of each row of the listing.
     <img class="my-3" src="/images/user.png"/>
 
 
-### Roles
+#### Granting roles to a user
 {: .anchor}
--	The Roles tab will list all of the Roles you have access to administer or view.
+-    The *Add Roles* button will display a list of roles that are not already granted
+    to the user. Roles are granted to the user by clicking the checkboxes of the roles
+    to grant and clicking *Submit*. Roles can also be granted from the *Roles* section
+    of the admin menu.
+    <img class="my-3" src="/images/user.png"/>
+
+
+### Create New Role
+{: .anchor}
+
+1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
+    will list all of the Roles you have access to administer or view. 
     <img class="my-3" src="/images/roles.png"/>
 
--	Clicking on an individual Role will list information about it and the permissions
-    associated with it.
+2.  Click the *Create new Role* button. You will be prompted for a name and description
+    of the role and a list of permissions the role should have. Check the boxes next 
+    to each permission that the role should grant and click submit.
+    <img class="my-3" src="/images/role_form.png"/>
+    
+-   *Created Role pages*
+
+	Clicking on an individual Role will list information about it and the permissions
+    associated with it. Use the tabs below the metadata section to switch between the
+    list of permissions on the role and a list of users the role has been granted to.
+
+    *Role permissions listing*
     <img class="my-3" src="/images/role.png"/>
+    *Role users listing*
+    <img class="my-3" src="/images/role_users.png"/>
 
-
-### Permissions
+#### Granting a role to a user
 {: .anchor}
--	The Permissions tab will list all of the Permissions you have access to administer
-    or view.
+-   The 'Grant Role' button will display a form for sharing roles with a single user
+    at a time. Enter the user's uer ID and click submit to share the role.
+    <img class="my-3" src="/images/role_grant.png"/>
+
+### Create New Permission
+{: .anchor}
+1.	Navigate to the Permissions listing with the *Permissiosn* tab of the admin menu.
+    This page will list all of the Permissions you have access to administer or view.
     <img class="my-3" src="/images/permissions.png"/>
 
--	Clicking on an individual Permission will list information about it and the objects
+2.  Click on the data type you would like to create a permission for in the "Create new
+    Permission" box. You will be prompted for a description of the permission, the
+    action the permission allows and a list of objects. Click the checkboxes for each
+    object that the permission should allow its action on. Selecting *Applies to all*
+    will cause the permission to affect all current and future objects of the
+    permission's type.
+
+    *Permission form for observation permsission*
+    <img src="/images/permission_form.png"/>
+
+-	*Created Permission pages*
+    Clicking on an individual Permission will list information about it and the objects
     it applies to.
     <img class="my-3" src="/images/permission.png"/>
