@@ -10,49 +10,49 @@ Dashboard Documentation
 The Solar Forecast Arbiter Dashboard is a web interface for managing solar
 observation and forecast data and for evaluating solar forecast accuracy.
 This documentation provides step-by-step examples of how to perform
-common activities on the Solar Forecast Arbiter dashboard. The Content menu
-can be used to navigate between each activity. Each section includes
-instructions and screenshots.
+common activities on the Solar Forecast Arbiter dashboard. Use the Contents menu
+to navigate between each activity. Each section includes instructions and screenshots.
 
 Be sure to read the [Getting Started](#getting-started) section for instructions
 on how to access the current version of the dashboard.
 Please see the [data model documentation](/datamodel/) for more details on
 how the Solar Forecast Arbiter organizes metadata (Sites, Observations, and Forecasts)
 and time series data.
-Tutorial materials are available in our [2019 Denver Workshop repository](https://github.com/SolarArbiter/2019-Denver-Workshop).
+Additional training materials are available in our
+[workshop repository](https://github.com/SolarArbiter/workshop).
 
 
 Getting Started
 ---------------
 {: .anchor}
 
-The alpha release of the Solar Forecast Arbiter dashboard does not yet support automatic
-signup. In the meantime, you may use any of the credentials below to log in and
-explore the dashboard. You will be prompted to log in on the front page of the
-dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
+To register an account in the Solar Forecast Arbiter, navigate to
+[dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
+and click on the login link. You will be prompted with an Auth0 login
+window. Click the sign up tab and enter your information. Auth0 is a
+secure authentication service that has numereous security credentials
+and undergoes routine audits.
 
-{: .table}
-|Email                                 | Password          |
-|--------------------------------------|-------------------|
-|testing@solarforecastarbiter.org      |Thepassword123!    |
-|utilityx@solarforecastarbiter.org     |Utilitypassword!   |
-|forecastera@solarforecastarbiter.org  |Forecasterpassword!|
-|forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
+You will receive an email from Auth0 to verify your email address. You are
+required to verify your email before accessing the Solar Forecast Arbiter.
 
-In a later release, users will be able to signup and join existing organizations with
-approval of that organization's administrators.
+In order to upload data to the Arbiter, generate reports, or receive
+data from other users, you will first need to associate your user
+account with an *organization* account. To establish a new organization
+or to join an existing organization, contact
+[help@solarforecastarbiter.org](mailto:help@solarforecastarbiter.org)
 
 
 Create New Site
 ---------------
 {: .anchor}
 
-1. Navigate to sites listing page using ‘Sites’ link in the left
-   sidebar. At the top of the Site listing click ‘Create new Site’.
+1. Navigate to sites listing page using **Sites** link in the left
+   sidebar. At the top of the Site listing click **Create new Site**.
 <img class="my-3" src="/images/SitesListing.png"/>
 
 2. Enter the metadata for your Site. Selecting a site type of
-   'Power Plant' will prompt you for additional fields.
+   **Power Plant** will prompt you for additional fields.
 
    - *Weather station site creation form*
    <img class="my-3" src="/images/SiteForm.png"/>
@@ -61,7 +61,7 @@ Create New Site
    <img class="my-3" src="/images/plant_site_form.png"/>
 
 3. After submission, you will be redirected to a Site
-   page which displays the new Site’s metadata and allows you
+   page which displays the new Site's metadata and allows you
    to create associated Observations and Forecasts (see
    [Create New Observation or Forecast](#create-new-observation-or-forecast)).
 
@@ -78,10 +78,10 @@ To create an Observation or Forecast, an associated site must already exist (see
 ### Create New Observation
 {: .anchor}
 
-1.  Navigate to the Site listing page using the ‘Sites’ link in the left
+1.  Navigate to the Site listing page using the **Sites** link in the left
 	sidebar. Select the site for which you are adding an Observation.
 
-2.  Click the “Create new Observation” button on the Site page.
+2.  Click the **Create new Observation** button on the Site page.
   <img class="my-3" src="/images/weather_site.png"/>
 
 3.  Enter metadata for your Observation. On submission, you will be redirected
@@ -95,10 +95,10 @@ To create an Observation or Forecast, an associated site must already exist (see
 ### Create New Forecast
 {: .anchor}
 
-1.  Navigate to the Site listing page using the ‘Sites’ link in the left
+1.  Navigate to the Site listing page using the **Sites** link in the left
 	sidebar. Select the site for which you are adding a Forecast.
 
-2.  Click the “Create new Forecast” button on the Site page.
+2.  Click the **Create new Forecast** button on the Site page.
     <img class="my-3" src="/images/plant_site.png"/>
 
 3.  Enter metadata for your Forecast. On submission, you will be redirected
@@ -128,13 +128,13 @@ for detailed documentation.
 
 1.  From Sites listing page, click on a site.
 
-2.  Click ‘Observations’ to find the Observations listing for that site.
+2.  Click **Observations** to find the Observations listing for that site.
 
-3.  Select an Observation. Click ‘Upload Data’ on the Observation page.
+3.  Select an Observation. Click **Upload Data** on the Observation page.
 <img class="my-3" src="/images/observation.png"/>
 
 4.  Select the file type, this will display an example of the expected file
-format. Click ‘Choose File’ and select the data file to upload.
+format. Click **Choose File** and select the data file to upload.
 
 	-  CSV format
 	<img class="my-3" src="/images/obs_csv_upload.png"/>
@@ -146,13 +146,13 @@ format. Click ‘Choose File’ and select the data file to upload.
 
 1.  From Sites listing page, click on a site.
 
-2.  Click ‘Forecast’ to find the Forecasts listing for that site.
+2.  Click **Forecast** to find the Forecasts listing for that site.
 
-3.  Select a Forecast. Click ‘Upload Data’ on the Forecast page.
+3.  Select a Forecast. Click **Upload Data** on the Forecast page.
 <img class="my-3" src="/images/forecast.png"/>
 
 4.  Select the file type, this will display an example of the expected file
-format. Click ‘Choose File’ and select the data file to upload.
+format. Click **Choose File** and select the data file to upload.
 
 	- CSV format
 	<img class="my-3" src="/images/fx_csv_upload.png"/>
@@ -175,9 +175,9 @@ for details.
 
 1.  From Sites listing page, click on a site.
 
-2.  Click ‘Observations’ to find the Observations listing for that site.
+2.  Click **Observations** to find the Observations listing for that site.
 
-3.  Select an Observation. Click ‘Download Data’ on the Observation page.
+3.  Select an Observation. Click **Download Data** on the Observation page.
     <img class="my-3" src="/images/observation.png"/>
 
 4.  Specify a date range, timezone and format, and click download.
@@ -189,9 +189,9 @@ for details.
 
 1.  From Sites listing page, click on a site.
 
-2.  Click ‘Forecasts’ to find the Observations listing for that site.
+2.  Click **Forecasts** to find the Observations listing for that site.
 
-3.  Select a Forecast. Click ‘Download Data’ on the Forecast page.
+3.  Select a Forecast. Click **Download Data** on the Forecast page.
 	<img class="my-3" src="/images/forecast.png"/>
 
 4.  Specify a date range, timezone and format, and click download.
@@ -203,31 +203,35 @@ for details.
 ### Create New Report
 {: .anchor}
 
-1.  Use the 'Reports' link on the left sidebar to view the reports listing page.
-    Click the 'Create new Report' link.
+1.  Use the **Reports** link on the left sidebar to view the reports listing page.
+    Click the **Create new Report** link.
     <img class="my-3" src="/images/reports.png"/>
 
 2.  Enter the report name and a start and end for the period to analyze.
-    Add pairs of Observations and Forecasts to compare by clicking the 'Add
-    Forecast, Observation pair' button. Check the boxes for metrics to calculate
-    in the report.
+    To pairs of Observations and Forecasts, start by selecting a Site. The forecast
+    field will populate with a list of forecasts located at the site. Selecting a
+    forecast will populate the observation field with observations field with
+    observations that match the forecast's site and variable. Click the 
+    **Add Forecast, Observation pair** button. Multiple Pairs can be added by repeating
+    this process. Pairs can be removed by clicking the 'x' on the right side of the
+    forecast & observation table.
 
      <img class="my-3" src="/images/report_form.png"/>
 
     After clicking submit, you will be returned to the report listing page where
-    you will see the newly created report with a status of 'pending'. The Arbiter
-    will process the report and then set its status to 'complete'. You may then
+    you will see the newly created report with a status of **pending**. The Arbiter
+    will process the report and then set its status to **complete**. You may then
     view the web version of the report.
 
 ## Permission/Role management
 {: .anchor}
 
-This section contains proposed user interface for managing data acces through
+This section describes the user interface for managing data acces through
 roles and permissions. An accompanying workflow description can be found in the
 [Data Access Workflow Document](/data-access-workflow/).
 
-User, permission and role administation can be accessed by clicking the 'User
-Administration' link in the Account menu in the top right corner of the site.
+User, permission and role administation can be accessed by clicking the **User
+Administration** link in the Account menu in the top right corner of the site.
     <img class="my-3" src="/images/admin_menu.png"/>
 
 
@@ -240,31 +244,75 @@ on these pages.
 
 ### Users
 {: .anchor}
--   The Users tab will list the Users you have access to administer or view.
+
+Unlike other types of data, *Users* are only created through the signup process
+outlined in <a href="#getting-started">getting started</a>.
+
+-   The *Users* tab will list the users you have access to administer or view.
 	<img class="my-3" src="/images/users.png"/>
 
 
 -	Clicking on an individual user will list information about the user and their
-    roles.
+    roles. Roles may be revoked from the user by clicking the *Remove* link on the
+    far right of each row of the listing.
     <img class="my-3" src="/images/user.png"/>
 
 
-### Roles
+#### Granting roles to a user
 {: .anchor}
--	The Roles tab will list all of the Roles you have access to administer or view.
+-    The *Add Roles* button will display a list of roles that are not already granted
+    to the user. Roles are granted to the user by clicking the checkboxes of the roles
+    to grant and clicking *Submit*. Roles can also be granted from the *Roles* section
+    of the admin menu.
+    <img class="my-3" src="/images/user.png"/>
+
+
+### Create New Role
+{: .anchor}
+
+1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
+    will list all of the Roles you have access to administer or view. 
     <img class="my-3" src="/images/roles.png"/>
 
--	Clicking on an individual Role will list information about it and the permissions
-    associated with it.
+2.  Click the *Create new Role* button. You will be prompted for a name and description
+    of the role and a list of permissions the role should have. Check the boxes next 
+    to each permission that the role should grant and click submit.
+    <img class="my-3" src="/images/role_form.png"/>
+    
+-   *Created Role pages*
+
+	Clicking on an individual Role will list information about it and the permissions
+    associated with it. Use the tabs below the metadata section to switch between the
+    list of permissions on the role and a list of users the role has been granted to.
+
+    *Role permissions listing*
     <img class="my-3" src="/images/role.png"/>
+    *Role users listing*
+    <img class="my-3" src="/images/role_users.png"/>
 
-
-### Permissions
+#### Granting a role to a user
 {: .anchor}
--	The Permissions tab will list all of the Permissions you have access to administer
-    or view.
+-   The 'Grant Role' button will display a form for sharing roles with a single user
+    at a time. Enter the user's user ID and click submit to share the role.
+    <img class="my-3" src="/images/role_grant.png"/>
+
+### Create New Permission
+{: .anchor}
+1.	Navigate to the Permissions listing with the *Permissions* tab of the admin menu.
+    This page will list all of the Permissions you have access to administer or view.
     <img class="my-3" src="/images/permissions.png"/>
 
--	Clicking on an individual Permission will list information about it and the objects
+2.  Click on the data type you would like to create a permission for in the "Create new
+    Permission" box. You will be prompted for a description of the permission, the
+    action the permission allows and a list of objects. Click the checkboxes for each
+    object that the permission should allow its action on. Selecting *Applies to all*
+    will cause the permission to affect all current and future objects of the
+    permission's type.
+
+    *Permission form for observation permsission*
+    <img src="/images/permission_form.png"/>
+
+-	*Created Permission pages*
+    Clicking on an individual Permission will list information about it and the objects
     it applies to.
     <img class="my-3" src="/images/permission.png"/>
