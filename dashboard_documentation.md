@@ -293,7 +293,7 @@ outlined in <a href="#getting-started">getting started</a>.
 #### Granting a role to a user
 {: .anchor}
 -   The 'Grant Role' button will display a form for sharing roles with a single user
-    at a time. Enter the user's uer ID and click submit to share the role.
+    at a time. Enter the user's user ID and click submit to share the role.
     <img class="my-3" src="/images/role_grant.png"/>
 
 ### Create New Permission
