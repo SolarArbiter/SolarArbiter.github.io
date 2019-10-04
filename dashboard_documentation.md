@@ -26,21 +26,17 @@ Getting Started
 ---------------
 {: .anchor}
 
-The alpha release of the Solar Forecast Arbiter dashboard does not yet support automatic
-signup. In the meantime, you may use any of the credentials below to log in and
-explore the dashboard. You will be prompted to log in on the front page of the
-dashboard at [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
+To register an account in the Solar Forecast Arbiter, navigate to
+[dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
+and click on the login link. You will be prompted with an Auth0 login
+window. Click the sign up tab and enter your information.
 
-{: .table}
-|Email                                 | Password          |
-|--------------------------------------|-------------------|
-|testing@solarforecastarbiter.org      |Thepassword123!    |
-|utilityx@solarforecastarbiter.org     |Utilitypassword!   |
-|forecastera@solarforecastarbiter.org  |Forecasterpassword!|
-|forecasterb@solarforecastarbiter.org  |Forecasterpassword!|
+You will receive an email from Auth0 to verify your email address. You are
+required to verify your email before accessing the Solar Forecast Arbiter.
 
-In a later release, users will be able to signup and join existing organizations with
-approval of that organization's administrators.
+In order to contribute data to the Arbiter or to have other data shared with
+you, you will first need to join an organization. To establish a new organization
+org join an existing organization, contact <a href="mailto:help@solarforecastarbiter.org">help@solarforecastarbiter.org</a>.
 
 
 Create New Site
