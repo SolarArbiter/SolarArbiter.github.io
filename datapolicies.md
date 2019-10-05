@@ -7,11 +7,13 @@ permalink: /datapolicies/
 This page summarizes the data sharing and privacy policies of the
 Solar Forecast Arbiter.
 
-An **organization** is an entity that owns data or obtains license to submit
-data to the framework. A **user** is an individual working for an organization
-that performs the tasks of submitting data to the framework, granting other
-users or organizations rights to view data, and downloads data from the
-framework.
+An **organization** is an entity that owns data or obtains license to
+submit data to the framework. A **user** is an individual working for an
+organization that performs tasks such as submitting data to the
+framework and downloading data from the framework. An **organization
+administrator** is a user that has can also grant permissions to view or
+modify data to other users, including users outside of the
+administrator's own organization.
 
 The [Data Use Agreement](/assets/45864_UAZ_Solar_Forecast_Arbiter_Final.pdf)
 (DUA) is a **non-negotiable** legal document that all parties are bound to.
@@ -25,9 +27,10 @@ The data policies can be summarized as:
   nor does it obligate an organization to share uploaded data.
 * Organizations retain ownership of the data they upload to the framework.
 * Users upload data to the framework on behalf of organizations.
-* Users have complete control over how their organization's data may be
-  accessed by other users.
-* Users may delete their organization's data from the Arbiter at any time.
+* Organization administrators have complete control over how their
+  organization's data may be accessed by other users.
+* Organization administrators may delete their organization's data from the
+  Arbiter at any time.
 * Uploading data does **not** give Solar Forecast Arbiter team members
   the ability to study it. Sharing data with project team members
   follows the same procedures as sharing data with any other user.
@@ -56,12 +59,12 @@ it owns and the access roles given to other users. Please see the
 [Data Access Control documentation](/data-access-workflow/) for more
 information.
 
-Under some use cases, anonymized time series data and/or summary
-statistics derived from the data are owned by the framework. This
-ensures trial fairness, transparency, and reproducibility. However, the
-framework operators are not allowed to view or disclose anonymized data
-or statistics unless given permission using the data sharing features of
-the web service.
+Under a forecast trial use case, anonymized time series data and/or
+summary statistics derived from the data are owned by the framework.
+This ensures trial fairness, transparency, and reproducibility. However,
+the framework operators are not allowed to view or disclose anonymized
+data or statistics unless given permission using the data sharing
+features of the web service.
 
 ## Deleting data
 
