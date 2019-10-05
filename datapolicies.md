@@ -2,41 +2,50 @@
 layout: base
 permalink: /datapolicies/
 ---
-# Data Policies -- DRAFT
+# Data Policies
 
-This page contains a **DRAFT** data policies proposal.
+This page summarizes the data sharing and privacy policies of the
+Solar Forecast Arbiter.
 
-This page describes the disclosure levels for observational (generation
-and environmental) and forecast data submitted to the framework, as well
-as data derived from the process of comparing forecast fields to
-observations (e.g. summary statistics).
+An **organization** is an entity that owns data or obtains license to
+submit data to the framework. A **user** is an individual working for an
+organization that performs tasks such as submitting data to the
+framework and downloading data from the framework. An **organization
+administrator** is a user that has can also grant permissions to view or
+modify data to other users, including users outside of the
+administrator's own organization.
 
-An **organization** is an entity that owns data or obtains license to submit
-data to the framework. A **user** is an individual working for an organization
-that performs the tasks of submitting data to the framework, granting other
-users or organizations rights to view data, and downloads data from the
-framework.
+The [Data Use Agreement](/assets/45864_UAZ_Solar_Forecast_Arbiter_Final.pdf)
+(DUA) is a **non-negotiable** legal document that all parties are bound to.
+The DUA must be signed by an authorized representative
+of an organization before its employees will be allowed to upload data,
+view data contributed by other users, or generate summary statistics.
 
+The data policies can be summarized as:
 
-Guiding Principles
-------------------
+* Signing the DUA does **not** obligate an organization to upload data,
+  nor does it obligate an organization to share uploaded data.
+* Organizations retain ownership of the data they upload to the framework.
+* Users upload data to the framework on behalf of organizations.
+* Organization administrators have complete control over how their
+  organization's data may be accessed by other users.
+* Organization administrators may delete their organization's data from the
+  Arbiter at any time.
+* Uploading data does **not** give Solar Forecast Arbiter team members
+  the ability to study it. Sharing data with project team members
+  follows the same procedures as sharing data with any other user.
+* All data will be securely deleted within 30 days of the termination of
+  the project (anticipated late 2021).
 
-The following principles guide our data policies.
+The DUA describes two types of data that participants may contribute:
+*Open Project Data* and *Limited Project Data*. Limited Project Data is
+proprietary data for which access controls are required. Most of the
+data policies are structured around addressing concerns about Limited
+Project Data. Open Project Data is data that users contribute to the
+project's reference data set. This data immediately benefits the whole
+community, but organizations lose control over who can access it.
 
-1. Organizations retain ownership of the data they upload to the framework.
-2. Users upload data to the framework on behalf of organizations.
-2. Users have complete control over how their organization's data may be
-   accessed by other users within organizations.
-2. Users may delete their organization's data from the framework at any time.
-2. The framework will not sell, donate, or otherwise disclose the data that it
-   controls without express written consent of the data owner.
-2. All non-public data will be securely deleted by the conclusion of the DOE
-   funding period (June 30, 2021) unless express written permission to
-   retain it is obtained.
-
-
-Contributing data
------------------
+## Contributing data
 
 Each organization contributing data to the framework retains ownership
 and control of its data. Each framework user is a member of an
@@ -44,83 +53,43 @@ organization and contributes data on behalf of the organization.
 
 Through the framework web interface or API calls, the user associates
 data with data access policies. These policies allow specific
-organizations/users to access to the data. Example policies are shown
-below. The web interface will show an organization a list of all of the
-submitted metadata/data it owns and the users/organizations that can
-access each data source.
+users to access to the data. The web interface shows
+an organization administrator a list of all of the submitted metadata/data
+it owns and the access roles given to other users. Please see the
+[Data Access Control documentation](/data-access-workflow/) for more
+information.
 
-Under some use cases, anonymized time series data and or summary statistics
-derived from the data are owned by the framework. This ensures trial fairness,
-transparency, and reproducibility. The framework is not allowed
-to sell, donate, or otherwise disclose anonymized data or statistics.
+Under a forecast trial use case, anonymized time series data and/or
+summary statistics derived from the data are owned by the framework.
+This ensures trial fairness, transparency, and reproducibility. However,
+the framework operators are not allowed to view or disclose anonymized
+data or statistics unless given permission using the data sharing
+features of the web service.
 
-
-Deleting data
--------------
+## Deleting data
 
 An organization may delete its data from the framework at any time, or
-an organization may ask the framework administrators to delete its data
-from the framework.
+an organization may ask the framework operators to delete its data from
+the framework.
 
-All non-public data will be securely deleted at the conclusion of the
-DOE funding period (June 30, 2021) unless express written consent is
-granted by both the data contributor and the post-DOE-funding framework
-administrator.
+All non-public data will be securely deleted within 30 days of the
+termination of the project (anticipated late 2021).
 
+## Other
 
-Data access policies
---------------------
+The Solar Forecast Arbiter uses national standards and best practices
+for security of stored data and data transmission.
 
-A data access policy defines the ways in which the data can accessed by users.
-The framework supports the following data access policies, ordered from least
-to most permissible.
+Stakeholders have questioned the ability for framework operators to
+access user-contributed data. Accessing user-contributed data requires
+highly-restricted super user access on the servers. This access is
+restricted to the smallest number of people possible. The DUA expressly
+forbids the framework operators from analyzing or examining
+user-contributed data except when required to solve service issues.
 
-* Owner-only
-    * Default access level for data uploaded by users.
-* Peer-to-peer
-    * A single user, working on behalf of an organization, grants another user
-      working on behalf of another organization permission to view data.
-* Multiparty Confidential Access anonymized
-    * Groups of organizations/users will be defined in response to each need
-      e.g. a particular forecast trial.
-    * Anonymized data is accessible to all users within a specific group.
-    * Anonymized data is not accessible by users outside of the group (or general public).
-    * True owners of anonymized data are not known by framework administrators (see note below).
-* Multiparty Confidential Access
-    * Groups of organizations/users will be defined in response to each need
-      e.g. a particular trial.
-    * Data is accessible to all users within a specific group.
-    * Data is not accessible by users outside of the group (or general public).
-* Public (with required sign on)
-    * Reference data such as SURFRAD, SOLRAD, Sandia, NREL MIDC, U Oregon,
-      DOE Data Acquisition and Archive Portal (DAP), etc.
-
-
-
-Non-Disclosure Agreements
--------------------------
-
-The creator of an organization account must agree to common terms before
-the account may be activated. The terms describe the data policies and
-procedures outlined in this document. The representative of the
-organization that agrees to the terms must have the authority to do so.
-Only then can the user view data or add new members to the organization.
-New members will be prompted to review and agree to the terms when creating a
-user account.
-
-In the event that the terms change, organization administrators will be
-prompted to reverify their compliance.
-
-
-Other
------
-
-The framework will use national standards and best practices for
-security of stored data and data transmission.
-
-On anonymity from framework administrator/operator... with some study of
-IP logs the framework operator could potentially determine who
-contributed what data. This would require super user access on the
-servers. This access will be restricted to the smallest number of people
-possible. Data contributors that want to prevent this possibility can
-use a VPN.
+Stakeholders have also questioned the ability for framework operators to
+deanonymize data contributed to anonymous forecast trials. With some
+study of IP logs the framework operator could potentially determine who
+contributed what data. This too would require highly-restricted super
+user access on the servers. Data contributors that want to prevent this
+possibility can use a VPN.
