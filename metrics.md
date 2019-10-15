@@ -126,7 +126,7 @@ $$ OVER = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n^* dp $$
 
 where
 
-$$ D_n^* \begin{cases}
+$$ D_n^* = \begin{cases}
     \displaystyle D_n - V & \text{if} & D_n > V_c \\
     \displaystyle 0 & \text{if} & D_n \leq V_c
 \end{cases} $$
