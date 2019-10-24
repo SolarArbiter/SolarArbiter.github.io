@@ -294,3 +294,26 @@ $$ O_i = \begin{cases}
 \end{cases} $$
 
 The CRPS reduces to the mean absolute error (MAE) if the forecast is deterministic.
+
+
+## Cost Metrics
+{: .anchor }
+Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority level) they improve scheduling  of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also reduce reserve requirements, as well accrue benefits to plant owners, traders and other market participants, by allowing them to improve bidding strategy or otherwise reducing risks.
+
+There are two main approaches to assessing cost-related impacts of forecasts: 1) cost as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM).
+
+
+### Cost Per Error
+{: .anchor }
+The cost-related impacts of forecasts can be assessed as a function of the forecast error:
+
+$$ C = \sum_{i=1}^n C_i(S(F_i, O_i)) $$
+
+where $$ C $$ is the total cost [$], $$ S(\cdot) $$ is a statistical measure of the forecast error between the forecast ($$ F_i $$) and observation ($$ O_i $$), e.g., the RMSE, and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error (e.g. $$ x $$ [$ / MW of RMSE]). However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak), error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors), etc.
+
+While straightforward to implement and interpret, a key challenge with this approach is in determining the $$ C_i(\cdot) $$.
+
+
+### Production Cost Modeling
+{: .anchor }
+An alternative approach is to perform simulations using a production cost model (PCM) and then compare differences in costs between forecast models. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into 
