@@ -257,7 +257,7 @@ The RES is given by:
 
 $$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
 
-Resolution is the weighted averaged of the squared differences between the releative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
+Resolution is the weighted averaged of the squared differences between the relative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
 
 ### Uncertainty (UNC)
@@ -282,7 +282,7 @@ $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 ### Continuous Ranked Probability Score (CRPS)
 {: .anchor }
-The CRPS is a score that is a designed to measure both the realiability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
+The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
 $$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int | F_i(x) - O_i(x) | dx $$
 
