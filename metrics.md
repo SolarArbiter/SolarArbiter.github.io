@@ -113,7 +113,7 @@ KSI can be normalized as:
 
 $$ KSI (\%) = \frac{100}{a_{\text{critical}}} KSI $$
 
-where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 , $$ the normalized KSI can be interpreted as a statiscal that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
+where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 , $$ the normalized KSI can be interpreted as a statistical that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
 
 
 ### OVER
