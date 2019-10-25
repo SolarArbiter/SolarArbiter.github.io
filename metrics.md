@@ -99,7 +99,7 @@ By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 ### Kolmogorov-Smirnov Test Integral (KSI)
 {: .anchor }
-The KSI [Espinar](#ref-espinar) quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values, and is defined as:
+The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
 
 $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
@@ -342,22 +342,20 @@ An alternative approach (not covered by the Solar Forecast Arbiter) is to perfor
 
 In order to the simulate the system, a PCM should be used to simulate the operations with and without energy storage. A number of key considerations for such simulations include:
 
-- **Use of multi-cycle models:** A multi cycle model captures operations in at least two decision stages, such as day ahead and real time processes, and links the data together. For example a day ahead decision may be made based on day ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured.  An example of such a model is included in [1].
+- **Use of multi-cycle models:** A multi cycle model captures operations in at least two decision stages, such as day ahead and real time processes, and links the data together. For example a day ahead decision may be made based on day ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured.  An example of such a model is included in [Ela13](#ref-ela13).
 - **Use of dynamic reserves that reflect forecast errors:** As solar penetration increases, it is likely to impact on reserves associated with balancing, such as regulation or ramping reserves. A number of ISOs and utilities are moving towards dynamically setting those reserves based on analysis of historical forecast error. Therefore, reducing forecast errors can result in reduced reserve requirements, which should also be included in simulations.
 
-Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others [2]-[5] . Such an approach provides a more extensive estimate of the value of improved forecasting. At the same time, they are still limited by simplifications made in any model, and are best used for directional scenarios analysis (i.e. specific $/MWh numbers are directional estimates and should be treated as such).
+Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others ([Zhang15](#ref-zhang15), [Wang16a](#ref-wang16a), [Wang16b](#ref-wang16b), [Wang17](#ref-wang17)). Such an approach provides a more extensive estimate of the value of improved forecasting. At the same time, they are still limited by simplifications made in any model, and are best used for directional scenarios analysis (i.e. specific $/MWh numbers are directional estimates and should be treated as such).
 
-**References**
-
-- [1] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, Impacts of Variability and Uncertainty in Solar Photovoltaic Generation at Multiple Timescales, Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
-- [2]	Q Wang, BM Hodge, Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review, IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017.
-- [3]	Q Wang, H Wu, AR Florita, CB Martinez-Anido, BM Hodge, “The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales,” Applied energy, 184, 696-713, 2016.
-- [4]	Zhang, J., Florita, A., Hodge, B.M., Lu, S., Hamann, H.F., Banunarayanan, V., Brockway, A.,  A suite of metrics for assessing the performance of solar power forecasting, Solar Energy, Volume 111, January 2015, Pages 157-175, 2015
-- [5]	Q Wang, C Brancucci, H Wu, AR Florita, BM Hodge, Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting, IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525 - 1537, 2016.
 
 
 ## References
 {: .anchor}
-[<a name="ref-espinar">Espinar</a>] Bella Espinar, Lourdes Ramírez, Anja Drews, Hans Georg Beyer, Luis F. Zarzalejo, Jesús Polo, Luis Martín,
+- [<a name="ref-espinar09">Espinar09</a>] B. Espinar, L. Ramírez, A. Drews, H. G. Beyer, L. F. Zarzalejo, J. Polo, L. Martín,
 Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations,
 Solar Energy, Volume 83, Issue 1, 2009, Pages 118-125, https://doi.org/10.1016/j.solener.2008.07.009.
+- [<a name="ref-ela13">Ela13</a>] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, Impacts of Variability and Uncertainty in Solar Photovoltaic Generation at Multiple Timescales, Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
+- [<a name="ref-wang16a">Wang16a</a>] Q Wang, H Wu, AR Florita, CB Martinez-Anido, BM Hodge, “The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales,” Applied energy, 184, 696-713, 2016.
+- [<a name="ref-wang16b">Wang16b</a>] Q Wang, C Brancucci, H Wu, AR Florita, BM Hodge, Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting, IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525 - 1537, 2016.
+- [<a name="ref-wang17">Wang17</a>] Q Wang, BM Hodge, Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review, IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017.
+- [<a name="ref-zhang15">Zhang15</a>] Zhang, J., Florita, A., Hodge, B.M., Lu, S., Hamann, H.F., Banunarayanan, V., Brockway, A.,  A suite of metrics for assessing the performance of solar power forecasting, Solar Energy, Volume 111, January 2015, Pages 157-175, 2015
