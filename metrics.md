@@ -99,23 +99,21 @@ By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 ### Kolmogorov-Smirnov Test Integral (KSI)
 {: .anchor }
-The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values, and is defined as:
+The KSI [Espinar] quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values, and is defined as:
 
 $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
-where $$ p_{\text{min}} $$ and $$ p_{\text{max}} $$ are the minimum and maximum values of the observations, and $$ D_n(p) $$ is the absolute difference between the two empirical CDFs:
+where $$ p_{\text{min}} $$ and $$ p_{\text{max}} $$ are the minimum and maximum values of the union of forecast and observed values, and $$ D_n(p) $$ is the absolute difference between the two empirical CDFs:
 
-$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | ) \enspace \text{for} \enspace p \in [ p_k, p_{k+1} ] $$
+$$ D_n(p) = \text{max}( | \text{CDF}_O(p) - \text{CDF}_F(p) | )$$
 
-where $$ p_k $$ is defined as $$ p_k = p_{\text{min}} + kd $$ for $$k = 0, 1, \dots, K $$ and $$ d = (p_{\text{max}} - p_{\text{min}}) / K $$.
-
-In practice, $$ K = 100 $$ is typical. A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
+A KSI value of zero implies that the CDFs of the forecast and observed values are equal.
 
 KSI can be normalized as:
 
 $$ KSI (\%) = \frac{100}{a_{\text{critical}}} KSI $$
 
-where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 , $$ the normalized KSI can be interpreted as a stastical that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
+where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V_c = 1.63 / \sqrt{n} $$. When $$ n \geq 35 , $$ the normalized KSI can be interpreted as a statistic that tests the hypothesis that the two empirical CDFs represent samples drawn from the same population.
 
 
 ### OVER
@@ -294,3 +292,8 @@ $$ O_i = \begin{cases}
 \end{cases} $$
 
 The CRPS reduces to the mean absolute error (MAE) if the forecast is deterministic.
+
+## References
+[Espinar] Bella Espinar, Lourdes Ramírez, Anja Drews, Hans Georg Beyer, Luis F. Zarzalejo, Jesús Polo, Luis Martín,
+Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations,
+Solar Energy, Volume 83, Issue 1, 2009, Pages 118-125, https://doi.org/10.1016/j.solener.2008.07.009.
