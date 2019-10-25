@@ -294,20 +294,24 @@ $$ O_i = \begin{cases}
 The CRPS reduces to the mean absolute error (MAE) if the forecast is deterministic.
 
 
-## Cost Metrics
+## Value Metrics
 {: .anchor }
-Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority level) they improve scheduling  of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also reduce reserve requirements, as well accrue benefits to plant owners, traders and other market participants, by allowing them to improve bidding strategy or otherwise reducing risks.
+Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority) level they improve scheduling  of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start-up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also accrue benefits to plant owners, traders, and other market participants by allowing them to improve bidding strategy or otherwise reducing risks.
 
-There are two main approaches to assessing cost-related impacts of forecasts: 1) cost as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the costs from decision making based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models.
+There are two main approaches to assessing cost-related impacts of forecasts: 1) as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the value from decisions made based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models. However, the Solar Forecast Arbiter only covers evaluating value as a function of error.
 
 
-### Cost Per Error
+### Value as a Function of Error
 {: .anchor }
-The cost-related impacts of forecasts can be assessed as a function of the forecast error:
+The value of improved forecasts can be assessed as a function of the forecast error:
 
-$$ \text{cost} = \sum_{i=1}^n C_i(S(F_i, O_i)) $$
+$$ \text{value} = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
 
-where cost is the total cost [$], $$ S(\cdot) $$ is a measure of the error between the forecast ($$ F_i $$) and observation ($$ O_i $$), and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error value (e.g. [$/MW of RMSE]):
+where the cost [$] of the selected forecast ($$ \text{cost}_f $$) and reference forecast ($$ \text{cost}_{\text{ref}} $$) are functions of the error:
+
+$$ \text{cost} = \sum_{i=1}^n C_i(S(F_i, O_i)) , $$
+
+where $$ S(\cdot) $$ is a measure of the error between the forecast ($$ F_i $$) and observation ($$ O_i $$), and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error value (e.g. [$/MW of RMSE]):
 
 
 $$ \text{cost} = C \cdot S(F, O) . $$
@@ -319,17 +323,22 @@ $$ C_i = \begin{cases}
     \displaystyle C_2 & \text{otherwise}
 \end{cases} $$
 
-where $$ C_1 \gg C_2 $$, i.e., the cost of misforecasts during on-peak periods is greater than during off-peak.
+where $$ C_1 \gg C_2 $$, i.e., the cost of misforecasts during on-peak periods is greater than during off-peak. Similarly, the cost could be defined in tiers based on the error magnitude:
 
-While this approach is straightforward to implement and interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions.
+$$ C_i = \begin{cases}
+    \displaystyle C_1 & \text{error} \leq 20\% \\
+    \displaystyle C_2 & 20 < \text{error} \leq 50\% \\
+    \displaystyle C_3 & \text{error} > 50\%
+\end{cases} $$
+
+where $$ C_1 < C_2 < C_3 $$.
+
+While this approach is straightforward to interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions.
 
 
 ### Production Cost Modeling
 {: .anchor }
-An alternative approach is to perform simulations using a production cost model (PCM) and then compare differences in costs between forecast models. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into 
-
-=======
-An alternative approach is to perform simulations using a production cost model (PCM) and then compare differences in costs between forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
+An alternative approach (not covered by the Solar Forecast Arbiter) is to perform simulations using a production cost model (PCM) and then compare differences in value between forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
 
 In order to the simulate the system, a PCM should be used to simulate the operations with and without energy storage. A number of key considerations for such simulations include:
 
