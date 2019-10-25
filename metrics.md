@@ -339,8 +339,8 @@ Models that include the above can be used to assess value of forecasts, and have
 
 **References**
 
-[1] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, Impacts of Variability and Uncertainty in Solar Photovoltaic Generation at Multiple Timescales, Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
-[2]	Q Wang, BM Hodge, Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review, IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017.
-[3]	Q Wang, H Wu, AR Florita, CB Martinez-Anido, BM Hodge, “The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales,” Applied energy, 184, 696-713, 2016.
-[4]	Zhang, J., Florita, A., Hodge, B.M., Lu, S., Hamann, H.F., Banunarayanan, V., Brockway, A.,  A suite of metrics for assessing the performance of solar power forecasting, Solar Energy, Volume 111, January 2015, Pages 157-175, 2015
-[5]	Q Wang, C Brancucci, H Wu, AR Florita, BM Hodge, Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting, IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525 - 1537, 2016.
+- [1] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, Impacts of Variability and Uncertainty in Solar Photovoltaic Generation at Multiple Timescales, Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
+- [2]	Q Wang, BM Hodge, Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review, IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017.
+- [3]	Q Wang, H Wu, AR Florita, CB Martinez-Anido, BM Hodge, “The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales,” Applied energy, 184, 696-713, 2016.
+- [4]	Zhang, J., Florita, A., Hodge, B.M., Lu, S., Hamann, H.F., Banunarayanan, V., Brockway, A.,  A suite of metrics for assessing the performance of solar power forecasting, Solar Energy, Volume 111, January 2015, Pages 157-175, 2015
+- [5]	Q Wang, C Brancucci, H Wu, AR Florita, BM Hodge, Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting, IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525 - 1537, 2016.
