@@ -300,20 +300,47 @@ The CRPS reduces to the mean absolute error (MAE) if the forecast is determinist
 {: .anchor }
 Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority level) they improve scheduling  of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also reduce reserve requirements, as well accrue benefits to plant owners, traders and other market participants, by allowing them to improve bidding strategy or otherwise reducing risks.
 
-There are two main approaches to assessing cost-related impacts of forecasts: 1) cost as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM).
+There are two main approaches to assessing cost-related impacts of forecasts: 1) cost as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the costs from decision making based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models.
 
 
 ### Cost Per Error
 {: .anchor }
 The cost-related impacts of forecasts can be assessed as a function of the forecast error:
 
-$$ C = \sum_{i=1}^n C_i(S(F_i, O_i)) $$
+$$ \text{cost} = \sum_{i=1}^n C_i(S(F_i, O_i)) $$
 
-where $$ C $$ is the total cost [$], $$ S(\cdot) $$ is a statistical measure of the forecast error between the forecast ($$ F_i $$) and observation ($$ O_i $$), e.g., the RMSE, and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error (e.g. $$ x $$ [$ / MW of RMSE]). However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak), error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors), etc.
+where cost is the total cost [$], $$ S(\cdot) $$ is a measure of the error between the forecast ($$ F_i $$) and observation ($$ O_i $$), and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error value (e.g. [$/MW of RMSE]):
 
-While straightforward to implement and interpret, a key challenge with this approach is in determining the $$ C_i(\cdot) $$.
+
+$$ \text{cost} = C \cdot S(F, O) . $$
+
+However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak or weekday vs weekend), error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors), etc. For example, a on-peak/off-peak cost could be defined as:
+
+$$ C_i = \begin{cases}
+    \displaystyle C_1 & \text{4pm} \leq \text{time} \leq \text{8pm} \\
+    \displaystyle C_2 & \text{otherwise}
+\end{cases} $$
+
+where $$ C_1 \gg C_2 $$, i.e., the cost of misforecasts during on-peak periods is greater than during off-peak.
+
+While this approach is straightforward to implement and interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions.
 
 
 ### Production Cost Modeling
 {: .anchor }
-An alternative approach is to perform simulations using a production cost model (PCM) and then compare differences in costs between forecast models. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into 
+An alternative approach is to perform simulations using a production cost model (PCM) and then compare differences in costs between forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
+
+In order to the simulate the system, a PCM should be used to simulate the operations with and without energy storage. A number of key considerations for such simulations include:
+
+- **Use of multi-cycle models:** A multi cycle model captures operations in at least two decision stages, such as day ahead and real time processes, and links the data together. For example a day ahead decision may be made based on day ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured.  An example of such a model is included in [1].
+- **Use of dynamic reserves that reflect forecast errors:** As solar penetration increases, it is likely to impact on reserves associated with balancing, such as regulation or ramping reserves. A number of ISOs and utilities are moving towards dynamically setting those reserves based on analysis of historical forecast error. Therefore, reducing forecast errors can result in reduced reserve requirements, which should also be included in simulations.
+
+Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others [2]-[5] . Such an approach provides a more extensive estimate of the value of improved forecasting. At the same time, they are still limited by simplifications made in any model, and are best used for directional scenarios analysis (i.e. specific $/MWh numbers are directional estimates and should be treated as such).
+
+**References**
+
+[1] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, Impacts of Variability and Uncertainty in Solar Photovoltaic Generation at Multiple Timescales, Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
+[2]	Q Wang, BM Hodge, Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review, IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017.
+[3]	Q Wang, H Wu, AR Florita, CB Martinez-Anido, BM Hodge, “The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales,” Applied energy, 184, 696-713, 2016.
+[4]	Zhang, J., Florita, A., Hodge, B.M., Lu, S., Hamann, H.F., Banunarayanan, V., Brockway, A.,  A suite of metrics for assessing the performance of solar power forecasting, Solar Energy, Volume 111, January 2015, Pages 157-175, 2015
+[5]	Q Wang, C Brancucci, H Wu, AR Florita, BM Hodge, Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting, IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525 - 1537, 2016.
