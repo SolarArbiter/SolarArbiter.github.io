@@ -5,7 +5,7 @@ permalink: /metrics/
 ---
 
 # Metrics
-{: .anchor } 
+{: .anchor }
 The Solar Forecast Arbiter evaluation framework provides a suite of metrics for evaluating deterministic and probablistic solar forecasts. These metrics are used for different purposes, e.g., comparing the forecast and the measurement, comparing the performance of multiple forecasts, and evaluating an event forecast.
 
 
@@ -296,18 +296,14 @@ The CRPS reduces to the mean absolute error (MAE) if the forecast is determinist
 
 ## Value Metrics
 {: .anchor }
-Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority) level they improve scheduling  of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start-up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also accrue benefits to plant owners, traders, and other market participants by allowing them to improve bidding strategy or otherwise reducing risks.
+Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority) level they improve scheduling of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start-up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also provide financial benefits to plant owners, traders, and other market participants by allowing them to improve bidding strategies or otherwise reduce risks.
 
-There are two main approaches to assessing cost-related impacts of forecasts: 1) as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the value from decisions made based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models. However, the Solar Forecast Arbiter only covers evaluating value as a function of error.
+There are two main approaches to assessing cost-related impacts of forecasts: 1) as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the value from decisions made based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models. The Solar Forecast Arbiter only covers evaluating value as a function of error, but we provide a brief introduction to production cost models for users interested in more accurate assessments.
 
 
 ### Value as a Function of Error
 {: .anchor }
-The value of improved forecasts can be assessed as a function of the forecast error:
-
-$$ \text{value} = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
-
-where the cost [$] of the selected forecast ($$ \text{cost}_f $$) and reference forecast ($$ \text{cost}_{\text{ref}} $$) are functions of the error:
+Let $$ \text{cost} $$ be the cost incurred due to forecast error when, say, operating a system or participating in a market. This cost can be written as:
 
 $$ \text{cost} = \sum_{i=1}^n C_i(S(F_i, O_i)) , $$
 
@@ -333,20 +329,25 @@ $$ C_i = \begin{cases}
 
 where $$ C_1 < C_2 < C_3 $$.
 
-While this approach is straightforward to interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions.
+While this approach is straightforward to interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions. The Solar Forecast Arbiter relies on users to supply the $$ C_i(\cdot) $$ relevant to their forecast application.
+
+The relative value of an improved forecast is:
+
+$$ \text{value} = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
+
+where the monetary cost of the selected forecast ($$ \text{cost}_f $$) and reference forecast ($$ \text{cost}_{\text{ref}} $$) are functions of the error.
 
 
 ### Production Cost Modeling
 {: .anchor }
-An alternative approach (not covered by the Solar Forecast Arbiter) is to perform simulations using a production cost model (PCM) and then compare differences in value between forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
+An alternative approach (not implemented by the Solar Forecast Arbiter) is to perform simulations using a production cost model (PCM) and then compare differences in costs incurred when using different forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
 
 In order to the simulate the system, a PCM should be used to simulate the operations with and without energy storage. A number of key considerations for such simulations include:
 
-- **Use of multi-cycle models:** A multi cycle model captures operations in at least two decision stages, such as day ahead and real time processes, and links the data together. For example a day ahead decision may be made based on day ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured.  An example of such a model is included in [Ela13](#ref-ela13).
-- **Use of dynamic reserves that reflect forecast errors:** As solar penetration increases, it is likely to impact on reserves associated with balancing, such as regulation or ramping reserves. A number of ISOs and utilities are moving towards dynamically setting those reserves based on analysis of historical forecast error. Therefore, reducing forecast errors can result in reduced reserve requirements, which should also be included in simulations.
+- **Use of multi-cycle models:** A multi-cycle model captures operations in at least two decision stages, such as day ahead and real time processes, and links the data together. For example a day ahead decision may be made based on day ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured.  An example of such a model is included in [Ela13](#ref-ela13).
+- **Use of dynamic reserves that reflect forecast errors:** As solar penetration increases, it is likely to impact reserves associated with balancing, such as regulation or ramping reserves. A number of ISOs and utilities are moving towards dynamically setting those reserves based on analysis of historical forecast error. Therefore, reducing forecast errors can result in reduced reserve requirements, which should also be included in simulations.
 
-Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others ([Zhang15](#ref-zhang15), [Wang16a](#ref-wang16a), [Wang16b](#ref-wang16b), [Wang17](#ref-wang17)). Such an approach provides a more extensive estimate of the value of improved forecasting. At the same time, they are still limited by simplifications made in any model, and are best used for directional analysis (i.e. specific $/MWh numbers are directional estimates and should be treated as such).
-
+Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others ([Zhang15](#ref-zhang15), [Wang16a](#ref-wang16a), [Wang16b](#ref-wang16b), [Wang17](#ref-wang17)). Such an approach provides a more extensive estimate of the value of improved forecasts. At the same time, they are still limited by simplifications made in any model, and are best used for directional analysis (i.e. specific $/MWh numbers are directional estimates and should be treated as such).
 
 
 ## References
