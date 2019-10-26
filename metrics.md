@@ -331,11 +331,11 @@ where $$ C_1 < C_2 < C_3 $$.
 
 While this approach is straightforward to interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions. The Solar Forecast Arbiter relies on users to supply the $$ C_i(\cdot) $$ relevant to their forecast application.
 
-The relative value of an improved forecast is:
+The monetary value of an improved forecast ($$ \text{value}_f $$) is then defined as:
 
-$$ \text{value} = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
+$$ \text{value}_f = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
 
-where the monetary cost of the selected forecast ($$ \text{cost}_f $$) and reference forecast ($$ \text{cost}_{\text{ref}} $$) are functions of the error.
+where $$ \text{cost}_f $$ and $$ \text{cost}_{\text{ref}} $$ refer to the costs of the selected forecast and reference forecast, respectively. Note that the choice of the reference forecast is crucial and should be consistent with current operational practices.
 
 
 ### Production Cost Modeling
