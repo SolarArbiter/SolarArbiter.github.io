@@ -312,7 +312,7 @@ where $$ S(\cdot) $$ is a measure of the error between the forecast ($$ F_i $$) 
 
 $$ \text{cost} = C \cdot S(F, O) . $$
 
-However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak or weekday vs weekend), error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors), etc. For example, a on-peak/off-peak cost could be defined as:
+However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak or weekday vs weekend) or as a function of error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors). For example, a on-peak/off-peak cost could be defined as:
 
 $$ C_i = \begin{cases}
     \displaystyle C_1 & \text{4pm} \leq \text{time} \leq \text{8pm} \\
