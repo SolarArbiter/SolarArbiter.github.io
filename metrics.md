@@ -5,7 +5,7 @@ permalink: /metrics/
 ---
 
 # Metrics
-{: .anchor } 
+{: .anchor }
 The Solar Forecast Arbiter evaluation framework provides a suite of metrics for evaluating deterministic and probablistic solar forecasts. These metrics are used for different purposes, e.g., comparing the forecast and the measurement, comparing the performance of multiple forecasts, and evaluating an event forecast.
 
 
@@ -99,7 +99,7 @@ By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 ### Kolmogorov-Smirnov Test Integral (KSI)
 {: .anchor }
-The KSI [Espinar](#ref-espinar) quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values, and is defined as:
+The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
 
 $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
@@ -293,8 +293,69 @@ $$ O_i = \begin{cases}
 
 The CRPS reduces to the mean absolute error (MAE) if the forecast is deterministic.
 
+
+## Value Metrics
+{: .anchor }
+Forecasts can provide economic value in a number of different ways. At a system operator (balancing authority) level they improve scheduling of the system by more effectively committing and dispatching resources to balance supply and demand. This can result in reduced start-up of quick start units, more effective use of cheaper generation resources and better use of storage to manage variability. Forecasts can also provide financial benefits to plant owners, traders, and other market participants by allowing them to improve bidding strategies or otherwise reduce risks.
+
+There are two main approaches to assessing cost-related impacts of forecasts: 1) as a function of forecast error (e.g. $/MW of RMSE) and 2) simulations using a production cost model (PCM). Both approaches focus on the value from decisions made based on the forecasts and do not include secondary costs, e.g., the cost to develop and deploy the forecast models. The Solar Forecast Arbiter will only include built-in support for evaluating value as a function of error, but we provide a brief introduction to production cost modeling (see below) for users interested in more accurate assessments.
+
+
+### Value as a Function of Error
+{: .anchor }
+Let $$ \text{cost} $$ be the cost incurred due to forecast error when, say, operating a system or participating in a market. This cost can be written as:
+
+$$ \text{cost} = \sum_{i=1}^n C_i(S(F_i, O_i)) , $$
+
+where $$ S(\cdot) $$ is a measure of the error between the forecast ($$ F_i $$) and observation ($$ O_i $$), and $$ C_i(\cdot) $$ are functions that map the forecast error to a cost. In the simplest case, all the $$ C_i(\cdot)$$ are identical and defined as a constant cost per error value (e.g. [$/MW of RMSE]):
+
+
+$$ \text{cost} = C \cdot S(F, O) . $$
+
+However, the $$ C_i(\cdot)$$ can be defined such that the cost per error varies as a function of time (e.g. on-peak vs off-peak or weekday vs weekend) or as a function of error magnitude (e.g. costs increasing in tiers, with larger errors costing more than smaller errors). For example, a on-peak/off-peak cost could be defined as:
+
+$$ C_i = \begin{cases}
+    \displaystyle C_1 & \text{4pm} \leq \text{time} \leq \text{8pm} \\
+    \displaystyle C_2 & \text{otherwise}
+\end{cases} $$
+
+where $$ C_1 \gg C_2 $$, i.e., the cost of misforecasts during on-peak periods is greater than during off-peak. Similarly, the cost could be defined in tiers based on the error magnitude:
+
+$$ C_i = \begin{cases}
+    \displaystyle C_1 & \text{error} \leq 20\% \\
+    \displaystyle C_2 & 20 < \text{error} \leq 50\% \\
+    \displaystyle C_3 & \text{error} > 50\%
+\end{cases} $$
+
+where $$ C_1 < C_2 < C_3 $$.
+
+While this approach is straightforward to interpret, a key challenge is how to determine the $$ C_i(\cdot) $$. The $$ C_i(\cdot) $$ could be based on analysis of historical data such as real-time energy prices, differences between day-ahead and real-time prices, reserve prices (where reserve depends on forecast error) or suitable proxies for non-ISO regions. The Solar Forecast Arbiter relies on users to supply the $$ C_i(\cdot) $$ relevant to their forecast application.
+
+The monetary value of an improved forecast ($$ \text{value}_f $$) is then defined as:
+
+$$ \text{value}_f = \text{cost}_{f} - \text{cost}_{\text{ref}}, $$
+
+where $$ \text{cost}_f $$ and $$ \text{cost}_{\text{ref}} $$ refer to the costs of the selected forecast and reference forecast, respectively. Note that the choice of the reference forecast is crucial and should be consistent with current operational practices.
+
+
+### Production Cost Modeling
+{: .anchor }
+An alternative approach (not implemented by the Solar Forecast Arbiter) is to perform simulations using a production cost model (PCM) and then compare differences in costs incurred when using different forecasts. In addition to providing a more direct evaluation of the forecasts, simulations can provide insight into future value, e.g., how improved forecasts can improve system operations as solar penetration increases. However, such simulations require additional data dependencies and expertise that may not be readily available to forecasters.
+
+In order to the simulate the system, a PCM should be used to simulate the operations with and without energy storage. A number of key considerations for such simulations include:
+
+- **Use of multi-cycle models:** A multi-cycle model captures operations in at least two decision stages, such as day-ahead and real-time processes, and links the data together. For example a day-ahead decision may be made based on day-ahead forecasts and certain generators committed to provide the forecasted energy needs, plus any reserves. Then, the model updates to real time actuals and the system is redispatched, recognizing limitations on the ability to commit additional generation in response to errors. If such a model is used, the ability of an improved forecast to reduce startup of quick start units or reduce solar curtailment can be captured. An example of such a model is included in [Ela13](#ref-ela13) and [Martinez-Anido16](#ref-martinez-anido16).
+- **Use of dynamic reserves that reflect forecast errors:** As solar penetration increases, it is likely to impact reserves associated with balancing, such as regulation or ramping reserves. A number of ISOs and utilities are moving towards dynamically setting those reserves based on analysis of historical forecast error. Therefore, reducing forecast errors can result in reduced reserve requirements, which should also be included in simulations.
+
+Models that include the above can be used to assess value of forecasts, and have been exercised in previous studies, such as by NREL and others ([Zhang15](#ref-zhang15), [Wang16a](#ref-wang16a), [Wang16b](#ref-wang16b), [Wang17](#ref-wang17)). Such an approach provides a more extensive estimate of the value of improved forecasts. At the same time, they are still limited by simplifications made in any model, and are best used for order of magnitude or relative studies. For example, a PCM may say that reducing forecast MAPE by 10% reduces costs in a given system by 1.5%. However, the 1.5% result should be interpreted as meaning reducing the MAPE by 10% is likely to reduce the costs in the range of 0-10%, rather that stating that the cost reduction will be exactly 1.5%.
+
+
 ## References
 {: .anchor}
-[<a name="ref-espinar">Espinar</a>] Bella Espinar, Lourdes Ramírez, Anja Drews, Hans Georg Beyer, Luis F. Zarzalejo, Jesús Polo, Luis Martín,
-Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations,
-Solar Energy, Volume 83, Issue 1, 2009, Pages 118-125, https://doi.org/10.1016/j.solener.2008.07.009.
+- [<a name="ref-espinar09">Espinar09</a>] B. Espinar, L. Ramírez, A. Drews, H. G. Beyer, L. F. Zarzalejo, J. Polo, and L. Martín, "Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations", Solar Energy, vol. 83, issue 1, pp. 118-125, 2009. DOI: [10.1016/j.solener.2008.07.009](https://doi.org/10.1016/j.solener.2008.07.009)
+- [<a name="ref-ela13">Ela13</a>] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, "Impacts of variability and uncertainty in solar photovoltaic generation at multiple timescales", Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
+- [<a name="ref-martinez-anido16">Martinez-Anido16</a>] C. B. Martinez-Anido, B. Botor, A. R. Florita, C. Draxl, S. Lu, H. F. Hamann, and B. M. Hodge, "The value of day-ahead solar power forecasting improvement", Solar Energy, vol. 129, pp. 192-203, 2016. DOI: [10.1016/j.solener.2016.01.049](https://doi.org/10.1016/j.solener.2016.01.049)
+- [<a name="ref-wang16a">Wang16a</a>] Q. Wang, H. Wu, A. R. Florita, C. B. Martinez-Anido, and B. M. Hodge, "The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales", Applied Energy, 184, pp. 696-713, 2016. DOI: [10.1016/j.apenergy.2016.11.016](https://doi.org/10.1016/j.apenergy.2016.11.016)
+- [<a name="ref-wang16b">Wang16b</a>] Q. Wang, C. Brancucci, H. Wu, A. R. Florita, and B. M. Hodge, "Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting", IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525-1537, 2016. DOI: [10.1109/TSTE.2016.2560628](https://doi.org/10.1109/TSTE.2016.2560628)
+- [<a name="ref-wang17">Wang17</a>] Q. Wang, and B. M. Hodge, "Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review", IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017. DOI: [10.1109/TII.2016.2637879](https://doi.org/10.1109/TII.2016.2637879)
+- [<a name="ref-zhang15">Zhang15</a>] J. Zhang, A. Florita, B. M. Hodge, S. Lu, H. F. Hamann, V. Banunarayanan, A. Brockway,  "A suite of metrics for assessing the performance of solar power forecasting", Solar Energy, vol. 111, pp. 157-175, 2015. DOI: [10.1016/j.solener.2014.10.016](https://doi.org/10.1016/j.solener.2014.10.016)
