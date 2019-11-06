@@ -69,6 +69,78 @@ Create New Site
    <img class="my-3" src="/images/plant_site.png"/>
 
 
+Create New Aggregate
+--------------------
+{: .anchor}
+
+1. Navigate to the aggregates listing page using the **Aggregates** link in
+   the left sidebar. At the top of the listing, click **Create new Aggregate**.
+
+   <img class="my-3" src="/images/aggregate_listing.png"/>
+
+2. Enter the metadata for your Aggregate.
+
+   <img class="my-3" src="/images/aggregate_form.png"/>
+
+3. After submission, you will be redirected to an Aggregate page which displays
+   the observations that make up the aggregate (see 
+   [Add Observations to an Aggregate](#add-observations-to-an-aggregate)).
+
+   <img class="my-3" src="/images/aggregate_page.png"/>
+
+
+### Add Observations to an Aggregate
+{: .anchor}
+
+Each aggregate is defined by the observations it contains. Before you can add
+observations to an aggregate, you must first create an observation.(see 
+[Create New Observation](#create-new-observation)). 
+
+1. Navigate to the Aggregate listing page using the **Aggregates** link in
+   the left sidebar. Select the Aggregate to add observations to.
+
+2. Click the **Add Observation** button.
+   <img class="my-3" src="/images/aggregate_page.png"/>
+
+3. Enter an **Effective From** date. This will determine the start of the period
+   for which the observations should be considered part of the aggregate. Check
+   the boxes for each observation to be included in the aggregate. Note that to
+   add observations for different time periods, you will need to repeat this process
+   with a different **Effective From** date.
+
+   <img class="my-3" src="/images/aggregate_observation_form.png"/>
+
+4. After submitting the form, you will be returned to the aggregate page, which will
+   list the newly associated observations and their "Effective From" dates.
+
+   <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
+
+
+### Remove an Observation from an Aggregate
+{: .anchor}
+
+Observations are removed from an aggregate by setting their "Effective Until" date.
+Any observation with an "Effective Until" date that has passed will not be included
+when computing the values for the aggregate.
+
+1. Navigate to the Aggregate listing page using the **Aggregates** link in
+   the left sidebar. Select the Aggregate to remove observations from.
+
+2. On the aggregate page, locate the observation to remove in the observations table.
+   Click on the "Set Effective Until" link for the observation to remove.
+
+   <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
+
+3. Enter the "Effective Until" date for the observation. This will determine the end
+   of the period for which the observations should be considered part of the aggregate.
+
+   <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
+
+4. After submitting the form, you will be return to the aggregate page.
+
+   <img class="my-3" src="/images/aggregate_page_with_effective_until.png"/>
+
+
 Create New Observation or Forecast
 ----------------------------------
 {: .anchor}
