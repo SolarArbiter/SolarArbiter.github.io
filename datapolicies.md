@@ -15,7 +15,7 @@ administrator** is a user that has can also grant permissions to view or
 modify data to other users, including users outside of the
 administrator's own organization.
 
-The [Data Use Agreement](/assets/45864_UAZ_Solar_Forecast_Arbiter_Final.pdf)
+The [Data Use Agreement](/assets/45864 Approved_Final version 1.1.pdf)
 (DUA) is a **non-negotiable** legal document that all parties are bound to.
 The DUA must be signed by an authorized representative
 of an organization before its employees will be allowed to upload data,
