@@ -73,12 +73,19 @@ Create New Aggregate
 --------------------
 {: .anchor}
 
+Aggregates are created by first defining metadata for the aggregate, then
+associating existing observations with it. The aggregate metadata determines
+how aggregation will be performed and the characteristics of the resulting
+timeseries data.
+
 1. Navigate to the aggregates listing page using the **Aggregates** link in
    the left sidebar. At the top of the listing, click **Create new Aggregate**.
 
    <img class="my-3" src="/images/aggregate_listing.png"/>
 
-2. Enter the metadata for your Aggregate.
+2. Enter the metadata for your Aggregate. Observations added to the aggregate
+   must have the same variable as the aggregate and an interval length less
+   than or equal to that of the aggregate.
 
    <img class="my-3" src="/images/aggregate_form.png"/>
 
@@ -92,8 +99,8 @@ Create New Aggregate
 ### Add Observations to an Aggregate
 {: .anchor}
 
-Each aggregate is defined by the observations it contains. Before you can add
-observations to an aggregate, you must first create an observation.(see 
+Aggregates are defines by the observations it contains. Observations must be
+defined before they can be added to an aggregate (see 
 [Create New Observation](#create-new-observation)). 
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
@@ -120,8 +127,8 @@ observations to an aggregate, you must first create an observation.(see
 {: .anchor}
 
 Observations are removed from an aggregate by setting their "Effective Until" date.
-Any observation with an "Effective Until" date that has passed will not be included
-when computing the values for the aggregate.
+Aggregate values will only be contain data from constituent observations between
+their 'effective_from' and 'effective_until' dates. 
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
    the left sidebar. Select the Aggregate to remove observations from.
@@ -133,6 +140,7 @@ when computing the values for the aggregate.
 
 3. Enter the "Effective Until" date for the observation. This will determine the end
    of the period for which the observations should be considered part of the aggregate.
+   To remove it entirely, set an 'Effective until" earlier than the "Effective from".
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
@@ -167,10 +175,13 @@ To create an Observation or Forecast, an associated site must already exist (see
 ### Create New Forecast
 {: .anchor}
 
-1.  Navigate to the Site listing page using the **Sites** link in the left
-	sidebar. Select the site for which you are adding a Forecast.
+Forecasts can be created for either a Site or an Aggregate.
 
-2.  Click the **Create new Forecast** button on the Site page.
+1.  Navigate to the sites or aggregates page using the sidebar. From the
+    applicable listing page, select the site or aggregate for which you
+    are adding a Forecast.
+
+2.  On the site or aggregate page, click the **Create new Forecast** button.
     <img class="my-3" src="/images/plant_site.png"/>
 
 3.  Enter metadata for your Forecast. On submission, you will be redirected
