@@ -78,12 +78,6 @@ associating existing observations with it. The aggregate metadata determines
 how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
-Observations are included in an aggregate between an *Effective From* and
-an *Effective Until* date defined by the user. Note that observations are
-expected to contain all values in their effective range. Any values missing
-from an observation during computation will cause a failure. To avoid this
-failure, users should submit `NaN`s where data is missing for their
-observations.
 
 1. Navigate to the aggregates listing page using the **Aggregates** link in
    the left sidebar. At the top of the listing, click **Create new Aggregate**.
@@ -106,17 +100,22 @@ observations.
 ### Add Observations to an Aggregate
 {: .anchor}
 
-Aggregates are defines by the observations it contains. Observations must be
-defined before they can be added to an aggregate (see 
+Observations are included in an aggregate between an *Effective From* and
+an *Effective Until* date defined by the user. Note that observations are
+expected to contain all values in their effective range. Any values missing
+from an observation during computation will cause a failure. To avoid this
+failure, users should submit `NaN`s where data is missing for their
+observations.
+
+Observations may be added to an Aggregate by following the steps below.
+Observations must be defined before they can be added to an aggregate (see 
 [Create New Observation](#create-new-observation)). 
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
-   the left sidebar. Select the Aggregate to add observations to.
+   the left sidebar. Select the Aggregate to add observations to. Click the
+   **Add Observation** button.
 
-2. Click the **Add Observation** button.
-   <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
-
-3. Enter an *Effective From* date. This will determine the start of the period
+2. Enter an *Effective From* date. This will determine the start of the period
    for which the observations should be considered part of the aggregate. Check
    the boxes for each observation to be included in the aggregate. Note that to
    add observations for different time periods, you will need to repeat this
@@ -124,11 +123,6 @@ defined before they can be added to an aggregate (see
    
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
-
-4. After submitting the form, you will be returned to the aggregate page, which will
-   list the newly associated observations and their *Effective From* dates.
-
-   <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
 
 
 ### Remove an Observation from an Aggregate
@@ -152,9 +146,6 @@ their *Effective From* and *Effective Until* dates.
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
-4. After submitting the form, you will be return to the aggregate page.
-
-   <img class="my-3" src="/images/aggregate_page_with_effective_until.png"/>
 
 
 Create New Observation or Forecast
@@ -185,9 +176,8 @@ To create an Observation or Forecast, an associated site must already exist (see
 
 Forecasts can be created for either a Site or an Aggregate.
 
-1.  Navigate to the sites or aggregates page using the sidebar. From the
-    applicable listing page, select the site or aggregate for which you
-    are adding a Forecast.
+1.  Navigate to the sites or aggregates page using the sidebar, then select the
+    site or aggregate for which you are adding a Forecast.
 
 2.  On the site or aggregate page, click the **Create new Forecast** button.
     <img class="my-3" src="/images/plant_site.png"/>
