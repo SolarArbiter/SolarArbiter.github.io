@@ -78,6 +78,13 @@ associating existing observations with it. The aggregate metadata determines
 how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
+Observations are included in an aggregate between an *Effective From* and
+an *Effective Until* date defined by the user. Note that observations are
+expected to contain all values in their effective range. Any values missing
+from an observation during computation will cause a failure. To avoid this
+failure, users should submit `NaN`s where data is missing for their
+observations.
+
 1. Navigate to the aggregates listing page using the **Aggregates** link in
    the left sidebar. At the top of the listing, click **Create new Aggregate**.
 
@@ -112,8 +119,9 @@ defined before they can be added to an aggregate (see
 3. Enter an *Effective From* date. This will determine the start of the period
    for which the observations should be considered part of the aggregate. Check
    the boxes for each observation to be included in the aggregate. Note that to
-   add observations for different time periods, you will need to repeat this process
-   with a different *Effective From* date.
+   add observations for different time periods, you will need to repeat this
+   process with a different *Effective From* date.
+   
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
