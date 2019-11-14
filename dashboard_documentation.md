@@ -109,16 +109,16 @@ defined before they can be added to an aggregate (see
 2. Click the **Add Observation** button.
    <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
 
-3. Enter an **Effective From** date. This will determine the start of the period
+3. Enter an *Effective From* date. This will determine the start of the period
    for which the observations should be considered part of the aggregate. Check
    the boxes for each observation to be included in the aggregate. Note that to
    add observations for different time periods, you will need to repeat this process
-   with a different **Effective From** date.
+   with a different *Effective From* date.
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
 4. After submitting the form, you will be returned to the aggregate page, which will
-   list the newly associated observations and their "Effective From" dates.
+   list the newly associated observations and their *Effective From* dates.
 
    <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
 
@@ -126,21 +126,21 @@ defined before they can be added to an aggregate (see
 ### Remove an Observation from an Aggregate
 {: .anchor}
 
-Observations are removed from an aggregate by setting their "Effective Until" date.
-Aggregate values will only be contain data from constituent observations between
-their 'effective_from' and 'effective_until' dates. 
+Observations are removed from an aggregate by setting their *Effective Until* date.
+Aggregate values will only contain data from constituent observations between
+their *Effective From* and *Effective Until* dates.
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
    the left sidebar. Select the Aggregate to remove observations from.
 
 2. On the aggregate page, locate the observation to remove in the observations table.
-   Click on the "Set Effective Until" link for the observation to remove.
+   Click on the **Set Effective Until** link for the observation to remove.
 
    <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
 
-3. Enter the "Effective Until" date for the observation. This will determine the end
+3. Enter the *Effective Until* date for the observation. This will determine the end
    of the period for which the observations should be considered part of the aggregate.
-   To remove it entirely, set an 'Effective until" earlier than the "Effective from".
+   To remove it entirely, set an *Effective until* earlier than the *Effective from*.
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
