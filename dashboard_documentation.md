@@ -93,7 +93,7 @@ timeseries data.
    the observations that make up the aggregate (see 
    [Add Observations to an Aggregate](#add-observations-to-an-aggregate)).
 
-   <img class="my-3" src="/images/aggregate_page.png"/>
+   <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
 
 
 ### Add Observations to an Aggregate
@@ -107,7 +107,7 @@ defined before they can be added to an aggregate (see
    the left sidebar. Select the Aggregate to add observations to.
 
 2. Click the **Add Observation** button.
-   <img class="my-3" src="/images/aggregate_page.png"/>
+   <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
 
 3. Enter an **Effective From** date. This will determine the start of the period
    for which the observations should be considered part of the aggregate. Check
