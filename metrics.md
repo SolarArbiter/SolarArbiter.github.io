@@ -237,7 +237,7 @@ where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_
 
 When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast:
 
-$$ \text{BS} = \text{REL} + \text{RES} + \text{UNC} $$
+$$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
 
 
 ### Reliability (REL)
