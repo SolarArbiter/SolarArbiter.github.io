@@ -69,6 +69,85 @@ Create New Site
    <img class="my-3" src="/images/plant_site.png"/>
 
 
+Create New Aggregate
+--------------------
+{: .anchor}
+
+Aggregates are created by first defining metadata for the aggregate, then
+associating existing observations with it. The aggregate metadata determines
+how aggregation will be performed and the characteristics of the resulting
+timeseries data.
+
+
+1. Navigate to the aggregates listing page using the **Aggregates** link in
+   the left sidebar. At the top of the listing, click **Create new Aggregate**.
+
+   <img class="my-3" src="/images/aggregate_listing.png"/>
+
+2. Enter the metadata for your Aggregate. Observations added to the aggregate
+   must have the same variable as the aggregate and an interval length less
+   than or equal to that of the aggregate.
+
+   <img class="my-3" src="/images/aggregate_form.png"/>
+
+3. After submission, you will be redirected to an Aggregate page which displays
+   the observations that make up the aggregate (see 
+   [Add Observations to an Aggregate](#add-observations-to-an-aggregate)).
+
+   <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
+
+
+### Add Observations to an Aggregate
+{: .anchor}
+
+Observations are included in an aggregate between an *Effective From* and
+an *Effective Until* date defined by the user. Note that observations are
+expected to contain all values in their effective range. Any values missing
+from an observation during computation will cause a failure. To avoid this
+failure, users should submit `NaN`s where data is missing for their
+observations.
+
+Observations may be added to an Aggregate by following the steps below.
+Observations must be defined before they can be added to an aggregate (see 
+[Create New Observation](#create-new-observation)). 
+
+1. Navigate to the Aggregate listing page using the **Aggregates** link in
+   the left sidebar. Select the Aggregate to add observations to. Click the
+   **Add Observation** button.
+
+2. Enter an *Effective From* date. This will determine the start of the period
+   for which the observations should be considered part of the aggregate. Check
+   the boxes for each observation to be included in the aggregate. Note that to
+   add observations for different time periods, you will need to repeat this
+   process with a different *Effective From* date.
+   
+
+   <img class="my-3" src="/images/aggregate_observation_form.png"/>
+
+
+### Remove an Observation from an Aggregate
+{: .anchor}
+
+Observations are removed from an aggregate by setting their *Effective Until* date.
+Aggregate values will only contain data from constituent observations between
+their *Effective From* and *Effective Until* dates.
+
+1. Navigate to the Aggregate listing page using the **Aggregates** link in
+   the left sidebar. Select the Aggregate to remove observations from.
+
+2. On the aggregate page, locate the observation to remove in the observations table.
+   Click on the **Set Effective Until** link for the observation to remove.
+
+   <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
+
+3. Enter the *Effective Until* date for the observation. This will determine the end
+   of the period for which the observations should be considered part of the aggregate.
+   To remove it entirely, set an *Effective until* earlier than the *Effective from*.
+
+   <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
+
+
+
 Create New Observation or Forecast
 ----------------------------------
 {: .anchor}
@@ -95,10 +174,12 @@ To create an Observation or Forecast, an associated site must already exist (see
 ### Create New Forecast
 {: .anchor}
 
-1.  Navigate to the Site listing page using the **Sites** link in the left
-	sidebar. Select the site for which you are adding a Forecast.
+Forecasts can be created for either a Site or an Aggregate.
 
-2.  Click the **Create new Forecast** button on the Site page.
+1.  Navigate to the sites or aggregates page using the sidebar, then select the
+    site or aggregate for which you are adding a Forecast.
+
+2.  On the site or aggregate page, click the **Create new Forecast** button.
     <img class="my-3" src="/images/plant_site.png"/>
 
 3.  Enter metadata for your Forecast. On submission, you will be redirected
