@@ -10,9 +10,10 @@ Dashboard Documentation
 The [Solar Forecast Arbiter Dashboard](https://dashboard.solarforecastarbiter.org)
 is a web interface for managing solar observation and forecast data and for
 evaluating solar forecast accuracy. This documentation provides step-by-step
-examples of how to perform common activities on the Solar Forecast Arbiter
-dashboard. Use the Contents menu to navigate between each activity. Each
-section includes instructions and screenshots.
+instructions of how to perform common activities on the Solar Forecast Arbiter
+dashboard. Documentation is separated into how to
+[working with data](/documentation/dashboard/working-with-data) and
+[administration and data sharing](/documentation/dashboard/administration).
 
 Be sure to read the [Getting Started](/documentation/dashboard/getting-started)
 section for instructions on how to access the current version of the dashboard.
