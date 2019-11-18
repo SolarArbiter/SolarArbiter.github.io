@@ -7,9 +7,10 @@ Working With Data
 =================
 {: .anchor}
 
-Please see the [data model documentation](/datamodel/) for more details on how
-the Solar Forecast Arbiter organizes metadata (Sites, Observations, and
-Forecasts) and time series data.
+This section will describe how to access and contribute data to the Solar
+Forecast Arbiter. Please see the [data model documentation](/datamodel/) for
+more details on how the Solar Forecast Arbiter organizes metadata (Sites,
+Observations, and Forecasts) and time series data.
 
 Create New Site
 ---------------
