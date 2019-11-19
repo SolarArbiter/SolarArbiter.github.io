@@ -1,6 +1,6 @@
 ---
 layout: base
-permalink: /documentation/dashboard/getting-started
+permalink: /documentation/dashboard/getting-started/
 sidebar: dashboard_getting_started_sidebar.html
 ---
 
