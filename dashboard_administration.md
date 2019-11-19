@@ -1,6 +1,7 @@
 ---
-layout: dashboard_admin
+layout: dashboard
 permalink: /documentation/dashboard/administration
+sidebar: dashboard_admin_sidebar.html
 ---
 
 # Dashboard Administration

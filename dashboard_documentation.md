@@ -1,6 +1,7 @@
 ---
 layout: dashboard
 permalink: /documentation/dashboard/
+sidebar: dashboard_sidebar.html
 ---
 
 Dashboard Documentation

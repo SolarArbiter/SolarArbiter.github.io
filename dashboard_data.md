@@ -1,6 +1,7 @@
 ---
-layout: dashboard_data
+layout: dashboard
 permalink: /documentation/dashboard/working-with-data
+sidebar: dashboard_data_sidebar.html
 ---
 
 Working With Data
