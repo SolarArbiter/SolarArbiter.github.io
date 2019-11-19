@@ -1,7 +1,8 @@
 ---
-layout: metrics
+layout: base
 mathjax: true
 permalink: /metrics/
+sidebar: metrics_sidebar.html
 ---
 
 # Metrics

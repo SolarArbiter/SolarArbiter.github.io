@@ -1,6 +1,7 @@
 ---
-layout: getting_started
+layout: base
 permalink: /documentation/dashboard/getting-started
+sidebar: dashboard_getting_started_sidebar.html
 ---
 
 Getting Started

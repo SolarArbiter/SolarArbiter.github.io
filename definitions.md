@@ -1,6 +1,7 @@
 ---
-layout: definitions
+layout: base
 permalink: /definitions/
+sidebar: definition_sidebar.html
 ---
 
 # Definitions  {#definitions}

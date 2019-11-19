@@ -1,5 +1,5 @@
 ---
-layout: dashboard
+layout: base
 permalink: /documentation/dashboard/administration
 sidebar: dashboard_admin_sidebar.html
 ---

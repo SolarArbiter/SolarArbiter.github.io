@@ -1,6 +1,7 @@
 ---
-layout: datamodel
+layout: base
 permalink: /datamodel/
+sidebar: datamodel_sidebar.html
 ---
 
 Data Model
