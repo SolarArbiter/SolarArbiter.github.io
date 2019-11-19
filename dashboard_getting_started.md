@@ -47,6 +47,8 @@ organization. An organization administrator will be appointed by the point of
 contact to manage data access.
 
 #### Joining an Organization
+{: .anchor}
+
 Users can join an existing organization by emailing the framework
 administrators at [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
 Framework administrators will verify with the organization's point of contact
