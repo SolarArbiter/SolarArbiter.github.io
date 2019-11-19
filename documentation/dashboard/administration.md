@@ -1,6 +1,6 @@
 ---
 layout: base
-permalink: /documentation/dashboard/administration
+permalink: /documentation/dashboard/administration/
 sidebar: dashboard_admin_sidebar.html
 ---
 
