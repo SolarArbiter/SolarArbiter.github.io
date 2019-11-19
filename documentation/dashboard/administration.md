@@ -74,7 +74,7 @@ created for the organization. These roles are intended for use within the
 organization as they permit actions on all existing and future data in an
 organization. Administrators are encouraged to create new roles with
 permissions tailored to a specific user or group of users. When sharing data
-with users outside their organization, organization administrators are advised
+with users outside their organization, organization administrators are *strongly encouraged*
 to create roles with specific permissions that apply to only the data they
 would like to share.
 
