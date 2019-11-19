@@ -8,24 +8,29 @@ Getting Started
 ===============
 {: .anchor}
 
-Registering an account on the Solar Forecast Arbiter will grant you access to
-the Arbiter's Reference data set. To utilize other Arbiter features such as
-sharing and uploading data, running reports, and participating in trials,
-you'll first need to establish an Organization or join an existing one. 
+Registering an account on the Solar Forecast Arbiter is a two step process:
+
+1. [Sign up](#signing-up) for an account. This automatic process immediately
+grants you access to the Arbiter's reference data and reference forecasts.
+
+2. [Create a new Organization](#creating-an-organization) or [join an existing
+Organization](#joining-an-organization). This manual process grants you access
+to the rest of the Arbiter's features including uploading data, sharing data,
+running reports, and participating in trials.
+
+The sections below describe these steps in more detail.
 
 ### Signing up
 {: .anchor}
 
-New framework users will need to sign up through the [Solar Forecast Arbiter
-dashboard](https://dashboard.solarforecastarbiter.org). The signup form can be
-found by following the 'Log in' link on the front page of the dashboard. You
-will be prompted with an Auth0 login window. Click the sign up tab and enter
-your information. Users will receive an email from Solar Forecast Arbiter to
-verify their account. Account verification is required before you will be able
-to access data in the Solar Forecast Arbiter. 
-
-Auth0 is a secure authentication service that has numereous security
-credentials and undergoes routine audits.
+New framework users sign up through the [Solar Forecast Arbiter dashboard](https://dashboard.solarforecastarbiter.org).
+The signup form is found by following the 'Log in' link on the front page of
+ the dashboard. You will be prompted with an Auth0 login window
+([Auth0](https://auth0.com/docs/getting-started/overview) is a secure
+authentication service). Click the sign up tab and enter your information.
+Users will receive an email from Solar Forecast Arbiter to verify their
+account. Account verification is required before you will be able to access
+data in the Solar Forecast Arbiter.
 
 ### Organizations
 {:.anchor}
@@ -38,14 +43,18 @@ to grant users permissions to view or alter data owned by their organization.
 #### Creating an Organization
 {: .anchor}
 
-When ready to create an organization, users should contact the framework
-administrators at [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
-to start the process. The framework administrators will provide the
-non-negotiable [Data Use Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf),
+To create an new organization, contact the framework administrators at 
+[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) to
+start the process. The framework administrators will provide the non-negotiable
+[Data Use Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf),
 the user will review the Data Use Agreement and return the Data Use Agreement
-signed by an authorized representative of their organization. A [point of contact](#organization-point-of-contact) will be established to verify future updates to the
-organization. An organization administrator will be appointed by the point of
-contact to manage data access.
+signed by an authorized representative of their organization. A [point of
+contact](#organization-point-of-contact) will be established to verify future
+updates to the organization. The point of contact typically is the person that
+initiated the request, but alternative or additional points of contact may be
+designated. The organization point of contact will appoint one or more
+[organization administrators](#organization-administrators) to manage user and
+data access. The point of contact typically is also an administrator.
 
 #### Joining an Organization
 {: .anchor}
@@ -60,35 +69,35 @@ their organization.
 ### User Classifications
 {: .anchor}
 
-Users of the Solar Forecast Arbiter will fall into one of the following
-classifications.
+Users of the Solar Forecast Arbiter are described by one or more of the
+following classifications.
 
 #### Organization Point of Contact
 {:.anchor}
 
 An organization's point of contact is a representative of the organization who
 is authorized to approve or request changes to the organization. There may be
-more than one point of contact for an organization. A point of contact will be
-capable of contacting the framework administrators to complete the following
-actions:
+more than one point of contact for an organization.
 
-- Adding and removing users from the organization.
+A point of contact may coordinate with framework administrators to:
 
-- Promoting users to [organization administrators](#organization-administrators).
+- Add and remove users from the organization.
 
-- Participating in trials.
+- Promote users to [organization administrators](#organization-administrators).
+
+- Coordinate organization participation in a forecast trial.
 
 #### Organization Administrators
 {: .anchor}
 
-Organization Administrators are users with special permissions to act on users,
-roles and permissions in their organization. Organization administrators are
+Organization Administrators are users with special permission to manage [users](/documentation/dashboard/administration/#users), [roles](/documentation/dashboard/administration/#roles)
+and [permissions](/documentation/dashboard/administration/#permissions). Organization administrators are
 also granted full access to their organization's data. An organization's point
 of contact may request that users in their organization be promoted to an
 organization administrator by emailing a request to
 [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
 
-Administrators will be allowed to [grant](/documentation/dashboard/administration#granting-roles-to-a-user)
+Administrators may [grant](/documentation/dashboard/administration#granting-roles-to-a-user)
 and [revoke](/documentation/dashboard/administration#revoking-roles-from-a-user)
 roles from users in their organization and add or remove permissions from
 roles. Roles may be granted to members of other organizations provided their
@@ -102,7 +111,7 @@ another organization or to add the *update users* permission to a role that
 has been granted outside the organization will not be allowed.
         
 
-#### Standard user
+#### Standard User
 {: .anchor}
 
 Solar Forecast Arbiter users are added to the *Unaffiliated* organization by
@@ -112,6 +121,6 @@ accepted the data use agreement.
 
 An organization's [point of contact](#organization-point-of-contact) may submit
 a request to [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
-to add a user to their organization. Once the user has been added to the
-organization, an [organization administrator](#organization-administrators) may
-grant the user access to the organization's data.
+to add a user to their organization. Users new to an organization have no
+access to the organization's data until an [organization administrator](#organization-administrators)
+grants them access.
