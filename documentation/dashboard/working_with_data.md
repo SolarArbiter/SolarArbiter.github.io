@@ -4,14 +4,23 @@ permalink: /documentation/dashboard/working-with-data/
 sidebar: dashboard_data_sidebar.html
 ---
 
-Working With Data
+Working with Data
 =================
 {: .anchor}
 
-This section will describe how to access and contribute data to the Solar
-Forecast Arbiter. Please see the [data model documentation](/datamodel/) for
-more details on how the Solar Forecast Arbiter organizes metadata (Sites,
-Observations, and Forecasts) and time series data.
+This section describes how to create, upload, and download data using the Solar
+Forecast Arbiter Dashboard.
+
+The Solar Forecast Arbiter organizes metadata into **Sites**, **Observations**,
+and **Forecasts**. All time series data is linked to an observation or a
+forecast, which is linked to a site or an aggregate. Please see the 
+[data model documentation](/datamodel/) for more details on how the Solar
+Forecast Arbiter organizes metadata and time series data.
+
+Readers may also be interested in the [HTTP API](https://api.solarforecastarbiter.org)
+or [Python API](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#sfa-api)
+documentation for instructions on how to perform data operations
+programmatically.
 
 Create New Site
 ---------------
