@@ -115,9 +115,10 @@ The default roles are described below:
 {: .anchor}
 
 Unlike other types of data, *users* are only created through the signup process
-outlined in <a href="#getting-started">getting started</a>. Administrators have
-access to a listing of users in their organization and a page listing some data
-about an individual user and the roles they have been granted.
+outlined in [getting started](/documentation/dashboard/getting-started/#signing-up).
+Administrators have access to a listing of users in their organization and a
+page for each individual user in their organization and the roles they have
+been granted.
 
 -   The *Users* tab of the *user administration* menu will list the users you
     have access to administer or view.
