@@ -1,6 +1,6 @@
 ---
 layout: base
-permalink: /documentation/dashboard/working-with-data
+permalink: /documentation/dashboard/working-with-data/
 sidebar: dashboard_data_sidebar.html
 ---
 
