@@ -6,9 +6,8 @@ permalink: /documentation/dashboard/administration
 # Dashboard Administration
 {: .anchor}
 
-This section describes the user interface for managing data acces through
-roles and permissions. An accompanying workflow description can be found in the
-[Data Access Workflow Document](/data-access-workflow/).
+This section describes the user interface for organization administrators to
+manage data access through roles and permissions.
 
 User, permission and role administation can be accessed by clicking the **User
 Administration** link in the Account menu in the top right corner of the site.
@@ -17,27 +16,123 @@ Administration** link in the Account menu in the top right corner of the site.
 
 
 Note that these menus are meant to assist organization administrators in viewing
-and managing permissions, and users without admin privileges may not see anything
-on these pages.
+and managing permissions, and users without administrative privileges may not
+see anything on these pages.
 
+## Data Access Components
+{: .anchor}
+
+Organization administrators will use the Solar Forecast Arbiter's data
+access controls to grant users access to their data or to allow users to
+submit data on their organization's behalf. The Solar Forecast Arbiter uses a
+Role Based Access Control System to control access to data. There are four main
+components in the access control system:
+
+### Organizations
+{: .anchor}
+
+  Organizations are groups of *users*. All data submitted by users
+  within an organization will belong to that organization. An
+  organization's administrators will control access to all
+  of the data belonging to the organization.
 
 ### Users
 {: .anchor}
 
-Unlike other types of data, *Users* are only created through the signup process
-outlined in <a href="#getting-started">getting started</a>.
+  Framework user accounts determine what actions an end user can
+  perform within the framework. A user is granted access to data through
+  the *roles* they are assigned.
 
--   The *Users* tab will list the users you have access to administer or view.
+### Roles
+{: .anchor}
+
+  Roles are a collection of *permissions* that may be granted to a
+  user. Best practice is to only grant users the permissions necessary to
+  perform their job function. For instance, an organization administrator's
+  roles will have permissions to create new roles and permissions, while a
+  non-administrative user's roles may only have permission to view and write
+  data to the organization's forecasts. Roles may also be created to share
+  data with users outside of the organization.
+
+### Permissions
+{: .anchor}
+
+  Permissions allow a user to perform an action on a piece of data or
+  pieces of similar objects in the framework. For instance, a permission
+  may allow a user to view the metadata of an observation or post values
+  to all forecasts. Permissions are added to roles to enable users with
+  that role to perform the permission's action. A permission can only
+  allow actions on data owned by the organization in which it
+  was created.
+
+## Default Roles
+{: .anchor}
+
+When a new organization is created, a set of default roles will be
+created for the organization. These roles are intended for use within the
+organization as they permit actions on all existing and future data in an
+organization. Administrators are encouraged to create new roles with
+permissions tailored to a specific user or group of users. When sharing data
+with users outside their organization, organization administrators are advised
+to create roles with specific permissions that apply to only the data they
+would like to share.
+
+
+The default roles are described below:
+
+-   **View all data and metadata:** Access all of the metadata and
+    values in the organization. This includes observations, forecasts,
+    probabilistic forecasts, sites and reports.
+
+-   **Write all values:** Allows a user to submit data within the
+    organization e.g. adding measurements to an
+    observation.
+
+-   **Create metadata:** Allows a user to create new sites,
+    observations, forecasts and probabilistic forecasts. Also allows
+    the creation of reports.
+
+-   **Delete data and metadata:** Allows a user to delete sites,
+    observations, forecasts, probabilistic forecasts as well as any
+    associated values.
+
+-   **Administer data access controls:** Granted to organization
+    administrators, this role allows:
+
+    -   Create and delete new roles and permissions.
+
+    -   Add and remove permissions from roles.
+
+    -   Add or remove data objects from a permission.
+
+    -   Grant and revoke roles on a user.
+
+
+
+
+## Managing Users
+{: .anchor}
+
+Unlike other types of data, *users* are only created through the signup process
+outlined in <a href="#getting-started">getting started</a>. Administrators have
+access to a listing of users in their organization and a page listing some data
+about an individual user and the roles they have been granted.
+
+-   The *Users* tab of the *user administration* menu will list the users you
+    have access to administer or view.
 	<img class="my-3" src="/images/users.png"/>
 
 
 -	Clicking on an individual user will list information about the user and their
-    roles. Roles may be revoked from the user by clicking the *Remove* link on the
-    far right of each row of the listing.
+    roles. See the *users within your organization* section of
+    [granting roles to a user](/documentation/dashboard/administration#granting-roles-to-a-user) and
+    [revoking roles from a user](/documentation/dashboard/administration#revoking-roles-from-a-user)
+    for how to manage a user's roles.
+   
     <img class="my-3" src="/images/user.png"/>
 
 
-### Create New Role
+## Create New Role
 {: .anchor}
 
 1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
@@ -61,30 +156,37 @@ outlined in <a href="#getting-started">getting started</a>.
     <img class="my-3" src="/images/role_users.png"/>
 
 
-### Create New Permission
+## Create New Permission
 {: .anchor}
-1.	Navigate to the Permissions listing with the *Permissions* tab of the admin menu.
-    This page will list all of the Permissions you have access to administer or view.
+1.	Navigate to the Permissions listing with the *Permissions* tab of the admin
+    menu. This page will list all of the Permissions you have access to
+    administer or view.
     <img class="my-3" src="/images/permissions.png"/>
 
-2.  Click on the data type you would like to create a permission for in the "Create new
-    Permission" box. You will be prompted for a description of the permission, the
-    action the permission allows and a list of objects. Click the checkboxes for each
-    object that the permission should allow its action on. Selecting *Applies to all*
-    will cause the permission to affect all current and future objects of the
-    permission's type.
+2.  Click on the data type you would like to create a permission for in the
+    "Create new Permission" box. You will be prompted for a description of the
+    permission, the action the permission allows and a list of objects. Click
+    the checkboxes for each object that the permission should allow its action
+    on. Selecting *Applies to all* will cause the permission to affect all
+    current and future objects of the permission's type.
 
     *Permission form for observation permsission*
     <img src="/images/permission_form.png"/>
 
--	*Created Permission pages*
-    Clicking on an individual Permission will list information about it and the objects
-    it applies to.
+-   Clicking on an individual Permission will list information about it and the
+    objects it applies to.
     <img class="my-3" src="/images/permission.png"/>
 
-### Data Sharing
+## Data Sharing
+An organization admin can share data by granting roles to a user. Granting a
+role permits the user to perform actions defined by the role's permissions.
+Roles granted to users outside of the organization may not contain
+administrative permissions. Adminsitrative permissions are those that allow
+users to perform an update, create or delete action on roles, permissions or
+users. Similarly, administrative permissions may not be added to a role that is
+currently shared with a user outside the organization.
 
-#### Granting roles to a user
+### Granting roles to a user
 {: .anchor}
 
 **Users within your organization**
@@ -106,7 +208,7 @@ outlined in <a href="#getting-started">getting started</a>.
 2.  Enter the email of the user to grant the role to and click submit.
 
 
-#### Revoking roles from a user
+### Revoking roles from a user
 {: .anchor}
 
 **Users within your organization**
