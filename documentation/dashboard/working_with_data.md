@@ -1,47 +1,26 @@
 ---
-layout: dashboard
-permalink: /documentation/dashboard/
+layout: base
+permalink: /documentation/dashboard/working-with-data/
+sidebar: dashboard_data_sidebar.html
 ---
 
-Dashboard Documentation
-=======================
+Working with Data
+=================
 {: .anchor}
 
-The Solar Forecast Arbiter Dashboard is a web interface for managing solar
-observation and forecast data and for evaluating solar forecast accuracy.
-This documentation provides step-by-step examples of how to perform
-common activities on the Solar Forecast Arbiter dashboard. Use the Contents menu
-to navigate between each activity. Each section includes instructions and screenshots.
+This section describes how to create, upload, and download data using the Solar
+Forecast Arbiter Dashboard.
 
-Be sure to read the [Getting Started](#getting-started) section for instructions
-on how to access the current version of the dashboard.
-Please see the [data model documentation](/datamodel/) for more details on
-how the Solar Forecast Arbiter organizes metadata (Sites, Observations, and Forecasts)
-and time series data.
-Additional training materials are available in our
-[workshop repository](https://github.com/SolarArbiter/workshop).
+The Solar Forecast Arbiter organizes metadata into **Sites**, **Observations**,
+and **Forecasts**. All time series data is linked to an observation or a
+forecast, which is linked to a site or an aggregate. Please see the 
+[data model documentation](/datamodel/) for more details on how the Solar
+Forecast Arbiter organizes metadata and time series data.
 
-
-Getting Started
----------------
-{: .anchor}
-
-To register an account in the Solar Forecast Arbiter, navigate to
-[dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
-and click on the login link. You will be prompted with an Auth0 login
-window. Click the sign up tab and enter your information. Auth0 is a
-secure authentication service that has numereous security credentials
-and undergoes routine audits.
-
-You will receive an email from Auth0 to verify your email address. You are
-required to verify your email before accessing the Solar Forecast Arbiter.
-
-In order to upload data to the Arbiter, generate reports, or receive
-data from other users, you will first need to associate your user
-account with an *organization* account. To establish a new organization
-or to join an existing organization, contact
-[help@solarforecastarbiter.org](mailto:help@solarforecastarbiter.org)
-
+Readers may also be interested in the [HTTP API](https://api.solarforecastarbiter.org)
+or [Python API](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#sfa-api)
+documentation for instructions on how to perform data operations
+programmatically.
 
 Create New Site
 ---------------
@@ -303,97 +282,3 @@ for details.
     you will see the newly created report with a status of **pending**. The Arbiter
     will process the report and then set its status to **complete**. You may then
     view the web version of the report.
-
-## Permission/Role management
-{: .anchor}
-
-This section describes the user interface for managing data acces through
-roles and permissions. An accompanying workflow description can be found in the
-[Data Access Workflow Document](/data-access-workflow/).
-
-User, permission and role administation can be accessed by clicking the **User
-Administration** link in the Account menu in the top right corner of the site.
-    <img class="my-3" src="/images/admin_menu.png"/>
-
-
-
-Note that these menus are meant to assist organization administrators in viewing
-and managing permissions, and users without admin privileges may not see anything
-on these pages.
-
-
-
-### Users
-{: .anchor}
-
-Unlike other types of data, *Users* are only created through the signup process
-outlined in <a href="#getting-started">getting started</a>.
-
--   The *Users* tab will list the users you have access to administer or view.
-	<img class="my-3" src="/images/users.png"/>
-
-
--	Clicking on an individual user will list information about the user and their
-    roles. Roles may be revoked from the user by clicking the *Remove* link on the
-    far right of each row of the listing.
-    <img class="my-3" src="/images/user.png"/>
-
-
-#### Granting roles to a user
-{: .anchor}
--    The *Add Roles* button will display a list of roles that are not already granted
-    to the user. Roles are granted to the user by clicking the checkboxes of the roles
-    to grant and clicking *Submit*. Roles can also be granted from the *Roles* section
-    of the admin menu.
-    <img class="my-3" src="/images/user.png"/>
-
-
-### Create New Role
-{: .anchor}
-
-1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
-    will list all of the Roles you have access to administer or view. 
-    <img class="my-3" src="/images/roles.png"/>
-
-2.  Click the *Create new Role* button. You will be prompted for a name and description
-    of the role and a list of permissions the role should have. Check the boxes next 
-    to each permission that the role should grant and click submit.
-    <img class="my-3" src="/images/role_form.png"/>
-    
--   *Created Role pages*
-
-	Clicking on an individual Role will list information about it and the permissions
-    associated with it. Use the tabs below the metadata section to switch between the
-    list of permissions on the role and a list of users the role has been granted to.
-
-    *Role permissions listing*
-    <img class="my-3" src="/images/role.png"/>
-    *Role users listing*
-    <img class="my-3" src="/images/role_users.png"/>
-
-#### Granting a role to a user
-{: .anchor}
--   The 'Grant Role' button will display a form for sharing roles with a single user
-    at a time. Enter the user's user ID and click submit to share the role.
-    <img class="my-3" src="/images/role_grant.png"/>
-
-### Create New Permission
-{: .anchor}
-1.	Navigate to the Permissions listing with the *Permissions* tab of the admin menu.
-    This page will list all of the Permissions you have access to administer or view.
-    <img class="my-3" src="/images/permissions.png"/>
-
-2.  Click on the data type you would like to create a permission for in the "Create new
-    Permission" box. You will be prompted for a description of the permission, the
-    action the permission allows and a list of objects. Click the checkboxes for each
-    object that the permission should allow its action on. Selecting *Applies to all*
-    will cause the permission to affect all current and future objects of the
-    permission's type.
-
-    *Permission form for observation permsission*
-    <img src="/images/permission_form.png"/>
-
--	*Created Permission pages*
-    Clicking on an individual Permission will list information about it and the objects
-    it applies to.
-    <img class="my-3" src="/images/permission.png"/>

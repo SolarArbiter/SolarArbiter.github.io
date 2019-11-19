@@ -14,7 +14,16 @@
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0">
       <div class="container">
-	    {{ content }}
+        {% if page.sidebar %}
+        <div class="sidebar">
+            {% include {{ page.sidebar }} %}
+        </div>
+        <div class="content-wrapper-sidebar">
+        {% else %}
+        <div>
+        {% endif %}
+	      {{ content }}
+        </div>
       </div>
     </main>
 

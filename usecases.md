@@ -1,6 +1,7 @@
 ---
-layout: usecases
+layout: base
 permalink: /usecases/
+sidebar: usecase_sidebar.html
 ---
 
 # Use Cases
