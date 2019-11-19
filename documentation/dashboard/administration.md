@@ -89,9 +89,8 @@ The default roles are described below:
     organization e.g. adding measurements to an
     observation.
 
--   **Create metadata:** Allows a user to create new sites,
-    observations, forecasts and probabilistic forecasts. Also allows
-    the creation of reports.
+-   **Create metadata:** Allows a user to create new sites, observations,
+    forecasts, probabilistic forecasts, reports, and aggregates.
 
 -   **Delete data and metadata:** Allows a user to delete sites,
     observations, forecasts, probabilistic forecasts as well as any
@@ -109,19 +108,18 @@ The default roles are described below:
     -   Grant and revoke roles on a user.
 
 
-
-
 ## Managing Users
 {: .anchor}
 
-Unlike other types of data, *users* are only created through the signup process
-outlined in [getting started](/documentation/dashboard/getting-started/#signing-up).
+Users are associated with an organization through the signup process outlined
+in [getting started](/documentation/dashboard/getting-started/#signing-up).
 Administrators have access to a listing of users in their organization and a
 page for each individual user in their organization and the roles they have
 been granted.
 
 -   The *Users* tab of the *user administration* menu will list the users you
-    have access to administer or view.
+    have access to administer(users within your organization) or view (users
+    outside your organization that have been granted access to your data).
 	<img class="my-3" src="/images/users.png"/>
 
 
@@ -180,6 +178,8 @@ been granted.
     <img class="my-3" src="/images/permission.png"/>
 
 ## Data Sharing
+{: .anchor}
+
 An organization admin can share data by granting roles to a user. Granting a
 role permits the user to perform actions defined by the role's permissions.
 Roles granted to users outside of the organization may not contain
