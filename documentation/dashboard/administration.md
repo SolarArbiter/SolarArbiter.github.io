@@ -83,7 +83,7 @@ The default roles are described below:
 
 -   **View all data and metadata:** Access all of the metadata and
     values in the organization. This includes observations, forecasts,
-    probabilistic forecasts, sites and reports.
+    probabilistic forecasts, sites, aggregates, and reports.
 
 -   **Write all values:** Allows a user to submit data within the
     organization e.g. adding measurements to an
