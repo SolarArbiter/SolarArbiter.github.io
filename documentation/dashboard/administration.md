@@ -184,7 +184,7 @@ An organization admin can share data by granting roles to a user. Granting a
 role permits the user to perform actions defined by the role's permissions.
 Roles granted to users outside of the organization may not contain
 administrative permissions. Administrative permissions are those that allow
-users to perform an update, create or delete action on roles, permissions or
+users to perform an update, create, or delete action on roles, permissions, or
 users. Similarly, administrative permissions may not be added to a role that is
 currently shared with a user outside the organization.
 
