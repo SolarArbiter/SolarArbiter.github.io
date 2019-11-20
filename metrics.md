@@ -47,7 +47,7 @@ RMSE is a frequently used measure for evaluating forecast accuracy. Since the er
 
 ### Forecast Skill ($$ s $$)
 {: .anchor }
-The forecast skill measures the performance of a forecast relative to a reference forecast. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
+The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
 $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 
@@ -119,7 +119,7 @@ where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V
 
 ### OVER
 {: .anchor }
-Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$. The OVER is calculated as:
+Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$ ([Espinar09](#ref-espinar09)). The OVER metric is calculated as:
 
 $$ OVER = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n^* dp $$
 
@@ -135,7 +135,7 @@ The OVER metric can be normalized using the same approach as for KSI.
 
 ### Combined Performance Index (CPI)
 {: .anchor }
-The CPI can be thought of as a combination of KSI, OVER, and RMSE:
+The CPI provides a measure of the agreement between the distributions of forecasted and observed values, and the overall error by combining KSI, OVER and RMSE ([Gueymard12](#ref-gueymard12)):
 
 $$ \text{CPI} = \frac{1}{4} ( \text{KSI} + \text{OVER} + 2 \times \text{RMSE} ) $$
 
@@ -221,7 +221,7 @@ In the metrics below, we adopt the following nomenclature:
 
 ### Brier Score (BS)
 {: .anchor }
-The BS measures the accuracy of forecast probability for one or more events:
+The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For single event (binary) outcomes, BS is defined as:
 
 $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
@@ -236,9 +236,11 @@ $$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
 
 where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
 
-When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast:
+When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast ([Murphy73](#ref-murphy73)):
 
 $$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
+
+where REL is the reliability, RES is the resolution and UNC is the uncertatinty, as defined below.
 
 
 ### Reliability (REL)
@@ -281,7 +283,7 @@ $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 ### Continuous Ranked Probability Score (CRPS)
 {: .anchor }
-The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
+The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast ([Matheson76](#ref-matheson76)). For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
 $$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int | F_i(x) - O_i(x) | dx $$
 
