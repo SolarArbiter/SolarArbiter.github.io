@@ -21,6 +21,8 @@ In the metrics below, we adopt the following nomenclature:
 - $$ \text{norm} : $$ normalizing factor (with the same units as the forecasted and observed values)
 - $$ \bar{F}, \, \bar{O} : $$ the mean of the forecasted and observed values, respectively
 
+For more information on these metrics and others, see [Zhang15](#ref-zhang15), [Wilks11](#ref-wilks11) and the references listed below.
+
 
 ### Mean Absolute Error (MAE)
 {: .anchor }
@@ -47,7 +49,7 @@ RMSE is a frequently used measure for evaluating forecast accuracy. Since the er
 
 ### Forecast Skill ($$ s $$)
 {: .anchor }
-The forecast skill measures the performance of a forecast relative to a reference forecast. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
+The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
 $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 
@@ -119,7 +121,7 @@ where $$ a_{\text{critical}} = V_c (p_{\text{max}} - p_{\text{min}}) $$ and $$ V
 
 ### OVER
 {: .anchor }
-Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$. The OVER is calculated as:
+Conceptually, the OVER metric modifies the KSI to quantify the difference between the two CDFs, but only where the CDFs differ by more than a critical limit $$ V_c $$ ([Espinar09](#ref-espinar09)). The OVER metric is calculated as:
 
 $$ OVER = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n^* dp $$
 
@@ -135,7 +137,7 @@ The OVER metric can be normalized using the same approach as for KSI.
 
 ### Combined Performance Index (CPI)
 {: .anchor }
-The CPI can be thought of as a combination of KSI, OVER, and RMSE:
+The CPI provides a measure of the agreement between the distributions of forecasted and observed values, and the overall error by combining KSI, OVER and RMSE ([Gueymard12](#ref-gueymard12)):
 
 $$ \text{CPI} = \frac{1}{4} ( \text{KSI} + \text{OVER} + 2 \times \text{RMSE} ) $$
 
@@ -221,24 +223,17 @@ In the metrics below, we adopt the following nomenclature:
 
 ### Brier Score (BS)
 {: .anchor }
-The BS measures the accuracy of forecast probability for one or more events:
+The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
 $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
-Smaller values of BS indicate better agreement between forecasts and observations.
+Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to events with more than two outcomes, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) binary events definition. For more info, see Section 7.4.2. of [Wilks11](#ref-wilks11).
 
-
-### Brier Skill Score (BSS)
-{: .anchor }
-The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
-
-$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
-
-where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
-
-When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast:
+When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast ([Murphy73](#ref-murphy73)):
 
 $$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
+
+where REL is the reliability, RES is the resolution and UNC is the uncertatinty, as defined below.
 
 
 ### Reliability (REL)
@@ -268,6 +263,15 @@ $$ \text{UNC} = \bar{o} (1 - \bar{o})$$
 Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC indicate that the event being forecasted occurs only rarely.
 
 
+### Brier Skill Score (BSS)
+{: .anchor }
+The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
+
+$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
+
+where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
+
+
 ### Sharpness (SH)
 {: .anchor }
 The SH represents the degree of "concentration" of a forecast comprising a prediction interval of the form $$ [ f_l, f_u ] $$ within which the forecast quantity is expected to fall with probability $$ 1 - \beta $$. A good forecast should have a low sharpness value. The prediction interval endpoints are associated with quantiles $$ \alpha_l $$ and $$ \alpha_u $$, where $$ \alpha_u - \alpha_l = 1 - \beta $$. For a single prediction interval, the SH is:
@@ -281,7 +285,7 @@ $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 ### Continuous Ranked Probability Score (CRPS)
 {: .anchor }
-The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
+The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast ([Matheson76](#ref-matheson76)). For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
 $$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int ( F_i(x) - O_i(x) )^2 dx $$
 
@@ -353,10 +357,16 @@ Models that include the above can be used to assess value of forecasts, and have
 
 ## References
 {: .anchor}
-- [<a name="ref-espinar09">Espinar09</a>] B. Espinar, L. Ramírez, A. Drews, H. G. Beyer, L. F. Zarzalejo, J. Polo, and L. Martín, "Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations", Solar Energy, vol. 83, issue 1, pp. 118-125, 2009. DOI: [10.1016/j.solener.2008.07.009](https://doi.org/10.1016/j.solener.2008.07.009)
+- [<a name="brier50">Brier50</a>] G. W. Brier, "Verification of Forecasts Expressed in Terms of Probability", Mon. Wea. Rev., vol. 78, pp. 1-3, 1950. DOI: [10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2](https://doi.org/10.1175/1520-0493(1950)078%3C0001:VOFEIT%3E2.0.CO;2)
 - [<a name="ref-ela13">Ela13</a>] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, "Impacts of variability and uncertainty in solar photovoltaic generation at multiple timescales", Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
+- [<a name="ref-espinar09">Espinar09</a>] B. Espinar, L. Ramírez, A. Drews, H. G. Beyer, L. F. Zarzalejo, J. Polo, and L. Martín, "Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations", Solar Energy, vol. 83, issue 1, pp. 118-125, 2009. DOI: [10.1016/j.solener.2008.07.009](https://doi.org/10.1016/j.solener.2008.07.009)
+- [<a name="ref-gueymard12">Gueymard12</a>] C. A. Gueymard, "Clear-sky irradiance predictions for solar resource mapping and large-scale applications: improved validation methodology and detailed performance analysis of 18 broadband radiative models", Solar Energy, vol. 86, pp. 2145-2169, 2012. DOI: [10.1016/j.solener.2011.11.011](https://doi.org/10.1016/j.solener.2011.11.011)
 - [<a name="ref-martinez-anido16">Martinez-Anido16</a>] C. B. Martinez-Anido, B. Botor, A. R. Florita, C. Draxl, S. Lu, H. F. Hamann, and B. M. Hodge, "The value of day-ahead solar power forecasting improvement", Solar Energy, vol. 129, pp. 192-203, 2016. DOI: [10.1016/j.solener.2016.01.049](https://doi.org/10.1016/j.solener.2016.01.049)
+- [<a name="ref-marquez12">Marquez12</a>] R. Marquez and C. F. M. Coimbra, "Proposed Metric for Evaluation of Solar Forecasting Models", 2012
+- [<a name="matheson76">Matheson76</a>] J. E. Matheson and R. L. Winkler, "Scoring Rules for Continuous Probability Distributions", Management Science, vol. 22, no. 10, pp. 1087-1096, 1976. DOI: [10.1287/mnsc.22.10.1087](https://doi.org/10.1287/mnsc.22.10.1087)
+- [<a name="ref-murphy73">Murphy73</a>] A. H. Murphy, "A New Vector Partition of the Probability Score", J. Appl. Meteor., vol. 12, pp. 595-600, 1973. DOI: [10.1175/1520-0450(1973)012%3C0595:ANVPOT%3E2.0.CO;2](https://doi.org/10.1175/1520-0450(1973)012%3C0595:ANVPOT%3E2.0.CO;2)
 - [<a name="ref-wang16a">Wang16a</a>] Q. Wang, H. Wu, A. R. Florita, C. B. Martinez-Anido, and B. M. Hodge, "The value of improved wind power forecasting: Grid flexibility quantification, ramp capability analysis, and impacts of electricity market operation timescales", Applied Energy, 184, pp. 696-713, 2016. DOI: [10.1016/j.apenergy.2016.11.016](https://doi.org/10.1016/j.apenergy.2016.11.016)
 - [<a name="ref-wang16b">Wang16b</a>] Q. Wang, C. Brancucci, H. Wu, A. R. Florita, and B. M. Hodge, "Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting", IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525-1537, 2016. DOI: [10.1109/TSTE.2016.2560628](https://doi.org/10.1109/TSTE.2016.2560628)
 - [<a name="ref-wang17">Wang17</a>] Q. Wang, and B. M. Hodge, "Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review", IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017. DOI: [10.1109/TII.2016.2637879](https://doi.org/10.1109/TII.2016.2637879)
+- [<a name="ref-wilks11">Wilks11</a>] D. S. Wilks, "Statistical Methods in the Atmospheric Sciences", 3rd ed. Oxford; Waltham, MA; Academic Press, 2011.
 - [<a name="ref-zhang15">Zhang15</a>] J. Zhang, A. Florita, B. M. Hodge, S. Lu, H. F. Hamann, V. Banunarayanan, A. Brockway,  "A suite of metrics for assessing the performance of solar power forecasting", Solar Energy, vol. 111, pp. 157-175, 2015. DOI: [10.1016/j.solener.2014.10.016](https://doi.org/10.1016/j.solener.2014.10.016)
