@@ -283,7 +283,7 @@ $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 {: .anchor }
 The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast. For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
-$$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int | F_i(x) - O_i(x) | dx $$
+$$ \text{CRPS} = \frac{1}{n} \sum_{i=1}^n \int ( F_i(x) - O_i(x) )^2 dx $$
 
 where $$ F_i(x) $$ is the CDF of the forecast quantity $$ x $$ at time point $$ i $$, and $$ O_i(x) $$ is the CDF associated with the observed value $$ x_i $$:
 
