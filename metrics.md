@@ -229,15 +229,6 @@ $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
 Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to events with more than two outcomes, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) binary events definition.
 
-
-### Brier Skill Score (BSS)
-{: .anchor }
-The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
-
-$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
-
-where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
-
 When the probability forecast takes on a finite number of values (e.g. 0.0, 0.1, ..., 0.9, 1.0), the BS can be decomposed into a sum of three metrics that give additional insight into a probability forecast ([Murphy73](#ref-murphy73)):
 
 $$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
@@ -270,6 +261,15 @@ The UNC is given by:
 $$ \text{UNC} = \bar{o} (1 - \bar{o})$$
 
 Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC indicate that the event being forecasted occurs only rarely.
+
+
+### Brier Skill Score (BSS)
+{: .anchor }
+The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
+
+$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
+
+where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
 
 
 ### Sharpness (SH)
