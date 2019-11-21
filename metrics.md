@@ -21,6 +21,8 @@ In the metrics below, we adopt the following nomenclature:
 - $$ \text{norm} : $$ normalizing factor (with the same units as the forecasted and observed values)
 - $$ \bar{F}, \, \bar{O} : $$ the mean of the forecasted and observed values, respectively
 
+For more information on these metrics and others, see [Zhang15](#ref-zhang15) and the references listed below.
+
 
 ### Mean Absolute Error (MAE)
 {: .anchor }
