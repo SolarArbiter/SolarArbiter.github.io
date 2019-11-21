@@ -227,7 +227,7 @@ The BS measures the accuracy of forecast probability for one or more events ([Br
 
 $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
-Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to multi-categorical events, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) single event BS (as defined above).
+Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to events with more than two outcomes, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) binary events definition.
 
 
 ### Brier Skill Score (BSS)
