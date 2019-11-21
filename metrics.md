@@ -223,7 +223,7 @@ In the metrics below, we adopt the following nomenclature:
 
 ### Brier Score (BS)
 {: .anchor }
-The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For single event (binary) outcomes, BS is defined as:
+The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
 $$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
