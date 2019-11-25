@@ -24,21 +24,21 @@ In the metrics below, we adopt the following nomenclature:
 For more information on these metrics and others, see [Zhang15](#ref-zhang15), [Wilks11](#ref-wilks11) and the references listed below.
 
 
-### Mean Absolute Error (MAE)
+### Mean Absolute Error (MAE) {#mae}
 {: .anchor }
 The absolute error is the absolute value of the difference between the forecasted and observed values. The MAE is defined as:
 
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
 
-### Mean Bias Error (MBE)
+### Mean Bias Error (MBE) {#mbe}
 {: .anchor }
 The bias is the difference between the forecasted and observed values. The MBE is defined as:
 
 $$ \text{MBE} = \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
 
-### Root Mean Square Error (RMSE)
+### Root Mean Square Error (RMSE) {#rmse}
 {: .anchor }
 The RMSE is the square root of the averaged of the squared differences between the forecasted and observed values, and is defined as:
 
@@ -47,7 +47,7 @@ $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors.
 
 
-### Forecast Skill ($$ s $$)
+### Forecast Skill ($$ s $$) {#s}
 {: .anchor }
 The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
@@ -56,21 +56,21 @@ $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
 
 
-### Mean Absolute Percentage Error (MAPE)
+### Mean Absolute Percentage Error (MAPE) {#mape}
 {: .anchor }
 The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
 
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
-### Normalized Root Mean Square Error (NRMSE)
+### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
 $$ \text{RMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 
-### Centered (unbiased) Root Mean Square Error (CRMSE)
+### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
 {: .anchor }
 The CRMSE describes the variation in errors around the mean and is defined as:
 
@@ -83,7 +83,7 @@ $$ \text{CRMSE}^2 = \sigma_F^2 + \sigma_O^2 - 2 \sigma_F \sigma_O r $$
 where $$ \sigma_F $$ and $$ \sigma_O $$ are the standard deviations of the forecast and observation, respectively, and $$ r $$ is the correlation coefficient.
 
 
-### Pearson Correlation Coefficient ($$ r $$)
+### Pearson Correlation Coefficient ($$ r $$) {#r}
 {: .anchor }
 Correlation indicates the strength and direction of a linear relationship between two variables. The Pearson correlation coefficient, aka, the sample correlation coefficient, measures the linear dependency between the forecasted and observed values, and is defined as the ratio of the covariance of the variables to the product of their standard deviation:
 
@@ -91,7 +91,7 @@ $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
 \sqrt{ \sum_{i=1}^n (F_i - \bar{F})^2} \times \sqrt{ \sum_{i=1}^n (O_i - \bar{O})^2 } } $$
 
 
-### Coefficient of Determination ($$ R^2 $$)
+### Coefficient of Determination ($$ R^2 $$) {#r2}
 {: .anchor }
 The coefficient of determination measures the extent that the variability in the forecast errors is explained by variability in the observed values, and is defined as:
 
