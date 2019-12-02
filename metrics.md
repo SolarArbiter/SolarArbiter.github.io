@@ -63,7 +63,7 @@ The absolute percentage error is the absolute value of the difference between th
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
-### Normalized Root Mean Square Error (NRMSE):
+### Normalized Root Mean Square Error (NRMSE)
 {: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
