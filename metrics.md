@@ -100,7 +100,7 @@ $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2
 By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 
-### Kolmogorov-Smirnov Test Integral (KSI)
+### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
 {: .anchor }
 The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
 
@@ -135,7 +135,7 @@ $$ D_n^* = \begin{cases}
 The OVER metric can be normalized using the same approach as for KSI.
 
 
-### Combined Performance Index (CPI)
+### Combined Performance Index (CPI) {#cpi}
 {: .anchor }
 The CPI provides a measure of the agreement between the distributions of forecasted and observed values, and the overall error by combining KSI, OVER and RMSE ([Gueymard12](#ref-gueymard12)):
 
