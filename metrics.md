@@ -221,7 +221,7 @@ In the metrics below, we adopt the following nomenclature:
 - $$ \bar{o} = \frac{1}{n} \sum_{k=1}^n o(t_k) = \frac{1}{n} \sum_{i=1}^I N_i \bar{o}_i : $$ the average of $$ o(t_k) $$ for all times $$ t_k $$
 
 
-### Brier Score (BS)
+### Brier Score (BS) {#bs}
 {: .anchor }
 The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
@@ -236,7 +236,7 @@ $$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
 where REL is the reliability, RES is the resolution and UNC is the uncertatinty, as defined below.
 
 
-### Reliability (REL)
+### Reliability (REL) {#rel}
 {: .anchor }
 The REL is given by:
 
@@ -245,7 +245,7 @@ $$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \bar{o}_i)^2 $$
 Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_i $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F(t_k) = f_i $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
 
-### Resolution (RES)
+### Resolution (RES) {#res}
 {: .anchor }
 The RES is given by:
 
@@ -254,7 +254,7 @@ $$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
 Resolution is the weighted averaged of the squared differences between the relative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
 
-### Uncertainty (UNC)
+### Uncertainty (UNC) {#unc}
 {: .anchor }
 The UNC is given by:
 
@@ -263,7 +263,7 @@ $$ \text{UNC} = \bar{o} (1 - \bar{o})$$
 Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC indicate that the event being forecasted occurs only rarely.
 
 
-### Brier Skill Score (BSS)
+### Brier Skill Score (BSS) {#bss}
 {: .anchor }
 The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
 
@@ -272,7 +272,7 @@ $$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
 where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
 
 
-### Sharpness (SH)
+### Sharpness (SH) {#sh}
 {: .anchor }
 The SH represents the degree of "concentration" of a forecast comprising a prediction interval of the form $$ [ f_l, f_u ] $$ within which the forecast quantity is expected to fall with probability $$ 1 - \beta $$. A good forecast should have a low sharpness value. The prediction interval endpoints are associated with quantiles $$ \alpha_l $$ and $$ \alpha_u $$, where $$ \alpha_u - \alpha_l = 1 - \beta $$. For a single prediction interval, the SH is:
 
@@ -283,7 +283,7 @@ and for a timeseries of prediction intervals, the SH is given by the average:
 $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 
-### Continuous Ranked Probability Score (CRPS)
+### Continuous Ranked Probability Score (CRPS) {#crps}
 {: .anchor }
 The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast ([Matheson76](#ref-matheson76)). For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
