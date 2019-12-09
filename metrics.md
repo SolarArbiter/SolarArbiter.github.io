@@ -24,21 +24,21 @@ In the metrics below, we adopt the following nomenclature:
 For more information on these metrics and others, see [Zhang15](#ref-zhang15), [Wilks11](#ref-wilks11) and the references listed below.
 
 
-### Mean Absolute Error (MAE)
+### Mean Absolute Error (MAE) {#mae}
 {: .anchor }
 The absolute error is the absolute value of the difference between the forecasted and observed values. The MAE is defined as:
 
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
 
-### Mean Bias Error (MBE)
+### Mean Bias Error (MBE) {#mbe}
 {: .anchor }
 The bias is the difference between the forecasted and observed values. The MBE is defined as:
 
 $$ \text{MBE} = \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
 
-### Root Mean Square Error (RMSE)
+### Root Mean Square Error (RMSE) {#rmse}
 {: .anchor }
 The RMSE is the square root of the averaged of the squared differences between the forecasted and observed values, and is defined as:
 
@@ -47,7 +47,7 @@ $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors.
 
 
-### Forecast Skill ($$ s $$)
+### Forecast Skill ($$ s $$) {#s}
 {: .anchor }
 The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
@@ -56,21 +56,21 @@ $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
 
 
-### Mean Absolute Percentage Error (MAPE)
+### Mean Absolute Percentage Error (MAPE) {#mape}
 {: .anchor }
 The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
 
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
-### Normalized Root Mean Square Error (NRMSE)
+### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
 $$ \text{RMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 
-### Centered (unbiased) Root Mean Square Error (CRMSE)
+### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
 {: .anchor }
 The CRMSE describes the variation in errors around the mean and is defined as:
 
@@ -83,7 +83,7 @@ $$ \text{CRMSE}^2 = \sigma_F^2 + \sigma_O^2 - 2 \sigma_F \sigma_O r $$
 where $$ \sigma_F $$ and $$ \sigma_O $$ are the standard deviations of the forecast and observation, respectively, and $$ r $$ is the correlation coefficient.
 
 
-### Pearson Correlation Coefficient ($$ r $$)
+### Pearson Correlation Coefficient ($$ r $$) {#r}
 {: .anchor }
 Correlation indicates the strength and direction of a linear relationship between two variables. The Pearson correlation coefficient, aka, the sample correlation coefficient, measures the linear dependency between the forecasted and observed values, and is defined as the ratio of the covariance of the variables to the product of their standard deviation:
 
@@ -91,7 +91,7 @@ $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
 \sqrt{ \sum_{i=1}^n (F_i - \bar{F})^2} \times \sqrt{ \sum_{i=1}^n (O_i - \bar{O})^2 } } $$
 
 
-### Coefficient of Determination ($$ R^2 $$)
+### Coefficient of Determination ($$ R^2 $$) {#r2}
 {: .anchor }
 The coefficient of determination measures the extent that the variability in the forecast errors is explained by variability in the observed values, and is defined as:
 
@@ -100,7 +100,7 @@ $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2
 By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 
-### Kolmogorov-Smirnov Test Integral (KSI)
+### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
 {: .anchor }
 The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
 
@@ -135,7 +135,7 @@ $$ D_n^* = \begin{cases}
 The OVER metric can be normalized using the same approach as for KSI.
 
 
-### Combined Performance Index (CPI)
+### Combined Performance Index (CPI) {#cpi}
 {: .anchor }
 The CPI provides a measure of the agreement between the distributions of forecasted and observed values, and the overall error by combining KSI, OVER and RMSE ([Gueymard12](#ref-gueymard12)):
 
@@ -221,7 +221,7 @@ In the metrics below, we adopt the following nomenclature:
 - $$ \bar{o} = \frac{1}{n} \sum_{k=1}^n o(t_k) = \frac{1}{n} \sum_{i=1}^I N_i \bar{o}_i : $$ the average of $$ o(t_k) $$ for all times $$ t_k $$
 
 
-### Brier Score (BS)
+### Brier Score (BS) {#bs}
 {: .anchor }
 The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
@@ -236,7 +236,7 @@ $$ \text{BS} = \text{REL} - \text{RES} + \text{UNC} $$
 where REL is the reliability, RES is the resolution and UNC is the uncertatinty, as defined below.
 
 
-### Reliability (REL)
+### Reliability (REL) {#rel}
 {: .anchor }
 The REL is given by:
 
@@ -245,7 +245,7 @@ $$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \bar{o}_i)^2 $$
 Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_i $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F(t_k) = f_i $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
 
-### Resolution (RES)
+### Resolution (RES) {#res}
 {: .anchor }
 The RES is given by:
 
@@ -254,7 +254,7 @@ $$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
 Resolution is the weighted averaged of the squared differences between the relative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
 
-### Uncertainty (UNC)
+### Uncertainty (UNC) {#unc}
 {: .anchor }
 The UNC is given by:
 
@@ -263,7 +263,7 @@ $$ \text{UNC} = \bar{o} (1 - \bar{o})$$
 Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC indicate that the event being forecasted occurs only rarely.
 
 
-### Brier Skill Score (BSS)
+### Brier Skill Score (BSS) {#bss}
 {: .anchor }
 The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
 
@@ -272,7 +272,7 @@ $$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
 where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
 
 
-### Sharpness (SH)
+### Sharpness (SH) {#sh}
 {: .anchor }
 The SH represents the degree of "concentration" of a forecast comprising a prediction interval of the form $$ [ f_l, f_u ] $$ within which the forecast quantity is expected to fall with probability $$ 1 - \beta $$. A good forecast should have a low sharpness value. The prediction interval endpoints are associated with quantiles $$ \alpha_l $$ and $$ \alpha_u $$, where $$ \alpha_u - \alpha_l = 1 - \beta $$. For a single prediction interval, the SH is:
 
@@ -283,7 +283,7 @@ and for a timeseries of prediction intervals, the SH is given by the average:
 $$ \text{SH} = \frac{1}{n} \sum_{i=1}^n f_{u,i} - f_{l, i} $$
 
 
-### Continuous Ranked Probability Score (CRPS)
+### Continuous Ranked Probability Score (CRPS) {#crps}
 {: .anchor }
 The CRPS is a score that is a designed to measure both the reliability and sharpness of a probablistic forecast ([Matheson76](#ref-matheson76)). For a timeseries of forecasts comprising a CDF at each time point, the CRPS is:
 
