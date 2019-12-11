@@ -136,14 +136,14 @@ been granted.
 {: .anchor}
 
 1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
-    will list all of the Roles you have access to administer or view. 
+    lists all of the Roles you have access to administer or view. 
     <img class="my-3" src="/images/roles.png"/>
 
-2.  Click the *Create new Role* button. You will be prompted for a name and description
-    of the role and a list of permissions the role should have. Check the boxes next 
-    to each permission that the role should grant and click submit.
-    <img class="my-3" src="/images/role_form.png"/>
-    
+2.  Click the *Create new Role* button. Complete the form with a name and
+     description of the role. After the role is created you may
+    [add permissions to the role](#add-permissions-to-a-role) or
+    [grant it to users](#grant-roles-to-a-user).
+
 -   *Created Role pages*
 
 	Clicking on an individual Role will list information about it and the permissions
@@ -154,6 +154,8 @@ been granted.
     <img class="my-3" src="/images/role.png"/>
     *Role users listing*
     <img class="my-3" src="/images/role_users.png"/>
+
+
 
 
 ## Create New Permission
@@ -188,7 +190,7 @@ users to perform an update, create, or delete action on roles, permissions, or
 users. Similarly, administrative permissions may not be added to a role that is
 currently shared with a user outside the organization.
 
-### Granting roles to a user
+### Grant Roles to a User
 {: .anchor}
 
 **Users within your organization**
@@ -210,7 +212,7 @@ currently shared with a user outside the organization.
 2.  Enter the email of the user to grant the role to and click submit.
 
 
-### Revoking roles from a user
+### Revoke Roles from a User
 {: .anchor}
 
 **Users within your organization**
@@ -229,3 +231,23 @@ currently shared with a user outside the organization.
 2.  Locate the user in the users table and click the *remove* link in the far
     right column. You will be presented with a confirmation page before the
     role is removed from the user.
+
+
+### Add Permissions to a Role
+{: .anchor}
+
+1.  Navigate to the Role you would like to add permissions to and click the
+    **add permissions** button.
+
+2.  Check the box for each permission to add to the role and click submit.
+
+
+### Remove Permissions from a Role
+{: .anchor}
+
+1.  Navigate to the Role you would like to remove Permissions from and click on
+    the *Permissions* tab.
+
+2.  Locate the Permission to revoke in the table and click the *remove* link in
+    the far right column. You will be presented with a confirmation page before
+    the permission is removed from a role.
