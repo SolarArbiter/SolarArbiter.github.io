@@ -190,7 +190,7 @@ users to perform an update, create, or delete action on roles, permissions, or
 users. Similarly, administrative permissions may not be added to a role that is
 currently shared with a user outside the organization.
 
-### Grant roles to a user
+### Grant Roles to a User
 {: .anchor}
 
 **Users within your organization**
@@ -212,7 +212,7 @@ currently shared with a user outside the organization.
 2.  Enter the email of the user to grant the role to and click submit.
 
 
-### Revoke roles from a user
+### Revoke Roles from a User
 {: .anchor}
 
 **Users within your organization**
