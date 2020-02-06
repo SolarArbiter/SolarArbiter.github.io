@@ -13,7 +13,7 @@ Forecast Arbiter Dashboard.
 
 The Solar Forecast Arbiter organizes metadata into **Sites**, **Observations**,
 and **Forecasts**. All time series data is linked to an observation or a
-forecast, which is linked to a site or an aggregate. Please see the 
+forecast, which is linked to a site or an aggregate. Please see the
 [data model documentation](/datamodel/) for more details on how the Solar
 Forecast Arbiter organizes metadata and time series data.
 
@@ -70,7 +70,7 @@ timeseries data.
    <img class="my-3" src="/images/aggregate_form.png"/>
 
 3. After submission, you will be redirected to an Aggregate page which displays
-   the observations that make up the aggregate (see 
+   the observations that make up the aggregate (see
    [Add Observations to an Aggregate](#add-observations-to-an-aggregate)).
 
    <img class="my-3" src="/images/aggregate_page_no_obs.png"/>
@@ -87,8 +87,8 @@ failure, users should submit `NaN`s where data is missing for their
 observations.
 
 Observations may be added to an Aggregate by following the steps below.
-Observations must be defined before they can be added to an aggregate (see 
-[Create New Observation](#create-new-observation)). 
+Observations must be defined before they can be added to an aggregate (see
+[Create New Observation](#create-new-observation)).
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
    the left sidebar. Select the Aggregate to add observations to. Click the
@@ -99,7 +99,7 @@ Observations must be defined before they can be added to an aggregate (see
    the boxes for each observation to be included in the aggregate. Note that to
    add observations for different time periods, you will need to repeat this
    process with a different *Effective From* date.
-   
+
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
@@ -161,7 +161,9 @@ Forecasts can be created for either a Site or an Aggregate.
 2.  On the site or aggregate page, click the **Create new Forecast** button.
     <img class="my-3" src="/images/plant_site.png"/>
 
-3.  Enter metadata for your Forecast. On submission, you will be redirected
+3.  Enter metadata for your Forecast. Please see the [Definitions](/definitions)
+    for a full description of how to specify Forecast metadata.
+    On submission, you will be redirected
     to a Forecast page which displays the new Forecast metadata and a
     link to add Forecast data (see [Upload Data](#upload-forecast-data)).
 - *Forecast form*
@@ -271,7 +273,7 @@ for details.
     To pairs of Observations and Forecasts, start by selecting a Site. The forecast
     field will populate with a list of forecasts located at the site. Selecting a
     forecast will populate the observation field with observations field with
-    observations that match the forecast's site and variable. Click the 
+    observations that match the forecast's site and variable. Click the
     **Add Forecast, Observation pair** button. Multiple Pairs can be added by repeating
     this process. Pairs can be removed by clicking the 'x' on the right side of the
     forecast & observation table.
