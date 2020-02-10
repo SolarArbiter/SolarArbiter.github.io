@@ -37,9 +37,12 @@ If you like what you see, consider approaching the Arbiter in the following step
         Only data owners can change sharing privileges.  As a data owner
         you are in control of who sees your data and you can
         remove it at any time.
-2. Make some dummy metadata, upload some dummy data, make an analysis report
+2. [Make some dummy metadata](documentation/dashboard/working-with-data/#create-new-site),
+   [upload some dummy data](documentation/dashboard/working-with-data/#upload-data),
+   [make an analysis report](documentation/dashboard/working-with-data/#create-new-report)
    for reference sites and/or dummy data.
-3. Share private dummy data with one or two other users within and outside
+3. [Share private dummy data](documentation/dashboard/administration/#data-sharing)
+   with one or two other users within and outside
    your organization to get an understanding of how data sharing and privacy
    works.
 4. Add real observational or forecast metadata, and upload real data for one
@@ -51,7 +54,8 @@ Once you feel comfortable with the platform, consider a few more options:
 
 1. Participate in an operational forecast trial.
 2. Build the Arbiter into a regular workflow.
-3. Review the Arbiter’s API at [api.solarforecastarbiter.org](https://api.solarforecastarbiter.org)
+3. Review the Arbiter’s REST API at
+   [api.solarforecastarbiter.org](https://api.solarforecastarbiter.org)
 4. In collaboration with the Arbiter’s administrators, provide one-off data
    from a small test system to the public reference data set. Public reference
    forecasts will be created for these sites for the period of data that was provided.
