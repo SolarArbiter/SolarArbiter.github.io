@@ -18,8 +18,9 @@ model. The Dashboard contains additional features and abstractions to
 expedite common use cases. See [here](/documentation/dashboard/)
 for a walkthrough of the Dashboard user interface.
 
-Data ownership, access, and control issues will be discussed in other
-documents.
+Data ownership, access, and control issues are discussed in
+[Data Policies](/datapolicies) and
+[Dashboard Administration](/documentation/dashboard/administration).
 
 To introduce the data model, consider a framework user who will upload
 observed data for a new site. The framework user performs the following
@@ -88,23 +89,23 @@ forecast provider may use to create a single aggregated Forecast. The
 framework may generate an aggregate Observation from the listed
 Observations.
 
-An **Organization** groups Sites, Observations, Forecasts and Users.
+An **Organization** groups Sites, Observations, Forecasts, and Users.
 Organizations provide a logical partition on which to sort objects and
 create access control rules. Organizations are not otherwise essential
 to the data model and are not described in depth here.
 
-Creation of new objects will require valid metadata for all required
+Creation of new objects requires valid metadata for all required
 parameters. Most users will use the Solar Forecast Arbiter dashboard to
-create new objects. The API will also support creation via uploading a
+create new objects. The API also supports creation via uploading a
 valid JSON definition of the object. Metadata for sites, forecasts, and
-observations will be returned as JSON in the Solar Forecast Arbiter API.
+observations is returned as JSON in the Solar Forecast Arbiter API.
 
 ### Site
 {: .anchor}
 
 
-Each Site will have a number of required parameters that identify the
-Site. They are:
+Each Site has a number of required parameters that identify the Site.
+They are:
 
 -   *Name* - name for the Site, e.g. Desert Rock
 -   *Latitude* - latitude of the Site in decimal degrees north of the
@@ -113,19 +114,11 @@ Site. They are:
     prime meridian, e.g. -116.01947
 -   *Elevation* - Elevation of the Site in meters above sea level, e.g.
     1007
--   *Timezone* - IANA timezone of the Site, e.g.
-    Etc/GMT+8
+-   *Timezone* - IANA timezone of the Site, e.g. Etc/GMT+8
 
-Additional parameters will be optional when creating a site:
-
--   *Network* - measurement network name, e.g. SURFRAD
--   *Well-Known Text* - describes a geometric area for a Site which may be
-    physically extended, e.g. a polygon over a city for a Site that
-	describes many distributed generation PV systems.
-
-Sites that are solar power plants will require additional parameters
-that enable power forecasts. These parameters will be listed under a
-“modeling parameters” key as follows:
+Sites that are solar power plants require additional parameters that
+enable power forecasts. These parameters are listed under a“modeling
+parameters” key as follows:
 
 -   Modeling parameters:
     -   *AC capacity* - nameplate AC capacity rating in megawatts
@@ -163,10 +156,10 @@ owner.
 ### Observations
 {: .anchor}
 
-An Observation must be associated with a Site. A Site object must
-be created before an Observation.
+An Observation must be associated with a Site. A Site object must be
+created before an Observation can be associated with it.
 
-Creation of Observations will have the following required parameters:
+Creation of Observations requires the following parameters:
 
 -   *Name* - name of the Observation
 -   *Variable* - variable name, e.g. power, GHI. Each allowed variable has
@@ -187,16 +180,16 @@ An optional text description field can record information such as
 instrument type. Additional parameters may be specified under the “extra
 parameters” key.
 
-Each Observation has data associated with it. The format of this data is found in the Data Format section below.
+Each Observation has data associated with it. The format of this data is
+found in the [Data Formats](#data-formats) section below.
 
 ### Forecasts
 {: .anchor}
 
-Each Forecast must be associated with a Site which contains important
-information such as location. A Site object must be created before a
-Forecast can be associated with it.
+Each Forecast must be associated with a Site. A Site object must be
+created before a Forecast can be associated with it.
 
-Creation of Forecasts will have the following required parameters (see
+Creation of Forecasts requires the following parameters (see
 [Definitions](../definitions/#forecastevalts)
 for more detailed explanation of forecast parameters):
 
@@ -227,7 +220,7 @@ Additional parameters, such as model configuration parameters, may be
 specified under the “extra parameters” key.
 
 Each Forecast has data associated with it. The format of this data is
-found in the Data Format section below
+found in the [Data Formats](#data-formats) section below.
 
 #### Probabilistic forecasts
 {: .anchor}
@@ -250,13 +243,13 @@ of forecast parameters):
 ### Aggregates
 {: .anchor}
 
-Each Aggregate must be associated with one or more Observations. Solar
-Forecast Arbiter will calculate aggregated observation data generated
-from these Observations. Each aggregate will also provide a list of
+Each Aggregate must be associated with one or more Observations. The Solar
+Forecast Arbiter calculates aggregated observation data
+from these Observations. Each aggregate also provides a list of
 Sites associated with the Observations. These Sites will provide
 forecast providers with the modeling parameters for each system in the
-Aggregate. Aggregate forecasts will be associated directly with an
-Aggregate. Forecast providers will be required to submit a forecast of
+Aggregate. Aggregate forecasts are directly associated with an
+Aggregate. Forecast providers are required to submit a forecast of
 the aggregated quantity.
 
 Aggregates have the following required parameters:
@@ -270,7 +263,7 @@ Aggregates have the following required parameters:
 ## Variables and Units
 {: .anchor}
 
-Solar Forecast Arbiter will only accept a standard set of variables and
+Solar Forecast Arbiter accepts a standard set of variables and
 units. Data not in the correct units must be converted before it is
 uploaded. The forecast/observation variables and units that are
 permitted are as follows:
@@ -297,8 +290,8 @@ Data Formats
 ------------
 {: .anchor}
 
-In this section Data is defined as both observation and forecast data.
-The data contain a time series of data points. Each data point has
+In this section *data* is defined as both observation and forecast data.
+The data contain a time series of *data points*. Each data point has
 fields determined by the data’s type listed below:
 
 #### Observations
@@ -309,8 +302,12 @@ fields determined by the data’s type listed below:
 -   *Value* - Values for the variable in units defined above.
 -   *Quality Flag* - A flag indicating if the value is questionable. Uploads
     may contain values 0 (ok) or 1 (questionable). Downloads may contain
-    additional flags determined by the data qualification toolkit (discussed
-    elsewhere).
+    additional flags determined by the data qualification toolkit.
+
+The observation data must conform the the interval length specified by
+the associated metadata. The API will reject uploads that do not
+conform. This may require users to resample their data and insert
+``NaN`` or ``NULL`` as placeholder values for missing data.
 
 #### Forecasts
 {: .anchor}
@@ -336,8 +333,8 @@ is different.
 {: .anchor}
 
 
-Data will be available for download from the Solar Forecast Arbiter API
-and dashboard as either CSV or JSON files. Both formats will contain the
+Data is available for download from the Solar Forecast Arbiter API
+and dashboard as either CSV or JSON files. Both formats contain the
 name and id of the forecast/observation requested. In the CSV format,
 this information will be included in the header. In the JSON format,
 these parameters will be keys in the JSON object with the data listed
@@ -350,8 +347,8 @@ under “values”.
 # name: Power Plant 1 Power
 # id: testid
 timestamp,value,quality_flag
-2018-11-22T12:01:48Z,10.23,0
-2018-11-22T12:07:38Z,10.67,0
+2018-11-22T12:00:00Z,10.23,0
+2018-11-22T12:05:00Z,10.67,0
 ```
 #### JSON
 {: .anchor}
@@ -364,12 +361,12 @@ timestamp,value,quality_flag
       },
       “values”: [
         {
-          “timestamp”: “2018-11-22T12:01:48Z”,
+          “timestamp”: “2018-11-22T12:00:00Z”,
           “value”: 10.23,
           “quality_flag”: 0
         },
         {
-          “timestamp”: “2018-11-22T12:07:38Z”,
+          “timestamp”: “2018-11-22T12:05:00Z”,
           “value”: 10.67,
           “quality_flag”: 0
         }
