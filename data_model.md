@@ -243,22 +243,38 @@ of forecast parameters):
 ### Aggregates
 {: .anchor}
 
-Each Aggregate must be associated with one or more Observations. The Solar
-Forecast Arbiter calculates aggregated observation data
-from these Observations. Each aggregate also provides a list of
-Sites associated with the Observations. These Sites will provide
-forecast providers with the modeling parameters for each system in the
-Aggregate. Aggregate forecasts are directly associated with an
-Aggregate. Forecast providers are required to submit a forecast of
-the aggregated quantity.
+Each Aggregate is associated with one or more Observations. The Solar
+Forecast Arbiter calculates aggregated observation data from these
+Observations. The aggregated observation data conforms to the time
+parameters of the aggregate's metadata. Aggregate forecasts are directly
+associated with an Aggregate. Forecast providers are required to submit
+a forecast of the aggregated quantity.
 
 Aggregates have the following required parameters:
 
 -   *Name* - Name of the Aggregate
 -   *Description* - A description of the makeup of the Aggregate, e.g. all
     utility scale solar in ISO region
+-   *Variable* - variable name, e.g. power, GHI. Each allowed variable has
+    an associated pre-defined unit.
+-   *Aggregate type* - The type of data represented by the aggregate.
+    One of sum, mean, median, max, or min.
+-   *Interval length* - The length of time between consecutive data points,
+    e.g. 5 minutes, 1 hour. The aggregate interval length must be greater
+    than or equal to the interval length of the observations that go into it.
+-   *Interval label* - Indicates if a time labels the beginning or the
+    ending of an interval average. One of beginning or ending.
 -   *Timezone* - IANA timezone of the site, e.g. Etc/GMT+8
--   *Observations* - A list of Observations that make up the aggregate
+
+Additional parameters may be specified under the “extra parameters” key.
+
+After the Aggregate is created, Observations may be associated with it.
+Observations are included in an aggregate between an Effective From and
+an Effective Until date defined by the user. Observations are expected
+to contain all values in their effective range. Any values missing from
+an observation during computation will cause a failure. To avoid this
+failure, users should submit NaNs where data is missing for their
+observations.
 
 ## Variables and Units
 {: .anchor}
