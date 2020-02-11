@@ -2,6 +2,7 @@
 layout: base
 permalink: /stakeholdercommittee/
 redirect_from: "/StakeHolderCommitteeInfo/"
+title: Stakeholder Committee
 ---
 
 # Stakeholder Committee

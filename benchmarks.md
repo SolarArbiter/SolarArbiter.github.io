@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /benchmarks/
+title: Benchmark Forecasts
 ---
 
 # Benchmark Forecasts

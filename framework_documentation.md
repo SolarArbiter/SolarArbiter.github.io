@@ -1,12 +1,13 @@
 ---
 layout: base
 permalink: /documentation/framework/
+title: Framework Documentation
 ---
 
 Solar Forecast Arbiter Design
 =============================
 
-The Solar Forecast Arbiter is an open source framework for the evaluation of solar irradiance, solar power and net-load forecasts. It is comprised of three software components: The API, Dashboard and Core library. 
+The Solar Forecast Arbiter is an open source framework for the evaluation of solar irradiance, solar power and net-load forecasts. It is comprised of three software components: The API, Dashboard and Core library.
 ## Components
 
 ### Solar Forecast Arbiter Dashboard

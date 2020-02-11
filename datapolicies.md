@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /datapolicies/
+title: Data Policies
 ---
 # Data Policies
 

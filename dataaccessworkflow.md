@@ -1,6 +1,7 @@
 ---
 layout: dataaccessworkflow
 permalink: /data-access-workflow/
+title: Data Access Control
 ---
 
 # Solar Forecast Arbiter Data Access Control Workflow

@@ -2,6 +2,7 @@
 layout: base
 permalink: /definitions/
 sidebar: definition_sidebar.html
+title: Forecast Definitions
 ---
 
 # Definitions  {#definitions}

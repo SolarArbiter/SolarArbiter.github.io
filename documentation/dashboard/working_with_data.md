@@ -2,6 +2,7 @@
 layout: base
 permalink: /documentation/dashboard/working-with-data/
 sidebar: dashboard_data_sidebar.html
+title: Working with Data
 ---
 
 Working with Data

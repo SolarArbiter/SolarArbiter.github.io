@@ -2,6 +2,7 @@
 layout: base
 permalink: /usecases/
 sidebar: usecase_sidebar.html
+title: Use Cases
 ---
 
 # Use Cases
