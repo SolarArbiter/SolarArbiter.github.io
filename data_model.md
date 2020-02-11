@@ -117,8 +117,8 @@ They are:
 -   *Timezone* - IANA timezone of the Site, e.g. Etc/GMT+8
 
 Sites that are solar power plants require additional parameters that
-enable power forecasts. These parameters are listed under a“modeling
-parameters” key as follows:
+enable power forecasts. These parameters are listed under the "modeling
+parameters" key as follows:
 
 -   Modeling parameters:
     -   *AC capacity* - nameplate AC capacity rating in megawatts
@@ -147,7 +147,7 @@ parameters” key as follows:
         -   *Maximum rotation angle* - maximum rotation from horizontal of
             a single axis tracker, degrees
 
-Other parameters may be included in under an “extra parameters” key. The
+Other parameters may be included in under an "extra parameters" key. The
 extra parameters may be used by forecasters when implementing other PV
 models. The framework does not provide a standard set of extra
 parameters or require a particular format – these are up to the site
@@ -177,8 +177,8 @@ Creation of Observations requires the following parameters:
     The format will be determined later.
 
 An optional text description field can record information such as
-instrument type. Additional parameters may be specified under the “extra
-parameters” key.
+instrument type. Additional parameters may be specified under the "extra
+parameters" key.
 
 Each Observation has data associated with it. The format of this data is
 found in the [Data Formats](#data-formats) section below.
@@ -217,7 +217,7 @@ for more detailed explanation of forecast parameters):
     Plant X or Aggregate Y.
 
 Additional parameters, such as model configuration parameters, may be
-specified under the “extra parameters” key.
+specified under the "extra parameters" key.
 
 Each Forecast has data associated with it. The format of this data is
 found in the [Data Formats](#data-formats) section below.
@@ -266,7 +266,7 @@ Aggregates have the following required parameters:
     ending of an interval average. One of beginning or ending.
 -   *Timezone* - IANA timezone of the site, e.g. Etc/GMT+8
 
-Additional parameters may be specified under the “extra parameters” key.
+Additional parameters may be specified under the "extra parameters" key.
 
 After the Aggregate is created, Observations may be associated with it.
 Observations are included in an aggregate between an Effective From and
@@ -354,7 +354,7 @@ and dashboard as either CSV or JSON files. Both formats contain the
 name and id of the forecast/observation requested. In the CSV format,
 this information will be included in the header. In the JSON format,
 these parameters will be keys in the JSON object with the data listed
-under “values”.
+under "values".
 
 #### CSV
 {: .anchor}
@@ -370,21 +370,21 @@ timestamp,value,quality_flag
 {: .anchor}
 
     {
-      “name”: “Power Plant 1 Power”,
-      “id”: “testid”,
-      “_links”: {
-        “metadata”: “link to additional metadata”
+      "name": "Power Plant 1 Power",
+      "id": "testid",
+      "_links": {
+        "metadata": "link to additional metadata"
       },
-      “values”: [
+      "values": [
         {
-          “timestamp”: “2018-11-22T12:00:00Z”,
-          “value”: 10.23,
-          “quality_flag”: 0
+          "timestamp": "2018-11-22T12:00:00Z",
+          "value": 10.23,
+          "quality_flag": 0
         },
         {
-          “timestamp”: “2018-11-22T12:05:00Z”,
-          “value”: 10.67,
-          “quality_flag”: 0
+          "timestamp": "2018-11-22T12:05:00Z",
+          "value": 10.67,
+          "quality_flag": 0
         }
       ]
     }
@@ -411,9 +411,9 @@ specified with an empty field, NaN, or NULL.
 
 The CSV file may have comment lines at the top of the file beginning
 with one of # ; //. Comment lines are ignored - no metadata is parsed
-from them. CSV columns must be delimited by “,” and rows must be
-delimited by “\n”. The CSV must contain a header line of
-“timestamp,value,quality_flag” followed by the data rows.
+from them. CSV columns must be delimited by "," and rows must be
+delimited by "\n". The CSV must contain a header line of
+"timestamp,value,quality_flag" followed by the data rows.
 
 The following block is an example of a valid CSV upload.
 
@@ -430,21 +430,21 @@ timestamp,value,quality_flag
 #### JSON
 {: .anchor}
 
-The JSON file must have a “values” list that contains a data object of
-“values”, “timestamp”, and “quality_flag”.
+The JSON file must have a "values" list that contains a data object of
+"values", "timestamp", and "quality_flag".
 
     {
-      “id”: “testid”, # optional, for uploader’s record
-      “values”: [
+      "id": "testid", # optional, for uploader’s record
+      "values": [
         {
-          “timestamp”: “2018-11-22T12:01:48Z”,
-          “value”: 10.23,
-          “quality_flag”: 0
+          "timestamp": "2018-11-22T12:01:48Z",
+          "value": 10.23,
+          "quality_flag": 0
         },
         {
-          “timestamp”: “2018-11-22T12:07:38Z”,
-          “value”: 10.67,
-          “quality_flag”: 0
+          "timestamp": "2018-11-22T12:07:38Z",
+          "value": 10.67,
+          "quality_flag": 0
         }
       ]
     }
