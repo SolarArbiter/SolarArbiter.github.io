@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /publications/
+title: Publications
 ---
 # Publications
 
@@ -11,7 +12,7 @@ permalink: /publications/
 
 {% endfor %}
 
-## Posters 
+## Posters
 {% for poster in site.data.posters %}
 - _{{ poster.title }}_<br/>
   {{ poster.authors }}, {{ poster.place }}. {{ poster.date }}. <a href="{{ poster.link | relative_url }}">download<span class="sr-only"> presentation {{ poster.title }} by {{ poster.authors}}</span></a>

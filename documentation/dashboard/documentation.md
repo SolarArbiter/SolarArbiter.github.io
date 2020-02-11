@@ -2,6 +2,7 @@
 layout: base
 permalink: /documentation/dashboard/
 sidebar: dashboard_sidebar.html
+title: Documentation
 ---
 
 Dashboard Documentation

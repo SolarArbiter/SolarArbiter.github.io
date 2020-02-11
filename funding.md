@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /funding/
+title: Funding
 ---
 # Funding
 

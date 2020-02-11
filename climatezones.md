@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /climatezones/
+title: Climate Zones
 ---
 {% capture download_str %}
 <b>Region Definitions:</b> <a href="{{ 'assets/climate_zones/Region_NUM.shp' | relative_url }}">ESRI Shapefile</a> \| <a href="{{ 'assets/climate_zones/Region_NUM.geojson' | relative_url }}">GeoJSON</a> \| <a href="{{ 'assets/climate_zones/Region_NUM.kml' | relative_url }}">KML</a>

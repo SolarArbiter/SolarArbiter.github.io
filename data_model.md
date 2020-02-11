@@ -2,6 +2,7 @@
 layout: base
 permalink: /datamodel/
 sidebar: datamodel_sidebar.html
+title: Data Model
 ---
 
 Data Model

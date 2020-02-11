@@ -2,6 +2,7 @@
 layout: base
 permalink: /documentation/dashboard/getting-started/
 sidebar: dashboard_getting_started_sidebar.html
+title: Getting Started
 ---
 
 Getting Started
@@ -43,7 +44,7 @@ to grant users permissions to view or alter data owned by their organization.
 #### Creating an Organization
 {: .anchor}
 
-To create an new organization, contact the framework administrators at 
+To create an new organization, contact the framework administrators at
 [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) to
 start the process. The framework administrators will provide the non-negotiable
 [Data Use Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf),
@@ -109,7 +110,7 @@ restricted to sharing with users in the same organization. For example,
 attempts to grant a role with permission to *update users* to a member of
 another organization or to add the *update users* permission to a role that
 has been granted outside the organization will not be allowed.
-        
+
 
 #### Standard User
 {: .anchor}

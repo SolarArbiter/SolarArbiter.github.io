@@ -2,6 +2,7 @@
 layout: base
 permalink: /documentation/dashboard/administration/
 sidebar: dashboard_admin_sidebar.html
+title: Administration
 ---
 
 # Dashboard Administration
@@ -128,7 +129,7 @@ been granted.
     [granting roles to a user](/documentation/dashboard/administration#granting-roles-to-a-user) and
     [revoking roles from a user](/documentation/dashboard/administration#revoking-roles-from-a-user)
     for how to manage a user's roles.
-   
+
     <img class="my-3" src="/images/user.png"/>
 
 
@@ -136,7 +137,7 @@ been granted.
 {: .anchor}
 
 1.  Navigate to the roles listing with the *Roles* tab of the admin menu. This page
-    lists all of the Roles you have access to administer or view. 
+    lists all of the Roles you have access to administer or view.
     <img class="my-3" src="/images/roles.png"/>
 
 2.  Click the *Create new Role* button. Complete the form with a name and
@@ -194,7 +195,7 @@ currently shared with a user outside the organization.
 {: .anchor}
 
 **Users within your organization**
-    
+
 1.  Navigate to the User for which you would like to grant permissions and
     click the *Add Roles* button.
 
@@ -207,7 +208,7 @@ currently shared with a user outside the organization.
 
 1.  Navigate to the Role you would like to grant to a user. Click the
     *Grant Role* button.
-    
+
 
 2.  Enter the email of the user to grant the role to and click submit.
 

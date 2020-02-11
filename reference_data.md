@@ -1,6 +1,7 @@
 ---
 layout: base
 permalink: /referencedata/
+title: Reference Data
 ---
 
 # Reference Data
