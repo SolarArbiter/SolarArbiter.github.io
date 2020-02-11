@@ -393,10 +393,11 @@ timestamp,value,quality_flag
 ### Uploads
 {: .anchor}
 
-Data may be uploaded to the Solar Forecast Arbiter either through the API or
-the dashboard in either CSV or JSON format. Valid files must have
-timestamps in ISO-8601 format with time zone. They must also include the
-value of the data, and a quality flag of either 0 or 1.
+Data may be uploaded to the Solar Forecast Arbiter either through the
+API or the dashboard in either CSV or JSON format. Valid files must have
+timestamps in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format
+with time zone. They must also include the value of the data, and a
+quality flag of either ``0`` or ``1``.
 
 Each file may only contain data for **one** observation or forecast variable.
 Multiple observation or forecast variables require multiple file
@@ -404,16 +405,16 @@ uploads to their respective dashboard pages or API end points.
 
 Observation data uploads will be rejected if any time interval does not match
 the associated metadata interval length parameter. Missing data must be
-specified with an empty field, NaN, or NULL.
+specified with an empty field, ``NaN``, or ``NULL``.
 
 #### CSV
 {: .anchor}
 
 The CSV file may have comment lines at the top of the file beginning
-with one of # ; //. Comment lines are ignored - no metadata is parsed
-from them. CSV columns must be delimited by "," and rows must be
-delimited by "\n". The CSV must contain a header line of
-"timestamp,value,quality_flag" followed by the data rows.
+with one of ``# ; //``. Comment lines are ignored - no metadata is parsed
+from them. CSV columns must be delimited by ``","`` and rows must be
+delimited by ``"\n"``. The CSV must contain a header line of
+``"timestamp,value,quality_flag"`` followed by the data rows.
 
 The following block is an example of a valid CSV upload.
 
