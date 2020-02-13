@@ -5,6 +5,13 @@ title: Publications
 ---
 # Publications
 
+## Papers
+{% for paper in site.data.papers %}
+- _{{ paper.title }}_<br/>
+  {{ paper.authors }}, {{ paper.publication}}, {{ paper.date }}. {{ paper.DOI }}. <a href="{{ paper.link}}">download</a>
+
+{% endfor %}
+
 ## Presentations
 {% for presentation in site.data.presentations %}
 - _{{ presentation.title }}_<br/>
