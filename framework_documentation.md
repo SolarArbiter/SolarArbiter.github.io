@@ -36,7 +36,7 @@ The API is a HTTP REST API for programatically exchanging data with the Solar Fo
 
 ## Architecture
 
-<img class="figure" src="/images/alpha_release_architecture_chart.png"/>
+<img class="figure" src="/images/architecture_chart.png"/>
 
 <figcaption class="figure">Diagram depicting data flow between components of the Solar Forecast Arbiter. Users may choose to interact with the API directly, or through Dashboard. The API stores and retrieves data with the Database. The API queues analyses to be processed by workers that send their results to the API for storage in the API.</figcaption>
 
