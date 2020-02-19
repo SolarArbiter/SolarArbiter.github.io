@@ -8,13 +8,13 @@ Solar Forecast Arbiter Design
 =============================
 
 The Solar Forecast Arbiter is an open source framework for the evaluation of solar irradiance, solar power and net-load forecasts. It is comprised of three software components: The API, Dashboard and Core library.
+
 ## Components
 
 ### Solar Forecast Arbiter Dashboard
-The Dashboard is a website providing a graphical user interface for the Solar Forecast Arbiter framework. It provides webforms for exchanging data with the API and requesting analysis. It leverages the Core library to create visualizations for uploaded data and reports. The Dashboard is a Python Flask application that makes extensive use of Jinja2 templates.
+The Dashboard is a website providing a graphical user interface for the Solar Forecast Arbiter framework. It provides web forms for exchanging data with the API and requesting analyses. It leverages the Core library to create visualizations for uploaded data and reports. The Dashboard is a Python Flask application that makes extensive use of Jinja2 templates.
 
-**Alpha Version:**  [https://dashboard.solarforecastarbiter.org/](https://dashboard.solarforecastarbiter.org/)
-
+**Beta Version:**  [https://dashboard.solarforecastarbiter.org/](https://dashboard.solarforecastarbiter.org/)
 
 **Documentation:** [https://solarforecastarbiter.org/documentation/dashboard/](https://solarforecastarbiter.org/documentation/dashboard/)
 
@@ -38,7 +38,7 @@ The API is a HTTP REST API for programatically exchanging data with the Solar Fo
 
 <img class="figure" src="/images/architecture_chart.png"/>
 
-<figcaption class="figure">Diagram depicting data flow between components of the Solar Forecast Arbiter. Users may choose to interact with the API directly, or through Dashboard. The API stores and retrieves data with the Database. The API queues analyses to be processed by workers that send their results to the API for storage in the API.</figcaption>
+<figcaption class="figure">Diagram depicting data flow between components of the Solar Forecast Arbiter. Most users will use the Dashboard to interact with the API. Some users may choose to use a local installation of the Core library to perform their analyses and interact with the API. Other users may choose to interact directly with the API for scripting purposes (not shown). The API stores and retrieves data with the Database. The API also queues analyses to be processed by workers running the Core library. The works then send their results to the API for storage in the database.</figcaption>
 
 <br/>
-The alpha release of the Solar Forecast Arbiter is hosted on a server running CentOS at a datacenter at the University of Arizona. The components are run on an OKD (Origin Kubernetes Distribution) cluster and depend on a separate MYSQL server for data storage. The infrastructure of the Solar Forecast Arbiter is documented in detail in our Systems Layer Setup document.
+The beta release of the Solar Forecast Arbiter is hosted on a server running CentOS at a datacenter at the University of Arizona. The components are run on an OKD (Origin Kubernetes Distribution) cluster and depend on a separate MYSQL server for data storage. The infrastructure of the Solar Forecast Arbiter is documented in detail in a Systems Layer Setup document (available on request).
