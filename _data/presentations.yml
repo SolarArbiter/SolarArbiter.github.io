@@ -1,5 +1,14 @@
 - authors: W. Holmgren et al.
   title: "Solar Forecast Arbiter: An open source evaluation framework for solar forecasting"
+  place: American Meteorological Society Conference
+  date: January 2020
+  link: assets/presentations/AMS 2020 Holmgren Solar Forecast Arbiter.pdf
+- authors: A. Lorenzo et al.
+  title: "Reproducible Forecast Evaluation with the Solar Forecast Arbiter"
+  place: American Meteorological Society Conference
+  date: January 2020
+- authors: W. Holmgren et al.
+  title: "Solar Forecast Arbiter: An open source evaluation framework for solar forecasting"
   place: Solar Forecasting 2 Annual Review and Workshop
   date: October 2019
   link: assets/presentations/2019 DOE annual review Holmgren SFA.pdf
