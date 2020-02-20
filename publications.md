@@ -8,7 +8,7 @@ title: Publications
 ## Papers
 {% for paper in site.data.papers %}
 - _{{ paper.title }}_<br/>
-  {{ paper.authors }}, {{ paper.publication}}, {{ paper.date }}. {{ paper.DOI }}. <a href="{{ paper.link}}">download</a>
+  {{ paper.authors }}, {{ paper.publication}}, {{ paper.date }}. <a href="https://doi.org/{{ paper.DOI }}">{{ paper.DOI }}</a>. <a href="{{ paper.link}}">download</a>
 
 {% endfor %}
 
