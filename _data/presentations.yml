@@ -7,6 +7,7 @@
   title: "Reproducible Forecast Evaluation with the Solar Forecast Arbiter"
   place: American Meteorological Society Conference
   date: January 2020
+  link: assets/presentations/Python_AMS2020.pdf
 - authors: W. Holmgren et al.
   title: "Solar Forecast Arbiter: An open source evaluation framework for solar forecasting"
   place: Solar Forecasting 2 Annual Review and Workshop
