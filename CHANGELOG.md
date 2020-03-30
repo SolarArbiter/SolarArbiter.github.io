@@ -6,6 +6,47 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+
+## [1.0beta5] - Unreleased
+
+### Added
+
+- All report plots are now created with Plotly by default. We found plotly to
+  currently contain functionality to meet the requirements of the Arbiter's
+  usecases. Plotly's more mature javascript library also makes it easier to
+  optimize reports for display in web browsers.
+
+- Added API endpoint to recompute report at `/reports/<report_id>/recompute`.
+
+- Added API endpoint to get the actions the current user is allowed to take on
+  an object at `/users/actions-on/<object_id>`.
+
+- Added API endpoints to query for latest available data or a timerange of
+  available data. These endpoints are found by appending `/latest` or
+  `/timerange` to the end of a values endpoint.
+
+### Changed
+
+- Individual forecasts or observations can be singled out by double-clicking
+  the legend of a report timeseries or scatter plot.
+
+- Report timeseries no longer draw a line over periods of missing data.
+
+- Improved the speed of reading aggregate values from the API.
+
+- Improved the speed of storing timeseries values at the API.
+
+- Dashboard will not hide buttons for actions that the userscannot take where
+  possible.
+
+- Lazily render report plots to avoid browser freezing or crashing when lots
+  of plots exist.
+
+
+### Fixed
+
+- Use latest available data to improve availability of reference observations.
+
 ## [1.0beta4] - 2020-02-07
 
 ### Added
