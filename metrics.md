@@ -68,7 +68,7 @@ $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | 
 {: .anchor }
 The NMAE [%] is the normalized form of the MAE and is defined as:
 
-$$ \text{NMAE} = \frac{100\%}{\text{norm}} \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
+$$ \text{NMAE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
 
@@ -77,7 +77,7 @@ where norm is a constant upper bound on the value of the forecasted variable, e.
 {: .anchor }
 The NMBE [%} is the normalized form of the MBE and is defined as:
 
-$$ \text{NMBE} = \frac{100\%}{\text{norm}} \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
+$$ \text{NMBE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
 
