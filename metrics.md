@@ -64,11 +64,30 @@ The absolute percentage error is the absolute value of the difference between th
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
 
 
+### Normalized Mean Absolute Error (NMAE) {#nmae}
+{: .anchor }
+The NMAE [%] is the normalized form of the MAE and is defined as:
+
+$$ \text{NMAE} = \frac{100\%}{\text{norm}} \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
+
+where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
+
+
+### Normalized Mean Bias Error (NMBE) {#nmbe}
+{: .anchor }
+The NMBE [%} is the normalized form of the MBE and is defined as:
+
+$$ \text{NMBE} = \frac{100\%}{\text{norm}} \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
+
+where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
+
 ### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
-$$ \text{RMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
+$$ \text{NRMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
+
+where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
 
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
