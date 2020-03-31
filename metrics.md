@@ -75,7 +75,7 @@ where norm is a constant upper bound on the value of the forecasted variable, e.
 
 ### Normalized Mean Bias Error (NMBE) {#nmbe}
 {: .anchor }
-The NMBE [%} is the normalized form of the MBE and is defined as:
+The NMBE [%] is the normalized form of the MBE and is defined as:
 
 $$ \text{NMBE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
