@@ -31,8 +31,8 @@ at [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/
 
 **Trial 1:**
 
-* Start time: 2020-02-26 19:00Z
-* End time: 2020-02-28 19:00Z
+* Start time: 2020-04-21 19:00Z
+* End time: 2020-04-23 19:00Z
 * Observations:
   * Table Mountain GHI
 * Forecasts:
@@ -54,8 +54,8 @@ at [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/
 
 **Trial 2:**
 
-* Start time: 2020-03-11 19:00Z
-* End time: 2020-03-13 19:00Z
+* Start time: 2020-05-05 19:00Z
+* End time: 2020-05-07 19:00Z
 * Observations:
   * All DOE RTC AC Power
 * Forecasts:
@@ -76,8 +76,8 @@ at [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/
 
 **Trial 3:**
 
-* Start time: 2020-03-25 19:00Z
-* End time: 2020-03-27 19:00Z
+* Start time: 2020-05-19 19:00Z
+* End time: 2020-05-21 19:00Z
 * Observations:
   * Supplied by TBD forecast user
 * Forecasts:
