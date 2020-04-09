@@ -24,11 +24,13 @@ In the metrics below, we adopt the following nomenclature:
 
 For more information on these metrics and others, see [Zhang15](#ref-zhang15), [Wilks11](#ref-wilks11) and the references listed below.
 
-Note that for normalized metrics ([NMAE](#nmae), [NMBE](#nmbe), [NRMSE](#nrmse)), the Solar Solar Arbiter currently allows no user control over normalization via the dashboard. Instead, the Arbiter has the following behavior depending on the forecasted variable type:
+Note that for normalized metrics ([NMAE](#nmae), [NMBE](#nmbe), [NRMSE](#nrmse)), the Solar Forecast Arbiter currently allows no user control over normalization via the dashboard. Instead, the Arbiter has the following behavior depending on the forecasted variable type:
 - AC power: normalize using the AC capacity of the selected power plant
 - DC power: normalize using the DC capacity of the selected power plant
 - irradiance: no normalization; return normalized metric values as `NaN`
 - weather (e.g. wind speed): no normalization; return normalized metric values as `NaN`
+
+Additionally, the Solar Forecast Arbiter allows users to account for observation uncertainty by setting the error (forecast - observation) equal to zero for any point that is within a specified deadband, with the error unchanged for any point that lies outside the deadband. The deadband is specified as a percentage of the observation value at each time. A value of `None` indicates that no deadband was applied for that observation/forecast pair. Currently, the deadband is accounted for in the following metrics: [MAE](#mae), [MBE](#mbe), [RMSE](#rmse), [MAPE](#mape), [NMAE](#nmae), [NMBE](#nmbe), [NRMSE](#nrmse). The deadband is ignored for all other metrics.
 
 
 ### Mean Absolute Error (MAE) {#mae}
