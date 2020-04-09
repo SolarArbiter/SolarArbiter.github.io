@@ -24,6 +24,12 @@ In the metrics below, we adopt the following nomenclature:
 
 For more information on these metrics and others, see [Zhang15](#ref-zhang15), [Wilks11](#ref-wilks11) and the references listed below.
 
+Note that for normalized metrics ([NMAE](#nmae), [NMBE](#nmbe), [NRMSE](#nrmse)), the Solar Solar Arbiter currently allows no user control over normalization via the dashboard. Instead, the Arbiter has the following behavior depending on the forecasted variable type:
+- AC power: normalize using the AC capacity of the selected power plant
+- DC power: normalize using the DC capacity of the selected power plant
+- irradiance: no normalization; return normalized metric values as `NaN`
+- weather (e.g. wind speed): no normalization; return normalized metric values as `NaN`
+
 
 ### Mean Absolute Error (MAE) {#mae}
 {: .anchor }
@@ -70,7 +76,7 @@ The NMAE [%] is the normalized form of the MAE and is defined as:
 
 $$ \text{NMAE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
-where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
+where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
 
 ### Normalized Mean Bias Error (NMBE) {#nmbe}
@@ -79,7 +85,7 @@ The NMBE [%} is the normalized form of the MBE and is defined as:
 
 $$ \text{NMBE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
-where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
+where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
 ### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
@@ -87,7 +93,7 @@ The NRMSE [%] is the normalized form of the RMSE and is defined as:
 
 $$ \text{NRMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
-where norm is a constant upper bound on the value of the forecasted variable, e.g., 1000 W/m$$^2$$ for GHI or the nameplate AC capacity of a PV plant.
+where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
