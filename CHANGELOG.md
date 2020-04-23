@@ -22,6 +22,16 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   available data. These endpoints are found by appending `/latest` or
   `/timerange` to the end of a values endpoint.
 
+- Added support for event forecasts and associated reports. A list of supported
+  metrics can be found on the [metrics page](http://localhost:4000/metrics/#metrics-for-deterministic-event-forecasts).
+
+- Metrics now automatically determine normalization based on Observation type.
+  AC power observations are normalized by AC capacity; DC power by DC capacity.
+  Normalized metrics set to nan for all other variables
+
+- Users may now select a reference forecast to use in computing  
+  [forecast skill](http://localhost:4000/metrics/#s).
+
 ### Changed
 
 - Individual forecasts or observations can be singled out by double-clicking
