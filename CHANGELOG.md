@@ -33,8 +33,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Improved the speed of storing timeseries values at the API.
 
-- Dashboard will not hide buttons for actions that the userscannot take where
-  possible.
+- Dashboard will not hide buttons for actions that the users cannot take.
 
 - Lazily render report plots to avoid browser freezing or crashing when lots
   of plots exist.
