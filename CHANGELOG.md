@@ -11,10 +11,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
-- All report plots are now created with Plotly by default. We found plotly to
-  currently contain functionality to meet the requirements of the Arbiter's
-  usecases. Plotly's more mature javascript library also makes it easier to
-  optimize reports for display in web browsers.
+- All report plots are now created with Plotly instead of Bokeh. Plotly's JSON specification and more mature javascript library makes it easier to optimize reports for display in web browsers.
 
 - Added API endpoint to recompute report at `/reports/<report_id>/recompute`.
 
