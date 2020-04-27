@@ -60,6 +60,8 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Improved the speed of storing timeseries values at the API.
 
+- Clarified data validation and data resampling/alignment sections of reports.
+
 ### Fixed
 
 - Lazily render report plots to avoid browser freezing or crashing when many
