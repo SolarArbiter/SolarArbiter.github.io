@@ -55,8 +55,10 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Dashboard hides buttons for actions that a users cannot take due to
   insufficient permissions. This feature has been implemented on individual
-  site, forecast, probabilistic forecast, aggregate, and observation pages.
-  This feature will be extended to tabulated listing pages in a future release.
+  site, forecast, probabilistic forecast, aggregate, and observation, role, and
+  permission pages. This feature will be extended to hide the "Create" button
+  and other permissions displayed on tabulated listing pages in a future
+  release.
 
 - Improved the speed of reading aggregate values from the API.
 
