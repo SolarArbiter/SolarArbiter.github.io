@@ -57,8 +57,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   insufficient permissions. This feature has been implemented on individual
   site, forecast, probabilistic forecast, aggregate, and observation, role, and
   permission pages. This feature will be extended to hide the "Create" button
-  and other permissions displayed on tabulated listing pages in a future
-  release.
+  and other actions from tabulated listing pages in a future release.
 
 - Improved the speed of reading aggregate values from the API.
 
