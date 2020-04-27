@@ -17,7 +17,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Reports now support normalized metrics such as NMAE. Normalization is
   automatically determined based on Observation type. AC power observations
   are normalized by AC capacity; DC power by DC capacity. Normalized metrics
-  set to nan for all other variables.
+  are set to nan for all other variables.
 
 - Users may now select a reference forecast to use in computing
   [forecast skill](https://solarforecastarbiter.org/metrics/#s).
