@@ -54,7 +54,9 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   the legend of a report timeseries or scatter plot.
 
 - Dashboard hides buttons for actions that a users cannot take due to
-  insufficient permissions.
+  insufficient permissions. This feature has been implemented on individual
+  site, forecast, probabilistic forecast, aggregate and observation pages. This
+  feature will be extended to tabulated listing pages in a future release.
 
 - Improved the speed of reading aggregate values from the API.
 
