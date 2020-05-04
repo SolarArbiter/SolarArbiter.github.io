@@ -130,7 +130,7 @@ that enable power forecasts. These parameters will be listed under a
     -   *AC capacity* - nameplate AC capacity rating in megawatts
     -   *DC capacity* - nameplate DC capacity rating in megawatts
     -   *Temperature Coefficient* - The temperature coefficient of DC power
-        in units of %/C. Typically -0.2 to -0.5 % per degree C.
+        in units of % of DC capacity per degree C. Typically -0.2 to -0.5 %/C.
     -   *Tracking type* - type of tracking system, i.e. fixed, single axis,
         two axis
     -   *DC loss factor* - applied to DC current. Default 0%.
