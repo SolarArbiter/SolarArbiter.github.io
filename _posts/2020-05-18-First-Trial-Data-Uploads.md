@@ -57,7 +57,7 @@ the solarforecastarbiter-core Python package can be installed from the
 [Github
 repository](https://github.com/solararbiter/solarforecastarbiter-core)
 or via pip with the command ``pip install
-git+https://github.com/solarforecastarbiter-core.git``. The script
+git+https://github.com/solararbiter/solarforecastarbiter-core.git``. The script
 should be run periodically to generate new forecasts, either using
 cron jobs or a cron Python framework like
 [schedule](https://schedule.readthedocs.io/en/stable/). Further
