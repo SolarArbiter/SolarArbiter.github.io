@@ -1,3 +1,10 @@
+"""
+An example script to generate random forecasts for participants
+in the first test trial of the Solar Forecast Arbiter.
+This script should be run as cronjob or via another scheduling
+mechanism at an appropriate interval that will be determined by
+the trial/forecast parameters.
+"""
 import logging
 import sys
 
