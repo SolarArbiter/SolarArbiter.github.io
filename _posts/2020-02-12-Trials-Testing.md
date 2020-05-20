@@ -5,29 +5,19 @@ author: Will Holmgren
 
 *This post may be updated based on stakeholder feedback.*
 
-The Solar Forecast Arbiter now supports anonymous operational forecast
-trials. The team has run a series of internal tests of this feature.
-Because of the importance of this feature, we’re requesting that a
-handful of forecast users and forecast vendors help us test the feature
-to ensure that it operates smoothly and meets their needs.
+The Solar Forecast Arbiter now supports anonymous operational forecast trials. The team has run a series of internal tests of this feature. Because of the importance of this feature, we’re requesting that forecast users and forecast vendors help us test the feature to ensure that it operates smoothly and meets their needs.
 
-We propose a series of short forecast trials described below. We expect
-that trials may need to be rerun to accommodate errors on our side or
-unexpected difficulties for users.
+We propose a series of short forecast trials described below. We expect that trials may need to be rerun to accommodate errors on our side or unexpected difficulties for users.
 
-We ask that users do not upload real forecasts for these initial test
-trials. Rather, users should upload non-proprietary, random, constant,
-or other types of forecast that could be made publicly available without
-concern. This will allow all of us to debug systems more easily if/when
-issues arise. To the extent that it’s feasible to program within your
-systems, we recommend running your systems as if you were making a real
-forecast but then replacing the final data with fake data before posting
-it to the Arbiter’s API.
+We ask that users not upload real forecasts for these initial beta-tests of the trial system. Rather, users should upload non-proprietary, random, constant, or other types of forecast that can be made public. This will allow all of us parties to the testing to trace and debug errors without security concerns. To the extent that it’s feasible to program within your systems, we recommend running your systems as if you were making a real forecast but then replacing the final data with fake data before posting it to the Arbiter’s API.
+
 
 Before starting a trial, users should be familiar with posting forecast
 data to the Arbiter’s API. We expect the API to be relatively
 straightforward to program against. The API documentation is available
 at [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
+
+It is worth noting that work done in this testing phase can be reused in the future for a real trial and thus has benefit to stakeholders too. In recognition of your help in this critical beta-testing, we will provide any support needed.  
 
 **Trial 1:**
 
