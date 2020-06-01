@@ -21,13 +21,13 @@ It is worth noting that work done in this testing phase can be reused in the fut
 
 **Trial 1:**
 
-* Start time: 2020-06-05 07:00Z
-* End time: 2020-06-07 07:00Z
+* Start time: 2020-06-04 19:00Z
+* End time: 2020-06-06 19:00Z
 * Observations:
   * Table Mountain GHI
 * Forecasts:
   * Day ahead:
-    * Issue time: 7Z (local midnight)
+    * Issue time: 19Z
     * Lead time to start: 24 hours
     * Interval length: 1 hour
     * Interval value type: mean
@@ -43,7 +43,7 @@ It is worth noting that work done in this testing phase can be reused in the fut
   * Nighttime
   * User flagged
 
-Given the forecast parameters, one forecast would be uploaded by 2020-06-04 07:00Z with an hourly timerange of [2020-06-05 07:00Z, 2020-06-06 07:00Z). The second (and final) forecast would be uploaded at 2020-06-05 07:00Z covering the time range [2020-06-06 07:00Z, 2020-06-07 07:00Z). The API will restrict forecast uploads to be valid forecasts given the parameters, meaning it will not allow forecasts to be POSTed after each issue time. Please make sure to take this into account by, for example, scheduling the forecast job to run at 06:50Z.
+Given the forecast parameters, one forecast would be uploaded by 2020-06-03 19:00Z with an hourly timerange of [2020-06-04 19:00Z, 2020-06-05 19:00Z). The second (and final) forecast would be uploaded at 2020-06-04 19:00Z covering the time range [2020-06-04 19:00Z, 2020-06-06 19:00Z). The API will restrict forecast uploads to be valid forecasts given the parameters, meaning it will not allow forecasts to be POSTed after each issue time. Please make sure to take this into account by, for example, scheduling the forecast job to run at 18:50Z.
 
 
 **Trial 2:**
