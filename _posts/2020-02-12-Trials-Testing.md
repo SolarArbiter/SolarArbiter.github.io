@@ -17,20 +17,21 @@ data to the Arbiter’s API. We expect the API to be relatively
 straightforward to program against. The API documentation is available
 at [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/).  The development team has also created a [script and accompanying blog post](https://solarforecastarbiter.org/2020/05/18/First-Trial-Data-Uploads.html) to help testers spin up as quickly as possible.
 
-It is worth noting that work done in this testing phase can be reused in the future for a real trial and thus has benefit to stakeholders too. In recognition of your help in this critical beta-testing, we will provide any support needed.  
+It is worth noting that work done in this testing phase can be reused in the future for a real trial and thus has benefit to stakeholders too. In recognition of your help in this critical beta-testing, we will provide any support needed.
 
 **Trial 1:**
 
-* Start time: 2020-05-27 19:00Z
-* End time: 2020-05-29 19:00Z
+* Start time: 2020-06-04 19:00Z
+* End time: 2020-06-06 19:00Z
 * Observations:
   * Table Mountain GHI
 * Forecasts:
   * Day ahead:
-    * Issue time: 7Z (local midnight)
+    * Issue time: 19Z
     * Lead time to start: 24 hours
     * Interval length: 1 hour
     * Interval value type: mean
+    * Interval label: beginning
     * Run length: 24 hours
   * Benchmark:
     * Day ahead GFS
@@ -41,6 +42,9 @@ It is worth noting that work done in this testing phase can be reused in the fut
 * Quality flags to exclude:
   * Nighttime
   * User flagged
+
+Given the forecast parameters, one forecast would be uploaded by 2020-06-03 19:00Z with an hourly timerange of [2020-06-04 19:00Z, 2020-06-05 19:00Z). The second (and final) forecast would be uploaded at 2020-06-04 19:00Z covering the time range [2020-06-04 19:00Z, 2020-06-06 19:00Z). The API will restrict forecast uploads to be valid forecasts given the parameters, meaning it will not allow forecasts to be POSTed after each issue time. Please make sure to take this into account by, for example, scheduling the forecast job to run at 18:50Z.
+
 
 **Trial 2:**
 
