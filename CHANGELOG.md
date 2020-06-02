@@ -6,6 +6,56 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0beta6] - 2020-06-02
+
+### Added
+
+- Reports may now be downloaded in PDF format, although reports that currently exist must first be recomputed.
+
+- Incorporated PV power data from University of Oregon SRML network into the
+  Solar Forecast Arbiter's reference observation dataset.
+
+- Automatically generated persistence forecasts were added to the Solar
+  Forecast Arbiter reference dataset.
+
+- Added support for derieved quality flags 'DAYTIME', 'DAYTIME STALE
+  VALUES' and 'DAYTIME INTERPOLATED VALUES'.
+
+- AC and DC power limits were added to the validation package. Values are
+  marked with the `LIMITS EXCEEDED` flag.
+
+- Added limits to API requests to avoid timeouts when transferring or
+  processing data. The limit for retrieving timeseries data is 1 year. The
+  limit for uploading data is 200,000 datapoints or 16 MB, whichever limit is
+  reached first. The dashboard and API will respond with error messages
+  informing users of these new limits.
+
+- Dashboard now displays the timerange of available timeseries data, and will
+  plot the most recent three days of data by default.
+
+- Report listings have a metadata button for viewing report metadata in a pop
+  out before viewing.
+
+- Dashboard now displays option to recompute a report to users with update
+  permissions on that report.
+
+- Extra parameters field are now accessible on the dashboard.
+
+- Improved upon error messages when users enter invalid characters into a name
+  field on the dashboard.
+
+### Changed
+
+- Temperature coefficients are now recorded in units of %/C.
+
+### Fixed
+
+- Report metric plots now display months and weekdays in the correct order.
+
+- Fixed incorrect timezones of DOE RTC sites.
+
+- Fixed multiple instances where the dashboard did not handle error responses
+  from the API as expected, causing crashes.
 
 ## [1.0beta5] - 2020-04-27
 
