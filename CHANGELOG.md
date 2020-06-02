@@ -10,7 +10,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
-- Reports may now be downloaded in PDF format.
+- Reports may now be downloaded in PDF format, although reports that currently exist must first be recomputed.
 
 - Incorporated PV power data from University of Oregon SRML network into the
   Solar Forecast Arbiter's reference observation dataset.
