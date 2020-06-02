@@ -55,7 +55,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Fixed incorrect timezones of DOE RTC sites.
 
 - Fixed multiple instances where the dashboard did not handle error responses
-  from the api as expected, causing crashes.
+  from the API as expected, causing crashes.
 
 ## [1.0beta5] - 2020-04-27
 
