@@ -15,14 +15,14 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Incorporated PV power data from University of Oregon SRML network into the
   Solar Forecast Arbiter's reference observation dataset.
 
+- Automatically generated persistence forecasts were added to the Solar
+  Forecast Arbiter reference dataset.
+
 - Added support for derieved quality flags 'DAYTIME', 'DAYTIME STALE
   VALUES' and 'DAYTIME INTERPOLATED VALUES'.
 
 - AC and DC power limits were added to the validation package. Values are
   marked with the `LIMITS EXCEEDED` flag.
-
-- Automatically generated persistence forecasts were added to the Solar
-  Forecast Arbiter reference dataset.
 
 - Added limits to API requests to avoid timeouts when transferring or
   processing data. The limit for retrieving timeseries data is 1 year. The
