@@ -180,11 +180,20 @@ Upload data
 To upload data, an associated Site and Observation or Forecast object
 must already exist (see [Create New Site](#create-New-site) or
 [Create New Observation or Forecast](#create-new-observation-or-forecast)).
-The instructions here will describe the process of
-uploading data using the dashboard.
+The instructions here will describe the process of uploading data using the
+dashboard.
 Uploading data may be automated using the API, see
 [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
 for detailed documentation.
+
+### Limits on Data Size
+
+Data uploads are limited to 200,000 data points or 16 MB, whichever limit is
+hit first. All values are rounded to 8 points of decimal precision when they
+are stored. Users may reduce file size by providing data with 8 or less
+points of precision. Because the Arbiter does not support data interval lengths
+of less than one minute, file size may also be reduced by utilizing a timestamp
+format with a one minute resolution.
 
 ### Upload Observation Data
 {: .anchor}
