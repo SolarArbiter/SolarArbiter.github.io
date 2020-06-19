@@ -189,11 +189,12 @@ for detailed documentation.
 ### Limits on Data Size
 
 Data uploads are limited to 200,000 data points or 16 MB, whichever limit is
-hit first. All values are rounded to 8 points of decimal precision when they
-are stored. Users may reduce file size by providing data with 8 or less
-points of precision. Because the Arbiter does not support data interval lengths
-of less than one minute, file size may also be reduced by utilizing a timestamp
-format with a one minute resolution.
+hit first. File size limits are more commonly reached when using the JSON
+format. All values are rounded to 8 points of decimal precision when they are
+stored. Users may reduce file size by providing data with 8 or less points of
+precision. Because the Arbiter does not support data interval lengths of less
+than one minute, file size may also be reduced by utilizing a timestamp format
+with a one minute resolution.
 
 ### Upload Observation Data
 {: .anchor}
@@ -241,6 +242,11 @@ downloading data using the dashboard.
 Users may also utilize the API to download data. See the
 [API documentation](https://api.solarforecastarbiter.org/)
 for details.
+
+### Limits on Download size
+
+Data downloads are limited to a maximum of one year of data per request. Users
+may download more than one year of data by making multiple requests.
 
 ### Download Observation data
 {: .anchor}
