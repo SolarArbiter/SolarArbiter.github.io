@@ -283,18 +283,40 @@ may download more than one year of data by making multiple requests.
     Click the **Create new Report** link.
     <img class="my-3" src="/images/reports.png"/>
 
-2.  Enter the report name and a start and end for the period to analyze.
-    To pairs of Observations and Forecasts, start by selecting a Site. The forecast
-    field will populate with a list of forecasts located at the site. Selecting a
-    forecast will populate the observation field with observations field with
-    observations that match the forecast's site and variable. Click the
-    **Add Forecast, Observation pair** button. Multiple Pairs can be added by repeating
-    this process. Pairs can be removed by clicking the 'x' on the right side of the
-    forecast & observation table.
+2.  Select the type of report from the _Report Type_ menu at the top of the
+    page. The report type dictates the type of forecast that will be analyzed
+    in the report. Each forecast type (deterministic, event, and probabilistic)
+    will have different available metrics. Event forecasts do not support
+    reference forecasts or uncertainty.
+
+3.  Enter the report name and a start and end for the period to analyze.
+    Create pairs of Observations and Forecasts by following these steps:
+    - Select whether to compare the forecast to an Aggregate or Observation
+      using the 'Compare Forecast to' field.
+    - If comparing the Forecast to an Observation, select a Site. The
+      forecast field will populate with a list of forecasts located at the
+      site.
+    - Select a Forecast. The Observation (or Aggregate) and Reference Forecast
+      fields will be populated with options that match the forecast's site or
+      aggregate and variable.
+    - Select an Observation or Aggregate.
+    - (Optional) Select a Reference Forecast. Specifying a reference forecast
+      is only required when calculating the [forecast skill](/metrics/#s)
+      metric, and are not applicable for event forecasts.
+    - Choose how to define uncertainty. You may choose to ignore uncertainty,
+      use the uncertainty value defined for the observation or provide your
+      own value. The default option is to ignore uncertainty. Uncertainty
+      cannot be defined for event forecasts.
+    - Click the **Add Forecast, Observation pair**.
+
+    Multiple Pairs can be added by repeating this process. Pairs can be removed
+    by clicking the red 'remove' link on the right side of the forecast &
+    observation box.
 
      <img class="my-3" src="/images/report_form.png"/>
 
     After clicking submit, you will be returned to the report listing page where
     you will see the newly created report with a status of **pending**. The Arbiter
-    will process the report and then set its status to **complete**. You may then
-    view the web version of the report.
+    will process the report and then set its status to **complete** or
+    **failed**. You may then view the web version of the report. Failed reports
+    will contain an error message about the failure.
