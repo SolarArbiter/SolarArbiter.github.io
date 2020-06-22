@@ -252,3 +252,42 @@ currently shared with a user outside the organization.
 2.  Locate the Permission to revoke in the table and click the *remove* link in
     the far right column. You will be presented with a confirmation page before
     the permission is removed from a role.
+
+
+Permissions Reference Table
+---------------------------
+{: .anchor}
+
+This table gives a brief description of the effect of each type of permission
+on each data type. In certain circumstances, a combination of permissions
+may be necessary to perform a particular action.
+
+
+|Data Type|create|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
+|---------|------|----|------|------|-----------|------------|-------------|-----|------|
+|observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
+|forecasts|create new|read metadata|n/a|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
+|cdf_forecasts|create new <sup><b>2</b></sup>|read metadata|add a constant value to a cdf_forecast|delete metadata and values|read timeseries values of each bin |add tiemseries values to bins|n/a|n/a|n/a|
+|aggregates|create new <sup><b>3</b></sup>|read metadata|add/remove observation from aggregate <sup><b>4</b></sup>|delete metadata and values|read timeseries values <sup><b>5</b></sup> |n/a|n/a|n/a|n/a|
+|reports|create new|read metadata|set report status, store report metrics and raw_report|delete metadata and values|read processed values of report|store or update processed report values|n/a|n/a|n/a|
+|users|create new|read metadata|n/a|delete metadata|n/a|n/a|n/a|n/a|n/a|
+|roles|create new|read metadata|add and remove permissions from role|delete metadata|n/a|n/a|n/a|add role to user|remove role from user|
+|permissions|create new|read metadata|add and remove objects from permissions|delete metadata|n/a|n/a|n/a|n/a|n/a|
+{: .table}
+
+1. Deleting any data type will remove that object from all permissions
+   that affect it.
+
+2. The creation of a probabilistic forecast (cdf_forecast) requires
+   both the `create` and `update` permission.
+
+3. The creation of an aggregate requires the `create` permission to
+   create an empty aggregate, and the `update permission` to add the observations that
+   make up the aggregate.
+
+4. Adding an observation to an aggregate requires that the user has
+   `read` permissions on that observation.
+
+5. Reading a the full values of an aggregate requires `read_values`
+   permissions on all of it's constituent observations. A partial aggregate value will
+   be returned to users.
