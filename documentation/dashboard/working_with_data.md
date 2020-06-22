@@ -23,6 +23,18 @@ or [Python API](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.h
 documentation for instructions on how to perform data operations
 programmatically.
 
+
+Notes on Data Access When Creating Metadata
+-------------------------------------------
+{: .anchor}
+
+When a user creates new metadata, the user's organization administrators will
+control access to the metadata and any associated values. For this reason,
+granting permissions to create objects with users outside your organization has
+no effect. See [Administration and Data Sharing](/documentation/dashboard/administration/)
+for more information about sharing data in the Solar Forecast Arbiter.
+
+
 Create New Site
 ---------------
 {: .anchor}

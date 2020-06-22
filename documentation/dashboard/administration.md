@@ -263,7 +263,7 @@ on each data type. In certain circumstances, a combination of permissions
 may be necessary to perform a particular action.
 
 
-|Data Type|create|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
+|Data Type|create<sup><b>6</b></sup>|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
 |---------|------|----|------|------|-----------|------------|-------------|-----|------|
 |observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
 |forecasts|create new|read metadata|n/a|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
@@ -291,3 +291,9 @@ may be necessary to perform a particular action.
 5. Reading a the full values of an aggregate requires `read_values`
    permissions on all of it's constituent observations. A partial aggregate value will
    be returned to users.
+
+6. Create permissions are only effective within the organization that they are
+   created. When users create metadata, the metadata is owned by that user's
+   organization. User's that are granted `create` permissions outside their
+   organization will not be allowed to create new metadata, they will require
+   `create` permissions from their own organization.
