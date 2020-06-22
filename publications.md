@@ -17,7 +17,7 @@ title: Publications
 
 {% for presentation in site.data.presentations %}
 - _{{ presentation.title }}_<br/>
-  {{ presentation.authors }}, {{ presentation.place}}. {{ presentation.date }}. <a href="{{ presentation.link | relative_url }}">download<span class="sr-only"> presentation {{ presentation.title }} by {{ presentation.authors}}</span></a>. {% if presentation.recording %}<a href="{{ presentation.recording | relative_url }}">recording<span class="sr-only"> presentation {{ presentation.title }} by {{ presentation.authors}}</span></a>. {% endif %}
+  {{ presentation.authors }}, {{ presentation.place}}. {{ presentation.date }}. <a href="{{ presentation.link | relative_url }}">download<span class="sr-only"> presentation {{ presentation.title }} by {{ presentation.authors}}</span></a>. {% if presentation.recording %}<a href="{{ presentation.recording | relative_url }}">recording</a>. {% endif %}
 
 {% endfor %}
 
