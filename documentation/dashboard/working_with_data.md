@@ -308,7 +308,7 @@ may download more than one year of data by making multiple requests.
     - If comparing the Forecast to an Observation, select a Site. The
       forecast field will populate with a list of forecasts located at the
       site. Use the search bar to filter the list by name.
-    - Select a Forecast. The Observation (or Aggregate) and Reference Forecast
+    - Select a Forecast. Use the Variable menu to limit the displayed forecasts to specific variable. The Observation (or Aggregate) and Reference Forecast
       fields will be populated with options that match the forecast's site or
       aggregate and variable.
     - Select an Observation or Aggregate.
