@@ -60,8 +60,5 @@
   - name: Core
     link: https://solarforecastarbiter-core.readthedocs.io/en/latest/
 
-  - name: Data Access Control
-    link: /data-access-workflow/
-
 - name: Dashboard
   link: https://dashboard.solarforecastarbiter.org
