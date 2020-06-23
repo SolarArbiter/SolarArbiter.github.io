@@ -359,7 +359,7 @@ bitmask.
 |INTERPOLATED VALUES|0001000000000000|2048|Values appear linear, suggesting interpolation.|
 |CLIPPED VALUES|0010000000000000|4096|Values indicate possible clipped power levels.|
 |INCONSISTENT IRRADIANCE COMPONENTS|0100000000000000|8192|GHI, DHI, and DNI are inconsistent.|
-|DAILY VALIDATION APPLIED|1000000000000000|16384||
+|DAILY VALIDATION APPLIED|1000000000000000|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
 
 
