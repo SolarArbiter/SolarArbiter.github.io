@@ -46,19 +46,7 @@
   link: /blog/
 
 - name: Documentation
-  links:
-
-  - name: Framework
-    link: /documentation/framework/
-
-  - name: Dashboard
-    link: /documentation/dashboard/
-
-  - name: API
-    link: https://api.solarforecastarbiter.org/
-
-  - name: Core
-    link: https://solarforecastarbiter-core.readthedocs.io/en/latest/
+  link: /documentation/
 
 - name: Dashboard
   link: https://dashboard.solarforecastarbiter.org
