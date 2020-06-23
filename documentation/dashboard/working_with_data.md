@@ -316,7 +316,7 @@ may download more than one year of data by making multiple requests.
       is only required when calculating the [forecast skill](/metrics/#s)
       metric, and are not applicable for event forecasts.
     - Choose how to define uncertainty. You may choose to ignore uncertainty,
-      use the uncertainty value defined for the observation or provide your
+      use the uncertainty value defined in the observation metadata, or provide your
       own value. The default option is to ignore uncertainty. Uncertainty
       cannot be defined for event forecasts.
     - Click the **Add Forecast, Observation pair**.
