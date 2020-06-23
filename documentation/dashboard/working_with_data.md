@@ -338,7 +338,7 @@ may download more than one year of data by making multiple requests.
 Data Validation
 ---------------
 
-The Solar Forecast Arbiter performs validation on all Observation data. The
+The Solar Forecast Arbiter performs validation on all Observation data. It does not validate any forecast data. The
 data validation toolkit applies quality flags to values in observation data.
 The Solar Forecast Arbiter includes these quality flags with downloaded observation data
 in the form of a bit mask. Users can implement their own bit mask parsing functions or use the the [parsing functions available in solarforecastarbiter-core](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#quality-flag-mapping). The table below shows quality flags and their
