@@ -351,7 +351,7 @@ bitmask.
 |USER FLAGGED|0000000000000001|1|Providing user flagged data as problematic.|
 |NIGHTTIME|0000000000010000|16|Value occurs at night.|
 |CLEARSKY|0000000000010000|32|Values consistent with clear sky condition.|
-|SHADED|0000000001000000|64|Values indicate module shading.|
+|SHADED|0000000001000000|64|Values indicate module shading. Not implemented.|
 |UNEVEN FREQUENCY|0000000010000000|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
 |LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria.|
 |CLEARSKY EXCEEDED|0000010000000000|512|Value greater than clearsky value.|
