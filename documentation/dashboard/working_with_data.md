@@ -332,3 +332,41 @@ may download more than one year of data by making multiple requests.
     will process the report and then set its status to **complete** or
     **failed**. You may then view the web version of the report. Failed reports
     will contain an error message about the failure.
+
+
+Data Validation Results
+-----------------------
+
+### Observation Timeseries
+
+The Solar Forecast Arbiter performs validation on all Observation data. The
+data validation toolkit applies quality flags to values in observation data.
+The Solar Forecast Arbiter includes these quality flags with observation data
+in the form of a bit mask. The table below shows quality flags and their
+bitmask.
+
+|Quality Flag|Bitmask|Integer Value|Description|
+|------------|-------|-------------|-----------|
+|OK|0000000000000000|0|No validation flags.|
+|USER FLAGGED|0000000000000001|1|Providing user flagged data as problematic.|
+|NIGHTTIME|0000000000010000|16|Value occurs at night.|
+|CLEARSKY|0000000000010000|32|Values consistent with clear sky condition.|
+|SHADED|0000000001000000|64||
+|UNEVEN FREQUENCY|0000000010000000|128|Difference in timestamp between value and previous value does not conform to observation frequency|
+|LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria.|
+|CLEARSKY EXCEEDED|0000010000000000|512|Value greater than clearsky value.|
+|STALE VALUES|0000100000000000|1024||
+|INTERPOLATED VALUES|0001000000000000|2048|Values appear linear, suggesting interpolation.|
+|CLIPPED VALUES|0010000000000000|4096||
+|INCONSISTENT IRRADIANCE COMPONENTS|0100000000000000|8192|GHI, DHI, and DNI are inconsistent.|
+|DAILY VALIDATION APPLIED|1000000000000000|16384||
+
+
+On the Dashboard, quality flags are plotted along with their timeseries values.
+Each type of quality flag has it's own colored bar running parallel to the x
+axis of the timeseries plots. A vertical colored bar indicates that the data
+was flagged at that timestamp while a solid colored blocks indicate the data
+was flagged within the colored range.
+
+<img class="my-3" src="/images/quality_flag_plot.png"/>
+
