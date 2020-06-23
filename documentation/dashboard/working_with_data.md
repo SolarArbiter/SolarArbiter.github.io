@@ -307,8 +307,8 @@ may download more than one year of data by making multiple requests.
       using the 'Compare Forecast to' field.
     - If comparing the Forecast to an Observation, select a Site. The
       forecast field will populate with a list of forecasts located at the
-      site.
-    - Select a Forecast. The Observation (or Aggregate) and Reference Forecast
+      site. Use the search bar to filter the list by name.
+    - Select a Forecast. Use the Variable menu to limit the displayed forecasts to specific variable. The Observation (or Aggregate) and Reference Forecast
       fields will be populated with options that match the forecast's site or
       aggregate and variable.
     - Select an Observation or Aggregate.
@@ -316,7 +316,7 @@ may download more than one year of data by making multiple requests.
       is only required when calculating the [forecast skill](/metrics/#s)
       metric, and are not applicable for event forecasts.
     - Choose how to define uncertainty. You may choose to ignore uncertainty,
-      use the uncertainty value defined for the observation or provide your
+      use the uncertainty value defined in the observation metadata, or provide your
       own value. The default option is to ignore uncertainty. Uncertainty
       cannot be defined for event forecasts.
     - Click the **Add Forecast, Observation pair**.
@@ -335,40 +335,35 @@ may download more than one year of data by making multiple requests.
 
 
 
-Results
--------
+Data Validation
+---------------
 
-The Solar Forecast Arbiter is foremost a forecast evaluation platform. This
-section explains how to interpret the results of those evaluations.
-
-### Data Validation Results
-
-The Solar Forecast Arbiter performs validation on all Observation data. The
+The Solar Forecast Arbiter performs validation on all Observation data. It does not validate any forecast data. The
 data validation toolkit applies quality flags to values in observation data.
-The Solar Forecast Arbiter includes these quality flags with observation data
-in the form of a bit mask. The table below shows quality flags and their
+The Solar Forecast Arbiter includes these quality flags with downloaded observation data
+in the form of a bit mask. Users can implement their own bit mask parsing functions or use the the [parsing functions available in solarforecastarbiter-core](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#quality-flag-mapping). The table below shows quality flags and their
 bitmask.
 
 {: .table}
 |Quality Flag|Bitmask|Integer Value|Description|
 |------------|-------|-------------|-----------|
 |OK|0000000000000000|0|No validation flags.|
-|USER FLAGGED|0000000000000001|1|Providing user flagged data as problematic.|
+|USER FLAGGED|0000000000000001|1|User flagged data as problematic before uploading to Arbiter.|
 |NIGHTTIME|0000000000010000|16|Value occurs at night.|
 |CLEARSKY|0000000000010000|32|Values consistent with clear sky condition.|
-|SHADED|0000000001000000|64|Values indicate module shading.|
+|SHADED|0000000001000000|64|Values indicate module shading. Not implemented.|
 |UNEVEN FREQUENCY|0000000010000000|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
-|LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria.|
+|LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
 |CLEARSKY EXCEEDED|0000010000000000|512|Value greater than clearsky value.|
-|STALE VALUES|0000100000000000|1024||
+|STALE VALUES|0000100000000000|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
 |INTERPOLATED VALUES|0001000000000000|2048|Values appear linear, suggesting interpolation.|
 |CLIPPED VALUES|0010000000000000|4096|Values indicate possible clipped power levels.|
 |INCONSISTENT IRRADIANCE COMPONENTS|0100000000000000|8192|GHI, DHI, and DNI are inconsistent.|
-|DAILY VALIDATION APPLIED|1000000000000000|16384||
+|DAILY VALIDATION APPLIED|1000000000000000|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
 
 
-#### Quality Flags on the Dashboard
+### Quality Flags on the Dashboard
 
 On the Dashboard quality flags are plotted along with their timeseries values.
 Each type of quality flag has it's own colored bar running parallel to the x
