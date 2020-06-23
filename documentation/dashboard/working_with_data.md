@@ -355,7 +355,7 @@ bitmask.
 |UNEVEN FREQUENCY|0000000010000000|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
 |LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
 |CLEARSKY EXCEEDED|0000010000000000|512|Value greater than clearsky value.|
-|STALE VALUES|0000100000000000|1024||
+|STALE VALUES|0000100000000000|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
 |INTERPOLATED VALUES|0001000000000000|2048|Values appear linear, suggesting interpolation.|
 |CLIPPED VALUES|0010000000000000|4096|Values indicate possible clipped power levels.|
 |INCONSISTENT IRRADIANCE COMPONENTS|0100000000000000|8192|GHI, DHI, and DNI are inconsistent.|
