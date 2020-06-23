@@ -372,10 +372,3 @@ was flagged at that timestamp while a solid colored blocks indicate the data
 was flagged within the colored range.
 
 <img class="my-3" src="/images/quality_flag_plot.png"/>
-
-
-### Report Analysis Results
-
-Solar Forecast Arbiter reports contain timeseries plots as well as a plot for
- each metric and category selected during report creation
-(see [Create New Report](/dashboard/working-with-data/#create-new-report)).
