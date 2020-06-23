@@ -335,13 +335,8 @@ may download more than one year of data by making multiple requests.
 
 
 
-Results
--------
-
-The Solar Forecast Arbiter is foremost a forecast evaluation platform. This
-section explains how to interpret the results of those evaluations.
-
-### Data Validation Results
+Data Validation
+---------------
 
 The Solar Forecast Arbiter performs validation on all Observation data. The
 data validation toolkit applies quality flags to values in observation data.
