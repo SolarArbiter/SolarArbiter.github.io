@@ -12,7 +12,7 @@ solar irradiance, solar power, and net-load forecasts. It is comprised of
 three software components: the API, Dashboard and Core library.
 
 
-<div class="row my-3">
+<div class="row my-5">
 <div class="col-md-7 col-xs-12">
 <h2 id="solar-forecast-arbiter-dashboard">Solar Forecast Arbiter Dashboard</h2>
 <p>
@@ -34,7 +34,7 @@ application that makes extensive use of Jinja2 templates.
 </div>
 </div>
 
-<div class="row my-3">
+<div class="row my-5">
 <div class="col-md-7 col-xs-12">
 <h2>Solar Forecast Arbiter API</h2>
 <p>
@@ -55,17 +55,26 @@ rq(Redis Queue), and marshmallow.
 </div>
 </div>
 
-## Solar Forecast Arbiter Core
+<div class="row my-5">
+<div class="col-md-7 col-xs-12">
+<h2>Solar Forecast Arbiter Core</h2>
+<p>
 The Core library contains definitions for the data structures used throughout
 the framework. It also contains all of the data acquisition, data processing,
 analysis, and visualization code to be used by the other components of the
 framework. The core library is written in Python and makes extensive use of
-libraries such as pvlib python, pandas, xarray, and bokeh.
+libraries such as pvlib python, pandas, xarray, bokeh, and plotly.
+</p>
+<b>Code:</b> <a href="https://github.com/SolarArbiter/solarforecastarbiter-core">https://github.com/SolarArbiter/solarforecastarbiter-core</a><br/>
 
-**Code:** [https://github.com/SolarArbiter/solarforecastarbiter-core](https://github.com/SolarArbiter/solarforecastarbiter-core)
-
-**Documentation:** [https://solarforecastarbiter-core.readthedocs.io](https://solarforecastarbiter-core.readthedocs.io)
-
+<b>Documentation:</b> <a href="https://solarforecastarbiter-core.readthedocs.io">https://solarforecastarbiter-core.readthedocs.io</a><br/>
+</div>
+<div class="col-md-5 col-xs-12">
+<div class="d-flex h-100 shadow">
+<img class="align-self-center" src="/images/python-logo-master-v3-TM.png">
+</div>
+</div>
+</div>
 
 ## Architecture
 
