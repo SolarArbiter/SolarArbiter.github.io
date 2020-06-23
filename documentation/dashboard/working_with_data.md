@@ -348,7 +348,7 @@ bitmask.
 |Quality Flag|Bitmask|Integer Value|Description|
 |------------|-------|-------------|-----------|
 |OK|0000000000000000|0|No validation flags.|
-|USER FLAGGED|0000000000000001|1|Providing user flagged data as problematic.|
+|USER FLAGGED|0000000000000001|1|User flagged data as problematic before uploading to Arbiter.|
 |NIGHTTIME|0000000000010000|16|Value occurs at night.|
 |CLEARSKY|0000000000010000|32|Values consistent with clear sky condition.|
 |SHADED|0000000001000000|64|Values indicate module shading. Not implemented.|
