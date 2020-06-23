@@ -346,7 +346,7 @@ section explains how to interpret the results of those evaluations.
 The Solar Forecast Arbiter performs validation on all Observation data. The
 data validation toolkit applies quality flags to values in observation data.
 The Solar Forecast Arbiter includes these quality flags with observation data
-in the form of a bit mask. The table below shows quality flags and their
+in the form of a bit mask. Users can implement their own bit mask parsing functions or use the the [parsing functions available in solarforecastarbiter-core](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#quality-flag-mapping). The table below shows quality flags and their
 bitmask.
 
 {: .table}
