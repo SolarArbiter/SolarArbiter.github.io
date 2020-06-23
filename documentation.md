@@ -12,7 +12,7 @@ solar irradiance, solar power, and net-load forecasts. It is comprised of
 three software components: the API, Dashboard and Core library.
 
 
-<div class="row mb-3">
+<div class="row my-3">
 <div class="col-md-7 col-xs-12">
 <h2 id="solar-forecast-arbiter-dashboard">Solar Forecast Arbiter Dashboard</h2>
 <p>
@@ -30,11 +30,11 @@ application that makes extensive use of Jinja2 templates.
 <b>Code:</b> <a href="https://github.com/SolarArbiter/solarforecastarbiter_dashboard">https://github.com/SolarArbiter/solarforecastarbiter_dashboard</a>
 </div>
 <div class="col-md-5 col-xs-12">
-<img src="/images/dashboard_screenshot.png"/>
+<img class="shadow" src="/images/dashboard_screenshot.png"/>
 </div>
 </div>
 
-<div class="row mb-3">
+<div class="row my-3">
 <div class="col-md-7 col-xs-12">
 <h2>Solar Forecast Arbiter API</h2>
 <p>
@@ -51,7 +51,7 @@ rq(Redis Queue), and marshmallow.
 <b>Code:</b> <a href="https://github.com/SolarArbiter/solarforecastarbiter-api">https://github.com/SolarArbiter/solarforecastarbiter-api</a><br/>
 </div>
 <div class="col-md-5 col-xs-12">
-<img src="/images/api_screenshot.png"/>
+<img class="shadow" src="/images/api_screenshot.png"/>
 </div>
 </div>
 
