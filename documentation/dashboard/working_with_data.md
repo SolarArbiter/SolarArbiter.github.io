@@ -334,10 +334,14 @@ may download more than one year of data by making multiple requests.
     will contain an error message about the failure.
 
 
-Data Validation Results
------------------------
 
-### Observation Timeseries
+Results
+-------
+
+The Solar Forecast Arbiter is foremost a forecast evaluation platform. This
+section explains how to interpret the results of those evaluations.
+
+### Data Validation Results
 
 The Solar Forecast Arbiter performs validation on all Observation data. The
 data validation toolkit applies quality flags to values in observation data.
@@ -345,6 +349,7 @@ The Solar Forecast Arbiter includes these quality flags with observation data
 in the form of a bit mask. The table below shows quality flags and their
 bitmask.
 
+{: .table}
 |Quality Flag|Bitmask|Integer Value|Description|
 |------------|-------|-------------|-----------|
 |OK|0000000000000000|0|No validation flags.|
@@ -362,7 +367,10 @@ bitmask.
 |DAILY VALIDATION APPLIED|1000000000000000|16384||
 
 
-On the Dashboard, quality flags are plotted along with their timeseries values.
+
+#### Quality Flags on the Dashboard
+
+On the Dashboard quality flags are plotted along with their timeseries values.
 Each type of quality flag has it's own colored bar running parallel to the x
 axis of the timeseries plots. A vertical colored bar indicates that the data
 was flagged at that timestamp while a solid colored blocks indicate the data
@@ -370,3 +378,9 @@ was flagged within the colored range.
 
 <img class="my-3" src="/images/quality_flag_plot.png"/>
 
+
+### Report Analysis Results
+
+Solar Forecast Arbiter reports contain timeseries plots as well as a plot for
+ each metric and category selected during report creation
+(see [Create New Report](/dashboard/working-with-data/#create-new-report)).
