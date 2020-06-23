@@ -363,7 +363,7 @@ bitmask.
 
 
 
-#### Quality Flags on the Dashboard
+### Quality Flags on the Dashboard
 
 On the Dashboard quality flags are plotted along with their timeseries values.
 Each type of quality flag has it's own colored bar running parallel to the x
