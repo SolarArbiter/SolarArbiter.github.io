@@ -29,9 +29,11 @@ Notes on Data Access When Creating Metadata
 {: .anchor}
 
 When a user creates new metadata, the user's organization administrators will
-control access to the metadata and any associated values. For this reason,
-granting permissions to create objects with users outside your organization has
-no effect. See [Administration and Data Sharing](/documentation/dashboard/administration/)
+control access to the metadata and any associated values. Because metadata is
+controlled by the organization of the user that created it, granting permission
+to create metadata to users outside your organization would allow them to
+create new metadata within their own organization and is not allowed. See
+[Administration and Data Sharing](/documentation/dashboard/administration/)
 for more information about sharing data in the Solar Forecast Arbiter.
 
 
