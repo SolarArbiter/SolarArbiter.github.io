@@ -22,7 +22,7 @@ Documentation is separated into the following sections:
 - [Working with Data](/documentation/dashboard/working-with-data): how to
   create, upload, and download data.
 - [Administration and Data Sharing](/documentation/dashboard/administration):
-  how to share and restrict data access.
+  how to manage users and share or restrict data access.
 
 Additional training materials are available in our
 [workshop repository](https://github.com/SolarArbiter/workshop).
