@@ -29,9 +29,11 @@ Notes on Data Access When Creating Metadata
 {: .anchor}
 
 When a user creates new metadata, the user's organization administrators will
-control access to the metadata and any associated values. For this reason,
-granting permissions to create objects with users outside your organization has
-no effect. See [Administration and Data Sharing](/documentation/dashboard/administration/)
+control access to the metadata and any associated values. Because metadata is
+controlled by the organization of the user that created it, granting permission
+to create metadata to users outside your organization would allow them to
+create new metadata within their own organization and is not allowed. See
+[Administration and Data Sharing](/documentation/dashboard/administration/)
 for more information about sharing data in the Solar Forecast Arbiter.
 
 
@@ -347,20 +349,31 @@ bitmask.
 {: .table}
 |Quality Flag|Bitmask|Integer Value|Description|
 |------------|-------|-------------|-----------|
-|OK|0000000000000000|0|No validation flags.|
-|USER FLAGGED|0000000000000001|1|User flagged data as problematic before uploading to Arbiter.|
-|NIGHTTIME|0000000000010000|16|Value occurs at night.|
-|CLEARSKY|0000000000010000|32|Values consistent with clear sky condition.|
-|SHADED|0000000001000000|64|Values indicate module shading. Not implemented.|
-|UNEVEN FREQUENCY|0000000010000000|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
-|LIMITS EXCEEDED|0000000100000000|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
-|CLEARSKY EXCEEDED|0000010000000000|512|Value greater than clearsky value.|
-|STALE VALUES|0000100000000000|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
-|INTERPOLATED VALUES|0001000000000000|2048|Values appear linear, suggesting interpolation.|
-|CLIPPED VALUES|0010000000000000|4096|Values indicate possible clipped power levels.|
-|INCONSISTENT IRRADIANCE COMPONENTS|0100000000000000|8192|GHI, DHI, and DNI are inconsistent.|
-|DAILY VALIDATION APPLIED|1000000000000000|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
+|OK|`0000000000000000`|0|No validation flags.|
+|USER FLAGGED|`0000000000000001`|1|User flagged data as problematic before uploading to Arbiter.|
+|NIGHTTIME|`0000000000010000`|16|Value occurs at night.|
+|CLEARSKY|`0000000000010000`|32|Values consistent with clear sky condition.|
+|SHADED|`0000000001000000`|64|Values indicate module shading. Not implemented.|
+|UNEVEN FREQUENCY|`0000000010000000`|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
+|LIMITS EXCEEDED|`0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
+|CLEARSKY EXCEEDED|`0000010000000000`|512|Value greater than clearsky value.|
+|STALE VALUES|`0000100000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
+|INTERPOLATED VALUES|`0001000000000000`|2048|Values appear linear, suggesting interpolation.|
+|CLIPPED VALUES|`0010000000000000`|4096|Values indicate possible clipped power levels.|
+|INCONSISTENT IRRADIANCE COMPONENTS|`0100000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
+|DAILY VALIDATION APPLIED|`1000000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
+The dashboard displays derived quality flags that are not provided in
+downloaded data. Derived quality flags appear on timeseries plots and are
+available for filtering when creating a report. Derived quality flags are
+described in the table below.
+
+{: .table}
+|Quality Flag|Description|
+|------------|-----------|
+|DAYTIME|Value occurs during daytime.|
+|DAYTIME STALE VALUES|Stale values that occur during daytime.|
+|DAYTIME INTERPOLATED VALUES|Interpolated values that occur during daytime|
 
 
 ### Quality Flags on the Dashboard
@@ -372,10 +385,3 @@ was flagged at that timestamp while a solid colored blocks indicate the data
 was flagged within the colored range.
 
 <img class="my-3" src="/images/quality_flag_plot.png"/>
-
-
-### Report Analysis Results
-
-Solar Forecast Arbiter reports contain timeseries plots as well as a plot for
- each metric and category selected during report creation
-(see [Create New Report](/dashboard/working-with-data/#create-new-report)).

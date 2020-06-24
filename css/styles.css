@@ -155,6 +155,7 @@ footer .footer-link{
 
 code {
     font-size: 80%;
+    word-break: normal;
 }
 .figure{
 	max-width: 100%;

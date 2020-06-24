@@ -25,7 +25,7 @@ application that makes extensive use of Jinja2 templates.
 
 <a href="https://dashboard.solarforecastarbiter.org/">https://dashboard.solarforecastarbiter.org/</a><br/>
 
-<b>Documentation:</b> <a href="https://solarforecastarbiter.org/documentation/dashboard/">https://solarforecastarbiter.org/documentation/dashboard/</a><br/>
+<b>Documentation:</b> <a href="/documentation/dashboard/">https://solarforecastarbiter.org/documentation/dashboard/</a><br/>
 
 <b>Code:</b> <a href="https://github.com/SolarArbiter/solarforecastarbiter_dashboard">https://github.com/SolarArbiter/solarforecastarbiter_dashboard</a>
 </div>
