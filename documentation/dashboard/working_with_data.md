@@ -346,8 +346,6 @@ The Solar Forecast Arbiter includes these quality flags with downloaded observat
 in the form of a bit mask. Users can implement their own bit mask parsing functions or use the the [parsing functions available in solarforecastarbiter-core](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#quality-flag-mapping). The table below shows quality flags and their
 bitmask.
 
-
-
 {: .table}
 |Quality Flag|Bitmask|Integer Value|Description|
 |------------|-------|-------------|-----------|
@@ -365,6 +363,17 @@ bitmask.
 |INCONSISTENT IRRADIANCE COMPONENTS|`0100000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
 |DAILY VALIDATION APPLIED|`1000000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
+The dashboard displays derived quality flags that are not provided in
+downloaded data. Derived quality flags appear on timeseries plots and are
+available for filtering when creating a report. Derived quality flags are
+described in the table below.
+
+{: .table}
+|Quality Flag|Description|
+|------------|-----------|
+|DAYTIME|Value occurs during daytime.|
+|DAYTIME STALE VALUES|Stale values that occur during daytime.|
+|DAYTIME INTERPOLATED VALUES|Interpolated values that occur during daytime|
 
 
 ### Quality Flags on the Dashboard
