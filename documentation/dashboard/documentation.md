@@ -9,6 +9,7 @@ Dashboard Documentation
 =======================
 {: .anchor}
 
+<img class="dash-doc-homepage-image" src="/images/dashboard_landing.png">
 The [Solar Forecast Arbiter Dashboard](https://dashboard.solarforecastarbiter.org)
 is a web site for evaluating solar forecast accuracy. This documentation
 provides step-by-step instructions of how to perform common activities on the

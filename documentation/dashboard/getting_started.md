@@ -23,15 +23,22 @@ The sections below describe these steps in more detail.
 
 ### Signing up
 {: .anchor}
-
-New framework users sign up through the [Solar Forecast Arbiter dashboard](https://dashboard.solarforecastarbiter.org).
+<div class="row">
+<div class="col-md-7 col-xs-12">
+New framework users sign up through the <a href="https://dashboard.solarforecastarbiter.org">Solar Forecast Arbiter dashboard</a>.
 The signup form is found by following the 'Log in' link on the front page of
  the dashboard. You will be prompted with an Auth0 login window
-([Auth0](https://auth0.com/docs/getting-started/overview) is a secure
+(<a href="https://auth0.com/docs/getting-started/overview">Auth0</a> is a secure
 authentication service). Click the sign up tab and enter your information.
 Users will receive an email from Solar Forecast Arbiter to verify their
 account. Account verification is required before you will be able to access
 data in the Solar Forecast Arbiter.
+</div>
+<div class="col-md-5 col-xs-12">
+<img class="shadow" src="/images/signup_form.png">
+</div>
+</div>
+
 
 ### Organizations
 {:.anchor}

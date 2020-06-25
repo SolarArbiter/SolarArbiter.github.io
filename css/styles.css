@@ -210,3 +210,8 @@ img{
     margin: 0 auto;
     max-width: 900px;
 }
+.dash-docs-homepage-image{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
