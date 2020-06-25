@@ -41,6 +41,7 @@ div.teamlogo-wrapper{
   text-transform: uppercase;
   line-height: .85;
   font-weight: 500;
+  margin-top: 0;
 }
 .logo-wrap a{
         color: #555;
@@ -90,8 +91,8 @@ h2.anchor, h3.anchor, h4.anchor {
 .anchor:before{
     display: block;
     content: " ";
-    margin-top: -75px;
-    height: 75px;
+    margin-top: -7rem;
+    height: 7rem;
     visibility: hidden;
 }
 
@@ -183,7 +184,8 @@ code {
         list-style: none;
         padding-left: 0;
     }
-    ul.contents-list ol, ul.contents-list ol ol{
+    ul.contents-list ol, ul.contents-list ol ol,
+    ul.contents-list ul, ul.contents-list ul ul{
         padding-left: 1.5em;
     }
     div.content-wrapper-sidebar{
@@ -204,7 +206,13 @@ pre.highlight{
 img{
   max-width: 100%;
 }
-.homepage-imate{
+.homepage-image{
     display: block;
     margin: 0 auto;
+    max-width: 900px;
+}
+.dash-docs-homepage-image{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
 }
