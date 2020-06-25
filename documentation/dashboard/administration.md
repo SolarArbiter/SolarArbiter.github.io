@@ -45,6 +45,65 @@ components in the access control system:
   perform within the framework. A user is granted access to data through
   the *roles* they are assigned.
 
+#### User Classifications
+{: .anchor}
+
+Users of the Solar Forecast Arbiter are described by one or more of the
+following classifications.
+
+##### Organization Point of Contact
+{: .anchor}
+
+An organization's point of contact is a representative of the organization who
+is authorized to approve or request changes to the organization. There may be
+more than one point of contact for an organization.
+
+A point of contact may coordinate with framework administrators to:
+
+- Add and remove users from the organization.
+
+- Promote users to [organization administrators](#organization-administrators).
+
+- Coordinate organization participation in a forecast trial.
+
+##### Organization Administrators
+{: .anchor}
+
+Organization Administrators are users with special permission to manage [users](/documentation/dashboard/administration/#users), [roles](/documentation/dashboard/administration/#roles)
+and [permissions](/documentation/dashboard/administration/#permissions). Organization administrators are
+also granted full access to their organization's data. An organization's point
+of contact may request that users in their organization be promoted to an
+organization administrator by emailing a request to
+[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
+
+Administrators may [grant](/documentation/dashboard/administration#granting-roles-to-a-user)
+and [revoke](/documentation/dashboard/administration#revoking-roles-from-a-user)
+roles from users in their organization and add or remove permissions from
+roles. Roles may be granted to members of other organizations provided their
+organization has aggreed to the Data Use Aggreement.
+
+All administrative permissions other than read access, e.g. those allowing
+create, update, grant, revoke or delete on users, roles or permissions, are
+restricted to sharing with users in the same organization. For example,
+attempts to grant a role with permission to *update users* to a member of
+another organization or to add the *update users* permission to a role that
+has been granted outside the organization will not be allowed.
+
+
+#### Standard User
+{: .anchor}
+
+Solar Forecast Arbiter users are added to the *Unaffiliated* organization by
+default. Unaffiliated users will have access to the reference data set but
+may not gain further access until they have joined an organization that has
+accepted the data use agreement.
+
+An organization's [point of contact](#organization-point-of-contact) may submit
+a request to [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
+to add a user to their organization. Users new to an organization have no
+access to the organization's data until an [organization administrator](#organization-administrators)
+grants them access.
+
 ### Roles
 {: .anchor}
 
