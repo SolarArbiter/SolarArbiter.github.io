@@ -209,7 +209,17 @@ img{
 .homepage-image{
     display: block;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 100%;
+}
+@media (min-width: 769px) {
+	.homepage-image {
+        padding: 0 100px;
+    }
+}
+@media (max-width: 768px) {
+	.homepage-image {
+		padding: 0;
+    }
 }
 .dash-docs-homepage-image{
     display: block;
