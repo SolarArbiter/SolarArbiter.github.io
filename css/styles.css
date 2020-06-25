@@ -41,6 +41,7 @@ div.teamlogo-wrapper{
   text-transform: uppercase;
   line-height: .85;
   font-weight: 500;
+  margin-top: 0;
 }
 .logo-wrap a{
         color: #555;
@@ -90,8 +91,8 @@ h2.anchor, h3.anchor, h4.anchor {
 .anchor:before{
     display: block;
     content: " ";
-    margin-top: -75px;
-    height: 75px;
+    margin-top: -7rem;
+    height: 7rem;
     visibility: hidden;
 }
 
