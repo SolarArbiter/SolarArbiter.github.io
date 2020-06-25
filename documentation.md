@@ -9,7 +9,7 @@ Solar Forecast Arbiter Documentation
 
 The Solar Forecast Arbiter is an open source framework for the evaluation of
 solar irradiance, solar power, and net-load forecasts. It is comprised of
-three software components: the API, Dashboard and Core library.
+three software components: the Dashboard, API, and Core library.
 
 
 <div class="row my-5">
@@ -80,7 +80,8 @@ libraries such as pvlib python, pandas, xarray, bokeh, and plotly.
 </div>
 </div>
 
-## Architecture
+<div class="row my-5">
+<h2>Architecture</h2>
 
 <img class="figure" src="/images/architecture_chart.png"/>
 
@@ -100,3 +101,4 @@ at the University of Arizona. The components are run on an OKD (Origin
 Kubernetes Distribution) cluster and depend on a separate MYSQL server for
 data storage. The infrastructure of the Solar Forecast Arbiter is documented
 in detail in a Systems Layer Setup document (available on request).
+</div>
