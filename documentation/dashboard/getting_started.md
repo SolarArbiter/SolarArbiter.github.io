@@ -44,18 +44,13 @@ to grant users permissions to view or alter data owned by their organization.
 #### Creating an Organization
 {: .anchor}
 
-To create an new organization, contact the framework administrators at
-[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) to
-start the process. The framework administrators will provide the non-negotiable
-[Data Use Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf),
-the user will review the Data Use Agreement and return the Data Use Agreement
-signed by an authorized representative of their organization. A [point of
-contact](#organization-point-of-contact) will be established to verify future
-updates to the organization. The point of contact typically is the person that
-initiated the request, but alternative or additional points of contact may be
-designated. The organization point of contact will appoint one or more
-[organization administrators](#organization-administrators) to manage user and
-data access. The point of contact typically is also an administrator.
+To create an new organization, send a signed
+[Data Use Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf)
+to the Solar Forecast Arbiter Administrators at
+[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org). The
+administrators will create a new organization for you and assign your user
+account to administer it.
+
 
 #### Joining an Organization
 {: .anchor}
