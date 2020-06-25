@@ -205,7 +205,8 @@ pre.highlight{
 img{
   max-width: 100%;
 }
-.homepage-imate{
+.homepage-image{
     display: block;
     margin: 0 auto;
+    max-width: 900px;
 }
