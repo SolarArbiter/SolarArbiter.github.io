@@ -9,22 +9,29 @@ Getting Started
 ===============
 {: .anchor}
 
-Registering an account on the Solar Forecast Arbiter is a two step process:
-
-1. [Sign up](#signing-up) for an account. This automatic process immediately
+To get started with the Solar Forecast Arbiter you'll first need to
+[sign up](#signing-up) for an account. This automatic process immediately
 grants you access to the Arbiter's reference data and reference forecasts.
 
-2. [Create a new Organization](#creating-an-organization) or [join an existing
-Organization](#joining-an-organization). This manual process grants you access
-to the rest of the Arbiter's features including uploading data, sharing data,
-running reports, and participating in trials.
+Users who want to access all of the Arbiter's features will need to
+[create a new Organization](#creating-an-organization) or
+[join an existing Organization](#joining-an-organization). This will give you
+access to the full set of Arbiter features, including:
 
-The sections below describe these steps in more detail.
+- Uploading data to the Arbiter for quality checking and validation.
+- Sharing data between organizations.
+- Running reports to analyze forecast data.
+- Participating in competitive forecast trials.
 
 ### Signing up
 {: .anchor}
 <div class="row">
 <div class="col-md-7 col-xs-12">
+<p>
+A free, no-obligation, no-lawyers-required user account will allow you to
+explore the reference dataset, and download reference data and report metrics.
+</p>
+<p>
 New framework users sign up through the <a href="https://dashboard.solarforecastarbiter.org">Solar Forecast Arbiter dashboard</a>.
 The signup form is found by following the 'Log in' link on the front page of
  the dashboard. You will be prompted with an Auth0 login window
@@ -33,12 +40,17 @@ authentication service). Click the sign up tab and enter your information.
 Users will receive an email from Solar Forecast Arbiter to verify their
 account. Account verification is required before you will be able to access
 data in the Solar Forecast Arbiter.
+</p>
+<p>
+Users who want to use the Solar Forecast Arbiter with their own data can
+<a href="#creating-an-organization">create</a> or
+<a href="#joining-an-organization">join</a> an organization.
+</p>
 </div>
 <div class="col-md-5 col-xs-12">
 <img class="shadow" src="/images/signup_form.png">
 </div>
 </div>
-
 
 ### Organizations
 {:.anchor}
