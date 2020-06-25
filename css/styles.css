@@ -209,10 +209,26 @@ img{
 .homepage-image{
     display: block;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 100%;
+}
+@media (min-width: 769px) {
+	.homepage-image {
+        padding: 0 100px;
+    }
+}
+@media (max-width: 768px) {
+	.homepage-image {
+		padding: 0;
+    }
 }
 .dash-docs-homepage-image{
     display: block;
     margin: 0 auto;
+    max-width: 100%;
+}
+.table.perm-table{
+    border: 1px solid #dee2e6;
+    display: block;
+    overflow-x: scroll;
     max-width: 100%;
 }

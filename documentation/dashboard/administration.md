@@ -321,7 +321,6 @@ This table gives a brief description of the effect of each type of permission
 on each data type. In certain circumstances, a combination of permissions
 may be necessary to perform a particular action.
 
-
 |Data Type|create<sup><b>6</b></sup>|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
 |---------|------|----|------|------|-----------|------------|-------------|-----|------|
 |observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
@@ -332,7 +331,7 @@ may be necessary to perform a particular action.
 |users|create new|read metadata|n/a|delete metadata|n/a|n/a|n/a|n/a|n/a|
 |roles|create new|read metadata|add and remove permissions from role|delete metadata|n/a|n/a|n/a|add role to user|remove role from user|
 |permissions|create new|read metadata|add and remove objects from permissions|delete metadata|n/a|n/a|n/a|n/a|n/a|
-{: .table}
+{: .table .perm-table}
 
 1. Deleting any data type will remove that object from all permissions
    that affect it.
