@@ -226,3 +226,9 @@ img{
     margin: 0 auto;
     max-width: 100%;
 }
+.table.perm-table{
+    border: 1px solid #dee2e6;
+    display: block;
+    overflow-x: scroll;
+    max-width: 100%;
+}
