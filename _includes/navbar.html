@@ -1,14 +1,15 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
   <div class="container">
-    <a class="navbar-brand" href="/">
-    {% if site.project_logo %}
-  	  <img src="{{ site.project_logo }}"/>
-  	{% else %}
-        {{ site.project_name }}
-  	{% endif %}
-    </a>
+    <div class="logo-wrap">
+      <a class="logo-link" href="/">
+      {% if site.project_logo %}
+  	    <img src="{{ site.project_logo }}"/>
+  	  {% else %}
+      <h1>{{ site.project_name }}</h1>
+  	  {% endif %}
+      </a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -23,6 +23,20 @@ or [Python API](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.h
 documentation for instructions on how to perform data operations
 programmatically.
 
+
+Notes on Data Access When Creating Metadata
+-------------------------------------------
+{: .anchor}
+
+When a user creates new metadata, the user's organization administrators will
+control access to the metadata and any associated values. Because metadata is
+controlled by the organization of the user that created it, granting permission
+to create metadata to users outside your organization would allow them to
+create new metadata within their own organization and is not allowed. See
+[Administration and Data Sharing](/documentation/dashboard/administration/)
+for more information about sharing data in the Solar Forecast Arbiter.
+
+
 Create New Site
 ---------------
 {: .anchor}
@@ -180,11 +194,21 @@ Upload data
 To upload data, an associated Site and Observation or Forecast object
 must already exist (see [Create New Site](#create-New-site) or
 [Create New Observation or Forecast](#create-new-observation-or-forecast)).
-The instructions here will describe the process of
-uploading data using the dashboard.
+The instructions here will describe the process of uploading data using the
+dashboard.
 Uploading data may be automated using the API, see
 [https://api.solarforecastarbiter.org/](https://api.solarforecastarbiter.org/)
 for detailed documentation.
+
+### Limits on Data Size
+
+Data uploads are limited to 200,000 data points or 16 MB, whichever limit is
+hit first. File size limits are more commonly reached when using the JSON
+format. All values are rounded to 8 points of decimal precision when they are
+stored. Users may reduce file size by providing data with 8 or less points of
+precision. Because the Arbiter does not support data interval lengths of less
+than one minute, file size may also be reduced by utilizing a timestamp format
+with a one minute resolution.
 
 ### Upload Observation Data
 {: .anchor}
@@ -233,6 +257,11 @@ Users may also utilize the API to download data. See the
 [API documentation](https://api.solarforecastarbiter.org/)
 for details.
 
+### Limits on Download size
+
+Data downloads are limited to a maximum of one year of data per request. Users
+may download more than one year of data by making multiple requests.
+
 ### Download Observation data
 {: .anchor}
 
@@ -268,18 +297,91 @@ for details.
     Click the **Create new Report** link.
     <img class="my-3" src="/images/reports.png"/>
 
-2.  Enter the report name and a start and end for the period to analyze.
-    To pairs of Observations and Forecasts, start by selecting a Site. The forecast
-    field will populate with a list of forecasts located at the site. Selecting a
-    forecast will populate the observation field with observations field with
-    observations that match the forecast's site and variable. Click the
-    **Add Forecast, Observation pair** button. Multiple Pairs can be added by repeating
-    this process. Pairs can be removed by clicking the 'x' on the right side of the
-    forecast & observation table.
+2.  Select the type of report from the _Report Type_ menu at the top of the
+    page. The report type dictates the type of forecast that will be analyzed
+    in the report. Each forecast type (deterministic, event, and probabilistic)
+    will have different available metrics. Event forecasts do not support
+    reference forecasts or uncertainty.
+
+3.  Enter the report name and a start and end for the period to analyze.
+    Create pairs of Observations and Forecasts by following these steps:
+    - Select whether to compare the forecast to an Aggregate or Observation
+      using the 'Compare Forecast to' field.
+    - If comparing the Forecast to an Observation, select a Site. The
+      forecast field will populate with a list of forecasts located at the
+      site. Use the search bar to filter the list by name.
+    - Select a Forecast. Use the Variable menu to limit the displayed forecasts to specific variable. The Observation (or Aggregate) and Reference Forecast
+      fields will be populated with options that match the forecast's site or
+      aggregate and variable.
+    - Select an Observation or Aggregate.
+    - (Optional) Select a Reference Forecast. Specifying a reference forecast
+      is only required when calculating the [forecast skill](/metrics/#s)
+      metric, and are not applicable for event forecasts.
+    - Choose how to define uncertainty. You may choose to ignore uncertainty,
+      use the uncertainty value defined in the observation metadata, or provide your
+      own value. The default option is to ignore uncertainty. Uncertainty
+      cannot be defined for event forecasts.
+    - Click the **Add Forecast, Observation pair**.
+
+    Multiple Pairs can be added by repeating this process. Pairs can be removed
+    by clicking the red 'remove' link on the right side of the forecast &
+    observation box.
 
      <img class="my-3" src="/images/report_form.png"/>
 
     After clicking submit, you will be returned to the report listing page where
     you will see the newly created report with a status of **pending**. The Arbiter
-    will process the report and then set its status to **complete**. You may then
-    view the web version of the report.
+    will process the report and then set its status to **complete** or
+    **failed**. You may then view the web version of the report. Failed reports
+    will contain an error message about the failure.
+
+
+
+Data Validation
+---------------
+
+The Solar Forecast Arbiter performs validation on all Observation data. It does not validate any forecast data. The
+data validation toolkit applies quality flags to values in observation data.
+The Solar Forecast Arbiter includes these quality flags with downloaded observation data
+in the form of a bit mask. Users can implement their own bit mask parsing functions or use the the [parsing functions available in solarforecastarbiter-core](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#quality-flag-mapping). The table below shows quality flags and their
+bitmask.
+
+{: .table}
+|Quality Flag|Bitmask|Integer Value|Description|
+|------------|-------|-------------|-----------|
+|OK|`0000000000000000`|0|No validation flags.|
+|USER FLAGGED|`0000000000000001`|1|User flagged data as problematic before uploading to Arbiter.|
+|NIGHTTIME|`0000000000010000`|16|Value occurs at night.|
+|CLEARSKY|`0000000000010000`|32|Values consistent with clear sky condition.|
+|SHADED|`0000000001000000`|64|Values indicate module shading. Not implemented.|
+|UNEVEN FREQUENCY|`0000000010000000`|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
+|LIMITS EXCEEDED|`0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
+|CLEARSKY EXCEEDED|`0000010000000000`|512|Value greater than clearsky value.|
+|STALE VALUES|`0000100000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
+|INTERPOLATED VALUES|`0001000000000000`|2048|Values appear linear, suggesting interpolation.|
+|CLIPPED VALUES|`0010000000000000`|4096|Values indicate possible clipped power levels.|
+|INCONSISTENT IRRADIANCE COMPONENTS|`0100000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
+|DAILY VALIDATION APPLIED|`1000000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
+
+The dashboard displays derived quality flags that are not provided in
+downloaded data. Derived quality flags appear on timeseries plots and are
+available for filtering when creating a report. Derived quality flags are
+described in the table below.
+
+{: .table}
+|Quality Flag|Description|
+|------------|-----------|
+|DAYTIME|Value occurs during daytime.|
+|DAYTIME STALE VALUES|Stale values that occur during daytime.|
+|DAYTIME INTERPOLATED VALUES|Interpolated values that occur during daytime|
+
+
+### Quality Flags on the Dashboard
+
+On the Dashboard quality flags are plotted along with their timeseries values.
+Each type of quality flag has it's own colored bar running parallel to the x
+axis of the timeseries plots. A vertical colored bar indicates that the data
+was flagged at that timestamp while a solid colored blocks indicate the data
+was flagged within the colored range.
+
+<img class="my-3" src="/images/quality_flag_plot.png"/>

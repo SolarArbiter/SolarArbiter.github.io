@@ -45,6 +45,65 @@ components in the access control system:
   perform within the framework. A user is granted access to data through
   the *roles* they are assigned.
 
+#### User Classifications
+{: .anchor}
+
+Users of the Solar Forecast Arbiter are described by one or more of the
+following classifications.
+
+##### Organization Point of Contact
+{: .anchor}
+
+An organization's point of contact is a representative of the organization who
+is authorized to approve or request changes to the organization. There may be
+more than one point of contact for an organization.
+
+A point of contact may coordinate with framework administrators to:
+
+- Add and remove users from the organization.
+
+- Promote users to [organization administrators](#organization-administrators).
+
+- Coordinate organization participation in a forecast trial.
+
+##### Organization Administrators
+{: .anchor}
+
+Organization Administrators are users with special permission to manage [users](/documentation/dashboard/administration/#users), [roles](/documentation/dashboard/administration/#roles)
+and [permissions](/documentation/dashboard/administration/#permissions). Organization administrators are
+also granted full access to their organization's data. An organization's point
+of contact may request that users in their organization be promoted to an
+organization administrator by emailing a request to
+[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
+
+Administrators may [grant](/documentation/dashboard/administration#granting-roles-to-a-user)
+and [revoke](/documentation/dashboard/administration#revoking-roles-from-a-user)
+roles from users in their organization and add or remove permissions from
+roles. Roles may be granted to members of other organizations provided their
+organization has aggreed to the Data Use Aggreement.
+
+All administrative permissions other than read access, e.g. those allowing
+create, update, grant, revoke or delete on users, roles or permissions, are
+restricted to sharing with users in the same organization. For example,
+attempts to grant a role with permission to *update users* to a member of
+another organization or to add the *update users* permission to a role that
+has been granted outside the organization will not be allowed.
+
+
+#### Standard User
+{: .anchor}
+
+Solar Forecast Arbiter users are added to the *Unaffiliated* organization by
+default. Unaffiliated users will have access to the reference data set but
+may not gain further access until they have joined an organization that has
+accepted the data use agreement.
+
+An organization's [point of contact](#organization-point-of-contact) may submit
+a request to [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
+to add a user to their organization. Users new to an organization have no
+access to the organization's data until an [organization administrator](#organization-administrators)
+grants them access.
+
 ### Roles
 {: .anchor}
 
@@ -252,3 +311,47 @@ currently shared with a user outside the organization.
 2.  Locate the Permission to revoke in the table and click the *remove* link in
     the far right column. You will be presented with a confirmation page before
     the permission is removed from a role.
+
+
+Permissions Reference Table
+---------------------------
+{: .anchor}
+
+This table gives a brief description of the effect of each type of permission
+on each data type. In certain circumstances, a combination of permissions
+may be necessary to perform a particular action.
+
+|Data Type|create<sup><b>6</b></sup>|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
+|---------|------|----|------|------|-----------|------------|-------------|-----|------|
+|observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
+|forecasts|create new|read metadata|n/a|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
+|cdf_forecasts|create new <sup><b>2</b></sup>|read metadata|add a constant value to a cdf_forecast|delete metadata and values|read timeseries values of each bin |add tiemseries values to bins|n/a|n/a|n/a|
+|aggregates|create new <sup><b>3</b></sup>|read metadata|add/remove observation from aggregate <sup><b>4</b></sup>|delete metadata and values|read timeseries values <sup><b>5</b></sup> |n/a|n/a|n/a|n/a|
+|reports|create new|read metadata|set report status, store report metrics and raw_report|delete metadata and values|read processed values of report|store or update processed report values|n/a|n/a|n/a|
+|users|create new|read metadata|n/a|delete metadata|n/a|n/a|n/a|n/a|n/a|
+|roles|create new|read metadata|add and remove permissions from role|delete metadata|n/a|n/a|n/a|add role to user|remove role from user|
+|permissions|create new|read metadata|add and remove objects from permissions|delete metadata|n/a|n/a|n/a|n/a|n/a|
+{: .table .perm-table}
+
+1. Deleting any data type will remove that object from all permissions
+   that affect it.
+
+2. The creation of a probabilistic forecast (cdf_forecast) requires
+   both the `create` and `update` permission.
+
+3. The creation of an aggregate requires the `create` permission to
+   create an empty aggregate, and the `update permission` to add the observations that
+   make up the aggregate.
+
+4. Adding an observation to an aggregate requires that the user has
+   `read` permissions on that observation.
+
+5. Reading a the full values of an aggregate requires `read_values`
+   permissions on all of it's constituent observations. A partial aggregate value will
+   be returned to users.
+
+6. Create permissions are only effective within the organization that they are
+   created. When users create metadata, the metadata is owned by that user's
+   organization. User's that are granted `create` permissions outside their
+   organization will not be allowed to create new metadata, they will require
+   `create` permissions from their own organization.

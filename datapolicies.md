@@ -57,8 +57,8 @@ data with data access policies. These policies allow specific
 users to access to the data. The web interface shows
 an organization administrator a list of all of the submitted metadata/data
 it owns and the access roles given to other users. Please see the
-[Data Access Control documentation](/data-access-workflow/) for more
-information.
+[Data Access Control documentation](/documentation/dashboard/administration/)
+for more information.
 
 Under a forecast trial use case, anonymized time series data and/or
 summary statistics derived from the data are owned by the framework.
