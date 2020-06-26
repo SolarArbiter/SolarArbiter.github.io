@@ -57,8 +57,7 @@ Users who want to use the Solar Forecast Arbiter with their own data can
 
 Organizations are groups of users whose permissions and data are managed by
 the same group of administrators. An organization retains ownership of all data
-submitted by its members. Only organization administrators will be authorized
-to grant users permissions to view or alter data owned by their organization.
+submitted by its members.
 
 #### Creating an Organization
 {: .anchor}
