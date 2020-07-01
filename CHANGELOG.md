@@ -30,11 +30,25 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Net load observation data and reference net load forecasts for the
   US ISO/RTOs: CAISO, ERCOT, ISO-NE, MISO, NYISO, PJM, and SPP.
 
+- Climate zones and associated endpoints now available in the API.
+
 ### Changed
 
 - Site listing page now shows the climate zones that each site belongs to,
   rather than the latitude and longitude. Metadata display for each site
   also now includes the climate zones.
+
+- Expanded and revised dashboard documentation.
+  [solarforecastarbiter.org/documentation](https://solarforecastarbiter.org/documentation/)
+  provides links to documentation for each component of the project (dashboard,
+  API, and core). Simplified
+  [Getting Started](https://solarforecastarbiter.org/documentation/dashboard/getting-started/).
+  [Working with Data](https://solarforecastarbiter.org/documentation/dashboard/working-with-data/)
+  now contains sections on [Reports](https://solarforecastarbiter.org/documentation/dashboard/working-with-data/#create-new-report)
+  and
+  [Data Validation](https://solarforecastarbiter.org/documentation/dashboard/working-with-data/#data-validation).
+
+- Documentation style is now consistent with dashboard style.
 
 ### Fixed
 
