@@ -6,6 +6,43 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc1] - 2020-07-01
+
+### Added
+
+- Support for probabilistic forecast reports, including forecasts of
+  distributions, quantiles, and thresholds.
+
+- Deterministic cost metrics in reports, including a constant cost factor,
+  a time-of-day varying factor, a datetime varying factor, and a cost that
+  depends on the magnitude of the error. Read more
+  [here](https://solarforecastarbiter-core.readthedocs.io/en/latest/cost.html).
+
+- Missing forecast values may be filled using a fixed value or the last valid
+  value. This is especially important in the context of an operational
+  forecast trial.
+
+- Functions to compute persistence ensemble (PeEn) forecasts from observation
+  data.
+
+- Reference persistence ensemble forecasts at reference sites.
+
+- Net load observation data and reference net load forecasts for the
+  US ISO/RTOs: CAISO, ERCOT, ISO-NE, MISO, NYISO, PJM, and SPP.
+
+### Changed
+
+- Site listing page now shows the climate zones that each site belongs to,
+  rather than the latitude and longitude. Metadata display for each site
+  also now includes the climate zones.
+
+### Fixed
+
+- Reports for event forecasts could not be generated due to a bug.
+
+- Observation data validation is now reapplied if needed when computing a report.
+
+
 ## [1.0beta6] - 2020-06-02
 
 ### Added
@@ -18,7 +55,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Automatically generated persistence forecasts were added to the Solar
   Forecast Arbiter reference dataset.
 
-- Added support for derieved quality flags 'DAYTIME', 'DAYTIME STALE
+- Added support for derived quality flags 'DAYTIME', 'DAYTIME STALE
   VALUES' and 'DAYTIME INTERPOLATED VALUES'.
 
 - AC and DC power limits were added to the validation package. Values are
