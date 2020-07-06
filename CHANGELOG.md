@@ -65,6 +65,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Observation data validation is now reapplied if needed when computing a report.
 
+- Adjusted forecast timeseries plots to include any future data by default.
 
 ## [1.0beta6] - 2020-06-02
 
