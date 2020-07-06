@@ -34,13 +34,14 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Dashboard users can create a copy of an existing report using the "Clone report
   parameters" button. Users will have an opportunity to adjust any parameters
-  before the report is created. 
+  before the report is created.
 
-- Added API endpoint to locates gaps in timeseries data. This endpoint is available
-  for observations, forecasts and probabilistic forecasts.
+- Added API endpoint to locate gaps in timeseries data. This endpoint is available
+  for observations, forecasts, and probabilistic forecasts.
 
 - Added API endpoint to locate days where observation data does not contain a
   given quality flag.
+
 ### Changed
 
 - Site listing page now shows the climate zones that each site belongs to,
