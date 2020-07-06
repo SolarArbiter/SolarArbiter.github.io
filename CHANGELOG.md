@@ -6,7 +6,7 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
-## [1.0rc1] - 2020-07-01
+## [1.0rc1] - 2020-07-06
 
 ### Added
 
