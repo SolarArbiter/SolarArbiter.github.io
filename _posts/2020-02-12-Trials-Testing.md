@@ -48,30 +48,41 @@ Given the forecast parameters, one forecast would be uploaded by 2020-06-03 19:0
 
 **Trial 2:**
 
-* Start time: 2020-06-09 19:00Z
-* End time: 2020-06-11 19:00Z
+* Start time: 2020-07-15 19:00Z
+* End time: 2020-07-17 19:00Z
 * Observations:
-  * All DOE RTC AC Power
+  * All Surfrad GHI:
+    * [Bondville IL ghi](https://dashboard.solarforecastarbiter.org/observations/9de039e6-7e49-11e9-b002-0a580a8003e9)
+    * [Table Mountain Boulder CO ghi](https://dashboard.solarforecastarbiter.org/observations/9dfe124a-7e49-11e9-98c3-0a580a8003e9)
+    * [Desert Rock NV ghi](https://dashboard.solarforecastarbiter.org/observations/9e1c23da-7e49-11e9-9ec0-0a580a8003e9)
+    * [Fort Peck MT ghi](https://dashboard.solarforecastarbiter.org/observations/9e35e3e6-7e49-11e9-af11-0a580a8003e9)
+    * [Goodwin Creek MS ghi](https://dashboard.solarforecastarbiter.org/observations/9e51ae1c-7e49-11e9-acbe-0a580a8003e9)
+    * [Penn State Univ PA ghi](https://dashboard.solarforecastarbiter.org/observations/9e6d4c1e-7e49-11e9-9174-0a580a8003e9)
+    * [Sioux Falls SD ghi](https://dashboard.solarforecastarbiter.org/observations/9e8c0f8c-7e49-11e9-91e1-0a580a8003e9)
 * Forecasts:
-  * 75 minutes ahead of the hour, 5 minute intervals:
-    * Issue time: 00:45
-    * Lead time to start: 75 minutes
-    * Interval length: 5 minutes
+  * 60 minutes ahead of the hour, 60 minute intervals:
+    * Issue time: 00:00
+    * Lead time to start: 60 minutes
+    * Interval length: 60 minutes
     * Interval value type: mean
-    * Run length: 1 hour
+    * Run length: 60 minutes
+    * Interval label: beginning
   * Benchmark:
-    * Intraday HRRR
+    * Hour ahead persistence e.g. [Table Mountain Boulder CO Hour Ahead Persistence ghi](https://dashboard.solarforecastarbiter.org/forecasts/single/d692a2b4-a675-11ea-a9c4-0a580a80039b)
 * Metrics:
   * MAE, MBE, RMSE, KSI
 * Categories:
   * Total, daily, hour of day
 * Quality flags to exclude:
   * User flagged
+  * Nighttime
+* Missing forecasts:
+  * Filled with 0
 
 **Trial 3:**
 
-* Start time: 2020-06-23 19:00Z
-* End time: 2020-06-25 19:00Z
+* Start time: 2020-07-28 19:00Z
+* End time: 2020-07-30 19:00Z
 * Observations:
   * Supplied by TBD forecast user
 * Forecasts:
