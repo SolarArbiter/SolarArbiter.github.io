@@ -43,7 +43,7 @@ includes information about:
 
 * Sites and variables
 * Start and end dates
-* Forecast lead time time to start
+* Forecast lead time to start
 * Forecast interval length
 * Forecast issue time of day
 * [Metrics](/metrics) (MAE, MBE, RMSE, Skill, etc.)
