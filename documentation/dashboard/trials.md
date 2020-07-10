@@ -170,7 +170,7 @@ the value of all forecasts after ``2020-01-01T01:00Z``. A valid upload could be
 
 ```
 # valid upload at any time until 2020-01-01T01:00Z
-time,value
+timestamp,value
 2020-01-01T02:00Z,25
 2020-01-01T03:00Z,35
 2020-01-01T04:00Z,45
