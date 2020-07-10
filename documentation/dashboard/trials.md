@@ -106,7 +106,11 @@ Anonymous accounts
 The Solar Forecast Arbiter will create a new anonymous user account for each
 vendor for each trial. The mapping between the trial participants and the
 anonymized names is created automatically so that the administrators do not know
-the true identities.
+the true identities. An automated email will be sent to each trial participant with 
+the anonymous username, a password reset link, and a securely signed text file.
+This text file can be used to verify that a trial participant was assigned a  
+particular anonymous user account, and it should be kept in a safe
+location.
 
 The Solar Forecast Arbiter will automatically create all required
 [forecast metadata](/documentation/dashboard/working-with-data/#create-new-forecast)
