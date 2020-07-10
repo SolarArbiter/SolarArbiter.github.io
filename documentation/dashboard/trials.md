@@ -235,9 +235,10 @@ Arbiter is not a long-term data repository and we make no guarantees about the
 length of time we will store trial results.
 
 Forecast vendors may or may not choose to directly contact the forecast vendor
-and reveal their identities. The forecast user may or may not decide to pursue
-the recorded anticipated outcome. The Solar Forecst Arbiter plays no role in
-these processes.
+and reveal their identities (identity may be proven using the signed text file
+provided when the anonymous account was created). The forecast user may or may
+not decide to pursue the recorded anticipated outcome.
+The Solar Forecst Arbiter plays no role in these processes.
 
 
 Forecast vendor list
