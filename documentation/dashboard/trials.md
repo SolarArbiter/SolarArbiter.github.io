@@ -158,7 +158,7 @@ The vendor could choose to upload additional forecast values such as
 
 ```
 # valid upload at any time until 2020-01-01T00:00Z
-time,value
+timestamp,value
 2020-01-01T01:00Z,10
 2020-01-01T02:00Z,20
 2020-01-01T03:00Z,30
