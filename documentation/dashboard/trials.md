@@ -155,7 +155,7 @@ For instance, by ``2020-01-01T00:00Z`` a vendor may upload the forecast
 
 ```
 # valid upload at any time until 2020-01-01T00:00Z
-time,value
+timestamp,value
 2020-01-01T01:00Z,10
 ```
 
