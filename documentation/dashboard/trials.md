@@ -182,7 +182,7 @@ if it contains any times before ``2020-01-01T02:00Z``.
 
 ```
 # invalid upload after 2020-01-01T00:00Z
-time,value
+timestamp,value
 2020-01-01T01:00Z,15
 2020-01-01T02:00Z,25
 2020-01-01T03:00Z,35
