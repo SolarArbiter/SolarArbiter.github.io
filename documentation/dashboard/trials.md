@@ -193,7 +193,7 @@ Assuming no additional uploads, the time series used for evaluation would be
 
 ```
 # forecast evaluation time series
-time,value
+timestamp,value
 2020-01-01T01:00Z,10
 2020-01-01T02:00Z,25
 2020-01-01T03:00Z,35
