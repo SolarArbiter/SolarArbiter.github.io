@@ -17,6 +17,12 @@ The Solar Forecast Arbiter supports operational forecast trials, including featu
 * Rejection of late forecasts
 * Daily reanalysis of forecast performance
 
+The Solar Forecast Arbiter does not declare trial winners nor declare that one
+forecast is superior to another. It simply provides an impartial calculation of
+metrics following clearly defined specifications. Humans make decisions, ideally
+based on impartial data; the Arbiter is not a human and it cannot make a
+decision for you.
+
 In addition to the material on this page that is specific to the Solar Forecast Arbiter,
 we recommend that users review the [IEA Wind Task 36 Work Packages](https://www.ieawindforecasting.dk/work-packages) for information on weather forecasts, benchmarking, and optimal use of
 forecasting solutions. The vast majority of the material applies to both solar
@@ -44,6 +50,7 @@ includes information about:
 * Time categories (total, day, hour, etc.)
 * Reference forecasts
 * Data quality flags to exclude
+* Anticipated outcome at trial conclusion (e.g. award contract to vendor)
 
 See [Forecast Definitions](/definitions/) for an explanation of how the Solar
 Forecast Arbiter defines forecast parameters. Multiple sites and forecasts
@@ -83,6 +90,10 @@ specifications to forecast vendors. The specifications will include:
 * Data quality flags that will be excluded from analysis.
 * Rule for missing forecasts (exclude, fill with 0, fill with last valid value).
 * Rule for visibility of forecast time series with other anonymous vendors.
+
+The specification will also include the forecast user's anticipated outcome at
+the trial conclusion, but we emphasize that the Solar Forecast Arbiter will
+play no role in facilitating that outcome.
 
 Forecast vendors respond with an indication that they would like to participate
 in the trial or decline to respond.
@@ -216,6 +227,11 @@ contain a [PGP signature](https://en.wikipedia.org/wiki/Pretty_Good_Privacy)
 that may be used to verify the authenticity of the report. The Solar Forecast
 Arbiter is not a long-term data repository and we make no guarantees about the
 length of time we will store trial results.
+
+Forecast vendors may or may not choose to directly contact the forecast vendor
+and reveal their identities. The forecast user may or may not decide to pursue
+the recorded anticipated outcome. The Solar Forecst Arbiter plays no role in
+these processes.
 
 
 Forecast vendor list
