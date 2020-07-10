@@ -206,6 +206,9 @@ timestamp,value
 2020-01-01T04:00Z,45
 ```
 
+See the [Example script](#example-script) section below for an example of how
+to program against the API for a trial.
+
 
 Intermediate reports
 ----------------
@@ -254,3 +257,56 @@ represent a legitmate forecast vendor. We accept requests for individuals
 Signing the [Data Use Agreement](https://solarforecastarbiter.org/assets/45864%20Approved_Final%20version%201.1.pdf)
 is not required for addition to the vendor list, but you will not be able to participate
 in trials until the DUA is signed.
+
+
+Example script
+--------------
+{: .anchor}
+
+We urge vendors to practice using the API with test forecasts before a trial
+starts. An example script to upload forecast values for each of the user's
+forecast objects in a trial can be found below and
+[in this gist](https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc).
+We do not guarantee the reliability of this script for operational forecast
+trials - it is only an example to help you get started with the API.
+
+This script uses the
+[solarforecastarbiter-core](https://github.com/solararbiter/solarforecastarbiter-core)
+library to interact with the Solar Forecast Arbiter
+[API](https://api.solarforecastarbiter.org).  First, a token for API
+access is requested using the username and password for the anonymous
+trial user. The script expects a path to a file with the username and password
+of this user seperated by a new line like
+
+```
+username
+password
+```
+
+A list of forecasts is then retrieved from the API and filtered for
+those forecasts relevant to the Trial. For each of these forecasts, a
+check is performed to determine if the current time is within 10
+minutes of the next issue time of the forecast. If it is, a random set
+of values is uploaded to the API for the expected forecast time
+range. Otherwise, the script moves on to trying the next forecast in
+the list.
+
+To run the script, users can make use of the
+[solarforecastarbiter-core Docker image](https://quay.io/repository/solararbiter/solarforecastarbiter-core)
+which includes a Python installation and all requirements. Otherwise,
+the solarforecastarbiter-core Python package can be installed from the
+[Github repository](https://github.com/solararbiter/solarforecastarbiter-core)
+or via pip with the command
+
+```
+pip install git+https://github.com/solararbiter/solarforecastarbiter-core.git
+```
+
+The script should be run periodically to generate new forecasts, either using
+cron jobs or a cron Python framework like
+[schedule](https://schedule.readthedocs.io/en/stable/). Further
+documentation for the solarforecastarbiter-core Python package can be
+found at
+[https://solarforecastarbiter-core.readthedocs.io/en/latest/](https://solarforecastarbiter-core.readthedocs.io/en/latest/).
+
+<script src="https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc.js"></script>
