@@ -19,9 +19,7 @@ The Solar Forecast Arbiter supports operational forecast trials, including featu
 
 The Solar Forecast Arbiter does not declare trial winners nor declare that one
 forecast is superior to another. It simply provides an impartial calculation of
-metrics following clearly defined specifications. Humans make decisions, ideally
-based on impartial data; the Arbiter is not a human and it cannot make a
-decision for you.
+metrics following clearly defined data processing and forecast specifications.
 
 In addition to the material on this page that is specific to the Solar Forecast Arbiter,
 we recommend that users review the [IEA Wind Task 36 Work Packages](https://www.ieawindforecasting.dk/work-packages) for information on weather forecasts, benchmarking, and optimal use of
@@ -87,14 +85,15 @@ specifications to forecast vendors. The specifications will include:
 * All metadata needed to instantiate reference forecast objects or links to
   existing reference forecasts.
 * All metrics to be computed.
-* All categories over which metrics will be calculated.
-* Data quality flags that will be excluded from analysis.
+* All time categories over which metrics will be calculated.
+* Observation data quality flags that will be excluded from analysis.
 * Rule for missing forecasts (exclude, fill with 0, fill with last valid value).
-* Rules for visibility of forecast time series with other anonymous vendors, including
-  during the trial and  in the final report.
+* Rules for visibility of forecast time series with other anonymous vendors:
+  1. during the trial and
+  2. in the final report.
 
 The specification will also include the forecast user's anticipated outcome at
-the trial conclusion, but we emphasize that the Solar Forecast Arbiter will
+the trial conclusion, but we emphasize that the Solar Forecast Arbiter team will
 play no role in facilitating that outcome.
 
 Forecast vendors respond with an indication that they would like to participate
@@ -111,8 +110,7 @@ anonymized names is created automatically so that the administrators do not know
 the true identities. An automated email will be sent to each trial participant with
 the anonymous username, a password reset link, and a securely signed text file.
 This text file can be used to verify that a trial participant was assigned a
-particular anonymous user account, and it should be kept in a safe
-location.
+particular anonymous user account. It should be kept in a safe location.
 
 The Solar Forecast Arbiter will automatically create all required
 [forecast metadata](/documentation/dashboard/working-with-data/#create-new-forecast)
@@ -252,7 +250,7 @@ All forecast vendors are encouraged to register with the forecast vendor list
 by contacting [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
 Please include a link to your vendor website so that we may confirm that you
 represent a legitmate forecast vendor. We accept requests for individuals
-(``name@fxvendor.com``) and lists (``info@fxvendor.com``).
+(e.g. ``name@fxvendor.com``) and lists (e.g. ``info@fxvendor.com``).
 
 Signing the [Data Use Agreement](https://solarforecastarbiter.org/assets/45864%20Approved_Final%20version%201.1.pdf)
 is not required for addition to the vendor list, but you will not be able to participate
