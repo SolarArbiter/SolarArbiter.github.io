@@ -309,4 +309,4 @@ documentation for the solarforecastarbiter-core Python package can be
 found at
 [https://solarforecastarbiter-core.readthedocs.io/en/latest/](https://solarforecastarbiter-core.readthedocs.io/en/latest/).
 
-<script src="https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc.js"></script>
+<script src="https://gist.github.com/alorenzo175/d25293c4e47bec307ede7cd70022582c.js"></script>
