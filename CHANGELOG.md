@@ -6,6 +6,41 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc2] - 2020-07-21
+
+### Added
+
+- [Documentation](https://solarforecastarbiter.org/documentation/dashboard/trials/)
+  of the Solar Forecast Arbiter's procedures for initiating, configuring, and
+  conducting forecast trials.
+
+### Changed
+
+- Plots of probabilistic forecast distributions in reports are now shaded by
+  their percentile values.
+
+- Observations and forecasts of power may only be created at "Power Plant"
+  sites and are no longer allowed at "Weather Station" sites. The plant
+  metadata (e.g. AC/DC capacity) is required to validate data uploads and run
+  analysis reports, leading to run-time errors when users attemped to do so at
+  "Weather Station" sites. The Site creation form now indicates this
+  requirement.
+
+### Fixed
+
+- Filtering by climate zone.
+
+- Several bugs in the dashboard user interface for creating permissions,
+  adding permissions to roles, and granting roles to another user. These bugs
+  were cosmetic and did not jeopardize any user data.
+
+- Bug related to variable/unit consistency in the report form's forecast
+  and observation selection interface.
+
+- Reference persistence forecasts for GHI at PV power plants were incorrectly
+  clipped to the power plant's AC capacity value.
+
+
 ## [1.0rc1] - 2020-07-06
 
 ### Added
