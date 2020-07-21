@@ -48,8 +48,8 @@ Given the forecast parameters, one forecast would be uploaded by 2020-06-03 19:0
 
 **Trial 2:**
 
-* Start time: 2020-07-20 19:00Z
-* End time: 2020-07-22 19:00Z
+* Start time: 2020-07-29 19:00Z
+* End time: 2020-07-31 19:00Z
 * Observations:
   * All Surfrad GHI:
     * [Bondville IL ghi](https://dashboard.solarforecastarbiter.org/observations/9de039e6-7e49-11e9-b002-0a580a8003e9)
@@ -79,12 +79,12 @@ Given the forecast parameters, one forecast would be uploaded by 2020-06-03 19:0
 * Missing forecasts:
   * Filled with 0
 
-Given the forecast parameters, the first forecast would be uploaded by 2020-07-20 18:00Z with an hourly timerange of [2020-07-20 19:00Z, 2020-05-20 20:00Z). The second forecast would be uploaded by 2020-07-20 19:00Z covering the time range [2020-07-20 20:00Z, 2020-07-20 21:00Z). And so on through the final forecast issue time of 2020-07-22 17:00Z. The API will restrict forecast uploads to be valid forecasts given the parameters, meaning it will not allow forecasts to be POSTed after each issue time. Please make sure to take this into account by, for example, scheduling the forecast job to run at 18:50Z. Analysis reports will be recomputed at 3Z each day of the trial and may not reflect the latest forecasts until the latest observation data is available in the Arbiter.
+Given the forecast parameters, the first forecast would be uploaded by 2020-07-29 18:00Z with an hourly timerange of [2020-07-29 19:00Z, 2020-07-29 20:00Z). The second forecast would be uploaded by 2020-07-29 19:00Z covering the time range [2020-07-29 20:00Z, 2020-07-29 21:00Z). And so on through the final forecast issue time of 2020-07-31 17:00Z. The API will restrict forecast uploads to be valid forecasts given the parameters, meaning it will not allow forecasts to be POSTed after each issue time. Please make sure to take this into account by, for example, scheduling the forecast job to run at 18:50Z. Analysis reports will be recomputed at 3Z each day of the trial and may not reflect the latest forecasts until the latest observation data is available in the Arbiter.
 
 **Trial 3:**
 
-* Start time: 2020-07-28 19:00Z
-* End time: 2020-07-30 19:00Z
+* Start time: 2020-08-18 19:00Z
+* End time: 2020-08-20 19:00Z
 * Observations:
   * Supplied by TBD forecast user
 * Forecasts:
