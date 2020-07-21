@@ -8,6 +8,12 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ## [1.0rc2] - 2020-07-21
 
+### Added
+
+- [Documentation](https://solarforecastarbiter.org/documentation/dashboard/trials/)
+  of the Solar Forecast Arbiter's procedures for initiating, configuring, and
+  conducting forecast trials.
+
 ### Changed
 
 - Plots of probabilistic forecast distributions in reports are now shaded by
