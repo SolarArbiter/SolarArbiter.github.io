@@ -301,40 +301,44 @@ where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_
 
 
 ### Quantile Score (QS) {#qs}
-QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Bouallegue15](#ref-bouallegue15)):
+{: .anchor }
+QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Bouallegue15](#ref-bouallegue15)). QS is similar to BS, but measures accuracy in terms of the variable value (e.g. MW) and is defined as:
 
-$$ \text{QS} = \frac{1}{n} (fx_i - obs_i) * (p - 1{obs_i > fx_i}) $$
+$$ \text{QS} = \frac{1}{n} \sum_{i=1}^n (\text{fx}_i - \text{obs}_i) \cdot (p - \mathbf{1}\{ \text{obs}_i > \text{fx}_i \}) $$
 
-where $$ 1{obs_i > fx_i} $$ is in indicator function:
+where $$ \mathbf{1}\{ \text{obs} > \text{fx} \} $$ is an indicator function:
 
-$$ O_i = \begin{cases}
-    \displaystyle 1 & obs_i > fx_i  \\
-    \displaystyle 0 & obs_i  \leq fx_i
+$$ \mathbf{1}\{ \text{obs} > \text{fx} \} = \begin{cases}
+    \displaystyle 1 & \text{obs} > \text{fx}  \\
+    \displaystyle 0 & \text{obs} \leq \text{fx}
 \end{cases} $$
 
-If $$ obs > fx $$, then QS is non-negative:
+If $$ \text{obs} > \text{fx} $$, then QS is non-negative:
 
 $$\begin{align}
-    (fx - obs) &< 0 \\
-    (p - 1{obs > fx}) &= (p - 1) \leq 0 \\
-    (fx - obs) * (p - 1) &\geq 0
+    (\text{fx} - \text{obs}) &< 0 \\
+    (p - \mathbf{1}\{\text{obs} > \text{fx}\}) &= (p - 1) \leq 0 \\
+    (\text{fx} - \text{obs}) \cdot (p - 1) &\geq 0
 \end{align} $$
 
-If instead $$ obs < fx $$, then QS is also non-negative:
+If instead $$ \text{obs} < \text{fx} $$, then QS is also non-negative:
 
 $$\begin{align}
-    (fx - obs) $> 0 \\
-    (p - 1{obs > fx}) &= (p - 0) \geq 0 \\
-    (fx - obs) * p &\geq 0
+    (\text{fx} - \text{obs}) &> 0 \\
+    (p - \mathbf{1}\{\text{obs} > \text{fx}\}) &= (p - 0) \geq 0 \\
+    (\text{fx} - \text{obs}) \cdot p &\geq 0 \\
 \end{align} $$
+
+Based on the above definitions, smaller QS values indicate more accurate forecasts.
 
 
 ### Quantile Skill Score (QSS) {#qss}
+{: .anchor }
 QSS is based on the QS and measures the performance of a quantile forecast relative to a reference forecast:
 
-$$ \text{QSS} = 1 - \frac{\text{QS}_f}{\text{QS}_{\text{ref}}} $$
+$$ \text{QSS} = 1 - \frac{ \text{QS}_{\text{fx}} }{ \text{QS}_{\text{ref}} } $$
 
-where $$ \text{QS}_f $$ is the QS of the forecast of interest, and $$ \text{QS}_{\text{ref}} $$ is the QS of the reference forecast. The interpretation of QSS values is the same as BSS.
+where $$ \text{QS}_{\text{fx}} $$ is the QS of the forecast of interest, and $$ \text{QS}_{\text{ref}} $$ is the QS of the reference forecast. The interpretation of QSS values is the same as BSS.
 
 
 ### Sharpness (SH) {#sh}
