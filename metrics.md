@@ -295,9 +295,30 @@ Uncertainty is the variance of the event indicator $$ o(t) $$. Low values of UNC
 {: .anchor }
 The BSS is based on the BS and measures the performance of a probability forecast relative to a reference forecast:
 
-$$ BSS = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
+$$ \text{BSS} = 1 - \frac{\text{BS}_f}{\text{BS}_{\text{ref}}} $$
 
 where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_{\text{ref}} $$ is the BS of the reference forecast. BSS greater than zero indicates the forecast performed better than the reference and vice versa for BSS less than zero, while BSS equal to zero indicates the forecast is no better (or worse) than the reference.
+
+
+### Quantile Score (QS) {#qs}
+QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Bouallegue15](#ref-bouallegue15)):
+
+$$ \text{QS} = \frac{1}{n} (fx_i - obs_i) * (p - 1{obs_i > fx_i) $$
+
+where 
+
+If $$ obs > fx $$, then QS is:
+
+$$ (fx - obs) < 0 $$
+
+
+
+### Quantile Skill Score (QSS) {#qss}
+QSS is based on the QS and measures the performance of a quantile forecast relative to a reference forecast:
+
+$$ \text{QSS} = 1 - \frac{\text{QS}_f}{\text{QS}_{\text{ref}}} $$
+
+where $$ \text{QS}_f $$ is the QS of the forecast of interest, and $$ \text{QS}_{\text{ref}} $$ is the QS of the reference forecast. The interpretation of QSS values is the same as BSS.
 
 
 ### Sharpness (SH) {#sh}
@@ -385,10 +406,12 @@ Models that include the above can be used to assess value of forecasts, and have
 
 ## References
 {: .anchor}
+- [<a name="ref-bouallegue15">Bouallegue15</a>] Z. Bouallegue, P. Pinson and P. Friederichs, "Quantile forecast discrimination ability and value", Quarterly Journal of the Royal Meteorological Society, vol. 141, pp. 3415-3424, 2015. DOI: [10.1002/qj.2624](https://doi.org/10.1002/qj.2624)
 - [<a name="brier50">Brier50</a>] G. W. Brier, "Verification of Forecasts Expressed in Terms of Probability", Mon. Wea. Rev., vol. 78, pp. 1-3, 1950. DOI: [10.1175/1520-0493(1950)078<0001:VOFEIT>2.0.CO;2](https://doi.org/10.1175/1520-0493(1950)078%3C0001:VOFEIT%3E2.0.CO;2)
 - [<a name="ref-ela13">Ela13</a>] E. Ela, V. Diakov, E. Ibanez, and M. Heaney, "Impacts of variability and uncertainty in solar photovoltaic generation at multiple timescales", Technical Report, NREL/TP-5500-58274, Golden, CO, May 2013
 - [<a name="ref-espinar09">Espinar09</a>] B. Espinar, L. Ramírez, A. Drews, H. G. Beyer, L. F. Zarzalejo, J. Polo, and L. Martín, "Analysis of different comparison parameters applied to solar radiation data from satellite and German radiometric stations", Solar Energy, vol. 83, issue 1, pp. 118-125, 2009. DOI: [10.1016/j.solener.2008.07.009](https://doi.org/10.1016/j.solener.2008.07.009)
 - [<a name="ref-gueymard12">Gueymard12</a>] C. A. Gueymard, "Clear-sky irradiance predictions for solar resource mapping and large-scale applications: improved validation methodology and detailed performance analysis of 18 broadband radiative models", Solar Energy, vol. 86, pp. 2145-2169, 2012. DOI: [10.1016/j.solener.2011.11.011](https://doi.org/10.1016/j.solener.2011.11.011)
+- [<a name="ref-koenker78">Koenker78</a>] R. Koenker and G. Bassett, Jr., "Regression Quantiles", Econometrica, vol. 46, no. 1, pp. 33-50, 1978. DOI: [10.2307/1913643](https://doi.org/10.2307/1913643)
 - [<a name="ref-martinez-anido16">Martinez-Anido16</a>] C. B. Martinez-Anido, B. Botor, A. R. Florita, C. Draxl, S. Lu, H. F. Hamann, and B. M. Hodge, "The value of day-ahead solar power forecasting improvement", Solar Energy, vol. 129, pp. 192-203, 2016. DOI: [10.1016/j.solener.2016.01.049](https://doi.org/10.1016/j.solener.2016.01.049)
 - [<a name="ref-marquez12">Marquez12</a>] R. Marquez and C. F. M. Coimbra, "Proposed Metric for Evaluation of Solar Forecasting Models", 2012
 - [<a name="matheson76">Matheson76</a>] J. E. Matheson and R. L. Winkler, "Scoring Rules for Continuous Probability Distributions", Management Science, vol. 22, no. 10, pp. 1087-1096, 1976. DOI: [10.1287/mnsc.22.10.1087](https://doi.org/10.1287/mnsc.22.10.1087)
