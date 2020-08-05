@@ -313,7 +313,9 @@ $$ \mathbf{1}\{ \text{obs} > \text{fx} \} = \begin{cases}
     \displaystyle 0 & \text{obs} \leq \text{fx}
 \end{cases} $$
 
-If $$ \text{obs} > \text{fx} $$, then QS is non-negative:
+Smaller QS values indicate more accurate forecasts.
+
+QS is always greater than or equal to 0. If $$ \text{obs} > \text{fx} $$, then QS is non-negative:
 
 $$\begin{align}
     (\text{fx} - \text{obs}) &< 0 \\
@@ -328,8 +330,6 @@ $$\begin{align}
     (p - \mathbf{1}\{\text{obs} > \text{fx}\}) &= (p - 0) \geq 0 \\
     (\text{fx} - \text{obs}) \cdot p &\geq 0 \\
 \end{align} $$
-
-Based on the above definitions, smaller QS values indicate more accurate forecasts.
 
 
 ### Quantile Skill Score (QSS) {#qss}
