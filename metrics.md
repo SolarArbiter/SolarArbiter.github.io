@@ -302,7 +302,7 @@ where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_
 
 ### Quantile Score (QS) {#qs}
 {: .anchor }
-QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Bouallegue15](#ref-bouallegue15), [Wilks11](#ref-wilks11)). QS is similar to BS, but measures accuracy in terms of the variable value (e.g. MW) and is defined as:
+QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Wilks11](#ref-wilks11)). QS is similar to BS, but measures accuracy in terms of the variable value (e.g. MW) and is defined as:
 
 $$ \text{QS} = \frac{1}{n} \sum_{i=1}^n (\text{fx}_i - \text{obs}_i) \cdot (p - \mathbf{1}\{ \text{obs}_i > \text{fx}_i \}) $$
 
@@ -334,7 +334,7 @@ $$\begin{align}
 
 ### Quantile Skill Score (QSS) {#qss}
 {: .anchor }
-QSS is based on the QS and measures the performance of a quantile forecast relative to a reference forecast:
+QSS is based on the QS and measures the performance of a quantile forecast relative to a reference forecast ([Bouallegue15](#ref-bouallegue15)):
 
 $$ \text{QSS} = 1 - \frac{ \text{QS}_{\text{fx}} }{ \text{QS}_{\text{ref}} } $$
 
