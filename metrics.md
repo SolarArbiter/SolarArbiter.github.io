@@ -302,7 +302,7 @@ where $$ \text{BS}_f $$ is the BS of the forecast of interest, and $$ \text{BS}_
 
 ### Quantile Score (QS) {#qs}
 {: .anchor }
-QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Wilks11](#ref-wilks11)). QS is similar to BS, but measures accuracy in terms of the variable value (e.g. MW) and is defined as:
+QS measures the accuracy of quantile forecasts, in which the forecast predicts the variable value corresponding to a constant probability ([Koenker78](#ref-koenker78), [Wilks19](#ref-wilks19)). QS is similar to BS, but measures accuracy in terms of the variable value (e.g. MW) and is defined as:
 
 $$ \text{QS} = \frac{1}{n} \sum_{i=1}^n (\text{fx}_i - \text{obs}_i) \cdot (p - \mathbf{1}\{ \text{obs}_i > \text{fx}_i \}) $$
 
@@ -440,4 +440,5 @@ Models that include the above can be used to assess value of forecasts, and have
 - [<a name="ref-wang16b">Wang16b</a>] Q. Wang, C. Brancucci, H. Wu, A. R. Florita, and B. M. Hodge, "Quantifying the Economic and Grid Reliability Impacts of Improved Wind Power Forecasting", IEEE Transactions on Sustainable Energy, vol. 7, no. 4, pp. 1525-1537, 2016. DOI: [10.1109/TSTE.2016.2560628](https://doi.org/10.1109/TSTE.2016.2560628)
 - [<a name="ref-wang17">Wang17</a>] Q. Wang, and B. M. Hodge, "Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review", IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017. DOI: [10.1109/TII.2016.2637879](https://doi.org/10.1109/TII.2016.2637879)
 - [<a name="ref-wilks11">Wilks11</a>] D. S. Wilks, "Statistical Methods in the Atmospheric Sciences", 3rd ed. Oxford; Waltham, MA; Academic Press, 2011.
+- [<a name="ref-wilks19">Wilks19</a>] D. S. Wilks, "Statistical Methods in the Atmospheric Sciences", 4th ed. Oxford; Waltham, MA; Academic Press, 2019.
 - [<a name="ref-zhang15">Zhang15</a>] J. Zhang, A. Florita, B. M. Hodge, S. Lu, H. F. Hamann, V. Banunarayanan, A. Brockway,  "A suite of metrics for assessing the performance of solar power forecasting", Solar Energy, vol. 111, pp. 157-175, 2015. DOI: [10.1016/j.solener.2014.10.016](https://doi.org/10.1016/j.solener.2014.10.016)
