@@ -128,6 +128,33 @@ $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2
 By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 
+### Relative Euclidean Distance ($$ D $$) {#d}
+{: .anchor }
+The relative Euclidean distance (D) combines a percent bias error, a percent variance error, and the correlation error in quadrature. It is defined as:
+
+$$ \text{D} = \sqrt{
+        \left( \frac{\overline{\text{F}} - \overline{\text{O}} }
+        { \overline{\text{O}} } \right) ^ 2 +
+        \left( \frac{\sigma_{\text{F}} - \sigma_{\text{O}} }
+        { \sigma_{\text{O}} } \right) ^ 2 +
+        \left( \textrm{corr} - 1 \right) ^ 2
+        } $$
+
+where:
+
+- $$ \overline{\text{F}} $$ is the forecast mean
+- $$ \overline{\text{O}} $$ is the observation mean
+- $$ \sigma_{\text{F}} $$ is the forecast standard deviation
+- $$ \sigma_{\text{O}} $$ is the observation standard deviation
+- $$ \textrm{corr} $$ is the [Pearson correlation coefficient](#r)
+
+Special cases include:
+
+- If $$ \overline{\text{F}} = 0 $$ and $$ \overline{\text{O}} = 0 $$, the bias term is 0 and the metric is defined by the remaining terms.
+- If $$ \overline{\text{F}} \neq 0 $$ and $$ \overline{\text{O}} \rightarrow 0 $$, $$ D \rightarrow \infty $$.
+- If $$ \sigma_{\text{F}} = 0 $$ or $$ \sigma_{\text{O}} = 0 $$, $$ D $$ is undefined.
+
+
 ### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
 {: .anchor }
 The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
