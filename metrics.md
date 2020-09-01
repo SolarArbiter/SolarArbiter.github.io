@@ -133,26 +133,26 @@ By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 The relative Euclidean distance (D) combines a percent bias error, a percent variance error, and the correlation error in quadrature ([Wu12](#ref-wu12)). It is defined as:
 
 $$ \text{D} = \sqrt{
-        \left( \frac{\overline{\text{F}} - \overline{\text{O}} }
-        { \overline{\text{O}} } \right) ^ 2 +
-        \left( \frac{\sigma_{\text{F}} - \sigma_{\text{O}} }
-        { \sigma_{\text{O}} } \right) ^ 2 +
+        \left( \frac{\overline{F} - \overline{O} }
+        { \overline{O} } \right) ^ 2 +
+        \left( \frac{\sigma_{F} - \sigma_{O} }
+        { \sigma_{O} } \right) ^ 2 +
         \left( \textrm{corr} - 1 \right) ^ 2
         } $$
 
 where:
 
-- $$ \overline{\text{F}} $$ is the forecast mean
-- $$ \overline{\text{O}} $$ is the observation mean
-- $$ \sigma_{\text{F}} $$ is the forecast standard deviation
-- $$ \sigma_{\text{O}} $$ is the observation standard deviation
+- $$ \overline{F} $$ is the forecast mean
+- $$ \overline{O} $$ is the observation mean
+- $$ \sigma_{F} $$ is the forecast standard deviation
+- $$ \sigma_{O} $$ is the observation standard deviation
 - $$ \textrm{corr} $$ is the [Pearson correlation coefficient](#r)
 
 Special cases include:
 
-- If $$ \overline{\text{F}} = 0 $$ and $$ \overline{\text{O}} = 0 $$, the bias term is 0 and the metric is defined by the remaining terms.
-- If $$ \overline{\text{F}} \neq 0 $$ and $$ \overline{\text{O}} \rightarrow 0 $$, $$ D \rightarrow \infty $$.
-- If $$ \sigma_{\text{F}} = 0 $$ or $$ \sigma_{\text{O}} = 0 $$, $$ D $$ is undefined.
+- If $$ \overline{F} = 0 $$ and $$ \overline{O} = 0 $$, the bias term is 0 and the metric is defined by the remaining terms.
+- If $$ \overline{F} \neq 0 $$ and $$ \overline{O} \rightarrow 0 $$, $$ D \rightarrow \infty $$.
+- If $$ \sigma_{F} = 0 $$ or $$ \sigma_{O} = 0 $$, $$ D $$ is undefined.
 
 
 ### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
