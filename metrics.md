@@ -128,6 +128,33 @@ $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2
 By this definition, a perfect forecast has a $$ R^2 $$ value of 1.
 
 
+### Relative Euclidean Distance ($$ D $$) {#d}
+{: .anchor }
+The relative Euclidean distance (D) combines a percent bias error, a percent variance error, and the correlation error in quadrature ([Wu12](#ref-wu12)). It is defined as:
+
+$$ \text{D} = \sqrt{
+        \left( \frac{\overline{F} - \overline{O} }
+        { \overline{O} } \right) ^ 2 +
+        \left( \frac{\sigma_{F} - \sigma_{O} }
+        { \sigma_{O} } \right) ^ 2 +
+        \left( \textrm{corr} - 1 \right) ^ 2
+        } $$
+
+where:
+
+- $$ \overline{F} $$ is the forecast mean
+- $$ \overline{O} $$ is the observation mean
+- $$ \sigma_{F} $$ is the forecast standard deviation
+- $$ \sigma_{O} $$ is the observation standard deviation
+- $$ \textrm{corr} $$ is the [Pearson correlation coefficient](#r)
+
+Special cases include:
+
+- If $$ \overline{F} = 0 $$ and $$ \overline{O} = 0 $$, the bias term is 0 and the metric is defined by the remaining terms.
+- If $$ \overline{F} \neq 0 $$ and $$ \overline{O} \rightarrow 0 $$, $$ D \rightarrow \infty $$.
+- If $$ \sigma_{F} = 0 $$ or $$ \sigma_{O} = 0 $$, $$ D $$ is undefined.
+
+
 ### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
 {: .anchor }
 The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
@@ -441,4 +468,5 @@ Models that include the above can be used to assess value of forecasts, and have
 - [<a name="ref-wang17">Wang17</a>] Q. Wang, and B. M. Hodge, "Enhancing Power System Operational Flexibility with Flexible Ramping Products: A Review", IEEE Transactions on Industrial Informatics, vol. 13, no. 4, pp. 1652-1664, 2017. DOI: [10.1109/TII.2016.2637879](https://doi.org/10.1109/TII.2016.2637879)
 - [<a name="ref-wilks11">Wilks11</a>] D. S. Wilks, "Statistical Methods in the Atmospheric Sciences", 3rd ed. Oxford; Waltham, MA; Academic Press, 2011.
 - [<a name="ref-wilks19">Wilks19</a>] D. S. Wilks, "Statistical Methods in the Atmospheric Sciences", 4th ed. Oxford; Waltham, MA; Academic Press, 2019.
+- [<a name="ref-wu12">Wu12</a>] W. Wu, Y. Liu, and A. K. Betts,  "Observationally based evaluation of NWP reanalyses in modeling cloud properties over the Southern Great Plains", Journal of Geophysical Research, vol. 117, D12202, 2012. DOI: [10.1029/2011JD016971](https://doi.org/10.1029/2011JD016971)
 - [<a name="ref-zhang15">Zhang15</a>] J. Zhang, A. Florita, B. M. Hodge, S. Lu, H. F. Hamann, V. Banunarayanan, A. Brockway,  "A suite of metrics for assessing the performance of solar power forecasting", Solar Energy, vol. 111, pp. 157-175, 2015. DOI: [10.1016/j.solener.2014.10.016](https://doi.org/10.1016/j.solener.2014.10.016)
