@@ -6,6 +6,34 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc3] - 2020-09-15
+
+### Added
+
+- Additional irradiance data has been added to DOE ARM sites.
+
+- Relative euclidean distance, quantile score, and quantile skill
+  score metrics.
+
+- API endpoints /users/can-create and /users/actions-on-type/<object-type>.
+
+- Plots for probabilistic forecast groups on the dashboard.
+
+### Changed
+
+- The opacity of report scatter plot points to improve visibility.
+
+### Fixed
+
+- NOAA USCRN reference site elevation was incorrectly specified in units of
+  feet instead of meters.
+
+- Ordering and color of forecasts in report time-series and scatter plots
+  is now consistent.
+
+- Fix some UO SRML reference site names and fix the data fetch routine to
+  avoid data gaps.
+
 ## [1.0rc2] - 2020-07-21
 
 ### Added
