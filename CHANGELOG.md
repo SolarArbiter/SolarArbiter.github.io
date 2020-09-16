@@ -6,6 +6,52 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc3] - 2020-09-16
+
+### Added
+
+- A package for solarforecastarbiter-core to PyPI
+  https://pypi.org/project/solarforecastarbiter/
+  Install in a python environment with ``pip install solarforecastarbiter --pre``
+
+- Additional irradiance data has been added to DOE ARM sites.
+
+- Relative euclidean distance, quantile score, and quantile skill
+  score metrics.
+
+- API endpoints /users/can-create and /users/actions-on-type/<object-type>.
+
+- Plots for probabilistic forecast groups on the dashboard.
+
+- Option to include a reference forecast as a standard forecast, rather
+  than simply being used for skill score, when creating a report.
+
+### Changed
+
+- Reduced the opacity of report scatter plot points to improve visibility of many points.
+
+- Site creation form now always includes PV power plant parameter fields that
+  are initially set to disabled. Selecting Power Plant enables the fields.
+
+- Buttons to create metadata, delete reports, and add roles are now hidden if
+  the user does not have permission to take the action on the object.
+
+### Fixed
+
+- NOAA USCRN reference site elevation was incorrectly specified in units of
+  feet instead of meters.
+
+- Ordering and color of forecasts in report time-series and scatter plots
+  is now consistent.
+
+- Fix some UO SRML reference site names and fix the data fetch routine to
+  avoid data gaps.
+
+- Fixed bad text wrapping in report metadata table.
+
+- Added several missing PVDAQ sites and fixed several PVDAQ time zones
+
+
 ## [1.0rc2] - 2020-07-21
 
 ### Added
