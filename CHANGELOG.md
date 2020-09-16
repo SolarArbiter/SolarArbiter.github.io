@@ -12,6 +12,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - A package for solarforecastarbiter-core to PyPI
   https://pypi.org/project/solarforecastarbiter/
+  Install in a python environment with ``pip install solarforecastarbiter --pre``
 
 - Additional irradiance data has been added to DOE ARM sites.
 
@@ -27,7 +28,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Changed
 
-- The opacity of report scatter plot points to improve visibility.
+- Reduced the opacity of report scatter plot points to improve visibility of many points.
 
 - Site creation form now always includes PV power plant parameter fields that
   are initially set to disabled. Selecting Power Plant enables the fields.
