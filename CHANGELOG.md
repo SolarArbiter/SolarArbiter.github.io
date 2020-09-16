@@ -10,6 +10,9 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
+- A package for solarforecastarbiter-core to PyPI
+  https://pypi.org/project/solarforecastarbiter/
+
 - Additional irradiance data has been added to DOE ARM sites.
 
 - Relative euclidean distance, quantile score, and quantile skill
