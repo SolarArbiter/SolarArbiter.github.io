@@ -290,7 +290,18 @@ may download more than one year of data by making multiple requests.
 
 <div class="my-3"></div>
 
-### Create New Report
+Delete Data
+-----------
+{: .anchor}
+
+Individual forecast or observation values cannot currently be deleted from the
+Solar Forecast Arbiter. However, one may upload NaN data
+(null in JSON, 'NaN' or an empty field in CSV) at the appropriate
+timestamps as a workaround.
+
+
+Create New Report
+-----------------
 {: .anchor}
 
 1.  Use the **Reports** link on the left sidebar to view the reports listing page.
