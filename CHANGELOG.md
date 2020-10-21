@@ -6,12 +6,21 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc4] - 2020-10-??
+
+### Added
+
+### Changed
+
+### Fixed
+
+
 ## [1.0rc3] - 2020-09-16
 
 ### Added
 
 - A package for solarforecastarbiter-core to PyPI
-  https://pypi.org/project/solarforecastarbiter/
+  [https://pypi.org/project/solarforecastarbiter/](https://pypi.org/project/solarforecastarbiter/)
   Install in a python environment with ``pip install solarforecastarbiter --pre``
 
 - Additional irradiance data has been added to DOE ARM sites.
@@ -68,7 +77,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Observations and forecasts of power may only be created at "Power Plant"
   sites and are no longer allowed at "Weather Station" sites. The plant
   metadata (e.g. AC/DC capacity) is required to validate data uploads and run
-  analysis reports, leading to run-time errors when users attemped to do so at
+  analysis reports, leading to run-time errors when users attempted to do so at
   "Weather Station" sites. The Site creation form now indicates this
   requirement.
 
