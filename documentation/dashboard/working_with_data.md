@@ -72,6 +72,11 @@ associating existing observations with it. The aggregate metadata determines
 how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
+Aggregated values inherit the quality flags of the underlying observation
+values. That is, an aggregate value will have a quality flag if any
+of the observation values used to aggregate contained that quality flag.
+See (Data Validation)[#data-validation] for details on quality flags.
+
 
 1. Navigate to the aggregates listing page using the **Aggregates** link in
    the left sidebar. At the top of the listing, click **Create new Aggregate**.
