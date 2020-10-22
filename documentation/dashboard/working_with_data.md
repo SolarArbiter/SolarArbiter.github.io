@@ -305,7 +305,7 @@ Site objects may only be deleted after all observations at said site
 are also deleted.
 In the case of a site that has been shared with users in other organizations,
 contact the users to delete those observations referencing the site or contact
-the Solar Forecast Arbiter administrators.
+the Solar Forecast Arbiter administrators at [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
 
 
 Create New Report
