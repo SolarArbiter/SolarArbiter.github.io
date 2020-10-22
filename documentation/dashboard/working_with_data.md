@@ -118,6 +118,28 @@ Observations must be defined before they can be added to an aggregate (see
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
+### Examples
+
+We have three observations to add to an aggregate. Observations 1 and 2 have
+data starting on 2020-01-01T00:00Z and observation 3 has data starting on
+2020-03-01T00:00Z. There are two ways in which we might add these
+observations to an aggregate.
+
+1. We can add observations based on their available data. Using the process
+   above, we add observations 1 and 2 with an *effective from*  of
+   2020-01-01T00:00Z. Then we repeat the process for observation 3 with an
+   *effective from* of 2020-03-01T00:00Z. With this configuration, the computed
+   aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will contain
+   observations 1 and 2, and the computed aggregate after 2020-03-01T00:00Z
+   will contain observations 1, 2, and 3.
+
+2. We can add all of the observations to the aggregate with the same
+   *effective from*. Using the process above, we add observations 1, 2, and 3
+   with an *effective from* of 2020-01-01T00:00Z. In this configuration, the
+   computed aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will be
+   returned as missing due to the values missing from observation 3, and the
+   computed aggregate after 2020-03-01T00:00Z will contain observation 1, 2,
+   and 3.
 
 ### Remove an Observation from an Aggregate
 {: .anchor}
@@ -140,6 +162,25 @@ their *Effective From* and *Effective Until* dates.
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
+
+#### Examples
+
+We have an aggregate with two observations 1 and 2. Both observations have an
+*effective from* of 2020-01-01T00:00Z. Below are a few different situations in
+which we would set the *effective until*.
+
+1. Data for observation 2 is only available until 2020-06-01T00:00Z. This
+   causes the computed aggregate to return missing values after
+   2020-06-01T00:00Z. Using the process described above, we would set the
+   *effective until* to 2020-06-01T00:00Z. In this configuration the computed
+   aggregate  from 2020-01-01T00:00Z contains observations 1 and 2, and the
+   computed aggregate after 2020-06-01T00:00Z will contain only observation 1.
+
+2. Observation 2 was added by mistake, or does not include the expected data.
+   This causes the computed aggregate to return missing or incorrect values
+   after 2020-01-01T00:00Z. Using the process described above we can set the
+   *effective until* for observation 2 to 2019-12-31T23:59Z, just before the
+   *effective from*. This will remove observation 2 from the aggregate.
 
 
 Create New Observation or Forecast
