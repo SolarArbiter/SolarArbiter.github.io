@@ -290,7 +290,26 @@ may download more than one year of data by making multiple requests.
 
 <div class="my-3"></div>
 
-### Create New Report
+Delete Data
+-----------
+{: .anchor}
+
+Metadata may be deleted from the Solar Forecast Arbiter with proper permissions.
+If the metadata for a forecast, observation, or probabilistic forecast is deleted,
+all values for that object are also deleted automatically.
+Individual forecast or observation values cannot currently be deleted from the
+Solar Forecast Arbiter. However, one may upload NaN data
+(null in JSON, 'NaN' or an empty field in CSV) at the appropriate
+timestamps as a workaround.
+Site objects may only be deleted after all observations at said site
+are also deleted.
+In the case of a site that has been shared with users in other organizations,
+contact the users to delete those observations referencing the site or contact
+the Solar Forecast Arbiter administrators at [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
+
+
+Create New Report
+-----------------
 {: .anchor}
 
 1.  Use the **Reports** link on the left sidebar to view the reports listing page.
