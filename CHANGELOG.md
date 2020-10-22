@@ -10,10 +10,43 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
+- Added validation for event data on upload.
+
+- Added Seasons to the available report categories.
+
 ### Changed
+
+- API Reports endpoint now validates object pairs on report submission. The
+  API previously accepted invalid object pairs which resulted in report
+  computation failures.
+
+- Observations *uncertainty* field is now optional.
+
+- Users with limited permissions on a report will now be able to view a partial
+  report with timeseries and scatter plots that only containing data they have
+  access to.
+
+- Some metadata fields can now be updated. Updates can be performed through the
+  API or by following the 'Update Metdata' buttons on the dashboard.
 
 ### Fixed
 
+- Improved upon API's OpenAPI specification, with more complete parameter
+  descriptions and correct response codes. The specification is available at
+  the `/openapi.json` and `openapi.yaml` endpoints.
+
+- Fixed a bug where aggregation failed with a missing observation error after
+  an observation's *effective_until* had been set.
+
+- Adjusted report metrics and validation result tables to be scrollable when
+  they contain many results. Previously, columns would become crowded and
+  overlap.
+
+- Adjusted Report metrics plots to avoid x axis labels running off the plot or
+  overlapping eachother.
+
+- Utilized [loky](https://loky.readthedocs.io/en/stable/) to improve failure
+  tolerance of reference NWP code.
 
 ## [1.0rc3] - 2020-09-16
 
