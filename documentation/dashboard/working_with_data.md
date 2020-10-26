@@ -72,6 +72,9 @@ associating existing observations with it. The aggregate metadata determines
 how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
+Aggregate values will only contain data from constituent observations between
+their *Effective From* and *Effective Until* dates.
+
 Aggregated values inherit the quality flags of the underlying observation
 values. That is, an aggregate value will have a quality flag if *any*
 of the underlying observation values contained that quality flag.
@@ -128,7 +131,7 @@ We would like to create an aggregate from three observations. Observations 1 and
 data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
 2020-03-01T00:00Z. There are two ways in which we can create this aggregate.
 
-1. **Recommended approach**: Add observations with different *effective from* parameters. We add 
+1. **Recommended approach**: Add observations with different *effective from* parameters. We add
    observations 1 and 2 with an *effective from*  of
    2020-01-01T00:00Z. Then we add observation 3 with an
    *effective from* of 2020-03-01T00:00Z. With this configuration, the computed
@@ -147,24 +150,25 @@ data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
    observation 3 for the missing time period. This choice should be
    communicated to other users of the data.
 
-### Remove an Observation from an Aggregate
+### End an Observations contribution to an Aggregate
 {: .anchor}
 
-Observations are removed from an aggregate by setting their *Effective Until* date.
-Aggregate values will only contain data from constituent observations between
-their *Effective From* and *Effective Until* dates.
+An observation's *Effective Until* date dictates when the observation will stop
+contributing to an aggregate.
+
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
-   the left sidebar. Select the Aggregate to remove observations from.
+   the left sidebar. Select the Aggregate to update.
 
 2. On the aggregate page, locate the observation to remove in the observations table.
-   Click on the **Set Effective Until** link for the observation to remove.
+   Click on the **Set Effective Until** link for the observation.
 
    <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
 
 3. Enter the *Effective Until* date for the observation. This will determine the end
    of the period for which the observations should be considered part of the aggregate.
-   To remove it entirely, set an *Effective until* earlier than the *Effective from*.
+   After setting *effective until*, an observation may be added to the
+   aggregate again for a different or overlapping period of time.
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
@@ -177,14 +181,14 @@ which we would set the *effective until*.
 
 1. Data for observation 2 is only available until 2020-06-01T00:00Z. This
    causes the computed aggregate to return missing values after
-   2020-06-01T00:00Z. Using the [process described above](#remove-an-observation-from-an-aggregate), we would set the
+   2020-06-01T00:00Z. Using the [process described above](#end-an-observations-contribution-to-an-aggregate), we would set the
    *effective until* to 2020-06-01T00:00Z. In this configuration the computed
    aggregate  from 2020-01-01T00:00Z contains observations 1 and 2, and the
    computed aggregate after 2020-06-01T00:00Z will contain only observation 1.
 
 2. Observation 2 has an expected gap in data between 2020-02-01T00:00Z and
    2020-02-07T00:00Z during which it should not be included in the aggregate.
-   Using the [process described above](#remove-an-observation-from-an-aggregate)
+   Using the [process described above](#end-an-observations-contribution-to-an-aggregate)
    we can set the *effective until* to 2020-02-01T00:00Z. Then we may
    [add observation 2 to the aggregate](#add-observations-to-an-aggregate)
    again with an *effective from* of 2020-02-07T00:00Z. In this configuration
