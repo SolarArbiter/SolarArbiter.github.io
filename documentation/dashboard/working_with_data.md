@@ -73,8 +73,8 @@ how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
 Aggregated values inherit the quality flags of the underlying observation
-values. That is, an aggregate value will have a quality flag if any
-of the observation values used to aggregate contained that quality flag.
+values. That is, an aggregate value will have a quality flag if *any*
+of the underlying observation values contained that quality flag.
 See (Data Validation)[#data-validation] for details on quality flags.
 
 
@@ -125,26 +125,22 @@ Observations must be defined before they can be added to an aggregate (see
 
 ### Examples
 
-We have three observations to add to an aggregate. Observations 1 and 2 have
-data starting on 2020-01-01T00:00Z and observation 3 has data starting on
-2020-03-01T00:00Z. There are two ways in which we might add these
-observations to an aggregate.
+We would like to create an aggregate from three observations. Observations 1 and 2 have
+data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
+2020-03-01T00:00Z. There are two ways in which we can create this aggregate.
 
-1. We can add observations based on their available data. Using the process
-   above, we add observations 1 and 2 with an *effective from*  of
-   2020-01-01T00:00Z. Then we repeat the process for observation 3 with an
+1. **Recommended approach**: Add observations with different *effective from* parameters. We add 
+   observations 1 and 2 with an *effective from*  of
+   2020-01-01T00:00Z. Then we add observation 3 with an
    *effective from* of 2020-03-01T00:00Z. With this configuration, the computed
    aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will contain
    observations 1 and 2, and the computed aggregate after 2020-03-01T00:00Z
    will contain observations 1, 2, and 3.
 
-2. We can add all of the observations to the aggregate with the same
-   *effective from*. Using the process above, we add observations 1, 2, and 3
-   with an *effective from* of 2020-01-01T00:00Z. In this configuration, the
-   computed aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will be
-   returned as missing due to the values missing from observation 3, and the
-   computed aggregate after 2020-03-01T00:00Z will contain observation 1, 2,
-   and 3.
+2. Alternative approach: Add all observations with the same *effective from*, accept NaN values for period with missing data. Using the process above, we add observations 1, 2, and 3
+   with an *effective from* of 2020-01-01T00:00Z. The Solar Forecast Arbiter cannot safely assume a value
+   for the missing data, so it will compute the aggregate as NaN from 2020-01-01T00:00Z to 2020-03-01T00:00Z.
+   The computed aggregate after 2020-03-01T00:00Z will contain observation 1, 2, and 3, as expected.
 
 ### Remove an Observation from an Aggregate
 {: .anchor}
