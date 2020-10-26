@@ -122,7 +122,7 @@ Observations must be defined before they can be added to an aggregate (see
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
-### Examples
+#### Examples
 
 We would like to create an aggregate from three observations. Observations 1 and 2 have
 data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
@@ -190,8 +190,8 @@ which we would set the *effective until*.
    again with an *effective from* of 2020-02-07T00:00Z. In this configuration
    the computed aggregate from 2020-01-01T00:00Z to 2020-02-01T00:00Z will
    contain observations 1 and 2. From 2020-02-01T00:00Z to 2020-02-07T00:00Z
-   the aggregate would contain observation 1. After 2020-02-07T00:00Z the
-   aggregate would contain observations 1 and 2.
+   the aggregate will contain observation 1. After 2020-02-07T00:00Z the
+   aggregate will contain observations 1 and 2.
 
 3. Observation 2 was added with an incorrect *effective from* or did not
    contain the expected data.
@@ -202,7 +202,7 @@ which we would set the *effective until*.
    in situation 2 above, and we would like to preserve the existing
    effective ranges, we can set the *effective until* for observation 2 to just
    before the incorrect *effective from*. This will effectively nullify the
-   *effective from* and should not effect the computed aggregate.
+   single instance of *effective from*.
 
 
 ### Delete an Observation from an Aggregate
