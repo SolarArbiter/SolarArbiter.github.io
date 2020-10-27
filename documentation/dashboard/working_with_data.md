@@ -72,6 +72,14 @@ associating existing observations with it. The aggregate metadata determines
 how aggregation will be performed and the characteristics of the resulting
 timeseries data.
 
+Aggregate values will only contain data from constituent observations between
+their *Effective From* and *Effective Until* dates.
+
+Aggregated values inherit the quality flags of the underlying observation
+values. That is, an aggregate value will have a quality flag if *any*
+of the underlying observation values contained that quality flag.
+See (Data Validation)[#data-validation] for details on quality flags.
+
 
 1. Navigate to the aggregates listing page using the **Aggregates** link in
    the left sidebar. At the top of the listing, click **Create new Aggregate**.
@@ -96,10 +104,9 @@ timeseries data.
 
 Observations are included in an aggregate between an *Effective From* and
 an *Effective Until* date defined by the user. Note that observations are
-expected to contain all values in their effective range. Any values missing
-from an observation during computation will cause a failure. To avoid this
-failure, users should submit `NaN`s where data is missing for their
-observations.
+expected to contain all values in their effective range. Any missing or NaN
+values in an included observation will result in a NaN value for the
+aggregate.
 
 Observations may be added to an Aggregate by following the steps below.
 Observations must be defined before they can be added to an aggregate (see
@@ -118,28 +125,103 @@ Observations must be defined before they can be added to an aggregate (see
 
    <img class="my-3" src="/images/aggregate_observation_form.png"/>
 
+#### Examples
 
-### Remove an Observation from an Aggregate
+We would like to create an aggregate from three observations. Observations 1 and 2 have
+data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
+2020-03-01T00:00Z. There are two ways in which we can create this aggregate.
+
+1. **Recommended approach**: Add observations with different *effective from* parameters. 
+   First we [add](#add-observations-to-an-aggregate) observations 1 and 2 with an *effective from*  of
+   2020-01-01T00:00Z. Then we add observation 3 with an
+   *effective from* of 2020-03-01T00:00Z. With this configuration, the computed
+   aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will contain
+   observations 1 and 2, and the computed aggregate after 2020-03-01T00:00Z
+   will contain observations 1, 2, and 3.
+
+2. Alternative approach: Add all observations with the same *effective from*,
+   accept NaN values for period with missing data. Using the [process above](#add-observations-to-an-aggregate),
+   we add observations 1, 2, and 3 with an *effective from* of
+   2020-01-01T00:00Z. The Solar Forecast Arbiter cannot safely assume a value
+   for the missing data, so it will compute the aggregate as NaN from
+   2020-01-01T00:00Z to 2020-03-01T00:00Z. The computed aggregate after
+   2020-03-01T00:00Z will contain observation 1, 2, and 3, as expected. If the
+   aggregate represents a sum of power, we may choose to upload 0 values for
+   observation 3 for the missing time period. This choice should be
+   communicated to other users of the data.
+
+### End an Observations contribution to an Aggregate
 {: .anchor}
 
-Observations are removed from an aggregate by setting their *Effective Until* date.
-Aggregate values will only contain data from constituent observations between
-their *Effective From* and *Effective Until* dates.
+An observation's *Effective Until* date dictates when the observation will stop
+contributing to an aggregate.
+
 
 1. Navigate to the Aggregate listing page using the **Aggregates** link in
-   the left sidebar. Select the Aggregate to remove observations from.
+   the left sidebar. Select the Aggregate to update.
 
 2. On the aggregate page, locate the observation to remove in the observations table.
-   Click on the **Set Effective Until** link for the observation to remove.
+   Click on the **Set Effective Until** link for the observation.
 
    <img class="my-3" src="/images/aggregate_page_with_obs.png"/>
 
 3. Enter the *Effective Until* date for the observation. This will determine the end
    of the period for which the observations should be considered part of the aggregate.
-   To remove it entirely, set an *Effective until* earlier than the *Effective from*.
+   After setting *effective until*, an observation may be added to the
+   aggregate again for a different or overlapping period of time.
 
    <img class="my-3" src="/images/aggregate_observation_effective_until_form.png"/>
 
+
+#### Examples
+
+We have an aggregate with two observations 1 and 2. Both observations have an
+*effective from* of 2020-01-01T00:00Z. Below are a few different situations in
+which we would set the *effective until*.
+
+1. Data for observation 2 is only available until 2020-06-01T00:00Z. This
+   causes the computed aggregate to return missing values after
+   2020-06-01T00:00Z. Using the [process described above](#end-an-observations-contribution-to-an-aggregate), we set the
+   *effective until* to 2020-06-01T00:00Z. In this configuration the computed
+   aggregate  from 2020-01-01T00:00Z contains observations 1 and 2, and the
+   computed aggregate after 2020-06-01T00:00Z will contain only observation 1.
+
+2. Observation 2 has an expected gap in data between 2020-02-01T00:00Z and
+   2020-02-07T00:00Z during which it should not be included in the aggregate.
+   Using the [process described above](#end-an-observations-contribution-to-an-aggregate)
+   we can set the *effective until* to 2020-02-01T00:00Z. Then we may
+   [add observation 2 to the aggregate](#add-observations-to-an-aggregate)
+   again with an *effective from* of 2020-02-07T00:00Z. In this configuration
+   the computed aggregate from 2020-01-01T00:00Z to 2020-02-01T00:00Z will
+   contain observations 1 and 2. From 2020-02-01T00:00Z to 2020-02-07T00:00Z
+   the aggregate will contain observation 1. After 2020-02-07T00:00Z the
+   aggregate will contain observations 1 and 2.
+
+3. Observation 2 was added with an incorrect *effective from* or did not
+   contain the expected data.
+   To remove the observation 2 from the aggregate entirely, we can
+   [delete the observation](#delete-an-observation-from-an-aggregate) from the
+   aggregate.
+   If observation 2 is included in the aggregate more than once, as described
+   in situation 2 above, and we would like to preserve the existing
+   effective ranges, we can set the *effective until* for observation 2 to just
+   before the incorrect *effective from*. This will effectively nullify the
+   single instance of *effective from*.
+
+
+### Delete an Observation from an Aggregate
+{: .anchor}
+
+Deleting an observation from an aggregate will remove all *effective from* and
+*effective until* values for the observation, and the observation will no
+longer be included in the computed aggregate.
+
+1. Navigate to the Aggregate listing page using the **Aggregates** link in
+   the left sidebar. Select the Aggregate to delete an observation from.
+
+2. On the aggregate page, locate the observation to delete in the observations
+   table. Click on the **Delete** link for the observation and confirm the
+   deletion.
 
 
 Create New Observation or Forecast
@@ -290,7 +372,26 @@ may download more than one year of data by making multiple requests.
 
 <div class="my-3"></div>
 
-### Create New Report
+Delete Data
+-----------
+{: .anchor}
+
+Metadata may be deleted from the Solar Forecast Arbiter with proper permissions.
+If the metadata for a forecast, observation, or probabilistic forecast is deleted,
+all values for that object are also deleted automatically.
+Individual forecast or observation values cannot currently be deleted from the
+Solar Forecast Arbiter. However, one may upload NaN data
+(null in JSON, 'NaN' or an empty field in CSV) at the appropriate
+timestamps as a workaround.
+Site objects may only be deleted after all observations at said site
+are also deleted.
+In the case of a site that has been shared with users in other organizations,
+contact the users to delete those observations referencing the site or contact
+the Solar Forecast Arbiter administrators at [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
+
+
+Create New Report
+-----------------
 {: .anchor}
 
 1.  Use the **Reports** link on the left sidebar to view the reports listing page.
