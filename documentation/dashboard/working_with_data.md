@@ -78,7 +78,7 @@ their *Effective From* and *Effective Until* dates.
 Aggregated values inherit the quality flags of the underlying observation
 values. That is, an aggregate value will have a quality flag if *any*
 of the underlying observation values contained that quality flag.
-See (Data Validation)[#data-validation] for details on quality flags.
+See [Data Validation](#data-validation) for details on quality flags.
 
 
 1. Navigate to the aggregates listing page using the **Aggregates** link in
@@ -150,7 +150,7 @@ data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
    observation 3 for the missing time period. This choice should be
    communicated to other users of the data.
 
-### End an Observations contribution to an Aggregate
+### End an Observation's Contribution to an Aggregate
 {: .anchor}
 
 An observation's *Effective Until* date dictates when the observation will stop
