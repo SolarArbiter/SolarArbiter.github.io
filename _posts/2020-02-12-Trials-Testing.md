@@ -83,19 +83,89 @@ Given the forecast parameters, the first forecast would be uploaded by 2020-07-2
 
 **Trial 3:**
 
-* Start time: 2020-08-18 19:00Z
-* End time: 2020-08-20 19:00Z
-* Observations:
-  * Supplied by TBD forecast user
-* Forecasts:
-  * Relevant to TBD forecast user
-  * Benchmark TBD forecast user
+Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SURFRAD GHI, and two probabilistic forecasts of GHI. This trial will run on Solar Forecast Arbiter version 1.0rc4.
+
+* Start time: 2020-11-10 19:00Z
+* End time: 2020-11-12 19:00Z
+* Forecast parameters:
+  * 60 minutes ahead of the hour, 60 minute intervals:
+    * Issue time: 00:00
+    * Lead time to start: 60 minutes
+    * Interval length: 60 minutes
+    * Interval value type: mean
+    * Run length: 60 minutes
+    * Interval label: ending
+  * Day ahead:
+    * Issue time: 19Z
+    * Lead time to start: 24 hours
+    * Interval length: 1 hour
+    * Interval value type: mean
+    * Interval label: ending
+    * Run length: 24 hours
+
+* Observation:
+  * [UO SRML Bend OR PV AC Power](https://dashboard.solarforecastarbiter.org/observations/c8d69834-a5ec-11ea-a9ae-0a580a820181)
 * Metrics:
-  * TBD forecast user
+  * MAE, MBE, RMSE, Skill
 * Categories:
-  * TBD
+  * Total
 * Quality flags to exclude:
-  * TBD
+  * None
+* Missing forecasts:
+  * Filled with 0
+* Reference forecast:
+  * Hour ahead: Persistence of clear sky index
+  * Day ahead: GFS
+
+* Observation:
+  * Average of all SURFRAD GHI
+* Metrics:
+  * MAE, MBE, RMSE
+* Categories:
+  * Total
+* Quality flags to exclude:
+  * None
+* Missing forecasts:
+  * Filled with 0
+* Reference forecast:
+  * None
+
+* Observation:
+  * [Table Mountain Boulder CO ghi](https://dashboard.solarforecastarbiter.org/observations/9dfe124a-7e49-11e9-98c3-0a580a8003e9)
+* Probabilistic Forecast Thresholds:
+  * Prob(obs < 50 W/m^2)
+  * Prob(obs < 500 W/m^2)
+* Metrics:
+  * BS, REL, RES, UNC
+* Categories:
+  * Total
+* Quality flags to exclude:
+  * Nighttime
+* Missing forecasts:
+  * Filled with 0
+* Reference forecast:
+  * None
+
+* Observation:
+  * [Table Mountain Boulder CO ghi](https://dashboard.solarforecastarbiter.org/observations/9dfe124a-7e49-11e9-98c3-0a580a8003e9)
+* Probabilistic Forecast Percentiles:
+  * Prob(obs < fx) = 2%
+  * Prob(obs < fx) = 10%
+  * Prob(obs < fx) = 50%
+  * Prob(obs < fx) = 90%
+  * Prob(obs < fx) = 98%
+* Metrics:
+  * BS, QS
+* Categories:
+  * Total
+* Quality flags to exclude:
+  * Nighttime
+* Missing forecasts:
+  * Filled with 0
+* Reference forecast:
+  * Hour ahead: Persistence ensemble
+  * Day ahead: GEFS
+
 
 Please contact Will Holmgren at
 [holmgren@email.arizona.edu](mailto:holmgren@email.arizona.edu) with
