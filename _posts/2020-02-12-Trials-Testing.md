@@ -85,6 +85,8 @@ Given the forecast parameters, the first forecast would be uploaded by 2020-07-2
 
 Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SURFRAD GHI, and two probabilistic forecasts of GHI. This trial will run on Solar Forecast Arbiter version 1.0rc4.
 
+The following forecast start, end, and timing parameters are the same for all forecasts:
+
 * Start time: 2020-11-10 19:00Z
 * End time: 2020-11-12 19:00Z
 * Forecast parameters:
@@ -103,12 +105,14 @@ Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SUR
     * Interval label: ending
     * Run length: 24 hours
 
+The following 4 sets of metadata describe the observations, metrics, categories, quality flags, missing forecast policy, and reference forecasts:
+
 * Observation:
   * [UO SRML Bend OR PV AC Power](https://dashboard.solarforecastarbiter.org/observations/c8d69834-a5ec-11ea-a9ae-0a580a820181)
 * Metrics:
   * MAE, MBE, RMSE, Skill
 * Categories:
-  * Total
+  * Total, daily, hour of day
 * Quality flags to exclude:
   * None
 * Missing forecasts:
@@ -122,7 +126,7 @@ Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SUR
 * Metrics:
   * MAE, MBE, RMSE
 * Categories:
-  * Total
+  * Total, daily, hour of day
 * Quality flags to exclude:
   * None
 * Missing forecasts:
@@ -138,7 +142,7 @@ Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SUR
 * Metrics:
   * BS, REL, RES, UNC
 * Categories:
-  * Total
+  * Total, daily, hour of day
 * Quality flags to exclude:
   * Nighttime
 * Missing forecasts:
@@ -157,7 +161,7 @@ Test Trial 3 will test day ahead and hour ahead forecasts for AC power, mean SUR
 * Metrics:
   * BS, QS
 * Categories:
-  * Total
+  * Total, daily, hour of day
 * Quality flags to exclude:
   * Nighttime
 * Missing forecasts:
