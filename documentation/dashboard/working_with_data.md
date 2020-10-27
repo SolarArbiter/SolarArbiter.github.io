@@ -104,7 +104,7 @@ See (Data Validation)[#data-validation] for details on quality flags.
 
 Observations are included in an aggregate between an *Effective From* and
 an *Effective Until* date defined by the user. Note that observations are
-expected to contain all values in their effective range. Any Missing or NaN
+expected to contain all values in their effective range. Any missing or NaN
 values in an included observation will result in a NaN value for the
 aggregate.
 
@@ -131,8 +131,8 @@ We would like to create an aggregate from three observations. Observations 1 and
 data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
 2020-03-01T00:00Z. There are two ways in which we can create this aggregate.
 
-1. **Recommended approach**: Add observations with different *effective from* parameters. We add
-   observations 1 and 2 with an *effective from*  of
+1. **Recommended approach**: Add observations with different *effective from* parameters. 
+   First we [add](#add-observations-to-an-aggregate) observations 1 and 2 with an *effective from*  of
    2020-01-01T00:00Z. Then we add observation 3 with an
    *effective from* of 2020-03-01T00:00Z. With this configuration, the computed
    aggregate from 2020-01-01T00:00Z to 2020-03-01T00:00Z will contain
@@ -181,7 +181,7 @@ which we would set the *effective until*.
 
 1. Data for observation 2 is only available until 2020-06-01T00:00Z. This
    causes the computed aggregate to return missing values after
-   2020-06-01T00:00Z. Using the [process described above](#end-an-observations-contribution-to-an-aggregate), we would set the
+   2020-06-01T00:00Z. Using the [process described above](#end-an-observations-contribution-to-an-aggregate), we set the
    *effective until* to 2020-06-01T00:00Z. In this configuration the computed
    aggregate  from 2020-01-01T00:00Z contains observations 1 and 2, and the
    computed aggregate after 2020-06-01T00:00Z will contain only observation 1.
