@@ -440,6 +440,7 @@ Create New Report
 
 Data Validation
 ---------------
+{: .anchor}
 
 The Solar Forecast Arbiter performs validation on all Observation data. It does not validate any forecast data. The
 data validation toolkit applies quality flags to values in observation data.
