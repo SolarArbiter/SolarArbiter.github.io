@@ -6,12 +6,84 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0rc4] - 2020-10-29
+
+### Added
+
+- Added Seasons to the available report categories.
+
+- Added summary statistics of resampled observations, forecasts, and reference
+  forecasts to reports.
+
+- All validated, aligned, and resampled data, report object metadata, and summary
+  statistics are now available to download directly from reports.
+
+- Added Continuous Ranked Probability Skill Score metric to probabilisitic
+  report metric options.
+
+- Added ability to update metadata fields for name, PV power plant modeling
+  parameters, timezone, observation uncertainty, and extra parameters. Updates
+  can be performed through the API or by following the 'Update Metdata' buttons
+  on the dashboard.
+
+- Added validation for event data on upload.
+
+### Changed
+
+- Intervals are now marked as day/night depending on the fraction of day/night
+  minutes within the interval, rather than the day/night status at the moment
+  of the interval label.
+
+- Data validation filters may now be applied before resampling observations to
+  match forecasts or after the resampling. By default, filters associated with
+  erroneous data (e.g. limits exceeded) will be applied before resampling to
+  prevent bad values from contaminating the observation. Filters
+  associated with good data (e.g. day/night, clear/cloudy) will be applied after
+  resampling to remove resampled intervals with too few qualifying points.
+  Rewrote the report data prepreprocessing section to more clearly describe how
+  the data is handled.
+
+- Observations *uncertainty* field is now optional.
+
+- Users with limited permissions on a report will now be able to view a partial
+  report with timeseries and scatter plots that only containing data they have
+  access to.
+
+- Observations may be deleted from an aggregate. This will remove all
+  *effective from* and *effective until* values for the observation.
+
+- API Reports endpoint now validates object pairs on report submission. The
+  API previously accepted invalid object pairs which resulted in report
+  computation failures.
+
+### Fixed
+
+- Improved upon API's OpenAPI specification, with more complete parameter
+  descriptions and correct response codes. The specification is available at
+  the `/openapi.json` and `/openapi.yaml` endpoints.
+
+- Fixed a bug where aggregation failed with a missing observation error after
+  an observation's *effective_until* had been set.
+
+- Adjusted report metrics and validation result tables to be scrollable when
+  they contain many results. Previously, columns would become crowded and
+  overlap.
+
+- Adjusted Report metrics plots to avoid x axis labels running off the plot or
+  overlapping eachother.
+
+- Utilized [loky](https://loky.readthedocs.io/en/stable/) to improve failure
+  tolerance of reference NWP code.
+
+- Fixed a bug where aggregate computation reported a missing observation outside
+  the observation's *effective_from* and *effective_until*.
+
 ## [1.0rc3] - 2020-09-16
 
 ### Added
 
 - A package for solarforecastarbiter-core to PyPI
-  https://pypi.org/project/solarforecastarbiter/
+  [https://pypi.org/project/solarforecastarbiter/](https://pypi.org/project/solarforecastarbiter/)
   Install in a python environment with ``pip install solarforecastarbiter --pre``
 
 - Additional irradiance data has been added to DOE ARM sites.
@@ -68,7 +140,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Observations and forecasts of power may only be created at "Power Plant"
   sites and are no longer allowed at "Weather Station" sites. The plant
   metadata (e.g. AC/DC capacity) is required to validate data uploads and run
-  analysis reports, leading to run-time errors when users attemped to do so at
+  analysis reports, leading to run-time errors when users attempted to do so at
   "Weather Station" sites. The Site creation form now indicates this
   requirement.
 
