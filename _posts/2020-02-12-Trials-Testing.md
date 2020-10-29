@@ -83,20 +83,4 @@ Given the forecast parameters, the first forecast would be uploaded by 2020-07-2
 
 **Trial 3:**
 
-* Start time: 2020-08-18 19:00Z
-* End time: 2020-08-20 19:00Z
-* Observations:
-  * Supplied by TBD forecast user
-* Forecasts:
-  * Relevant to TBD forecast user
-  * Benchmark TBD forecast user
-* Metrics:
-  * TBD forecast user
-* Categories:
-  * TBD
-* Quality flags to exclude:
-  * TBD
-
-Please contact Will Holmgren at
-[holmgren@email.arizona.edu](mailto:holmgren@email.arizona.edu) with
-comments, questions, or to sign up for the trials testing.
+Test trial 3 is described in a [separate post](https://solarforecastarbiter.org/2020/10/29/Test-Trial-3.html)
