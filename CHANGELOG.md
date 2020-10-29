@@ -14,6 +14,13 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Added Seasons to the available report categories.
 
+- Added summary statistics of resampled observations, forecasts, and reference 
+  forecasts to reports.
+  
+- All validated, aligned, and resampled data, report object metadata, and summary 
+  statistics are now available to download directly from reports.
+
+
 ### Changed
 
 - API Reports endpoint now validates object pairs on report submission. The
@@ -33,7 +40,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Improved upon API's OpenAPI specification, with more complete parameter
   descriptions and correct response codes. The specification is available at
-  the `/openapi.json` and `openapi.yaml` endpoints.
+  the `/openapi.json` and `/openapi.yaml` endpoints.
 
 - Fixed a bug where aggregation failed with a missing observation error after
   an observation's *effective_until* had been set.
