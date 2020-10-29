@@ -10,8 +10,6 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
-- Added validation for event data on upload.
-
 - Added Seasons to the available report categories.
 
 - Added summary statistics of resampled observations, forecasts, and reference
@@ -20,14 +18,30 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - All validated, aligned, and resampled data, report object metadata, and summary
   statistics are now available to download directly from reports.
 
-- Added Continuous Ranked Probability Skill Score metric to probabilsitic
+- Added Continuous Ranked Probability Skill Score metric to probabilisitic
   report metric options.
+
+- Added ability to update metadata fields for name, PV power plant modeling
+  parameters, timezone, observation uncertainty, and extra parameters. Updates
+  can be performed through the API or by following the 'Update Metdata' buttons
+  on the dashboard.
+
+- Added validation for event data on upload.
 
 ### Changed
 
-- API Reports endpoint now validates object pairs on report submission. The
-  API previously accepted invalid object pairs which resulted in report
-  computation failures.
+- Intervals are now marked as day/night depending on the fraction of day/night
+  minutes within the interval, rather than the day/night status at the moment
+  of the interval label.
+
+- Data validation filters may now be applied before resampling observations to
+  match forecasts or after the resampling. By default, filters associated with
+  erroneous data (e.g. limits exceeded) will be applied before resampling to
+  prevent bad values from contaminating the observation. Filters
+  associated with good data (e.g. day/night, clear/cloudy) will be applied after
+  resampling to remove resampled intervals with too few qualifying points.
+  Rewrote the report data prepreprocessing section to more clearly describe how
+  the data is handled.
 
 - Observations *uncertainty* field is now optional.
 
@@ -35,11 +49,12 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   report with timeseries and scatter plots that only containing data they have
   access to.
 
-- Some metadata fields can now be updated. Updates can be performed through the
-  API or by following the 'Update Metdata' buttons on the dashboard.
-
 - Observations may be deleted from an aggregate. This will remove all
   *effective from* and *effective until* values for the observation.
+
+- API Reports endpoint now validates object pairs on report submission. The
+  API previously accepted invalid object pairs which resulted in report
+  computation failures.
 
 ### Fixed
 
@@ -59,6 +74,9 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Utilized [loky](https://loky.readthedocs.io/en/stable/) to improve failure
   tolerance of reference NWP code.
+
+- Fixed a bug where aggregate computation reported a missing observation outside
+  the observation's *effective_from* and *effective_until*.
 
 ## [1.0rc3] - 2020-09-16
 
