@@ -6,7 +6,7 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
-## [1.0rc4] - 2020-10-??
+## [1.0rc4] - 2020-10-29
 
 ### Added
 
@@ -14,12 +14,14 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Added Seasons to the available report categories.
 
-- Added summary statistics of resampled observations, forecasts, and reference 
+- Added summary statistics of resampled observations, forecasts, and reference
   forecasts to reports.
-  
-- All validated, aligned, and resampled data, report object metadata, and summary 
+
+- All validated, aligned, and resampled data, report object metadata, and summary
   statistics are now available to download directly from reports.
 
+- Added Continuous Ranked Probability Skill Score metric to probabilsitic
+  report metric options.
 
 ### Changed
 
@@ -35,6 +37,9 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Some metadata fields can now be updated. Updates can be performed through the
   API or by following the 'Update Metdata' buttons on the dashboard.
+
+- Observations may be deleted from an aggregate. This will remove all
+  *effective from* and *effective until* values for the observation.
 
 ### Fixed
 
