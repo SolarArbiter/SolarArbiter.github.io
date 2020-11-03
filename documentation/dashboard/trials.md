@@ -268,7 +268,9 @@ starts. An example script to upload forecast values for each of the user's
 forecast objects in a trial can be found below and
 [in this gist](https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc).
 We do not guarantee the reliability of this script for operational forecast
-trials - it is only an example to help you get started with the API.
+trials - it is only an example to help you get started with the API. Please
+download the script and modify to fit your needs or use as a starting point
+for your own script.
 
 This script uses the
 [solarforecastarbiter-core](https://github.com/solararbiter/solarforecastarbiter-core)
@@ -299,7 +301,7 @@ the solarforecastarbiter-core Python package can be installed from the
 or via pip with the command
 
 ```
-pip install git+https://github.com/solararbiter/solarforecastarbiter-core.git
+pip install solarforecastarbiter
 ```
 
 The script should be run periodically to generate new forecasts, either using
@@ -308,5 +310,8 @@ cron jobs or a cron Python framework like
 documentation for the solarforecastarbiter-core Python package can be
 found at
 [https://solarforecastarbiter-core.readthedocs.io/en/latest/](https://solarforecastarbiter-core.readthedocs.io/en/latest/).
+
+
+> **WARNING**: This script is only an example and not meant for production usage.
 
 <script src="https://gist.github.com/alorenzo175/d25293c4e47bec307ede7cd70022582c.js"></script>
