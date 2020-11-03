@@ -150,10 +150,11 @@ given time. The data may be overwritten until the closing time of the forecast
 run. Consider a 1 hour lead time, 1 hour interval forecast with
 hour-beginning interval labels. In this example, a forecast vendor need only
 upload a single value each at each hour of the trial.
-For instance, by ``2020-01-01T00:00Z`` a vendor may upload the forecast
+For instance, before (or precisely at) ``2020-01-01T00:00:00Z`` a vendor may
+upload the forecast
 
 ```
-# valid upload at any time until 2020-01-01T00:00Z
+# valid upload at any time until 2020-01-01T00:00:01Z
 timestamp,value
 2020-01-01T01:00Z,10
 ```
@@ -161,7 +162,7 @@ timestamp,value
 The vendor could choose to upload additional forecast values such as
 
 ```
-# valid upload at any time until 2020-01-01T00:00Z
+# valid upload at any time until 2020-01-01T00:00:01Z
 timestamp,value
 2020-01-01T01:00Z,10
 2020-01-01T02:00Z,20
@@ -169,11 +170,12 @@ timestamp,value
 ```
 
 Now imagine we advance in time to the next forecast interval.
-Between ``2020-01-01T00:00Z`` and ``2020-01-01T01:00Z`` the vendor may change
-the value of all forecasts after ``2020-01-01T01:00Z``. A valid upload could be
+From ``2020-01-01T00:00:00Z`` to ``2020-01-01T01:00:00Z`` (inclusive)
+the vendor may change the value of all forecasts starting from ``2020-01-01T02:00:00Z``.
+A valid upload could be
 
 ```
-# valid upload at any time until 2020-01-01T01:00Z
+# valid upload at any time until 2020-01-01T01:00:01Z
 timestamp,value
 2020-01-01T02:00Z,25
 2020-01-01T03:00Z,35
@@ -182,7 +184,7 @@ timestamp,value
 
 The API will reject an upload that contains a time that should have already
 been issued. For example, during this interval, the upload would be rejected
-if it contains any times before ``2020-01-01T02:00Z``.
+if it contains any times before ``2020-01-01T02:00:00Z``.
 
 ```
 # invalid upload after 2020-01-01T00:00Z
@@ -266,7 +268,9 @@ starts. An example script to upload forecast values for each of the user's
 forecast objects in a trial can be found below and
 [in this gist](https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc).
 We do not guarantee the reliability of this script for operational forecast
-trials - it is only an example to help you get started with the API.
+trials - it is only an example to help you get started with the API. Please
+download the script and modify to fit your needs or use as a starting point
+for your own script.
 
 This script uses the
 [solarforecastarbiter-core](https://github.com/solararbiter/solarforecastarbiter-core)
@@ -297,7 +301,7 @@ the solarforecastarbiter-core Python package can be installed from the
 or via pip with the command
 
 ```
-pip install git+https://github.com/solararbiter/solarforecastarbiter-core.git
+pip install solarforecastarbiter
 ```
 
 The script should be run periodically to generate new forecasts, either using
@@ -306,5 +310,8 @@ cron jobs or a cron Python framework like
 documentation for the solarforecastarbiter-core Python package can be
 found at
 [https://solarforecastarbiter-core.readthedocs.io/en/latest/](https://solarforecastarbiter-core.readthedocs.io/en/latest/).
+
+
+> **WARNING**: This script is only an example and not meant for production usage.
 
 <script src="https://gist.github.com/alorenzo175/d25293c4e47bec307ede7cd70022582c.js"></script>
