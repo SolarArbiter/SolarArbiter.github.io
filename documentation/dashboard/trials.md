@@ -150,10 +150,11 @@ given time. The data may be overwritten until the closing time of the forecast
 run. Consider a 1 hour lead time, 1 hour interval forecast with
 hour-beginning interval labels. In this example, a forecast vendor need only
 upload a single value each at each hour of the trial.
-For instance, by ``2020-01-01T00:00Z`` a vendor may upload the forecast
+For instance, before (or precisely at) ``2020-01-01T00:00:00Z`` a vendor may
+upload the forecast
 
 ```
-# valid upload at any time until 2020-01-01T00:00Z
+# valid upload at any time until 2020-01-01T00:00:01Z
 timestamp,value
 2020-01-01T01:00Z,10
 ```
@@ -161,7 +162,7 @@ timestamp,value
 The vendor could choose to upload additional forecast values such as
 
 ```
-# valid upload at any time until 2020-01-01T00:00Z
+# valid upload at any time until 2020-01-01T00:00:01Z
 timestamp,value
 2020-01-01T01:00Z,10
 2020-01-01T02:00Z,20
@@ -169,11 +170,12 @@ timestamp,value
 ```
 
 Now imagine we advance in time to the next forecast interval.
-Between ``2020-01-01T00:00Z`` and ``2020-01-01T01:00Z`` the vendor may change
-the value of all forecasts after ``2020-01-01T01:00Z``. A valid upload could be
+From ``2020-01-01T00:00:00Z`` to ``2020-01-01T01:00:00Z`` (inclusive)
+the vendor may change the value of all forecasts starting from ``2020-01-01T02:00:00Z``.
+A valid upload could be
 
 ```
-# valid upload at any time until 2020-01-01T01:00Z
+# valid upload at any time until 2020-01-01T01:00:01Z
 timestamp,value
 2020-01-01T02:00Z,25
 2020-01-01T03:00Z,35
@@ -182,7 +184,7 @@ timestamp,value
 
 The API will reject an upload that contains a time that should have already
 been issued. For example, during this interval, the upload would be rejected
-if it contains any times before ``2020-01-01T02:00Z``.
+if it contains any times before ``2020-01-01T02:00:00Z``.
 
 ```
 # invalid upload after 2020-01-01T00:00Z
