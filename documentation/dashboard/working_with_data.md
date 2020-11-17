@@ -456,16 +456,16 @@ bitmask.
 |OK|`0000000000000000`|0|No validation flags.|
 |USER FLAGGED|`0000000000000001`|1|User flagged data as problematic before uploading to Arbiter.|
 |NIGHTTIME|`0000000000010000`|16|Value occurs at night.|
-|CLEARSKY|`0000000000010000`|32|Values consistent with clear sky condition.|
+|CLEARSKY|`0000000000100000`|32|Values consistent with clear sky condition.|
 |SHADED|`0000000001000000`|64|Values indicate module shading. Not implemented.|
 |UNEVEN FREQUENCY|`0000000010000000`|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
-|LIMITS EXCEEDED|`0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
-|CLEARSKY EXCEEDED|`0000010000000000`|512|Value greater than clearsky value.|
-|STALE VALUES|`0000100000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
-|INTERPOLATED VALUES|`0001000000000000`|2048|Values appear linear, suggesting interpolation.|
-|CLIPPED VALUES|`0010000000000000`|4096|Values indicate possible clipped power levels.|
-|INCONSISTENT IRRADIANCE COMPONENTS|`0100000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
-|DAILY VALIDATION APPLIED|`1000000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
+|LIMITS EXCEEDED|  `0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
+|CLEARSKY EXCEEDED|`0000001000000000`|512|Value greater than clearsky value.|
+|STALE VALUES|`0000010000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
+|INTERPOLATED VALUES|`0000100000000000`|2048|Values appear linear, suggesting interpolation.|
+|CLIPPED VALUES|`0001000000000000`|4096|Values indicate possible clipped power levels.|
+|INCONSISTENT IRRADIANCE COMPONENTS|`0010000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
+|DAILY VALIDATION APPLIED|`0100000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
 The dashboard displays derived quality flags that are not provided in
 downloaded data. Derived quality flags appear on timeseries plots and are
