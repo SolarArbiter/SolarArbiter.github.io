@@ -299,11 +299,12 @@ with a one minute resolution.
 
 2.  Click **Observations** to find the Observations listing for that site.
 
-3.  Select an Observation. Click **Upload Data** on the Observation page.
-<img class="my-3" src="/images/observation.png"/>
+3.  Select an Observation. Click **Upload Data** at the bottom of the
+Observation page to expose the data upload form.
+<img class="my-3" src="/images/observation_upload.png"/>
 
-4.  Select the file type, this will display an example of the expected file
-format. Click **Choose File** and select the data file to upload.
+4.  Select the file type to display an example of the expected file format.
+ Click **Choose File** to select the data file and click **Upload**.
 
 	-  CSV format
 	<img class="my-3" src="/images/obs_csv_upload.png"/>
@@ -317,11 +318,12 @@ format. Click **Choose File** and select the data file to upload.
 
 2.  Click **Forecast** to find the Forecasts listing for that site.
 
-3.  Select a Forecast. Click **Upload Data** on the Forecast page.
-<img class="my-3" src="/images/forecast.png"/>
+3.  Select a Forecast. Click **Upload Data** at the bottom of the Forecast
+page to expose the data upload form.
+<img class="my-3" src="/images/forecast_upload.png"/>
 
-4.  Select the file type, this will display an example of the expected file
-format. Click **Choose File** and select the data file to upload.
+4.  Select the file type to display an example of the expected file format.
+ Click **Choose File** to select the data file and click **Upload**.
 
 	- CSV format
 	<img class="my-3" src="/images/fx_csv_upload.png"/>
@@ -454,16 +456,16 @@ bitmask.
 |OK|`0000000000000000`|0|No validation flags.|
 |USER FLAGGED|`0000000000000001`|1|User flagged data as problematic before uploading to Arbiter.|
 |NIGHTTIME|`0000000000010000`|16|Value occurs at night.|
-|CLEARSKY|`0000000000010000`|32|Values consistent with clear sky condition.|
+|CLEARSKY|`0000000000100000`|32|Values consistent with clear sky condition.|
 |SHADED|`0000000001000000`|64|Values indicate module shading. Not implemented.|
 |UNEVEN FREQUENCY|`0000000010000000`|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
 |LIMITS EXCEEDED|`0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
-|CLEARSKY EXCEEDED|`0000010000000000`|512|Value greater than clearsky value.|
-|STALE VALUES|`0000100000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
-|INTERPOLATED VALUES|`0001000000000000`|2048|Values appear linear, suggesting interpolation.|
-|CLIPPED VALUES|`0010000000000000`|4096|Values indicate possible clipped power levels.|
-|INCONSISTENT IRRADIANCE COMPONENTS|`0100000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
-|DAILY VALIDATION APPLIED|`1000000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
+|CLEARSKY EXCEEDED|`0000001000000000`|512|Value greater than clearsky value.|
+|STALE VALUES|`0000010000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
+|INTERPOLATED VALUES|`0000100000000000`|2048|Values appear linear, suggesting interpolation.|
+|CLIPPED VALUES|`0001000000000000`|4096|Values indicate possible clipped power levels.|
+|INCONSISTENT IRRADIANCE COMPONENTS|`0010000000000000`|8192|GHI, DHI, and DNI are inconsistent.|
+|DAILY VALIDATION APPLIED|`0100000000000000`|16384|The Arbiter has analyzed this point in the context of all of the points around it.|
 
 The dashboard displays derived quality flags that are not provided in
 downloaded data. Derived quality flags appear on timeseries plots and are
