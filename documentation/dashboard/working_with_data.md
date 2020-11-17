@@ -299,11 +299,12 @@ with a one minute resolution.
 
 2.  Click **Observations** to find the Observations listing for that site.
 
-3.  Select an Observation. Click **Upload Data** on the Observation page.
-<img class="my-3" src="/images/observation.png"/>
+3.  Select an Observation. Click **Upload Data** at the bottom of the
+Observation page to expose the data upload form.
+<img class="my-3" src="/images/observation_upload.png"/>
 
-4.  Select the file type, this will display an example of the expected file
-format. Click **Choose File** and select the data file to upload.
+4.  Select the file type to display an example of the expected file format.
+ Click **Choose File** to select the data file and click **Upload**.
 
 	-  CSV format
 	<img class="my-3" src="/images/obs_csv_upload.png"/>
@@ -317,11 +318,12 @@ format. Click **Choose File** and select the data file to upload.
 
 2.  Click **Forecast** to find the Forecasts listing for that site.
 
-3.  Select a Forecast. Click **Upload Data** on the Forecast page.
-<img class="my-3" src="/images/forecast.png"/>
+3.  Select a Forecast. Click **Upload Data** at the bottom of the Forecast
+page to expose the data upload form.
+<img class="my-3" src="/images/forecast_upload.png"/>
 
-4.  Select the file type, this will display an example of the expected file
-format. Click **Choose File** and select the data file to upload.
+4.  Select the file type to display an example of the expected file format.
+ Click **Choose File** to select the data file and click **Upload**.
 
 	- CSV format
 	<img class="my-3" src="/images/fx_csv_upload.png"/>
