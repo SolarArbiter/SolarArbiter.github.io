@@ -57,6 +57,9 @@ dashboard, API, or core framework for a complete description of features.
 
 - API error when uploading empty forecast data.
 
+- Bug causing report values to be duplicated on recompute, causing slow down
+  and API failures. Now only the most recent computed values are stored.
+
 
 ## [1.0rc4] - 2020-10-29
 
