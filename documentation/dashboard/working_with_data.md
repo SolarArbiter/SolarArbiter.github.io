@@ -459,7 +459,7 @@ bitmask.
 |CLEARSKY|`0000000000100000`|32|Values consistent with clear sky condition.|
 |SHADED|`0000000001000000`|64|Values indicate module shading. Not implemented.|
 |UNEVEN FREQUENCY|`0000000010000000`|128|Difference in timestamp between value and previous value does not conform to observation frequency.|
-|LIMITS EXCEEDED|  `0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
+|LIMITS EXCEEDED|`0000000100000000`|256|Physical limits exceeded. Uses QCrad criteria for irradiance, DC or AC capacity for power.|
 |CLEARSKY EXCEEDED|`0000001000000000`|512|Value greater than clearsky value.|
 |STALE VALUES|`0000010000000000`|1024|Values are unchanged for several intervals, suggesting an issue with communications.|
 |INTERPOLATED VALUES|`0000100000000000`|2048|Values appear linear, suggesting interpolation.|
