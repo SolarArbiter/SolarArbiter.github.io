@@ -6,6 +6,61 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0] - 2020-11-17
+
+This 1.0 version is the culmination of more than 2 years of work, but this
+section of the changelog only highlights the differences with the most recent
+release (1.0rc4). Please see the release notes for each of the rc, beta, and
+alpha versions below for a complete history of changes. Please see the
+[documentation](https://solarforecastarbiter.org/documentation/) for the
+dashboard, API, or core framework for a complete description of features.
+
+### Added
+
+- Backfilled all missing data from SURFRAD, SOLRAD, RTC, and ARM data for 2017
+  through October 2020.
+
+- Predefined reference aggregates for mean of SURFRAD GHI, mean of SURFRAD DNI,
+  and the total PV power of several small systems in the UO SRML network in
+  Portland, OR. See [dashboard.solarforecastarbiter.org/aggregates](https://dashboard.solarforecastarbiter.org/aggregates/).
+
+- Ability to download site, observation, and forecast metadata from the
+  dashboard. Click the "Download Metadata" link in the upper right corner of
+  any metadata description box.
+
+- "Copy UUID" button to the metadata of a site, observation, or forecast. This
+  allows dashboard users to more easily copy identifier data into scripts that
+  interact with the API.
+
+### Changed
+
+- Improved documentation of
+  [data upload](https://api.solarforecastarbiter.org/#section/Introduction/Interaction-for-Observational-Data-Providers)
+  and
+  [authentication](https://api.solarforecastarbiter.org/#section/Authentication)
+  procedures when using the REST API.
+
+- Improved text description on [dashboard.solarforecastarbiter.org](https://dashboard.solarforecastarbiter.org)
+  landing page.
+
+- Moved the dashboard's observation/forecast data upload controls from a
+  separate page to below the time series graph.
+
+### Fixed
+
+- Plots of metrics for total analysis period could contain mislabeled bars.
+
+- JSON metadata downloads in reports could fail due to special characters in
+  site, observation, or forecast extra parameters fields.
+
+- Typo in time series plot labels for probabilistic forecasts of thresholds.
+
+- API error when uploading empty forecast data.
+
+- Bug causing report values to be duplicated on recompute, causing slow down
+  and API failures. Now only the most recent computed values are stored.
+
+
 ## [1.0rc4] - 2020-10-29
 
 ### Added
