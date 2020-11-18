@@ -19,6 +19,8 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Clarified report summary statistics table only contains statistics for
   the resampled observations and deterministic forecasts.
 
+- Added missing permissions to read reference aggregates.
+
 ## [1.0.0] - 2020-11-17
 {: .anchor}
 
