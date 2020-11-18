@@ -11,7 +11,12 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Fixed
 
--
+- Issue with text encoding for dashboard data uploads.
+
+- Removed report intro sentence about creating issues on GitHub.
+
+- Clarified report summary statistics table only contains statistics for
+  the resampled observations and deterministic forecasts.
 
 ## [1.0.0] - 2020-11-17
 
