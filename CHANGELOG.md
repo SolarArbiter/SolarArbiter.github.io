@@ -8,6 +8,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 
 ## [1.0.1] - 2020-11-18
+{: .anchor}
 
 ### Fixed
 
@@ -19,6 +20,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   the resampled observations and deterministic forecasts.
 
 ## [1.0.0] - 2020-11-17
+{: .anchor}
 
 This 1.0 version is the culmination of more than 2 years of work, but this
 section of the changelog only highlights the differences with the most recent
