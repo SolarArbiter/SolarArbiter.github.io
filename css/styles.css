@@ -236,4 +236,7 @@ img{
 .table.perm-table td{
     min-width: 150px;
 }
+.table.perm-table td:first-child {
+    font-weight: bold;
+}
 
