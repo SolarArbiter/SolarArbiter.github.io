@@ -356,9 +356,6 @@ may be necessary to perform a particular action.
 6. Adding an observation to an aggregate requires that the user has
    `read` permissions on that observation.
 
-7. Reading a the full values of an aggregate requires `read_values`
-   permissions on all of it's constituent observations. A partial aggregate value will
+7. Reading the full values of an aggregate requires `read_values` permissions
+   on all of it's constituent observations. A partial aggregate value will
    be returned to users.
-
-
-
