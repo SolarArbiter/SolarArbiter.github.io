@@ -8,87 +8,214 @@ title: Administration
 # Dashboard Administration
 {: .anchor}
 
-This section describes the user interface for organization administrators to
-manage data access through roles and permissions.
+Data access control is ubiquitous in the Solar Forecast Arbiter. All users can
+benefit from a cursory understanding of the access control system. Organization
+administrators need a more thorough understanding to effectively and safely
+manage their data.
 
-User, permission and role administation can be accessed by clicking the **User
+This section describes the key concepts, outlines the user interface, and
+provides several examples.
+
+User, permission, and role administation can be accessed by clicking the **User
 Administration** link in the Account menu in the top right corner of the site.
     <img class="my-3" src="/images/admin_menu.png"/>
 
+These pages allow organization administrators to view and manage permissions.
+Users without administrative privileges may not see anything on these pages.
 
 
-Note that these menus are meant to assist organization administrators in viewing
-and managing permissions, and users without administrative privileges may not
-see anything on these pages.
+## Concepts
+{: .anchor}
+
+### Data types
+{: .anchor}
+
+When we talk about *data access* we often fail to distinguish between types of
+data. That's sometimes ok for plain communication, but a good data control
+system requires precision.
+
+#### Sites, Observations, Forecasts, Aggregates and Reports
+{: .anchor}
+
+Most users will already be familiar with the site, observation, and forecast
+data, but note the metadata is distinct from the time series values:
+
+* Site metadata (e.g. location and capacity)
+* Observation metadata (e.g. interval length)
+* Observation time series values
+* Forecast metadata (e.g lead time to start)
+* Forecast time series values
+* Probabilistic forecast metadata (e.g. percentiles)
+* Probabilistic forecast time series values
+* Aggregate metadata (e.g. constituent observations)
+
+Reports are also comprised of metadata and values:
+
+* Report metadata (e.g. start and end times, metrics selections)
+* Report values (e.g. the metric values)
+
+Aggregates are fully described their metadata. Aggregate values are dynamically
+computed and rely on the permissions associated with their constituent
+observations.
+
+#### Organizations
+{: .anchor}
+
+Organizations are groups of *users*. All data submitted by users within an
+organization belong to that organization. An organization's administrators
+control access to all of the data belonging to the organization.
+
+To create an organization, a company must first sign the Data Use Agreement and
+provide it to the Solar Forecast Arbiter administrators. The Arbiter
+administrators will then create the organization.
+
+#### Users
+{: .anchor}
+
+Users are described by their *user name* and their *organization affiliation*.
+
+Users that are not affiliated with an organization only have the permissions
+necessary the browse the reference data set. They cannot create new metadata or
+upload data. Nor are they allowed to see data shared by other users.
+
+To affiliate a new user with an organization, the user or the organization's
+point of contact must email
+[admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) with the
+request. The Solar Forecast Arbiter administrators will only affiliate a user
+with an organization with the approval of the organization's point of contact.
+
+#### Data About Data Access
+{: .anchor}
+
+The data types that support the access control system are:
+
+* Permissions (e.g. read site Y and site Z metadata)
+* Roles (e.g. share forecasts with utility X)
+
+We'll save a detailed discussion of these types for the next section, but we
+include them here to emphasize that they are also a type of data and thus they
+are governed by the data access control system.
+
+
+### Role Based Access Control
+{: .anchor}
+
+Sharing data in the Solar Forecast Arbiter generally requires:
+
+1. Creating *permissions* for reading or modifying data.
+2. Grouping those permissions into *roles*.
+3. Granting those roles to one or more user names.
+
+This pattern is known as [Role Based Access Control](https://www.google.com/search?q=role+based+access+control).
+
+### Permissions
+{: .anchor}
+
+Permissions allow a user to perform an action on a piece of data or pieces of
+similar objects in the framework. For instance, a permission may allow a user to
+view the metadata of a single observation. Another permission may allow a user to post values to all forecasts. Permissions
+are added to roles to enable users with that role to perform the permission's
+action. A permission can only allow actions on data owned by the organization in
+which it was created.
+
+The [Permissions Reference Table](#Permissions-Reference-Table) describes the
+full set of permissions.
+
+### Roles
+{: .anchor}
+
+Roles are a collection of *permissions* that may be granted to a user. Best
+practice is to only grant users the permissions necessary to perform their job
+function. For instance, an organization administrator's roles will have
+permissions to create new roles and permissions, while a non-administrative
+user's roles may only have permission to view and write data to the
+organization's forecasts.
+
+Roles may also be created to share data with users outside of the organization.
+For instance, a utility make create a role "Share with forecasters" that
+includes permissions for reading site metadata, observation metadata, and observation values.
+
+#### Default Roles
+{: .anchor}
+
+When a new organization is created, a set of default roles will be created for
+the organization. These roles are intended for use within the organization as
+they permit actions on all existing and future data in an organization.
+Administrators are encouraged to create new roles with permissions tailored to a
+specific user or group of users. When sharing data with users outside their
+organization, organization administrators are *strongly encouraged* to create
+roles with specific permissions that apply to only the data they would like to
+share.
+
+The default roles are:
+
+* ***View all data and metadata:** Access all of the metadata and
+  values in the organization. This includes observations, forecasts,
+  probabilistic forecasts, sites, aggregates, and reports.
+* ***Write all values:** Allows a user to submit data within the
+  organization e.g. adding measurements to an
+  observation.
+* ***Create metadata:** Allows a user to create new sites, observations,
+  forecasts, probabilistic forecasts, reports, and aggregates.
+* ***Delete data and metadata:** Allows a user to delete sites,
+  observations, forecasts, probabilistic forecasts as well as any
+  associated values.
+* ***Administer data access controls:** Granted to organization
+    administrators, this role allows:
+
+  * *Create and delete new roles and permissions.
+  * *Add and remove permissions from roles.
+  * *Add or remove data objects from a permission.
+  * *Grant and revoke roles on a user.
+
+### Granting Roles
+{: .anchor}
+
+  All administrative permissions other than read access, i.e.
+create, update, grant, revoke or delete on users, roles, or permissions, are
+restricted to users in the same organization. For example,
+attempts to grant a role with permission to *update users* to a member of
+another organization or to add the *update users* permission to a role that
+has been granted outside the organization will not be allowed.
 
 ## Data Access Components
 {: .anchor}
 
-Organization administrators will use the Solar Forecast Arbiter's data
+Organization administrators may use the Solar Forecast Arbiter's data
 access controls to grant users access to their data or to allow users to
-submit data on their organization's behalf. The Solar Forecast Arbiter uses a
-Role Based Access Control System to control access to data. There are four main
+submit data on their organization's behalf. There are four main
 components in the access control system:
 
-### Organizations
-{: .anchor}
 
-  Organizations are groups of *users*. All data submitted by users
-  within an organization will belong to that organization. An
-  organization's administrators will control access to all
-  of the data belonging to the organization.
 
-### Users
-{: .anchor}
-
-  Framework user accounts determine what actions an end user can
-  perform within the framework. A user is granted access to data through
-  the *roles* they are assigned.
-
-#### User Classifications
+### User Classifications
 {: .anchor}
 
 Users of the Solar Forecast Arbiter are described by one or more of the
 following classifications.
 
-##### Organization Point of Contact
-{: .anchor}
-
-An organization's point of contact is a representative of the organization who
-is authorized to approve or request changes to the organization. There may be
-more than one point of contact for an organization.
-
-A point of contact may coordinate with framework administrators to:
-
-- Add and remove users from the organization.
-
-- Promote users to [organization administrators](#organization-administrators).
-
-- Coordinate organization participation in a forecast trial.
-
 ##### Organization Administrators
 {: .anchor}
 
-Organization Administrators are users with special permission to manage [users](/documentation/dashboard/administration/#users), [roles](/documentation/dashboard/administration/#roles)
-and [permissions](/documentation/dashboard/administration/#permissions). Organization administrators are
-also granted full access to their organization's data. An organization's point
-of contact may request that users in their organization be promoted to an
-organization administrator by emailing a request to
+Organization Administrators are users with roles that allow them to manage
+[users](/documentation/dashboard/administration/#users),
+[roles](/documentation/dashboard/administration/#roles) and
+[permissions](/documentation/dashboard/administration/#permissions).
+Organization administrators are also granted read and write access to all of
+their organization's data. Administrators may
+[grant](/documentation/dashboard/administration#granting-roles-to-a-user) and
+[revoke](/documentation/dashboard/administration#revoking-roles-from-a-user)
+roles from users in their organization. They may also add or remove permissions
+from roles.
+
+Administrators may grant roles to members of other organizations. The Solar
+Forecast Arbiter will reject any attempt to grant roles to users that are not
+affiliated with an organization (i.e. their employer has not signed the
+platform Data Use Agreement).
+
+An organization's point of contact may request that users in their organization
+be promoted to an organization administrator by emailing a request to
 [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
-
-Administrators may [grant](/documentation/dashboard/administration#granting-roles-to-a-user)
-and [revoke](/documentation/dashboard/administration#revoking-roles-from-a-user)
-roles from users in their organization and add or remove permissions from
-roles. Roles may be granted to members of other organizations provided their
-organization has aggreed to the Data Use Aggreement.
-
-All administrative permissions other than read access, e.g. those allowing
-create, update, grant, revoke or delete on users, roles or permissions, are
-restricted to sharing with users in the same organization. For example,
-attempts to grant a role with permission to *update users* to a member of
-another organization or to add the *update users* permission to a role that
-has been granted outside the organization will not be allowed.
-
 
 #### Standard User
 {: .anchor}
@@ -104,68 +231,20 @@ to add a user to their organization. Users new to an organization have no
 access to the organization's data until an [organization administrator](#organization-administrators)
 grants them access.
 
-### Roles
+##### Organization Point of Contact
 {: .anchor}
 
-  Roles are a collection of *permissions* that may be granted to a
-  user. Best practice is to only grant users the permissions necessary to
-  perform their job function. For instance, an organization administrator's
-  roles will have permissions to create new roles and permissions, while a
-  non-administrative user's roles may only have permission to view and write
-  data to the organization's forecasts. Roles may also be created to share
-  data with users outside of the organization.
+An organization's point of contact is a representative of the organization who
+is authorized to approve or request changes to the organization. There may be
+more than one point of contact for an organization.
 
-### Permissions
-{: .anchor}
+A point of contact may coordinate with framework administrators to:
 
-  Permissions allow a user to perform an action on a piece of data or
-  pieces of similar objects in the framework. For instance, a permission
-  may allow a user to view the metadata of an observation or post values
-  to all forecasts. Permissions are added to roles to enable users with
-  that role to perform the permission's action. A permission can only
-  allow actions on data owned by the organization in which it
-  was created.
-
-## Default Roles
-{: .anchor}
-
-When a new organization is created, a set of default roles will be
-created for the organization. These roles are intended for use within the
-organization as they permit actions on all existing and future data in an
-organization. Administrators are encouraged to create new roles with
-permissions tailored to a specific user or group of users. When sharing data
-with users outside their organization, organization administrators are *strongly encouraged*
-to create roles with specific permissions that apply to only the data they
-would like to share.
+* Add and remove users from the organization.
+* Promote users to [organization administrators](#organization-administrators).
+* Coordinate organization participation in a forecast trial.
 
 
-The default roles are described below:
-
--   **View all data and metadata:** Access all of the metadata and
-    values in the organization. This includes observations, forecasts,
-    probabilistic forecasts, sites, aggregates, and reports.
-
--   **Write all values:** Allows a user to submit data within the
-    organization e.g. adding measurements to an
-    observation.
-
--   **Create metadata:** Allows a user to create new sites, observations,
-    forecasts, probabilistic forecasts, reports, and aggregates.
-
--   **Delete data and metadata:** Allows a user to delete sites,
-    observations, forecasts, probabilistic forecasts as well as any
-    associated values.
-
--   **Administer data access controls:** Granted to organization
-    administrators, this role allows:
-
-    -   Create and delete new roles and permissions.
-
-    -   Add and remove permissions from roles.
-
-    -   Add or remove data objects from a permission.
-
-    -   Grant and revoke roles on a user.
 
 
 ## Managing Users
@@ -313,8 +392,7 @@ currently shared with a user outside the organization.
     the permission is removed from a role.
 
 
-Permissions Reference Table
----------------------------
+# Permissions Reference Table
 {: .anchor}
 
 This table gives a brief description of the effect of each type of permission
