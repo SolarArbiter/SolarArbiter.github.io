@@ -231,4 +231,9 @@ img{
     display: block;
     overflow-x: scroll;
     max-width: 100%;
+    font-size: 80%;
 }
+.table.perm-table td{
+    min-width: 150px;
+}
+
