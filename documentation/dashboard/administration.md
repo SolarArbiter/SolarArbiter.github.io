@@ -323,10 +323,11 @@ may be necessary to perform a particular action.
 
 |Data Type|create<sup><b>6</b></sup>|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
 |---------|------|----|------|------|-----------|------------|-------------|-----|------|
-|observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
-|forecasts|create new|read metadata|n/a|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
-|cdf_forecasts|create new <sup><b>2</b></sup>|read metadata|add a constant value to a cdf_forecast|delete metadata and values|read timeseries values of each bin |add tiemseries values to bins|n/a|n/a|n/a|
-|aggregates|create new <sup><b>3</b></sup>|read metadata|add/remove observation from aggregate <sup><b>4</b></sup>|delete metadata and values|read timeseries values <sup><b>5</b></sup> |n/a|n/a|n/a|n/a|
+|observations|create new|read metadata|update name, uncertainty, and extra parameters|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
+|forecasts|create new|read metadata|update name and extra parameters|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
+|cdf_forecasts|create new <sup><b>2</b></sup>|read metadata|update name and extra parameters|delete metadata and values|read timeseries values of each bin |add timeseries values to bins|n/a|n/a|n/a|
+|aggregates|create new <sup><b>3</b></sup>|read metadata|update name, description, timezone, extra parameters and add or remove observation from aggregate <sup><b>4</b></sup>|delete metadata and values|read timeseries values <sup><b>5</b></sup> |n/a|n/a|n/a|n/a|
+|sites|create new|read metadata|update all metadata|delete metadata<sub><b>7</b></sub>|n/a|n/a|n/a|n/a|n/a|
 |reports|create new|read metadata|set report status, store report metrics and raw_report|delete metadata and values|read processed values of report|store or update processed report values|n/a|n/a|n/a|
 |users|create new|read metadata|n/a|delete metadata|n/a|n/a|n/a|n/a|n/a|
 |roles|create new|read metadata|add and remove permissions from role|delete metadata|n/a|n/a|n/a|add role to user|remove role from user|
@@ -355,3 +356,6 @@ may be necessary to perform a particular action.
    organization. User's that are granted `create` permissions outside their
    organization will not be allowed to create new metadata, they will require
    `create` permissions from their own organization.
+
+7. All of a site's forecasts and observations must be deleted before the site
+   can be deleted.
