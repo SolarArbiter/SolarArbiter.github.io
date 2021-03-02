@@ -399,37 +399,41 @@ This table gives a brief description of the effect of each type of permission
 on each data type. In certain circumstances, a combination of permissions
 may be necessary to perform a particular action.
 
-|Data Type|create<sup><b>6</b></sup>|read|update|delete<sup><b>1</b></sup>|read_values|write_values|delete_values|grant|revoke|
+|Data Type|create<sup><b>1</b></sup>|read|update|delete<sup><b>2</b></sup>|read_values|write_values|delete_values|grant|revoke|
 |---------|------|----|------|------|-----------|------------|-------------|-----|------|
-|observations|create new|read metadata|n/a|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
-|forecasts|create new|read metadata|n/a|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
-|cdf_forecasts|create new <sup><b>2</b></sup>|read metadata|add a constant value to a cdf_forecast|delete metadata and values|read timeseries values of each bin |add tiemseries values to bins|n/a|n/a|n/a|
-|aggregates|create new <sup><b>3</b></sup>|read metadata|add/remove observation from aggregate <sup><b>4</b></sup>|delete metadata and values|read timeseries values <sup><b>5</b></sup> |n/a|n/a|n/a|n/a|
+|sites|create new|read metadata|update all metadata|delete metadata<sup><b>3</b></sup>|n/a|n/a|n/a|n/a|n/a|
+|observations|create new|read metadata|update name, uncertainty, and extra parameters|delete metadata and values|read timeseries values and quality flags|add timeseries values to observation|n/a|n/a|n/a|
+|forecasts|create new|read metadata|update name and extra parameters|delete metadata and values|read timeseries values|add timeseries values to forecast|n/a|n/a|n/a|
+|cdf_forecasts|create new <sup><b>4</b></sup>|read metadata|update name and extra parameters|delete metadata and values|read timeseries values of each bin |add timeseries values to bins|n/a|n/a|n/a|
+|aggregates|create new <sup><b>5</b></sup>|read metadata|update name, description, timezone, extra parameters and add or remove observation from aggregate <sup><b>6</b></sup>|delete metadata and values|read timeseries values <sup><b>7</b></sup> |n/a|n/a|n/a|n/a|
 |reports|create new|read metadata|set report status, store report metrics and raw_report|delete metadata and values|read processed values of report|store or update processed report values|n/a|n/a|n/a|
 |users|create new|read metadata|n/a|delete metadata|n/a|n/a|n/a|n/a|n/a|
 |roles|create new|read metadata|add and remove permissions from role|delete metadata|n/a|n/a|n/a|add role to user|remove role from user|
 |permissions|create new|read metadata|add and remove objects from permissions|delete metadata|n/a|n/a|n/a|n/a|n/a|
 {: .table .perm-table}
 
-1. Deleting any data type will remove that object from all permissions
-   that affect it.
-
-2. The creation of a probabilistic forecast (cdf_forecast) requires
-   both the `create` and `update` permission.
-
-3. The creation of an aggregate requires the `create` permission to
-   create an empty aggregate, and the `update permission` to add the observations that
-   make up the aggregate.
-
-4. Adding an observation to an aggregate requires that the user has
-   `read` permissions on that observation.
-
-5. Reading a the full values of an aggregate requires `read_values`
-   permissions on all of it's constituent observations. A partial aggregate value will
-   be returned to users.
-
-6. Create permissions are only effective within the organization that they are
+1. Create permissions are only effective within the organization that they are
    created. When users create metadata, the metadata is owned by that user's
    organization. User's that are granted `create` permissions outside their
    organization will not be allowed to create new metadata, they will require
    `create` permissions from their own organization.
+
+2. Deleting any data type will remove that object from all permissions
+   that affect it.
+
+3. All of a site's forecasts and observations must be deleted before the site
+   can be deleted.
+
+4. The creation of a probabilistic forecast (cdf_forecast) requires
+   both the `create` and `update` permission.
+
+5. The creation of an aggregate requires the `create` permission to
+   create an empty aggregate, and the `update permission` to add the observations that
+   make up the aggregate.
+
+6. Adding an observation to an aggregate requires that the user has
+   `read` permissions on that observation.
+
+7. Reading the full values of an aggregate requires `read_values` permissions
+   on all of it's constituent observations. A partial aggregate value will
+   be returned to users.
