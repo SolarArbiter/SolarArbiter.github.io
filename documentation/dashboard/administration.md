@@ -33,26 +33,28 @@ system requires precision.
 ### Sites, Observations, Forecasts, Aggregates and Reports
 {: .anchor}
 
-Most users will already be familiar with the site, observation, and forecast
-data, but note the metadata is distinct from the time series values:
+Data access on a site only controls access to the site metadata (e.g. location,
+plant capacity). It does not control access to any observations, forecasts, or
+reports associated with that site.
 
-* Site metadata (e.g. location and capacity)
+Most users will already be familiar with observations and forecasts but note the
+data access on metadata is distinct from access on the time series values:
+
 * Observation metadata (e.g. interval length)
 * Observation time series values
 * Forecast metadata (e.g lead time to start)
 * Forecast time series values
 * Probabilistic forecast metadata (e.g. fixed percentiles)
 * Probabilistic forecast time series values
-* Aggregate metadata (e.g. constituent observations)
 
 Reports are also comprised of metadata and values:
 
 * Report metadata (e.g. start and end times, metrics selections)
 * Report values (e.g. the metric values)
 
-Aggregates are fully described their metadata. Aggregate values are dynamically
-computed and rely on the permissions associated with their constituent
-observations.
+Aggregate values are dynamically computed and rely on access to the values of
+constituent observations. Metadata about the make up of an aggregate relies on
+access to the metadata constituent observations and their associated sites.
 
 ### Organizations
 {: .anchor}
@@ -94,12 +96,19 @@ sections discuss [permissions](#permissions) and [roles](#roles) in more detail.
 ### Permissions
 {: .anchor}
 
-Permissions allow a user to perform an action on a piece of data or pieces of
-similar objects in the framework. For instance, a permission may allow a user to
-view the metadata of a single observation. Another permission may allow a user
-to post values to all forecasts. Permissions are added to roles to enable users
-with that role to perform the permission's action. A permission can only allow
-actions on data owned by the organization in which it was created.
+Permissions allow a user to perform a single action on one or more pieces of
+similar data within an organization. For instance, a permission may allow a user
+to view the metadata of two observations. Another permission may allow a user to
+view the time series data of those observations.
+
+Permissions may also apply to all current and future pieces of similar data
+within an organization. For instance, a permission may allow a user to post
+values to all of an organization's forecasts. If the organization defines a new
+forecast, it will automatically be included in this permission.
+
+Permissions are added to roles to enable users with that role to perform the
+permission's action. A permission can only allow actions on data owned by the
+organization in which it was created.
 
 The [Permissions Reference Table](#Permissions-Reference-Table) describes the
 full set of permissions.
@@ -193,11 +202,11 @@ permissions associated with it. Use the tabs below the metadata section to
 switch between the list of permissions on the role and a list of users the role
 has been granted to.
 
-    *Role permissions listing*
-    <img class="my-3" src="/images/role.png"/>
+*Role permissions listing*
+<img class="my-3" src="/images/role.png"/>
 
-    *Role users listing*
-    <img class="my-3" src="/images/role_users.png"/>
+*Role users listing*
+<img class="my-3" src="/images/role_users.png"/>
 
 ### Grant and Revoke Roles
 {: .anchor}
@@ -219,10 +228,12 @@ interfaces.
 Roles can be any granted to any user, including those outside your organization,
 through the role administration interface.
 
-1. Navigate to the Role you would like to grant to a user. Click the
-   *Grant Role* button.
+1. Navigate to the User for which you would like to grant permissions and
+   click the *Add Roles* button.
 
-2. Enter the email of the user to grant the role to and click submit.
+2. This page will list each role that is not already granted to the user.
+   Check the box for each role to add to the user and submit the form. You
+   will be returned to the user's page.
 
 ##### Users within your organization
 {: .anchor}
@@ -230,12 +241,10 @@ through the role administration interface.
 Roles may be granted to users within your organization through the user
 administration interface.
 
-1. Navigate to the User for which you would like to grant permissions and
-   click the *Add Roles* button.
+1. Navigate to the Role you would like to grant to a user. Click the
+   *Grant Role* button.
 
-2. This page will list each role that is not already granted to the user.
-   Check the box for each role to add to the user and submit the form. You
-   will be returned to the user's page.
+2. Enter the email of the user to grant the role to and click submit.
 
 #### Revoke Roles from a User
 {: .anchor}
@@ -322,7 +331,7 @@ An organization's point of contact may request that users in their organization
 be promoted to an organization administrator by emailing a request to
 [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org).
 
-### Standard User
+### Standard Users
 {: .anchor}
 
 Solar Forecast Arbiter users are added to the *Unaffiliated* organization by
@@ -399,12 +408,50 @@ been granted.
 ## Examples
 {: .anchor}
 
-Intro.
+The following examples illustrate how to apply the Solar Forecast
+Arbiter's role based access control to common situations. Modify them to suit
+you specific application.
 
 ### Set up a new organization
 {: .anchor}
 
-Analyst Alice wants to use the Solar Forecast Arbiter.
+Analyst Alice at Utility X wants to use the Solar Forecast Arbiter. She
+creates an individual user account and browses the reference sites, forecasts,
+and reports. Now she wants to upload data and analyze her own forecasts. To do
+this she'll need someone from her organization to sign the Data Use Agreement
+that protects the data rights of her organization and limits the liability of
+the Arbiter operator, the University of Arizona.
+
+Alice downloads the [Data Use
+Agreement](/assets/45864%20Approved_Final%20version%201.1.pdf) and provides it to
+her legal team. Alice reminds her legal team that the DUA is not negotiable, but
+dozens of well-known entities have signed the agreement.
+
+The legal team signs the agreement and Alice emails it to [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org). The Arbiter administrators ask Alice:
+
+* What should the name of the organization be? Users will see this name next to
+  any data shared by the company.
+* Who will be the organization [point of
+  contact](#organization-point-of-contact)? This person will approve all changes
+  to the list of users associated with the organization and will be contacted
+  should any issue arise.
+* Which users should be [organization administrators](#organization-administrators)?
+* Which users should be [standard users](#standard-users)?
+
+Alice responds that name of name of the organization will be *Utility X*, she
+will be the point of contact, both she and bob@utilityx.com will be
+administrators, and finally carol@utilityx.com will be a standard user.
+
+The Arbiter administrators set up the organization as requested and inform Alice
+that they're all set to use the Arbiter for their own analyses.
+
+
+### The analyst and the observer
+{: .anchor}
+
+Analyst needs to be able to upload data, create reports, etc.
+
+Observer only needs to be able to review data and reports.
 
 ### Share site metadata
 {: .anchor}
@@ -419,6 +466,11 @@ Forecast Provider A would like to demonstrate their skill to Forecast User X. A
 good way to demonstrate skill is to compare their forecast to the Solar Forecast
 Arbiter's reference forecasts at a site within the service territory of Forecast
 User X.
+
+### Share an aggregate
+{: .anchor}
+
+Forecast User X. Only share the aggregate - not the constituent values.
 
 ## Permissions Reference Table
 {: .anchor}
