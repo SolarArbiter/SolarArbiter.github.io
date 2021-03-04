@@ -440,18 +440,56 @@ The legal team signs the agreement and Alice emails it to [admin@solarforecastar
 
 Alice responds that name of name of the organization will be *Utility X*, she
 will be the point of contact, both she and bob@utilityx.com will be
-administrators, and finally carol@utilityx.com will be a standard user.
+administrators, and finally carol@utilityx.com will be a standard user. They also
+might want to add additional administrators and standard users at a later date.
 
 The Arbiter administrators set up the organization as requested and inform Alice
-that they're all set to use the Arbiter for their own analyses.
+that they're all set to use the Arbiter for their own analyses and it's no
+problem to add additional users at a later date.
+
+Alice logs into the Arbiter and now sees buttons for creating new sites,
+observations, forecasts, aggregates, and reports.
 
 
-### The analyst and the observer
+### Roles within an organization
 {: .anchor}
 
-Analyst needs to be able to upload data, create reports, etc.
+Alice is an administrator of the Utility X organization within the Solar Forecast Arbiter. She needs to set up data access for a couple of her team members:
 
-Observer only needs to be able to review data and reports.
+* Carol needs to upload data, create reports, etc.
+* Marco needs to review data and reports, but does not need an ability to upload data.
+
+These permissions will apply to all current and future data within the
+organization, so Alice can use the Arbiter's preconfigured roles.
+
+1. Alice navigates to the [user administration
+   page](https://dashboard.solarforecastarbiter.org/admin/) by clicking on the
+   "Account" button in the upper-right corner of any Dashboard page.
+2. From the user administration page, she clicks on the [users
+   page](https://dashboard.solarforecastarbiter.org/admin/users/).
+   <img class="my-3" src="/images/user-permission-admin-home.png"/>
+3. First Alice sets up the roles for Carol. From the list of users, she clicks
+   the link for carol@utilityx.com.
+   <img class="my-3" src="/images/utility-x-users.png"/>
+4. The page shows all of the roles currently granted to carol@utilityx.com.
+   By default, the only role granted to a standard user is a role that allows
+   a user to inspect their own metadata. Alice clicks the "Add Roles" button.
+   <img class="my-3" src="/images/carol-no-roles.png"/>
+5. From the list of roles, Alice selects *Read all, write all values, create
+   metadata, delete metadata, update all*. She may need to scroll through the
+   list of roles to find them.
+   <img class="my-3" src="/images/carol-adding-roles.png"/>
+6. Alice clicks the "Submit" button and is redirected to the
+   administrator's page for carol@utilityx.com. Alice confirms that the list of
+   roles granted to Carol includes the desired roles.
+   <img class="my-3" src="/images/carol-with-roles.png"/>
+7. Now Alice sets up the roles for Marco. She clicks on the [users
+   page](https://dashboard.solarforecastarbiter.org/admin/users/) once again.
+8. From the list of users, she selects marco@utilityx.com.
+9. From the list of roles, she selects only *Read all, recompute report*.
+
+Carol and Marco now have the intended data access.
+
 
 ### Share site metadata
 {: .anchor}
