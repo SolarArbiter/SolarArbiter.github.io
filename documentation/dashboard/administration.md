@@ -531,7 +531,8 @@ Now Alice is ready to create a new role and add the new permission to it.
 1. From any dashboard administration page, she clicks on the link to the [roles
    page](https://dashboard.solarforecastarbiter.org/admin/roles/).
 2. Once on the roles page, she clicks the "Create new Role" button.
-3. Alice gives the new role a name and an optional description.
+3. Alice gives the new role a name and an optional description and clicks
+   Submit.
    <img class="my-3" src="/images/plant-a-b-metadata-role.png"/>
 4. Alice now sees the administration page for her new role. She notes that it
    contains a default permission that gives her the ability to view the role.
@@ -575,10 +576,128 @@ role or she'll need to create new roles and grant them to the providers.
 ### Share a forecast and report
 {: .anchor}
 
-Forecast Provider A would like to demonstrate their skill to Forecast User X. A
-good way to demonstrate skill is to compare their forecast to the Solar Forecast
-Arbiter's reference forecasts at a site within the service territory of Forecast
-User X.
+Vera at Forecaster Alpha thinks that Alice at Utility X could benefit from their
+forecasts. A good way to demonstrate skill is to compare a proprietary or test
+forecast to the Solar Forecast Arbiter's reference forecasts. The Solar Forecast
+Arbiter provides reference forecasts for [sites all across the
+country](https://solarforecastarbiter.org/referencedata/), so it's likely that
+Vera can find a reasonable reference forecast within the service territory of
+Utility X. The Solar Forecast Arbiter also classifies sites into [climate
+zones](https://solarforecastarbiter.org/climatezones/), so Vera could instead
+select a site in the same climate zone as Utility X. The step by step
+instructions are:
+
+#### Create forecast and report
+{: .anchor}
+
+First Vera needs to create a forecast and a report to share.
+
+1. Vera navigates to Solar Forecast Arbiter's [reference data
+   map](https://solarforecastarbiter.org/referencedata/) and [climate zone
+   map](https://solarforecastarbiter.org/climatezones/). Vera wishes the Arbiter
+   developers had integrated both of these maps into the Dashboard, but also
+   understands that the developers had to make hard choices about what to
+   prioritize.
+2. Vera decides to use the [NOAA SURFRAD Table Mountain
+   site](https://dashboard.solarforecastarbiter.org/sites/9dfa7910-7e49-11e9-b4e8-0a580a8003e9/).
+   She reviews the reference forecasts available under the site's [forecast
+   menu](https://dashboard.solarforecastarbiter.org/forecasts/single/?site_id=9dfa7910-7e49-11e9-b4e8-0a580a8003e9)
+   and in the nightly updated
+   [reports](https://dashboard.solarforecastarbiter.org/reports/).
+3. From the site page, Vera clicks the "Create new Forecast" button. She chooses
+   parameters that will make her forecast reasonably consistent with one of the
+   reference forecasts, names it "Alpha Day Ahead" and clicks submit. This forecast is only viewable by her
+   (and perhaps others within the Forecast Alpha organization). It is *not*
+   viewable by any other users even though it was created at a public reference
+   site.
+4. Vera uploads time series data to forecast. Again, the data is only viewable
+   by her.
+5. Vera creates a new report, "Alpha Day Ahead vs. Reference", selecting her
+   forecast and selecting the Arbiter's forecast as a reference forecast. She
+   also double checks that the skill metric is selected.
+
+#### Create permissions
+{: .anchor}
+
+Now that she has a report to share, Vera is ready to set up the role based
+access control for Alice at Utility X. Vera knows that she wants to share the
+forecast metadata and the metrics. She's not yet ready to share the time series
+data, but thinks she'll do that soon. So, she'll go ahead and set up read
+permissions for the forecast metadata, the forecast values, the report, and the
+report values.
+
+1. Vera navigates to the [user administration
+   page](https://dashboard.solarforecastarbiter.org/admin/) by clicking on the
+   "Account" button in the upper-right corner of any Dashboard page.
+2. From the user administration page, she clicks on the [permissions
+   page](https://dashboard.solarforecastarbiter.org/admin/permissions/).
+3. First she creates the permission to read the forecast metadata.
+   1. She clicks the "Forecasts" button within the "Create a New Permission" box.
+   2. She provides a description of the permission, "Utility X Read Forecasts",
+      selects the "Read" action, and selects the "Alpha Day Ahead" forecast she
+      previously created, and clicks submit.
+4. Next she creates the permission to read the forecast values.
+   1. She clicks the "Forecasts" button within the "Create a New Permission" box.
+   2. She provides a description of the permission, "Utility X Read Forecast
+      Values", selects the "Read Values" action, and selects the "Alpha Day Ahead"
+      forecast she previously created, and clicks submit.
+5. Finally, she creates the permissions to read the report.
+   1. She clicks the "Report" button within the "Create a New Permission" box.
+   2. She provides a description of the permission, "Utility X Read Report",
+      selects the "Read" action, and selects the "Alpha Day Ahead vs. Reference"
+      report she previously created, and clicks submit. This will give a user
+      the ability to read the report metadata, such as start, end, and metric
+      types.
+   3. She repeats the process for the "Read Values" permission on the report.
+      This will give a user the ability to read the report results, most
+      importantly the metric values. It will *not* give the ability to read the
+      time series values of a forecast or observation.
+
+#### Create role
+{: .anchor}
+
+It's now time for Vera to collect the new permissions into a role.
+
+1. From any dashboard administration page, she clicks on the link to the [roles
+   page](https://dashboard.solarforecastarbiter.org/admin/roles/).
+2. Once on the roles page, she clicks the "Create new Role" button.
+3. Vera gives the role a name, "Utility X", an optional description, and clicks
+   Submit.
+4. Vera clicks the "Add Permissions" button.
+5. Vera selects the "Utility X Read Forecasts", "Utility X Read Report", and
+   "Utility X Read Report Values" permissions. She does *not* select the
+   "Utility X Read Forecast Values" permission.
+
+#### Grant role
+{: .anchor}
+
+Vera can now grant the role to Alice so that she can review the report.
+
+1. From the administration page for the "Utility X" role, Vera clicks the "Grant
+   Role" button.
+2. Vera enters Alice's email address and clicks "Grant Role".
+
+Alice can now review the report, but the report will not contain the time series
+values. Alice can also find a link to the forecast metadata by navigating to the
+list of forecasts at the Table Mountain site.
+
+#### Modify role
+{: .anchor}
+
+Alice is intrigued by the forecast performance and wants to see the time series
+values to get a better understanding of the forecast. Utility X and Forecaster Alpha work out their own non-disclosure agreement independenly of the Solar
+Forecast Arbiter. Vera can now share the time series data with Alice.
+
+1. Vera navigates to the [roles administration
+   page](https://dashboard.solarforecastarbiter.org/admin/roles/) and clicks on
+   the "Utility X" role.
+2. Vera clicks the "Add Permissions" button.
+3. Vera selects the "Utility X Read Forecast Values" permission that she
+   previously created and clicks Submit.
+
+Alice can now see the forecast values in the report. She can also view or
+download the forecast values from the forecast page associated with the Table
+Mountain site.
 
 ## Permissions Reference Table
 {: .anchor}
