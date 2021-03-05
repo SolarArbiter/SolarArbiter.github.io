@@ -517,7 +517,7 @@ steps below illustrate this process.
    apply to. She selects Power Plant A and Power Plant B, but chooses not to
    include Power Plant C at this time (she can add it to this permission when
    she's ready to share its metadata). Finally, she clicks the Submit button.
-   <img class="my-3" src="/images/"/>
+   <img class="my-3" src="/images/read-plant-a-b-permission-create.png"/>
 5. Alice reviews the new permission and notes the button for adding another
    object to it will be useful when it comes time to share metadata for Power
    Plant C.
@@ -598,6 +598,7 @@ First Vera needs to create a forecast and a report to share.
    developers had integrated both of these maps into the Dashboard, but also
    understands that the developers had to make hard choices about what to
    prioritize.
+   <img class="my-3" src="/images/reference-data-map-tbl-mountain.png"/>
 2. Vera decides to use the [NOAA SURFRAD Table Mountain
    site](https://dashboard.solarforecastarbiter.org/sites/9dfa7910-7e49-11e9-b4e8-0a580a8003e9/).
    She reviews the reference forecasts available under the site's [forecast
@@ -606,10 +607,10 @@ First Vera needs to create a forecast and a report to share.
    [reports](https://dashboard.solarforecastarbiter.org/reports/).
 3. From the site page, Vera clicks the "Create new Forecast" button. She chooses
    parameters that will make her forecast reasonably consistent with one of the
-   reference forecasts, names it "Alpha Day Ahead" and clicks submit. This forecast is only viewable by her
-   (and perhaps others within the Forecast Alpha organization). It is *not*
-   viewable by any other users even though it was created at a public reference
-   site.
+   reference forecasts, names it "Alpha Day Ahead" and clicks submit. This
+   forecast is only viewable by her (and perhaps others within the Forecast
+   Alpha organization). It is *not* viewable by any other users even though it
+   was created at a public reference site.
 4. Vera uploads time series data to forecast. Again, the data is only viewable
    by her.
 5. Vera creates a new report, "Alpha Day Ahead vs. Reference", selecting her
