@@ -490,12 +490,87 @@ organization, so Alice can use the Arbiter's preconfigured roles.
 
 Carol and Marco now have the intended data access.
 
-
 ### Share site metadata
 {: .anchor}
 
-Forecast User X would like to solicit forecasts from vendors at several power
-plants.
+Alice at Utility X would like to find vendors to provide forecasts for several
+solar power plants. She doesn't yet want to share data - just the metadata.
+
+To share the site metadata, she'll need to create a role with read permissions
+for the sites, then grant that role to the interested forecast providers. The
+steps below illustrate this process.
+
+#### Create the permission
+{: .anchor}
+
+1. Alice navigates to the [user administration
+   page](https://dashboard.solarforecastarbiter.org/admin/) by clicking on the
+   "Account" button in the upper-right corner of any Dashboard page.
+2. From the user administration page, she clicks on the [permissions
+   page](https://dashboard.solarforecastarbiter.org/admin/permissions/).
+3. Alice sees a list of many permissions that are presupplied to administrators.
+   At the top of the page she sees the "Create a New Permission" box with
+   buttons for each data type. She clicks the "Sites" button.
+   <img class="my-3" src="/images/permissions-list.png"/>
+4. To create a new permission, Alice provides a description, selects the action
+   this permission will allow, and then selects the sites the permission will
+   apply to. She selects Power Plant A and Power Plant B, but chooses not to
+   include Power Plant C at this time (she can add it to this permission when
+   she's ready to share its metadata). Finally, she clicks the Submit button.
+   <img class="my-3" src="/images/"/>
+5. Alice reviews the new permission and notes the button for adding another
+   object to it will be useful when it comes time to share metadata for Power
+   Plant C.
+   <img class="my-3" src="/images/read-plant-a-b-permission-success.png"/>
+
+#### Create the role
+{: .anchor}
+
+Now Alice is ready to create a new role and add the new permission to it.
+
+1. From any dashboard administration page, she clicks on the link to the [roles
+   page](https://dashboard.solarforecastarbiter.org/admin/roles/).
+2. Once on the roles page, she clicks the "Create new Role" button.
+3. Alice gives the new role a name and an optional description.
+   <img class="my-3" src="/images/plant-a-b-metadata-role.png"/>
+4. Alice now sees the administration page for her new role. She notes that it
+   contains a default permission that gives her the ability to view the role.
+   She clicks the "Add Permissions" button.
+   <img class="my-3" src="/images/plant-a-b-metadata-role-admin-no-permissions.png"/>
+5. Alice searches for the "Read plant A and B" permission that she created a few
+   minutes ago, selects it, and clicks submit.
+
+#### Grant the role
+{: .anchor}
+
+Finally, Alice is ready to grant the role to other users, thus giving them the
+permission to view the Power Plant A and Power Plant B sites.
+
+1. Alice is already on the administration page for the "Plant A and B metadata"
+   role, so she goes ahead and clicks the "Grant Role" button. If she happened
+   to have navigated away in the meantime, she could find it again through the
+   [roles administration page](https://dashboard.solarforecastarbiter.org/admin/roles/).
+2. On the grant roles page, Alice enters the email address for the first user
+   she wants to share the data with and clicks "Grant Role". She repeats this
+   process for any additional forecast providers that she wants to share data
+   with.
+
+The forecast providers can now see these power power plants on the
+[Sites page](https://dashboard.solarforecastarbiter.org/sites/). They'll easily find the new power plants if they click the "Provider" button and deselect the
+Reference data set.
+
+The Solar Forecast Arbiter does not alert users when new roles are granted to
+them, so Alice should let the other users know the data is now available to them.
+
+What would happen if Alice defines a new observation, such as AC power, and
+uploads the time series data? Will the forecast providers be able to see it? No.
+While that could be convenient in some circumstances, it could also pose a data
+security risk in other situations. Alice can define new observations or
+forecasts at these sites, or use them in a report, without any fear of data
+becoming visible to the forecast providers. Only the site metadata will be
+visible to the providers. If Alice wants to share additional metadata and data
+with the forecast providers, she'll need to add new permissions to the existing
+role or she'll need to create new roles and grant them to the providers.
 
 ### Share a forecast and report
 {: .anchor}
@@ -504,11 +579,6 @@ Forecast Provider A would like to demonstrate their skill to Forecast User X. A
 good way to demonstrate skill is to compare their forecast to the Solar Forecast
 Arbiter's reference forecasts at a site within the service territory of Forecast
 User X.
-
-### Share an aggregate
-{: .anchor}
-
-Forecast User X. Only share the aggregate - not the constituent values.
 
 ## Permissions Reference Table
 {: .anchor}
