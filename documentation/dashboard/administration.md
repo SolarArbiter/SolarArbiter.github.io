@@ -410,9 +410,9 @@ been granted.
 
 The following examples illustrate how to apply the Solar Forecast
 Arbiter's role based access control to common situations. Modify them to suit
-you specific application.
+your specific application.
 
-### Set up a new organization
+### Set up a New Organization
 {: .anchor}
 
 Analyst Alice at Utility X wants to use the Solar Forecast Arbiter. She
@@ -451,7 +451,7 @@ Alice logs into the Arbiter and now sees buttons for creating new sites,
 observations, forecasts, aggregates, and reports.
 
 
-### Roles within an organization
+### Roles within an Organization
 {: .anchor}
 
 Alice is an administrator of the Utility X organization within the Solar Forecast Arbiter. She needs to set up data access for a couple of her team members:
@@ -490,7 +490,7 @@ organization, so Alice can use the Arbiter's preconfigured roles.
 
 Carol and Marco now have the intended data access.
 
-### Share site metadata
+### Share Site Metadata
 {: .anchor}
 
 Alice at Utility X would like to find vendors to provide forecasts for several
@@ -500,7 +500,7 @@ To share the site metadata, she'll need to create a role with read permissions
 for the sites, then grant that role to the interested forecast providers. The
 steps below illustrate this process.
 
-#### Create the permission
+#### Create the Permission
 {: .anchor}
 
 1. Alice navigates to the [user administration
@@ -523,7 +523,7 @@ steps below illustrate this process.
    Plant C.
    <img class="my-3" src="/images/read-plant-a-b-permission-success.png"/>
 
-#### Create the role
+#### Create the Role
 {: .anchor}
 
 Now Alice is ready to create a new role and add the new permission to it.
@@ -541,7 +541,7 @@ Now Alice is ready to create a new role and add the new permission to it.
 5. Alice searches for the "Read plant A and B" permission that she created a few
    minutes ago, selects it, and clicks submit.
 
-#### Grant the role
+#### Grant the Role
 {: .anchor}
 
 Finally, Alice is ready to grant the role to other users, thus giving them the
@@ -573,7 +573,7 @@ visible to the providers. If Alice wants to share additional metadata and data
 with the forecast providers, she'll need to add new permissions to the existing
 role or she'll need to create new roles and grant them to the providers.
 
-### Share a forecast and report
+### Share a Forecast and Report
 {: .anchor}
 
 Vera at Forecaster Alpha thinks that Alice at Utility X could benefit from their
@@ -617,7 +617,7 @@ First Vera needs to create a forecast and a report to share.
    forecast and selecting the Arbiter's forecast as a reference forecast. She
    also double checks that the skill metric is selected.
 
-#### Create permissions
+#### Create Permissions
 {: .anchor}
 
 Now that she has a report to share, Vera is ready to set up the role based
@@ -654,7 +654,7 @@ report values.
       importantly the metric values. It will *not* give the ability to read the
       time series values of a forecast or observation.
 
-#### Create role
+#### Create Role
 {: .anchor}
 
 It's now time for Vera to collect the new permissions into a role.
@@ -669,7 +669,7 @@ It's now time for Vera to collect the new permissions into a role.
    "Utility X Read Report Values" permissions. She does *not* select the
    "Utility X Read Forecast Values" permission.
 
-#### Grant role
+#### Grant Role
 {: .anchor}
 
 Vera can now grant the role to Alice so that she can review the report.
@@ -682,7 +682,7 @@ Alice can now review the report, but the report will not contain the time series
 values. Alice can also find a link to the forecast metadata by navigating to the
 list of forecasts at the Table Mountain site.
 
-#### Modify role
+#### Modify Role
 {: .anchor}
 
 Alice is intrigued by the forecast performance and wants to see the time series
