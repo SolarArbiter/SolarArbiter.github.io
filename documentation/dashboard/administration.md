@@ -266,7 +266,7 @@ organization, through the role administration interface.
    role is removed from the user.
 
 ##### Users within your organization
-{: .anchor}
+{: #users-within-your-organization-revoke .anchor}
 
 Roles may be revoked from users within your organization through the user
 administration interface.
