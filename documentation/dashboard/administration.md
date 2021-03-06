@@ -253,7 +253,7 @@ Organization administrators may revoke roles to other users through several
 interfaces.
 
 ##### All Users
-{: .anchor}
+{: #all-users-revoke .anchor}
 
 Roles can be any removed from any user, including those outside your
 organization, through the role administration interface.
