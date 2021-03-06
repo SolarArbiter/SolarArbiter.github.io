@@ -683,7 +683,7 @@ values. Alice can also find a link to the forecast metadata by navigating to the
 list of forecasts at the Table Mountain site.
 
 #### Modify Role
-{: .anchor}
+{: #modify-role-example .anchor}
 
 Alice is intrigued by the forecast performance and wants to see the time series
 values to get a better understanding of the forecast. Utility X and Forecaster Alpha work out their own non-disclosure agreement independenly of the Solar
