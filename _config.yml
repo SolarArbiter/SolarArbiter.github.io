@@ -28,7 +28,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-redirect-from
-paginate: 5
+paginate: 10
 paginate_path: "/blog/page:num/"
 # custom vars
 project_name: Solar Forecast Arbiter

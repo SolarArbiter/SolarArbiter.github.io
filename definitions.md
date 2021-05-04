@@ -5,7 +5,7 @@ sidebar: definition_sidebar.html
 title: Forecast Definitions
 ---
 
-# Definitions  {#definitions}
+# Forecast Definitions  {#definitions}
 {: .anchor}
 
 The precise definition of a *forecast* is often a source of confusion in the forecasting industry. Consider these statements that use the term *forecast*:
