@@ -1,43 +1,8 @@
-- name: Key Topics
-  links:
-  - name: Metrics
-    link: /metrics/
+- name: Dashboard
+  link: https://dashboard.solarforecastarbiter.org
 
-  - name: Data Policies
-    link: /datapolicies/
-
-  - name: Benchmark Forecasts
-    link: /benchmarks/
-
-  - name: Definitions
-    link: /definitions/
-
-  - name: Use Cases
-    link: /usecases/
-
-  - name: Data Model
-    link: /datamodel/
-
-  - name: Reference Data
-    link: /referencedata/
-
-  - name: Climate Zones
-    link: /climatezones/
-
-- name: About
-  links:
-  - name: Team
-    link: /team/
-  - name: Contact
-    link: /contact/
-  - name: Funding
-    link: /funding/
-
-- name: Publications
-  link: /publications/
-
-- name: Stakeholder Committee
-  link: /stakeholdercommittee/
+- name: Documentation
+  link: /documentation/
 
 - name: Email List
   link: /emaillist/
@@ -45,8 +10,47 @@
 - name: Blog
   link: /blog/
 
-- name: Documentation
-  link: /documentation/
+- name: Other Topics
+  links:
 
-- name: Dashboard
-  link: https://dashboard.solarforecastarbiter.org
+  - name: Benchmark Forecasts
+    link: /benchmarks/
+
+  - name: Climate Zones
+    link: /climatezones/
+
+  - name: Data Model
+    link: /datamodel/
+
+  - name: Data Policies
+    link: /datapolicies/
+
+  - name: Forecast Definitions
+    link: /definitions/
+
+  - name: Metrics
+    link: /metrics/
+
+  - name: Reference Data
+    link: /referencedata/
+
+  - name: Stakeholder Committee
+    link: /stakeholdercommittee/
+
+  - name: Use Cases
+    link: /usecases/
+
+- name: About
+  links:
+
+  - name: Team
+    link: /team/
+
+  - name: Contact
+    link: /contact/
+
+  - name: Funding
+    link: /funding/
+
+  - name: Publications
+    link: /publications/
