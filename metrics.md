@@ -265,22 +265,22 @@ Probablistic forecasts represent uncertainty in the forecast quantity by providi
 
 In the metrics below, we adopt the following nomenclature:
 
-- $$ F(t_k) : $$ probability forecast for an event $$ o $$ at each time $$ t_k $$
-- $$ f_i : $$ discrete values that appear in the probability forecast $$ F $$
-- $$ o(t_k) : $$ indicator for event $$ o $$: $$ o(t_k) = 1 $$ if an event occurs at time $$ t_k $$ and $$ o(t_k) = 0 $$ otherwise
-- $$ N_i : $$ the number of times each forecast value $$ f_i $$ appears in the forecast $$ F $$
-- $$ n = \sum_{i=1}^I N_i : $$ number of forecast events
-- $$ p(f_i) = \frac{N_i}{n} : $$ the relative frequency of each forecast value $$ f_i $$ in the forecast $$ F $$
-- $$ \bar{o}_i = p(o_i \| f_i ) = \frac{1}{N_i} \sum_{k \in N_i} o_k : $$ the average of $$ o(t_k) $$ at the $$ N_i $$ times $$ t_k $$ when $$ F(t_k) = f_i $$
-
-- $$ \bar{o} = \frac{1}{n} \sum_{k=1}^n o(t_k) = \frac{1}{n} \sum_{i=1}^I N_i \bar{o}_i : $$ the average of $$ o(t_k) $$ for all times $$ t_k $$
+- $$ F_i(x) : $$ is the cumulative distribution function for a probability forecast of a continuous value $$ x $$ at each time $$ i $$
+- $$ f_i : $$ probability forecast for an event (e.g. $$ x >= x_0 $$) at time $$ i $$
+- $$ o_i : $$ indicator for whether an event occurred at time $$ i $$: $$ o_i = 1 $$ if an event occurs at time $$ i $$ and $$ o_i = 0 $$ otherwise
+- $$ f_k : $$ discrete values that appear in the set of probability forecasts $$ f_i $$
+- $$ N_k : $$ the number of times each forecast value $$ f_k $$ appears in the set of probability forecasts $$ f_i $$
+- $$ n = \sum_{k=1}^I N_k : $$ number of forecast events
+- $$ p(f_k) = \frac{N_k}{n} : $$ the relative frequency of each forecast value $$ f_k $$ in the set of probability forecasts $$ f_i $$
+- $$ \bar{o}_k = p(o = 1 \| f_k ) = \frac{1}{N_k} \sum_{i \in N_i} o_i : $$ the average of $$ o_i $$ at the $$ N_i $$ times $$ i $$ when $$ f_k = f_i $$
+- $$ \bar{o} = \frac{1}{n} \sum_{i=1}^n o_i = \frac{1}{n} \sum_{k=1}^K N_k \bar{o}_k : $$ sample climatology of an event
 
 
 ### Brier Score (BS) {#bs}
 {: .anchor }
 The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
-$$ \text{BS} = \frac{1}{n} \sum_{k=1}^n (f_k - o_k)^2  $$
+$$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
 
 Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to events with more than two outcomes, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) binary events definition. For more info, see Section 7.4.2. of [Wilks11](#ref-wilks11).
 
@@ -295,16 +295,16 @@ where REL is the reliability, RES is the resolution and UNC is the uncertatinty,
 {: .anchor }
 The REL is given by:
 
-$$ \text{REL} = \frac{1}{n} \sum_{i=1}^I N_i (f_i - \bar{o}_i)^2 $$
+$$ \text{REL} = \frac{1}{n} \sum_{k=1}^I N_k (f_k - \bar{o}_k)^2 $$
 
-Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_i $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F(t_k) = f_i $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
+Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_k $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F_i = f_k $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
 
 ### Resolution (RES) {#res}
 {: .anchor }
 The RES is given by:
 
-$$ \text{RES} = \frac{1}{n} \sum_{i=1}^I N_i (\bar{o}_i - \bar{o})^2 $$
+$$ \text{RES} = \frac{1}{n} \sum_{k=1}^I N_k (\bar{o}_k - \bar{o})^2 $$
 
 Resolution is the weighted averaged of the squared differences between the relative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
