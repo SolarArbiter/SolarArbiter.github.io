@@ -263,16 +263,16 @@ where $$ n $$ is the number of samples.
 {: .anchor }
 Probablistic forecasts represent uncertainty in the forecast quantity by providing a probability distribution or a prediction interval, rather than a single value.
 
-In the metrics below, we adopt the following nomenclature:
+In the probabilistic metrics below, we adopt the following nomenclature:
 
-- $$ F_i(x) : $$ is the cumulative distribution function for a probability forecast of a continuous value $$ x $$ at each time $$ i $$
+- $$ F_i(x) : $$ cumulative distribution function of a probability forecast for a continuous value $$ x $$ at each time $$ i $$
 - $$ f_i : $$ probability forecast for an event (e.g. $$ x >= x_0 $$) at time $$ i $$
 - $$ o_i : $$ indicator for whether an event occurred at time $$ i $$: $$ o_i = 1 $$ if an event occurs at time $$ i $$ and $$ o_i = 0 $$ otherwise
 - $$ f_k : $$ discrete values that appear in the set of probability forecasts $$ f_i $$
-- $$ N_k : $$ the number of times each forecast value $$ f_k $$ appears in the set of probability forecasts $$ f_i $$
-- $$ n = \sum_{k=1}^I N_k : $$ number of forecast events
-- $$ p(f_k) = \frac{N_k}{n} : $$ the relative frequency of each forecast value $$ f_k $$ in the set of probability forecasts $$ f_i $$
-- $$ \bar{o}_k = p(o = 1 \| f_k ) = \frac{1}{N_k} \sum_{i \in N_i} o_i : $$ the average of $$ o_i $$ at the $$ N_i $$ times $$ i $$ when $$ f_k = f_i $$
+- $$ N_k : $$ conditional sample size. The number of times each forecast value $$ f_k $$ appears in the set of probability forecasts $$ f_i $$
+- $$ n = \sum_{k=1}^K N_k : $$ number of forecast events
+- $$ p(f_k) = \frac{N_k}{n} : $$ marginal distribution of the forecasts. The frequency of each forecast value $$ f_k $$ in the set of probability forecasts $$ f_i $$
+- $$ \bar{o}_k = p(o = 1 \| f_k ) = \frac{1}{N_k} \sum_{i \in N_k} o_i : $$ the conditional average observation. Average of $$ o_i $$ at the $$ N_k $$ times when $$ f_k = f_i $$
 - $$ \bar{o} = \frac{1}{n} \sum_{i=1}^n o_i = \frac{1}{n} \sum_{k=1}^K N_k \bar{o}_k : $$ sample climatology of an event
 
 
