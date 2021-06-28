@@ -280,7 +280,7 @@ In the metrics below, we adopt the following nomenclature:
 {: .anchor }
 The BS measures the accuracy of forecast probability for one or more events ([Brier50](#ref-brier50)). For events with binary outcomes, BS is defined as:
 
-$$ \text{BS} = \frac{1}{n} \sum_{i=1}^n (f_i - o_i)^2  $$
+$$ \text{BS} = \frac{1}{n} \sum_{k=1}^n (f_k - o_k)^2  $$
 
 Smaller values of BS indicate better agreement between forecasts and observations. Note that while BS can be generalized to events with more than two outcomes, the Solar Forecast Arbiter only includes built-in support for the (more commonly used) binary events definition. For more info, see Section 7.4.2. of [Wilks11](#ref-wilks11).
 
