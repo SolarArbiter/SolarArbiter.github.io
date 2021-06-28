@@ -295,7 +295,7 @@ where REL is the reliability, RES is the resolution and UNC is the uncertatinty,
 {: .anchor }
 The REL is given by:
 
-$$ \text{REL} = \frac{1}{n} \sum_{k=1}^I N_k (f_k - \bar{o}_k)^2 $$
+$$ \text{REL} = \frac{1}{n} \sum_{k=1}^K N_k (f_k - \bar{o}_k)^2 $$
 
 Reliability is the weighted averaged of the squared differences between the forecast probabilities $$ f_k $$ and the relative frequencies of the observed event in the forecast subsample of times where $$ F_i = f_k $$. A forecast is perfectly reliably if $$ \text{REL} = 0 $$. This occurs when the relative event frequency in each subsample is equal to the forecast probability for the subsample.
 
@@ -304,7 +304,7 @@ Reliability is the weighted averaged of the squared differences between the fore
 {: .anchor }
 The RES is given by:
 
-$$ \text{RES} = \frac{1}{n} \sum_{k=1}^I N_k (\bar{o}_k - \bar{o})^2 $$
+$$ \text{RES} = \frac{1}{n} \sum_{k=1}^K N_k (\bar{o}_k - \bar{o})^2 $$
 
 Resolution is the weighted averaged of the squared differences between the relative event frequency for each forecast subsample and the overall event frequency. Resolution measures the forecast's ability to produce subsample forecast periods where the event frequency is different. Higher values of RES are desirable.
 
