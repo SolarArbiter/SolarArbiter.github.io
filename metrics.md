@@ -215,42 +215,42 @@ Based on the predefined threshold, all observations or forecasts can be evaluate
 By then counting the the number of TP, FP, TN and FN values, the following metrics can be computed:
 
 
-### Probability of Detection (POD)
+### Probability of Detection (POD) {#pod}
 {: .anchor }
 The POD is the fraction of observed events correctly forecasted as events:
 
 $$ POD = \frac{TP}{TP + FN} $$
 
 
-### False Alarm Ratio (FAR)
+### False Alarm Ratio (FAR) {#far}
 {: .anchor }
 The FAR is the fraction of forecasted events that did not occur:
 
 $$ FAR = \frac{FP}{TP + FP} $$
 
 
-### Probability of False Detection (POFD)
+### Probability of False Detection (POFD) {#pofd}
 {: .anchor }
 The POFD is the fraction of observed non-events that were forecasted as events:
 
 $$ POFD = \frac{FP}{FP + TN} $$
 
 
-### Critical Success Index (CSI)
+### Critical Success Index (CSI) {#csi}
 {: .anchor }
 The CSI evaluates how well an event forecast predicts observed events, e.g., ramps in irradiance or power. THe CSI is the relative frequency of hits, i.e., how well predicted "yes" events correspond to observed "yes" events:
 
 $$ CSI = \frac{TP}{TP + FP + FN} $$
 
 
-### Event Bias (EBIAS)
+### Event Bias (EBIAS) {#ebias}
 {: .anchor }
 The EBIAS is the ratio of counts of forecast and observed events:
 
 $$ EBIAS = \frac{TP + FP}{TP + FN} $$
 
 
-### Event Accuracy (EA)
+### Event Accuracy (EA) {#ea}
 {: .anchor }
 The EA is the fraction of events that were forecasted correctly, i.e., forecast = "yes" and observed = "yes" or forecast = "no" and observed = "no":
 
