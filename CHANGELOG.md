@@ -7,6 +7,78 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
+
+## [1.0.3] - 2021-08-03
+{: .anchor}
+
+### Fixed
+
+- Fixed report summary statistics table always displaying event statistics.
+
+- Improper accounting for observation and forecast interval labels in
+  probabilistic persistence time of day reference forecasts.
+
+- Differentiated observations in report timeseries plot legend by adding
+  interval length and interval label of the resampled observation.
+
+## [1.0.2] - 2021-07-22
+{: .anchor}
+
+### Added
+
+- Report timezone may now be explicitly set. Previous behavior was to
+  use the timezone of the first site specified in the report.
+
+- `solarforecastarbiter` python package now available through `conda-forge`:
+  ``conda install -c conda-forge solarforecastarbiter``
+
+- Function to parse BSRN station-to-archive formatted data (modified
+  version of a pvlib python function).
+
+### Changed
+
+- Removed the word **solar** from the reports as a first step in making
+  the platform more suitable for wind and load.
+
+- Report links to observations and forecasts now go to the specific
+  date range of the report.
+
+### Fixed
+
+- SRML and PVDAQ reference PV sites had positive temperature coefficients.
+
+- Minor changes to python packing including requirements specifications
+  and classifiers.
+
+- If total metrics category was not selected, reports now display a
+  warning instead of a confusing empty table.
+
+- Removed the BSRN Granite Island MI site from reference database. This
+  site was added without realizing 2020 and newer data is not readily
+  available from the NASA web pages.
+
+- Reports could not be created for event forecasts due to an issue with
+  validating event forecast data.
+
+- Changed GFS fetch directory for compatibility with March 22, 2021, 12Z
+  model upgrade.
+
+- Fixed issue with processed observations failing to be plotted due to a
+  missing forecast. Processed observations are now plotted for all
+  points for which there is a forecast.
+
+- Fixed probabilistic persistence ensemble forecasts to use the last 30
+  days of data and probabilistic persistence time of day algorithm
+  rather than the last hour of data with standard probabilistic
+  persistence. Hour ahead reference forecasts are replaced with day
+  ahead reference forecasts.
+
+- Clarified that automated generation of reference forecasts is
+  currently limited to privileged accounts.
+
+- Fixed reference forecast links in report tables.
+
+
 ## [1.0.1] - 2020-11-18
 {: .anchor}
 
