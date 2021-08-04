@@ -11,6 +11,14 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 ## [1.0.3] - 2021-08-03
 {: .anchor}
 
+### Added
+
+- Instructions to the Create Site page for how to reasonably specify
+  metadata for a wind power plant or load.
+
+- Reports for event forecasts may now exclude user flagged and nighttime
+  periods.
+
 ### Fixed
 
 - Fixed report summary statistics table always displaying event statistics.
@@ -20,6 +28,11 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Differentiated observations in report timeseries plot legend by adding
   interval length and interval label of the resampled observation.
+
+- Typos and minor layout issues in role based access control dashboard
+  pages.
+
+- Incorrect help text for single axis tracker ground coverage ratio.
 
 ## [1.0.2] - 2021-07-22
 {: .anchor}
@@ -39,6 +52,9 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 - Removed the word **solar** from the reports as a first step in making
   the platform more suitable for wind and load.
+
+- Datetime input fields are improved and now consistent throughout the
+  dashboard.
 
 - Report links to observations and forecasts now go to the specific
   date range of the report.
@@ -74,7 +90,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   ahead reference forecasts.
 
 - Clarified that automated generation of reference forecasts is
-  currently limited to privileged accounts.
+  currently limited to privileged accounts run by SFA itself.
 
 - Fixed reference forecast links in report tables.
 
