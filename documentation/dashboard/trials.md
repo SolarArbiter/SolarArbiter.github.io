@@ -266,7 +266,7 @@ Example script
 We urge vendors to practice using the API with test forecasts before a trial
 starts. An example script to upload forecast values for each of the user's
 forecast objects in a trial can be found below and
-[in this gist](https://gist.github.com/alorenzo175/93ce302e23821bc6f6a78124f135aebc).
+[in this gist](https://gist.github.com/wholmgren/1db21b8476df5bff4aacebeb2c69dfe5).
 We do not guarantee the reliability of this script for operational forecast
 trials - it is only an example to help you get started with the API. Please
 download the script and modify to fit your needs or use as a starting point
@@ -314,4 +314,4 @@ found at
 
 > **WARNING**: This script is only an example and not meant for production usage.
 
-<script src="https://gist.github.com/alorenzo175/d25293c4e47bec307ede7cd70022582c.js"></script>
+<script src="https://gist.github.com/wholmgren/1db21b8476df5bff4aacebeb2c69dfe5.js"></script>
