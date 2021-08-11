@@ -174,3 +174,22 @@ title: FAQ
        1.1.pdf) to
        [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
        if your company has not signed it.
+
+- Q. The metadata is inconsistent with other records and/or with observed data.
+  What should we do?
+
+  A. Please let the trial administrators know of the inconsistency, but note
+  that trials are always evaluated against the observed data regardless of the
+  accuracy of the metadata.
+
+- Q. Can I access the trial data using my own account or must I use the
+  anonymous account created for me for the trial?
+
+  A. You must log in with your anonymous account. We do it this way so that we
+  do not need to retain any record of who’s who in our system, thus minimizing
+  the amount of trust you must place in us as the administrators. You are the
+  only person that knows which anonymous account is yours and only you can
+  choose to reveal that to someone. If we instead extend the read/write
+  permissions to your personal account then in principal we could retrieve the
+  association by inspecting the permissions in the database (we would never do
+  that!).
