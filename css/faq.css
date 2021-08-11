@@ -1,0 +1,21 @@
+.content-wrapper-sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+.content-wrapper-sidebar li {
+    margin-bottom: 1em;
+}
+.content-wrapper-sidebar ul > li {
+    border-bottom: 1px solid #eee;
+}
+.content-wrapper-sidebar li p:first-child {
+    font-weight: bold;
+}
+.content-wrapper-sidebar li p:first-child::first-letter {
+    font-weight: bold;
+    color: #2ba02d;
+}
+.content-wrapper-sidebar li p:nth-child(2)::first-letter {
+    font-weight: bold;
+    color: #9467bc;
+}
