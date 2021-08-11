@@ -113,7 +113,7 @@ title: FAQ
   [MyBinder](https://mybinder.org/v2/gh/SolarArbiter/workshop/master) if you
   want a very quick start.
 
-- Q. I can access the dashboard using my credentials but not the API. Why not?
+- Q. I'm having trouble connecting to the API or requesting an access token securely. What gives?
 
   A. If you're behind a firewall, there is a good chance that is causing
   problems with reaching our identity provider, Auth0. If you're using the SFA
