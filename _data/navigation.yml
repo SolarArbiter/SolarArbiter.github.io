@@ -1,6 +1,9 @@
 - name: Dashboard
   link: https://dashboard.solarforecastarbiter.org
 
+- name: FAQ
+  link: /faq/
+
 - name: Documentation
   link: /documentation/
 
