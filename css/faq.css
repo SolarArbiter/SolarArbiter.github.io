@@ -4,6 +4,8 @@
 }
 .content-wrapper-sidebar li {
     margin-bottom: 1em;
+}
+.content-wrapper-sidebar ul > li {
     border-bottom: 1px solid #eee;
 }
 .content-wrapper-sidebar li p:first-child {
