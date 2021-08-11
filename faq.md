@@ -15,7 +15,7 @@ title: FAQ
 
 - Q. Can I use the Solar Forecast Arbiter to analyze wind power forecasts?
 
-  A. Yes! When creating a new Site, select Power Power and simply ignore the
+  A. Yes! When creating a new Site, select Power Plant and simply ignore the
   solar-specific information such as surface tilt. Then proceed to use the
   Arbiter as normal. We are exploring what would need to be done to better
   support wind forecasts in [this
