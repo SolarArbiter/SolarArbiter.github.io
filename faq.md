@@ -116,12 +116,14 @@ title: FAQ
 - Q. I'm having trouble connecting to the API or requesting an access token securely. What gives?
 
   A. If you're behind a firewall, there is a good chance that is causing
-  problems with reaching our identity provider, Auth0. If you're using the SFA
+  problems with verifying the SFA or Auth0 certificates. If you're using the SFA
   core library or the python ``requests`` library, you can get around this by
-  copying the PEM chain certificate for
-  https://solarforecastarbiter.auth0.com/oauth/token to your machine and setting
+  copying the appropriate PEM chain certificate to your machine and setting
   the ``REQUESTS_CA_BUNDLE`` environment variable to the path to the
-  certificate.
+  certificate. These certs can typically be found by visiting the offending url
+  in your browser and clicking the lock on the left side of the search bar.
+  6See https://github.com/SolarArbiter/solarforecastarbiter-core/issues/474 for
+  more context.
 
 - Q. Any tips for trying to get data streaming from PI and into the Arbiter?
 
