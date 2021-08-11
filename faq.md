@@ -11,7 +11,7 @@ title: FAQ
 
 ## General
 {: .anchor }
-<hr>
+---
 
 - Q. Can I use the Solar Forecast Arbiter to analyze wind power forecasts?
 
@@ -38,19 +38,22 @@ GitHub then please email us at
 
 ## Dashboard
 {: .anchor }
-<hr/>
+---
 
-- Q. Can I instruct the Arbiter to create reference forecasts using NWP data or persistence models?
+- Q. Can I instruct the Arbiter to create reference forecasts using NWP
+  data or persistence models for my own sites?
 
-  A. Not currently, but we hope to add this feature in the future. You can
-install
-[`solarforecastarbiter-core`](https://solarforecastarbiter-core.readthedocs.io/en/latest/installation.html)
-to run these models on your local machine.
+  A. Not currently, but we hope to add this feature for historical data. You can
+  install
+  [`solarforecastarbiter-core`](https://solarforecastarbiter-core.readthedocs.io/en/latest/installation.html)
+  to run these models on your local machine and obtain true forecasts. We can
+  also run custom reference forecasts in a
+  [trial](/documentation/dashboard/trials/).
 
 
 ## API
 {: .anchor }
-<hr/>
+---
 
 - Q. Is there a limit to the number of requests per hour that I can make?
 
@@ -66,29 +69,40 @@ Auth0.
 nearing or past its expiration. Obtaining a token more frequently than is
 necessary runs the risk of hitting Auth0's rate limit.
 
-- Q. Can I upload data to multiple forecasts/observations at once?
+- Q. Can I upload data to multiple forecasts or observations at once?
 
-  A. No. A separate POST request will need to be made to each forecast or
-observations endpoints.
+  A. No. A separate POST request must be made to each forecast or observation
+  endpoint. The benefit is that the format is exactly the same for all uploads,
+  so there is no need to worry about any nuance in file names, csv column names,
+  or json keys.
 
 ## Core
 {: .anchor }
-<hr/>
+---
+
+- Q. How do I install the core framework?
+
+  A. Please see the [installation instructions](https://solarforecastarbiter-core.readthedocs.io/en/latest/installation.html).
 
 ## Trials
 {: .anchor }
-<hr/>
+---
 
-- Q. I'm interesting in conducting a forecast trial using the Solar Forecast Arbiter.
-  What do I need to get started?
+- Q. I'm interested in conducting a forecast trial using the Solar
+  Forecast Arbiter. What do I need to get started?
 
   A. There are a few steps to organizing a trial on the Solar Forecast Arbiter.
-    1. Send a signed [Data Use Agreement](/assets/45864 Approved_Final version 1.1.pdf) to
-       [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) if
-       you don't already belong to an organization.
-    2. See the [Trials Documentation](/documentation/dashboard/trials/) and consider the
-       specifications of the trial and contact
-       [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org) when
-       ready. If you're planning to provide measurements to forecast vendors, see the notes
-       on [Data Upload](/documentation/dashboard/trials/#data-upload) and consider the 
-       IT requirements of providing data when considering the timeframe of the trial.
+    1. See the [Trials Documentation](/documentation/dashboard/trials/)
+       and consider the specifications of the trial and contact
+       [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
+       when ready. The administrators can help design the trial and
+       reach out to vendors.
+    2. If you're planning to provide measurements to forecast vendors (this is
+       preferred), see the notes on [Data
+       Upload](/documentation/dashboard/trials/#data-upload) and consider the IT
+       requirements of providing data when considering the timeframe of the
+       trial.
+    2. Send a signed [Data Use Agreement](/assets/45864 Approved_Final version
+       1.1.pdf) to
+       [admin@solarforecastarbiter.org](mailto:admin@solarforecastarbiter.org)
+       if your company has not signed it.
