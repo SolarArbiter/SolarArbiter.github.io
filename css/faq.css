@@ -1,0 +1,19 @@
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+li {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eee;
+}
+li p:first-child {
+    font-weight: bold;
+}
+li p:first-child::first-letter {
+    font-weight: bold;
+    color: #2ba02d;
+}
+li p:nth-child(2)::first-letter {
+    font-weight: bold;
+    color: #9467bc;
+}
