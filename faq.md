@@ -54,6 +54,19 @@ title: FAQ
   0045, lead time to start = 75 minutes to represent the start of the CAISO real
   time market window. The flexibility is powerful but a bit confusing.
 
+- Q. Can I use Solar Forecast Arbiter for resource assessment?
+
+  A. Yes, if you're willing to ignore a couple of word choices. The Solar
+  Forecast Arbiter ultimately compares one time series against another.
+  Typically, one time series is modeled (the forecast) and one time series is a
+  measurement (ground irradiance or metered power). But if you consider the
+  modeled irradiance to be a 0 lead time forecast then you can easily use the
+  Arbiter to compute metrics against ground observations. Or you may choose to
+  evaluate a forecast against another modeled irradiance product (e.g. NSRDB,
+  SolarAnywhere, etc). Refactoring the forecast-specific data model to support a
+  more generic modeled time series and thus avoid the word choice problems would
+  be great but also a substantial amount of work.
+
 ## Dashboard
 {: .anchor }
 ---
