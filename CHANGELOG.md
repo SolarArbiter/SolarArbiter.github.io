@@ -17,6 +17,15 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Added buttons to dashboard to clone metadata of Sites, Observations, Forecasts,
   and Probabilistic Forecasts.
 
+### Changed
+
+- Updated API documentation to clarify authentication token process. Also
+  included script using commonly available commands as alternative to *jq*.
+
+- Corrected API documentation for Site *temperature coefficient* field. Field
+  was erroneously listed as having units of 1/C and was corrected to units of
+  %/C.
+
 ### Fixed
 
 - When observations and forecasts had a different interval label convention
