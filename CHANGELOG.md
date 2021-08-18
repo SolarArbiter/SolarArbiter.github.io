@@ -7,13 +7,15 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
-## [1.0.4] - 2021-08-??
+## [1.0.4] - 2021-08-18
 {: .anchor}
 
 ### Added
 
 - [Frequently Asked Questions](/faq/) help page.
-### Changed
+
+- Added buttons to dashboard to clone metadata of Sites, Observations, Forecasts,
+  and Probabilistic Forecasts.
 
 ### Fixed
 
