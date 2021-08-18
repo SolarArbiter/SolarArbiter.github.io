@@ -7,6 +7,27 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
+## [1.0.4] - 2021-08-??
+{: .anchor}
+
+### Added
+
+- [Frequently Asked Questions](/faq/) help page.
+### Changed
+
+### Fixed
+
+- When observations and forecasts had a different interval label convention
+  (ending/beginning and beginning/ending), observations were not correctly
+  resampled. Fixing this substantially alters the metrics for some forecasts.
+  Report owners must recompute the report to recalculate the correct metrics. If
+  reading a report with mismatched observation and forecast interval labels,
+  ensure that the report was created with ``solarforecastarbiter-core >=
+  1.0.4``.
+
+- Fixed plotting of observations when multiple values exist at the same time
+  index. Bug was introduced in 1.0.3 when addressing a failure to plot
+  observations when one of many forecasts was missing.
 
 ## [1.0.3] - 2021-08-03
 {: .anchor}
