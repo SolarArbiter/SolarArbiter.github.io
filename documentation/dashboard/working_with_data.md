@@ -462,7 +462,7 @@ quality flag filters. Note that quality flags are converted to readable names
 here, but can be retrieved from the dashboard and API as the bitmasks documented
 in the [data validation](#data-validation) section.
 
-It is assumed that the observation will be resampled to a one hour intervals.
+It is assumed that the observation will be resampled into one hour intervals.
 
 ```
 timestamp,value,quality flags
@@ -485,7 +485,7 @@ Discard Before Resample: False
 Resample Threshold Percentage: 49%
 ```
 
-the observation data above is filtered into:
+the observation data above is filtered and resampled into:
 ```
 timestamp,value
 2020-01-01 21:00:00+00:00,130
