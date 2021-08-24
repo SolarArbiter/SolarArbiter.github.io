@@ -443,29 +443,32 @@ Quality Flag Filters
 --------------------
 {: .anchor}
 
-Report analysis can be defined to exclude observation data using *quality flag filters*.
+Users may define *quality flag filters* to exclude observation data from reports.
+These filters allow users to entirely remove erroneous data and to conditionally remove
+data if an insufficient quantity of good data exists in a time period.
 Quality flag filters are defined by three fields:
 
 - *Quality Flags*: A list of quality flags (see [data validation](#data-validation)) to exclude.
 
-- *Discard Before Resample*: Whether or not observation values marked with these flags should be
-  excluded before resampling is performed, or after resampling when resample threshold percentage
-  is exceeded.
+- *Discard Before Resample*: True or False. 
+  Indicates if observation values marked with these flags should be removed before resampling is performed. 
+  Use True for filters designed to exclude erroneous observation data that should never be considered. 
+  Use False for filters designed to exclude intervals that contain valid but undesirable data, such as the hours of sunrise/sunset or hours that are mostly clear.
 
 - *Resample Threshold Percentage*: The percentage of datapoints in a resampled interval that must
   be flagged to exclude the entire interval.
 
 ### Examples
 
-The following examples will utilize the CSV below to demonstrate the use of
+The following examples will use the CSV data below to demonstrate the use of
 quality flag filters. Note that quality flags are converted to readable names
-here, but can be retrieved from the dashboard and API as the bitmasks documented
+here, but are retrieved from the dashboard and API as the bitmasks documented
 in the [data validation](#data-validation) section.
 
 It is assumed that the observation will be resampled into one hour intervals.
 
 ```
-timestamp,value,quality flags
+timestamp,value,quality_flags
 2020-01-01 20:00:00+00:00,170,"USER FLAGGED"
 2020-01-01 20:15:00+00:00,270,"LIMITS EXCEEDED"
 2020-01-01 20:30:00+00:00,310,"USER FLAGGED"
@@ -541,7 +544,7 @@ with `USER FLAGGED` ((270 + 150) /2  = 210).
 #### Filtering for multiple flags
 
 When listing multiple flags in a single filter, the number of unique datapoints
-flagged with any of the listed quality flags is used when determining if the
+flagged with *any* of the listed quality flags determines if the
 resample threshold percentage is exceeded or not.
 
 Using the filter: 
