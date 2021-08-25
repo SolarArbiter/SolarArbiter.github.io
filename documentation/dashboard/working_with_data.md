@@ -465,25 +465,28 @@ quality flag filters. Note that quality flags are converted to readable names
 here, but are retrieved from the dashboard and API as the bitmasks documented
 in the [data validation](#data-validation) section.
 
-It is assumed that the observation will be resampled into one hour intervals.
-
 ```
 timestamp,value,quality_flags
-2020-01-01 20:00:00+00:00,170,"USER FLAGGED"
-2020-01-01 20:15:00+00:00,270,"LIMITS EXCEEDED"
-2020-01-01 20:30:00+00:00,310,"USER FLAGGED"
-2020-01-01 20:45:00+00:00,150,""
-2020-01-01 21:00:00+00:00,120,""
-2020-01-01 21:15:00+00:00,80,"SHADED"
-2020-01-01 21:30:00+00:00,210,""
-2020-01-01 21:45:00+00:00,110,""
+2020-01-01 12:00:00+00:00,100,"NIGHTIME"
+2020-01-01 12:15:00+00:00,110,"NIGHTIME"
+2020-01-01 12:30:00+00:00,600,"USER FLAGGED"
+2020-01-01 12:45:00+00:00,130,""
+2020-01-01 13:00:00+00:00,140,""
+2020-01-01 13:15:00+00:00,150,""
+2020-01-01 13:30:00+00:00,160,""
+2020-01-01 13:45:00+00:00,170,""
 ```
 
 
-#### Filtering out a single flag
-Using the filter: 
+#### Discarding intervals with incomplete data
+
+We can use quality flags to exclude intervals that contain only partial data. For
+example, if we are resampling to one hour intervals and don't want to include
+hours where half or more of the data occurs at night time, we can use a filter
+like:
+
 ```
-Quality Flags: "USER FLAGGED"
+Quality Flags: "NIGHTTIME"
 Discard Before Resample: False
 Resample Threshold Percentage: 49%
 ```
@@ -491,55 +494,53 @@ Resample Threshold Percentage: 49%
 the observation data above is filtered and resampled into:
 ```
 timestamp,value
-2020-01-01 21:00:00+00:00,130
+2020-01-01 13:00:00+00:00,155.0
 ```
 The first hour interval is dropped because two of the four timestamps in
-the first hour are flagged with `USER FLAGGED`, exceeding the resample
+the first hour are flagged with `NIGHTTIME`, exceeding the resample
 threshold.
 
-If we adjust the resample threshold percentage to 50% the first hour
-interval is included when resampled. Because only 50% of the data
-points in the first hour are flagged with `USER FLAGGED`, the
-threshold is not *exceeded* and the interval is included. 
+If we want to exclude intervals where more than half of the data are
+flagged with `NIGHTTIME`, we could adjust the resample threshold
+percentage to 50%. The threshold must be *exceeded* for an interval
+to be excluded.
 
 Using the filter:
 ```
-Quality Flags: "USER FLAGGED"
+Quality Flags: "NIGHTTIME"
 Discard Before Resample: False
 Resample Threshold Percentage: 50%
 ```
 the observation data above is filtered and resampled into:
 ```
 timestamp,value
-2020-01-01 20:00:00+00:00,225.0
-2020-01-01 21:00:00+00:00,130.0
+2020-01-01 12:00:00+00:00,235.0
+2020-01-01 13:00:00+00:00,155.0
 ```
 
-#### Discarding data before resample
+#### Discarding erroneous data
 
-If we choose to discard data before resample, data points will be dropped
-before the timeseries is resampled into a new interval.
+If we want to remove erroneous data and exclude it from the resampling
+process, we can set discard before resample to True. 
 
 Using the filter:
 ```
 Quality Flags: "USER FLAGGED"
 Discard Before Resample: True
-Resample Threshold Percentage: 49%
+Resample Threshold Percentage: 50%
 ```
 
 the observation data above is filtered and resampled into: 
 ```
 timestamp,value
-2020-01-01 20:00:00+00:00,210.0
-2020-01-01 21:00:00+00:00,130.0
+2020-01-01 12:00:00+00:00,113.33
+2020-01-01 13:00:00+00:00,155.0
 ```
 
 In this case, the first interval is included in the resampled data because only
-two of the four points in the first hour are flagged with `USER FLAGGED`. However,
-the datapoints flagged with `USER FLAGGED` are removed before resampling is performed.
-So the value of the first hour is calculated as the average of the points not flagged
-with `USER FLAGGED` ((270 + 150) /2  = 210).
-
+one point is flagged with `USER FLAGGED`, which does not exceed our 50% resample
+threshold. However, the datapoint flagged with `USER FLAGGED` was dropped before
+resampling occured which reduces the interval average from 235.0 to 113.33.
 
 #### Filtering for multiple flags
 
@@ -549,7 +550,7 @@ resample threshold percentage is exceeded or not.
 
 Using the filter: 
 ```
-Quality Flags: "USER FLAGGED, LIMITS EXCEEDED"
+Quality Flags: "NIGHTTIME USER FLAGGED, "
 Discard Before Resample: False
 Resample Threshold Percentage: 50%
 ```
@@ -557,10 +558,10 @@ Resample Threshold Percentage: 50%
 the observation data above is filtered and resampled into:
 ```
 timestamp,value
-2020-01-01 21:00:00+00:00,130
+2020-01-01 13:00:00+00:00,155.0
 ```
 The first hour interval is dropped because three of the four timestamps in
-the first hour are flagged with either `USER FLAGGED` or `LIMITS EXCEEDED`,
+the first hour are flagged with either `NIGHTTIME` or `USER FLAGGED`,
 exceeding the resample threshold.
 
 Data Validation
