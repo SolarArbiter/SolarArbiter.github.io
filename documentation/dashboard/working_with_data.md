@@ -467,8 +467,13 @@ in the [data validation](#data-validation) section.
 
 ```
 timestamp,value,quality_flags
-2020-01-01 12:00:00+00:00,100,"NIGHTIME"
-2020-01-01 12:15:00+00:00,110,"NIGHTIME"
+timestamp,value,quality_flags
+2020-01-01 11:00:00+00:00,0.0,"NIGHTIME"
+2020-01-01 11:15:00+00:00,0.0,"NIGHTIME"
+2020-01-01 11:30:00+00:00,0.0,"NIGHTIME"
+2020-01-01 11:45:00+00:00,0.0,"NIGHTIME"
+2020-01-01 12:00:00+00:00,100,"NIGHTIME,LIMITS EXCEEDED"
+2020-01-01 12:15:00+00:00,110,"NIGHTIME,LIMITS EXCEEDED"
 2020-01-01 12:30:00+00:00,600,"USER FLAGGED"
 2020-01-01 12:45:00+00:00,130,""
 2020-01-01 13:00:00+00:00,140,""
@@ -480,7 +485,7 @@ timestamp,value,quality_flags
 
 #### Discarding intervals with incomplete data
 
-We can use quality flags to exclude intervals that contain only partial data. For
+We can use quality flags to exclude intervals that contain too much undesirable data. For
 example, if we are resampling to one hour intervals and don't want to include
 hours where half or more of the data occurs at night time, we can use a filter
 like:
@@ -542,7 +547,7 @@ one point is flagged with `USER FLAGGED`, which does not exceed our 50% resample
 threshold. However, the datapoint flagged with `USER FLAGGED` was dropped before
 resampling occured which reduces the interval average from 235.0 to 113.33.
 
-#### Filtering for multiple flags
+#### Filtering for multiple flags in a single filter
 
 When listing multiple flags in a single filter, the number of unique datapoints
 flagged with *any* of the listed quality flags determines if the
@@ -551,7 +556,7 @@ resample threshold percentage is exceeded or not.
 Using the filter: 
 ```
 Quality Flags: "NIGHTTIME USER FLAGGED, "
-Discard Before Resample: False
+Discard Before Resample: True
 Resample Threshold Percentage: 50%
 ```
 
@@ -561,7 +566,7 @@ timestamp,value
 2020-01-01 13:00:00+00:00,155.0
 ```
 The first hour interval is dropped because three of the four timestamps in
-the first hour are flagged with either `NIGHTTIME` or `USER FLAGGED`,
+the first hour are flagged with either `LIMITS EXCEEDED` or `USER FLAGGED`,
 exceeding the resample threshold.
 
 Data Validation
