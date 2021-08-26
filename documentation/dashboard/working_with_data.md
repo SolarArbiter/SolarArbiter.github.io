@@ -555,7 +555,7 @@ resample threshold percentage is exceeded or not.
 
 Using the filter: 
 ```
-Quality Flags: "NIGHTTIME USER FLAGGED, "
+Quality Flags: "USER FLAGGED,LIMITS EXCEEDED"
 Discard Before Resample: True
 Resample Threshold Percentage: 50%
 ```
