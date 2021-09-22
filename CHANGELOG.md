@@ -21,8 +21,8 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 ### Changed
 
 - Quality flag filters will now exclude intervals where the percentage of flagged
-  points within the interval is greater than or equal to the resample threshold
-  percentage of the filter. A resample percentage threshold of 0 is treated as a
+  points within the interval is greater than *or equal* to the resample threshold
+  percentage of the filter. Previously the comparison was strictly greater than. A resample percentage threshold of 0 is treated as a
   special value that will exclude intervals if *any* flagged points are found in
   the interval.
 
@@ -32,7 +32,7 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   dashboard report form.
 
 - Corrected misaligned data in report csv downloads. Each forecast or observation
-  is now provided as its own csv.
+  is now provided in a separate csv file. Also removed stray `<br>` tags from column names.
 
 - Corrected power model by projecting DNI into plane of the array when computing
   POA irradiance.
