@@ -576,20 +576,8 @@ Consider a situation where we want to exclude resampled intervals where
 the limits are exceeded. We would like to exclude any data points that
 are user flagged or exceed limits from resampled data.
 
-With observation data:
-```
-timestamp,value,quality_flags
-2020-01-01 11:00:00+00:00,100,"NIGHTTIME"
-2020-01-01 11:15:00+00:00,200,"NIGHTTIME"
-2020-01-01 11:30:00+00:00,300,"NIGHTTIME"
-2020-01-01 11:45:00+00:00,400,"NIGHTTIME"
-2020-01-01 12:00:00+00:00,500,"NIGHTTIME"
-2020-01-01 12:15:00+00:00,600,"USER FLAGGED"
-2020-01-01 12:30:00+00:00,700,""
-2020-01-01 12:45:00+00:00,800,"LIMITS EXCEEDED"
-```
 
-and quality flag filters:
+Using the quality flag filters:
 
 ```
 Quality Flags: "USER FLAGGED,LIMITS EXCEEDED"
@@ -603,16 +591,20 @@ Resample Threshold Percentage: 100%
 
 The 1 hour resampled data would be:
 ```
-2020-01-01 12:00:00+00:00,600
+2020-01-01 12:00:00+00:00,130
+2020-01-01 13:00:00+00:00,155
 ```
 
 The first hour interval is excluded because all four points are
 flagged with `NIGHTTIME`, which meets the 100% resample threshold.
 
-The second hour interval is included because only 50% of points
+The second hour interval is included because only 75% of points
 are flagged with `USER FLAGGED` and `LIMITS EXCEEDED`. However,
-the points at `12:15` and `12:45` are excluded before resampling
-the interval, resulting in an average of 600.
+the points at `12:00`, `12:15`, and `12:30` are excluded before
+resampling the interval, resulting in an average of 130.
+
+The third hour is included and all datapoints are included when
+resampling.
 
 
 Data Validation
