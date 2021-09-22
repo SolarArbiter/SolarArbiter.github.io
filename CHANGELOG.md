@@ -26,6 +26,10 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   special value that will exclude intervals if *any* flagged points are found in
   the interval.
 
+- Removed development and test urls from API documentation. These URLS were intended
+  for use by platform maintainers and their inclusion in documentation was confusing
+  to end users.
+
 ### Fixed
 
 - Corrected the error message when an invalid report name is supplied on the
@@ -38,6 +42,8 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
   POA irradiance.
 
 - Corrected order of seasons on metric plots with season categories.
+
+- Fixed broken time range inputs on dashboard probabilistic forecast pages.
 
 ## [1.0.4] - 2021-08-18
 {: .anchor}
