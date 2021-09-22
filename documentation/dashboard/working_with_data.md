@@ -555,9 +555,9 @@ resample threshold percentage is exceeded or not.
 
 Using the filter: 
 ```
-Quality Flags: "USER FLAGGED,LIMITS EXCEEDED"
-Discard Before Resample: True
-Resample Threshold Percentage: 50%
+Quality Flags: "NIGHTTIME, USER FLAGGED, "
+Discard Before Resample: False
+Resample Threshold Percentage: 75%
 ```
 
 the observation data above is filtered and resampled into:
@@ -566,8 +566,54 @@ timestamp,value
 2020-01-01 13:00:00+00:00,155.0
 ```
 The first hour interval is dropped because three of the four timestamps in
-the first hour are flagged with either `LIMITS EXCEEDED` or `USER FLAGGED`,
-exceeding the resample threshold.
+the first hour are flagged with either `NIGHTTIME` or `USER FLAGGED`,
+which meets the resample threshold.
+
+#### Excluding intervals where all data is flagged
+
+Consider a situation where we want to exclude resampled intervals where
+100% of the  occurs during nighttime, is flagged by the user or
+the limits are exceeded. We would like to exclude any data points that
+are user flagged or exceed limits from resampled data.
+
+With observation data:
+```
+timestamp,value,quality_flags
+2020-01-01 11:00:00+00:00,100,"NIGHTTIME"
+2020-01-01 11:15:00+00:00,200,"NIGHTTIME"
+2020-01-01 11:30:00+00:00,300,"NIGHTTIME"
+2020-01-01 11:45:00+00:00,400,"NIGHTTIME"
+2020-01-01 12:00:00+00:00,500,"NIGHTTIME"
+2020-01-01 12:15:00+00:00,600,"USER FLAGGED"
+2020-01-01 12:30:00+00:00,700,""
+2020-01-01 12:45:00+00:00,800,"LIMITS EXCEEDED"
+```
+
+and quality flag filters:
+
+```
+Quality Flags: "USER FLAGGED,LIMITS EXCEEDED"
+Discard Before Resample: True
+Resample Threshold Percentage: 100%
+
+Quality Flags: "NIGHTTIME"
+Discard Before Resample: False
+Resample Threshold Percentage: 100%
+```
+
+The 1 hour resampled data would be:
+```
+2020-01-01 12:00:00+00:00,600
+```
+
+The first hour interval is excluded because all four points are
+flagged with `NIGHTTIME`, which meets the 100% resample threshold.
+
+The second hour interval is included because only 50% of points
+are flagged with `USER FLAGGED` and `LIMITS EXCEEDED`. However,
+the points at `12:15` and `12:45` are excluded before resampling
+the interval, resulting in an average of 600.
+
 
 Data Validation
 ---------------
