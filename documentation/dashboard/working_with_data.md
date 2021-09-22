@@ -493,7 +493,7 @@ like:
 ```
 Quality Flags: "NIGHTTIME"
 Discard Before Resample: False
-Resample Threshold Percentage: 49%
+Resample Threshold Percentage: 50%
 ```
 
 the observation data above is filtered and resampled into:
@@ -501,20 +501,20 @@ the observation data above is filtered and resampled into:
 timestamp,value
 2020-01-01 13:00:00+00:00,155.0
 ```
-The first hour interval is dropped because two of the four timestamps in
-the first hour are flagged with `NIGHTTIME`, exceeding the resample
-threshold.
+The first and second hour interval is dropped because 100% and 50% of the datapoints
+in those intervals are flagged with `NIGHTTIME`, *meeting* or *exceeding* the
+resample threshold.
 
-If we want to exclude intervals where more than half of the data are
+If we want to include intervals where half of the data are
 flagged with `NIGHTTIME`, we could adjust the resample threshold
-percentage to 50%. The threshold must be *exceeded* for an interval
+percentage to 51%. The threshold must be *met or exceeded* for an interval
 to be excluded.
 
 Using the filter:
 ```
 Quality Flags: "NIGHTTIME"
 Discard Before Resample: False
-Resample Threshold Percentage: 50%
+Resample Threshold Percentage: 51%
 ```
 the observation data above is filtered and resampled into:
 ```
@@ -565,9 +565,10 @@ the observation data above is filtered and resampled into:
 timestamp,value
 2020-01-01 13:00:00+00:00,155.0
 ```
-The first hour interval is dropped because three of the four timestamps in
-the first hour are flagged with either `NIGHTTIME` or `USER FLAGGED`,
-which meets the resample threshold.
+The first hour interval is dropped because 100% of timestamps in
+the first hour are flagged `NIGHTTIME`. The second hour interval
+is excluded because 75% of the points are  flagged with either
+`NIGHTTIME`, or `USER FLAGGED`, which meets the resample threshold.
 
 #### Excluding intervals where all data is flagged
 
