@@ -7,6 +7,38 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
+## [1.0.5] - 2021-09-22
+{: .anchor}
+
+### Added
+
+- Added dashboard interface for quality flag filters instead of just selecting
+  quality flags to exclude. See [Quality flag filters documentation](/documentation/dashboard/working-with-data/#quality-flag-filters)
+  for details.
+
+- Forecast creation forms on the dashboard now link to the [forecast definition](https://solarforecastarbiter.org/definitions/).
+
+### Changed
+
+- Quality flag filters will now exclude intervals where the percentage of flagged
+  points within the interval is greater than or equal to the resample threshold
+  percentage of the filter. A resample percentage threshold of 0 is treated as a
+  special value that will exclude intervals if *any* flagged points are found in
+  the interval.
+
+### Fixed
+
+- Corrected the error message when an invalid report name is supplied on the
+  dashboard report form.
+
+- Corrected misaligned data in report csv downloads. Each forecast or observation
+  is now provided as its own csv.
+
+- Corrected power model by projecting DNI into plane of the array when computing
+  POA irradiance.
+
+- Corrected order of seasons on metric plots with season categories.
+
 ## [1.0.4] - 2021-08-18
 {: .anchor}
 
