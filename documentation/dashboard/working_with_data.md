@@ -14,9 +14,11 @@ Forecast Arbiter Dashboard.
 
 The Solar Forecast Arbiter organizes metadata into **Sites**, **Observations**,
 and **Forecasts**. All time series data is linked to an observation or a
-forecast, which is linked to a site or an aggregate. Please see the
-[data model documentation](/datamodel/) for more details on how the Solar
-Forecast Arbiter organizes metadata and time series data.
+forecast, which is linked to a site or an aggregate. All
+[units](/datamodel/#variables-and-units) are fixed in the Solar Forecast
+Arbiter, e.g. all power data and forecasts should be specified and uploaded in
+MW. Please see the [data model documentation](/datamodel/) for more details on
+how the Solar Forecast Arbiter organizes metadata and time series data.
 
 Readers may also be interested in the [HTTP API](https://api.solarforecastarbiter.org)
 or [Python API](https://solarforecastarbiter-core.readthedocs.io/en/latest/api.html#sfa-api)
@@ -131,7 +133,7 @@ We would like to create an aggregate from three observations. Observations 1 and
 data starting on 2020-01-01T00:00Z.  Observation 3 has data starting on
 2020-03-01T00:00Z. There are two ways in which we can create this aggregate.
 
-1. **Recommended approach**: Add observations with different *effective from* parameters. 
+1. **Recommended approach**: Add observations with different *effective from* parameters.
    First we [add](#add-observations-to-an-aggregate) observations 1 and 2 with an *effective from*  of
    2020-01-01T00:00Z. Then we add observation 3 with an
    *effective from* of 2020-03-01T00:00Z. With this configuration, the computed

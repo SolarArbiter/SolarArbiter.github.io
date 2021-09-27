@@ -291,11 +291,11 @@ permitted are as follows:
 -   *Direct normal irradiance* - Watts per meter squared
 -   *Diffuse horizontal irradiance* - Watts per meter squared
 -   *Plane of array irradiance* - Watts per meter squared
--   *Relative humidity* - %
+-   *Relative humidity* - % from 0.0 to 100.0
 -   *AC power* - megawatts
 -   *DC power* - megawatts
--   *Cumulative distribution function (CDF)* - unitless probability from 0.0 to 1.0
--   *Availability* - %
+-   *Cumulative distribution function (CDF)* - Percentiles from 0.0 to 100.0
+-   *Availability* - % from 0.0 to 100.0
 -   *Curtailment* - megawatts
 
 Please see the [Glossary](https://github.com/SolarArbiter/solarforecastarbiter-core/wiki/Glossary)
