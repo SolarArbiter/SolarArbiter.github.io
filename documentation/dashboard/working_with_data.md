@@ -571,7 +571,7 @@ the first hour are flagged `NIGHTTIME`. The second hour interval
 is excluded because 75% of the points are  flagged with either
 `NIGHTTIME`, or `USER FLAGGED`, which meets the resample threshold.
 
-#### Excluding intervals where all data is flagged
+#### Mixing filter types
 
 Consider a situation where we want to exclude resampled intervals where
 100% of the interval occurs during nighttime. Further, we'd like to exclude
