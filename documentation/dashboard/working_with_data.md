@@ -538,14 +538,15 @@ Resample Threshold Percentage: 50%
 the observation data above is filtered and resampled into: 
 ```
 timestamp,value
+2020-01-01 11:00:00+00:00,0.0
 2020-01-01 12:00:00+00:00,113.33
 2020-01-01 13:00:00+00:00,155.0
 ```
 
-In this case, the first interval is included in the resampled data because only
+The datapoint flagged with `USER FLAGGED` was dropped before
+resampling occurred, which reduces the 12:00 interval average from 235.0 to 113.33. The resampled interval is included in the resampled data because only
 one point is flagged with `USER FLAGGED`, which does not exceed our 50% resample
-threshold. However, the datapoint flagged with `USER FLAGGED` was dropped before
-resampling occured which reduces the interval average from 235.0 to 113.33.
+threshold. 
 
 #### Filtering for multiple flags in a single filter
 
@@ -555,7 +556,7 @@ resample threshold percentage is exceeded or not.
 
 Using the filter: 
 ```
-Quality Flags: "NIGHTTIME, USER FLAGGED, "
+Quality Flags: "NIGHTTIME, USER FLAGGED"
 Discard Before Resample: False
 Resample Threshold Percentage: 75%
 ```
@@ -573,9 +574,10 @@ is excluded because 75% of the points are  flagged with either
 #### Excluding intervals where all data is flagged
 
 Consider a situation where we want to exclude resampled intervals where
-100% of the  occurs during nighttime, is flagged by the user or
-the limits are exceeded. We would like to exclude any data points that
-are user flagged or exceed limits from resampled data.
+100% of the interval occurs during nighttime. Further, we'd like to exclude
+points that are flagged by the user or the limits are exceeded, and the
+corresponding resampled intervals should be excluded only if no valid data
+remains.
 
 
 Using the quality flag filters:
@@ -599,13 +601,12 @@ The 1 hour resampled data would be:
 The first hour interval is excluded because all four points are
 flagged with `NIGHTTIME`, which meets the 100% resample threshold.
 
-The second hour interval is included because only 75% of points
-are flagged with `USER FLAGGED` and `LIMITS EXCEEDED`. However,
-the points at `12:00`, `12:15`, and `12:30` are excluded before
-resampling the interval, resulting in an average of 130.
+In the the second hour interval the points at `12:00`, `12:15`, and `12:30` 
+are `USER FLAGGED` or `LIMITS EXCEEDED`, so they are excluded before
+resampling the interval, resulting in an average of 130. The resampled 
+interval is retained because only 75% of points are flagged.
 
-The third hour is included and all datapoints are included when
-resampling.
+The third hour contains no flagged points, so it's also included after resampling.
 
 
 Data Validation
