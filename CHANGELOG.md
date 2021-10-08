@@ -6,6 +6,20 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0.6] - 2021-10-08
+{: .anchor}
+
+### Added
+
+- Added missing documentation for probabilistic reference forecasts.
+
+### Changed
+
+- Updated dashboard layout to remove sizebar and reduce height of header,
+  providing more vertical and horizontal space.
+
+- Put many Report sections into expandable containers to reduce scrolling
+  and reduce time to find information.
 
 ## [1.0.5] - 2021-09-22
 {: .anchor}
