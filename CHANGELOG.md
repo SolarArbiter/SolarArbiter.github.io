@@ -11,15 +11,14 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 
 ### Added
 
-- Added missing documentation for probabilistic reference forecasts.
+- Added missing [documentation](https://solarforecastarbiter-core.readthedocs.io/en/latest/reference-forecasts.html#persistence) for probabilistic reference forecasts.
 
 ### Changed
 
-- Updated dashboard layout to remove sizebar and reduce height of header,
-  providing more vertical and horizontal space.
+- Cleaned up dashboard navigation and appearance. Moved sidebar navigation into header, reduced height of header, reduced font size, and increased horizontal span. 
 
 - Put many Report sections into expandable containers to reduce scrolling
-  and reduce time to find information.
+  and to highlight the most relevant information for most users.
 
 ## [1.0.5] - 2021-09-22
 {: .anchor}
