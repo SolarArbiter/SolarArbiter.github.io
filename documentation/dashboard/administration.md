@@ -110,7 +110,7 @@ Permissions are added to roles to enable users with that role to perform the
 permission's action. A permission can only allow actions on data owned by the
 organization in which it was created.
 
-The [Permissions Reference Table](#Permissions-Reference-Table) describes the
+The [Permissions Reference Table](#permissions-reference-table) describes the
 full set of permissions.
 
 #### Create New Permission
