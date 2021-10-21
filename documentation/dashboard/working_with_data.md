@@ -270,6 +270,28 @@ Forecasts can be created for either a Site or an Aggregate.
 - *Created Forecast page*
 <img class="my-e" src="/images/forecast.png"/>
 
+### Create New Probabilistic Forecast
+{: .anchor}
+
+Probabilistic Forecasts can be created for either a Site or an Aggregate. The
+process is very similar to [creating a point forecast](#create-new-forecast),
+but requires the specification of
+
+1. Navigate to the sites or aggregates page using the sidebar, then select the
+    site or aggregate for which you are adding a Forecast.
+
+2. On the site or aggregate page, click the **Create new Probabilistic Forecast** button.
+   <img class="my-3" src="/images/plant_site.png"/>
+
+3. Enter metadata for your Probabilistic Forecast. Please see the [Definitions](/definitions)
+   for a full description of how to specify Probabilistic Forecast metadata.
+   On submission, you will be redirected
+   to a Probabilistic Forecast page which displays the new Probabilistic Forecast metadata.
+   The page also contains links to each of the "constant value" percentiles or thresholds for which
+   you can upload data (see [Upload Probabilistic Forecast Data](#upload-probabilistic-forecast-data)).
+- *Probabilistic Forecast form*
+<img class="my-3" src="/images/prob_forecast_form.png"/>
+
 
 Upload data
 -----------
@@ -332,6 +354,31 @@ page to expose the data upload form.
 	- JSON format
 	<img class="my-3" src="/images/fx_json_upload.png"/>
 
+### Upload Probabilistic Forecast Data
+{: .anchor}
+
+Uploading data for probabilistic forecasts follows a similar process as for
+point forecasts. The key difference is that a separate upload is required for
+each percentile or for each threshold that defines the probabilistic forecast.
+As a result, the file format is identical for all forecast uploads and there is
+no need to concern yourself with the complicated headers or keys that would be
+needed to describe all components of a probabilistic forecast within a single
+file. See the [API
+documentation](https://api.solarforecastarbiter.org/#tag/Probabilistic-Forecasts/paths/~1forecasts~1cdf~1single~1{forecast_id}~1values/post)
+for the routes needed to automate the upload process.
+
+1. From Sites listing page, click on a site.
+
+2. Click **Probabilistic Forecast** to find the Probabilistic Forecasts listing for that site.
+
+3. Select a Probabilistic Forecast. Click the "constant value" corresponding
+   to the percentile or threshold that you would like to upload data for.
+<img class="my-3" src="/images/prob_forecast_cv_select.png"/>
+
+4. Click **Upload Data** at the bottom of the Forecast page to expose the data
+   upload form. Select the file type to display an example of the expected file
+   format. Click **Choose File** to select the data file and click **Upload**.
+<img class="my-3" src="/images/prob_forecast_cv_upload.png"/>
 
 Download Data
 -------------
@@ -452,9 +499,9 @@ Quality flag filters are defined by three fields:
 
 - *Quality Flags*: A list of quality flags (see [data validation](#data-validation)) to exclude.
 
-- *Discard Before Resample*: True or False. 
-  Indicates if observation values marked with these flags should be removed before resampling is performed. 
-  Use True for filters designed to exclude erroneous observation data that should never be considered. 
+- *Discard Before Resample*: True or False.
+  Indicates if observation values marked with these flags should be removed before resampling is performed.
+  Use True for filters designed to exclude erroneous observation data that should never be considered.
   Use False for filters designed to exclude intervals that contain valid but undesirable data, such as the hours of sunrise/sunset or hours that are mostly clear.
 
 - *Resample Threshold Percentage*: The percentage of datapoints in a resampled interval that must
@@ -528,7 +575,7 @@ timestamp,value
 #### Discarding erroneous data
 
 If we want to remove erroneous data and exclude it from the resampling
-process, we can set discard before resample to True. 
+process, we can set discard before resample to True.
 
 Using the filter:
 ```
@@ -537,7 +584,7 @@ Discard Before Resample: True
 Resample Threshold Percentage: 50%
 ```
 
-the observation data above is filtered and resampled into: 
+the observation data above is filtered and resampled into:
 ```
 timestamp,value
 2020-01-01 11:00:00+00:00,0.0
@@ -548,7 +595,7 @@ timestamp,value
 The datapoint flagged with `USER FLAGGED` was dropped before
 resampling occurred, which reduces the 12:00 interval average from 235.0 to 113.33. The resampled interval is included in the resampled data because only
 one point is flagged with `USER FLAGGED`, which does not exceed our 50% resample
-threshold. 
+threshold.
 
 #### Filtering for multiple flags in a single filter
 
@@ -556,7 +603,7 @@ When listing multiple flags in a single filter, the number of unique datapoints
 flagged with *any* of the listed quality flags determines if the
 resample threshold percentage is exceeded or not.
 
-Using the filter: 
+Using the filter:
 ```
 Quality Flags: "NIGHTTIME, USER FLAGGED"
 Discard Before Resample: False
@@ -603,9 +650,9 @@ The 1 hour resampled data would be:
 The first hour interval is excluded because all four points are
 flagged with `NIGHTTIME`, which meets the 100% resample threshold.
 
-In the the second hour interval the points at `12:00`, `12:15`, and `12:30` 
+In the the second hour interval the points at `12:00`, `12:15`, and `12:30`
 are `USER FLAGGED` or `LIMITS EXCEEDED`, so they are excluded before
-resampling the interval, resulting in an average of 130. The resampled 
+resampling the interval, resulting in an average of 130. The resampled
 interval is retained because only 75% of points are flagged.
 
 The third hour contains no flagged points, so it's also included after resampling.
