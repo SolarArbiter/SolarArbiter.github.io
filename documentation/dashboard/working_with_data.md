@@ -275,7 +275,11 @@ Forecasts can be created for either a Site or an Aggregate.
 
 Probabilistic Forecasts can be created for either a Site or an Aggregate. The
 process is very similar to [creating a point forecast](#create-new-forecast),
-but requires the specification of
+but requires the specification of "constant values" of percentiles or thresholds
+in addition to the standard forecast parameters. For example, a forecaster may
+create a probabilistic forecast specification with constant percentile values,
+and then the forecaster will submit forecasts of the irradiance, power, etc. for
+each percentile at each time.
 
 1. Navigate to the sites or aggregates page using the sidebar, then select the
     site or aggregate for which you are adding a Forecast.
