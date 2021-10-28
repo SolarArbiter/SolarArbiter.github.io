@@ -6,6 +6,16 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0.7] - 2021-10-28
+{: .anchor}
+
+### Changed
+
+- Improved dashboard code which estimates the total data points used in a report. This code is used to determine whether or
+  not to attempt to display timeseries plots on a rendered report. The estimate had not correctly accounted for probabilistic
+  forecasts and resulted in large reports being inaccessible via the dashboard.
+
+
 ## [1.0.6] - 2021-10-08
 {: .anchor}
 
