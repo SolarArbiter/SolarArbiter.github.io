@@ -6,6 +6,17 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+
+## [1.0.8] - 2021-11-04
+{: .anchor}
+
+### Added
+
+- Added a new job type to copy data from one observation to another on a schedule. This job
+  aids in providing real-time data to trial participants while not needing to grant direct
+  access to source data.
+
+
 ## [1.0.7] - 2021-10-28
 {: .anchor}
 
