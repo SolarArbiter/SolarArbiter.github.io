@@ -228,12 +228,10 @@ interfaces.
 Roles can be any granted to any user, including those outside your organization,
 through the role administration interface.
 
-1. Navigate to the User for which you would like to grant permissions and
-   click the *Add Roles* button.
+1. Navigate to the Role you would like to grant to a user. Click the
+   *Grant Role* button.
 
-2. This page will list each role that is not already granted to the user.
-   Check the box for each role to add to the user and submit the form. You
-   will be returned to the user's page.
+2. Enter the email of the user to grant the role to and click submit.
 
 ##### Users within your organization
 {: .anchor}
@@ -241,10 +239,12 @@ through the role administration interface.
 Roles may be granted to users within your organization through the user
 administration interface.
 
-1. Navigate to the Role you would like to grant to a user. Click the
-   *Grant Role* button.
+1. Navigate to the User for which you would like to grant permissions and
+   click the *Add Roles* button.
 
-2. Enter the email of the user to grant the role to and click submit.
+2. This page will list each role that is not already granted to the user.
+   Check the box for each role to add to the user and submit the form. You
+   will be returned to the user's page.
 
 #### Revoke Roles from a User
 {: .anchor}
