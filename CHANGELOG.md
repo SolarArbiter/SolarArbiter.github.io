@@ -7,6 +7,24 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
+## [1.0.9] - 2021-12-03
+{: .anchor}
+
+### Added
+
+- Outage tracking to the Solar Forecast Arbiter platform. Outages are tracked by 
+  a start and end time that can be used to exclude data from report analyses. Data
+  is excluded based on forecast issue times that fall within an outage. 
+
+  Two varieties of outages exist:
+  
+  -  System outages are defined by system administrators and represent times when the
+     Solar Forecast Arbiter platform was unavailable. These can be used in any
+     report by selecting the "exclude system outages" option during report creation.
+
+  -  Report outages can be added to any report by users with permissions to update
+     that report.
+
 ## [1.0.8] - 2021-11-04
 {: .anchor}
 
