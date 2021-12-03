@@ -13,13 +13,13 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 ### Added
 
 - Outage tracking to the Solar Forecast Arbiter platform. Outages are tracked by 
-  a start and end time that can be used to exclude data from report analysis. Data
+  a start and end time that can be used to exclude data from report analyses. Data
   is excluded based on forecast issue times that fall within an outage. 
 
   Two varieties of outages exist:
   
-  -  System outages are defined by system administrators represent times when the
-     Solar Forecast Arbiter platform was unavailable. These can be utilized any
+  -  System outages are defined by system administrators and represent times when the
+     Solar Forecast Arbiter platform was unavailable. These can be used in any
      report by selecting the "exclude system outages" option during report creation.
 
   -  Report outages can be added to any report by users with permissions to update
