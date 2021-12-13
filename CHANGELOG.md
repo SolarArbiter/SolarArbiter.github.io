@@ -15,6 +15,10 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Updated Plotly version and adopted Kaleido for pdf report plot rendering. Kaleido improves
   performance and removes need for external Orca server to render PDF images for plots.
 
+
+## [1.0.9] - 2021-12-03
+{: .anchor}
+
 ### Added
 
 - Outage tracking to the Solar Forecast Arbiter platform. Outages are tracked by 
