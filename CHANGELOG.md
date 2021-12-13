@@ -7,6 +7,15 @@ Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
 
+## [1.0.10] - 2021-12-13
+{: .anchor}
+
+### Changed
+
+- Updated Plotly version and adopted Kaleido for pdf report plot rendering. Kaleido improves
+  performance and removes need for external Orca server to render PDF images for plots.
+
+
 ## [1.0.9] - 2021-12-03
 {: .anchor}
 
