@@ -1,3 +1,13 @@
+- authors: W. Holmgren, et al.
+  title: "Evaluation of Solar Forecasting 2 Forecasts Using the Solar Forecast Arbiter"
+  place: American Meteorological Society Conference
+  date: January 2022
+  link: assets/presentations/2022 AMS SFA.pdf
+- authors: W. Holmgren, et al.
+  title: "Solar Forecast Arbiter: An open source evaluation framework for solar forecasting"
+  place: Australian Meteorological and Oceanographic Society Virtual Conference
+  date: July 2021
+  link: assets/presentations/2021 AMOS SFA.pdf
 - authors: W. Holmgren, J. Sharp et al.
   title: "Solar Forecast Arbiter: An open source evaluation framework for solar forecasting"
   place: IEA Wind Forecasting Task 36
