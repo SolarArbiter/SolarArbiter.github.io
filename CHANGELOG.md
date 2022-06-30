@@ -6,8 +6,22 @@ in this file.
 Detailed changes to the Solar Forecast Arbiter Core python library can be found
 in the core documentation's [what's new](https://solarforecastarbiter-core.readthedocs.io/en/latest/whatsnew/index.html) series.
 
+## [1.0.13] - 2022-02-10
+{: .anchor}
 
-## [1.0.10] - 2021-12-13
+### Changed
+
+- Revized CRPS metric to handle observations that fall outside the forecast
+  support.
+
+## [1.0.12] - 2022-01-11
+{: .anchor}
+
+### Changed
+
+- Fixed USCRN data fetching to handle null/NaN values of -99999.
+
+## [1.0.11] - 2021-12-13
 {: .anchor}
 
 ### Changed
@@ -15,18 +29,26 @@ in the core documentation's [what's new](https://solarforecastarbiter-core.readt
 - Updated Plotly version and adopted Kaleido for pdf report plot rendering. Kaleido improves
   performance and removes need for external Orca server to render PDF images for plots.
 
+## [1.0.10] - 2021-12-09
+{: .anchor}
+
+### Changed
+
+- Adjusted the reference persistence forecast code to exclude flagged
+  observations.
+
 
 ## [1.0.9] - 2021-12-03
 {: .anchor}
 
 ### Added
 
-- Outage tracking to the Solar Forecast Arbiter platform. Outages are tracked by 
+- Outage tracking to the Solar Forecast Arbiter platform. Outages are tracked by
   a start and end time that can be used to exclude data from report analyses. Data
-  is excluded based on forecast issue times that fall within an outage. 
+  is excluded based on forecast issue times that fall within an outage.
 
   Two varieties of outages exist:
-  
+
   -  System outages are defined by system administrators and represent times when the
      Solar Forecast Arbiter platform was unavailable. These can be used in any
      report by selecting the "exclude system outages" option during report creation.
