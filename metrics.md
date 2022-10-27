@@ -39,12 +39,18 @@ The absolute error is the absolute value of the difference between the forecaste
 
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
+MAE is a non-negative measure, where lower MAE values indicate higher accuracy and a MAE value of zero indicates perfect accuracy. For example, a solar power forecast with MAE of 5 kW is more accurate than a forecast with MAE of 8 kW.
+
 
 ### Mean Bias Error (MBE) {#mbe}
 {: .anchor }
 The bias is the difference between the forecasted and observed values. The MBE is defined as:
 
 $$ \text{MBE} = \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
+
+MBE is unbounded, where the sign indicates whether the forecast tends to over-predict (positive MBE) or under-predict (negative MBE), with MBE of zero indicating no bias.
+
+While the "optimal" MBE is zero (indicating no bias), a forecast user may prefer a forecast with a positive MBE over a negative MBE or vice versa. For example, an ISO using a day-ahead forecasts to schedule reserves may prefer a forecast that tends to under-predict (negative MBE) the solar generation. In which case, the ISO may have a surplus of reserves available in real-time when more solar generation shows up than forecasted. In contrast, if the forecast tended to over-predict (positive MBE) the solar generation, then the ISO may end up with insufficient reserves when less solar generation shows up than forecasted, thereby requiring the ISO to take costlier actions in real-time to cover the shortfall.
 
 
 ### Root Mean Square Error (RMSE) {#rmse}
@@ -53,7 +59,7 @@ The RMSE is the square root of the averaged of the squared differences between t
 
 $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
-RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors.
+RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors compared to, e.g., MAE. But like MAE, RMSE is a non-negative measure, where lower RMSE values indicate higher accuracy and a RMSE value of zero indicates perfect accuracy. For example, a wind speed forecast with RMSE of 1.2 m/s is more accurate than a forecast with RMSE of 1.8 m/s.
 
 
 ### Forecast Skill ($$ s $$) {#s}
@@ -62,14 +68,18 @@ The forecast skill measures the performance of a forecast relative to a referenc
 
 $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 
-where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
+where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence. Forecast skill is unbounded, where positive values indicate the forecast is more accurate than the reference forecast. However, the interpretation and benefit of using the forecast skill metric is dependent on the choice of reference forecast. A common choice for reference forecast are persistence-based forecasts, which are trivial to implement and represent a lower bound on forecast accuracy.
 
 
 ### Mean Absolute Percentage Error (MAPE) {#mape}
 {: .anchor }
-The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
+The MAPE is the absolute value of the difference between the forecasted and observed values, normalized by the observed values:
 
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
+
+MAPE is a non-negative measure, where lower MAPE values indicate higher accuracy. The concept of MAPE is to measure the average absolute error of the forecast, similar to MAE, but to weight the errors based on the conditions when they occurred. For example, a forecast that is off by 1 kW when the actual solar generation is 5 kW should be penalized more than a forecast that is off by 1 kW when the actual solar generation is 200 kW.
+
+Note that there are alternative definitions used in practice which are sometimes called MAPE. For example, normalizing all absolute error values by the AC nameplate capacity of the solar plant instead of normalizing each absolute error value by the corresponding observed value. Therefore, it is critical to confirm the MAPE definition when evaluating results labelled as MAPE.
 
 
 ### Normalized Mean Absolute Error (NMAE) {#nmae}
@@ -80,6 +90,8 @@ $$ \text{NMAE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n  \lver
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
+NMAE has the same interpretation as MAE.
+
 
 ### Normalized Mean Bias Error (NMBE) {#nmbe}
 {: .anchor }
@@ -89,6 +101,9 @@ $$ \text{NMBE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n (F_i -
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
+NMBE has the same intepretation as MBE.
+
+
 ### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
 The NRMSE [%] is the normalized form of the RMSE and is defined as:
@@ -96,6 +111,8 @@ The NRMSE [%] is the normalized form of the RMSE and is defined as:
 $$ \text{NRMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
+
+NRMSE has the same interpretation as RMSE.
 
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
