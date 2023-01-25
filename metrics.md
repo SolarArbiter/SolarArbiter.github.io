@@ -35,72 +35,89 @@ Additionally, the Solar Forecast Arbiter allows users to account for observation
 
 ### Mean Absolute Error (MAE) {#mae}
 {: .anchor }
-The absolute error is the absolute value of the difference between the forecasted and observed values. The MAE is defined as:
+The absolute error is the absolute value of the difference between the forecasted and observed values. The MAE has the same units as the forecasted and observed values. The MAE is defined as:
 
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
+
+MAE is a non-negative measure, where lower MAE values indicate higher accuracy and a MAE value of zero indicates perfect accuracy. For example, a solar power forecast with MAE of 5 kW is more accurate than a forecast with MAE of 8 kW.
 
 
 ### Mean Bias Error (MBE) {#mbe}
 {: .anchor }
-The bias is the difference between the forecasted and observed values. The MBE is defined as:
+The bias is the difference between the forecasted and observed values. The MBE has the same units as the forecasted and observed values. The MBE is defined as:
 
 $$ \text{MBE} = \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
+
+MBE is unbounded, where the sign indicates whether the forecast tends to over-predict (positive MBE) or under-predict (negative MBE), with MBE of zero indicating no bias.
+
+While the "optimal" MBE is zero (indicating no bias), a forecast user may prefer a forecast with a positive MBE over a negative MBE or vice versa. For example, an ISO using a day-ahead forecasts to schedule reserves may prefer a forecast that tends to under-predict (negative MBE) the solar generation. In which case, the ISO may have a surplus of reserves available in real-time when more solar generation shows up than forecasted. In contrast, if the forecast tended to over-predict (positive MBE) the solar generation, then the ISO may end up with insufficient reserves when less solar generation shows up than forecasted, thereby requiring the ISO to take costlier actions in real-time to cover the shortfall.
 
 
 ### Root Mean Square Error (RMSE) {#rmse}
 {: .anchor }
-The RMSE is the square root of the averaged of the squared differences between the forecasted and observed values, and is defined as:
+The RMSE is the square root of the averaged of the squared differences between the forecasted and observed values. The RMSE has the same units as the forecasted and observed values.  The RMSE is defined as:
 
 $$ \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
-RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors.
+RMSE is a frequently used measure for evaluating forecast accuracy. Since the errors are squared before being averaged, the RMSE gives higher weight to large errors compared to similar metrics such as MAE and MBE. But like MAE, RMSE is a non-negative measure, where lower RMSE values indicate higher accuracy and a RMSE value of zero indicates perfect accuracy. For example, a wind speed forecast with RMSE of 1.2 m/s is more accurate than a forecast with RMSE of 1.8 m/s.
 
 
 ### Forecast Skill ($$ s $$) {#s}
 {: .anchor }
-The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
+The forecast skill measures the performance of a forecast relative to a reference forecast ([Marquez12](#ref-marquez12)). The Forecast skill is unitless. The Solar Forecast Arbiter uses the definition of forecast skill based on RMSE:
 
 $$ s = 1 - \frac{\text{RMSE}_f}{\text{RMSE}_{\text{ref}}} $$
 
-where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence.
+where $$ \text{RMSE}_f $$ is the RMSE of the forecast of interest, and $$ \text{RMSE}_{\text{ref}} $$ is the RMSE of the reference forecast, e.g., persistence. Forecast skill is unbounded, where positive values indicate the forecast is more accurate than the reference forecast. However, the interpretation and benefit of using the forecast skill metric is dependent on the choice of reference forecast. A common choice for reference forecast are persistence-based forecasts, which are trivial to implement and represent a lower bound on forecast accuracy.
 
 
 ### Mean Absolute Percentage Error (MAPE) {#mape}
 {: .anchor }
-The absolute percentage error is the absolute value of the difference between the forecasted and observed values,
+The MAPE is the absolute value of the difference between the forecasted and observed values, normalized by the observed values. The MAPE is given as a (%). The MAPE is defined as:
 
 $$ \text{MAPE} = 100\% \cdot \frac{1}{n} \sum_{i=1}^n | \frac{F_i - O_i}{O_i} | $$
+
+MAPE is a non-negative measure, where lower MAPE values indicate higher accuracy. The concept of MAPE is to measure the average absolute error of the forecast, similar to MAE, but to weight the errors based on the conditions when they occurred. For example, a forecast that is off by 1 kW when the actual solar generation is 5 kW should be penalized more than a forecast that is off by 1 kW when the actual solar generation is 200 kW.
+
+Note that there are alternative definitions used in practice which are sometimes called MAPE. For example, normalizing all absolute error values by the AC nameplate capacity of the solar plant instead of normalizing each absolute error value by the corresponding observed value. Therefore, it is critical to confirm the MAPE definition when evaluating results labelled as MAPE.
 
 
 ### Normalized Mean Absolute Error (NMAE) {#nmae}
 {: .anchor }
-The NMAE [%] is the normalized form of the MAE and is defined as:
+The NMAE is the normalized form of the MAE. Since it is normalized, NMAE is given as a percentage (%). The NMAE is defined as:
 
 $$ \text{NMAE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n  \lvert F_i - O_i \rvert $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
+NMAE has the same interpretation as MAE.
+
 
 ### Normalized Mean Bias Error (NMBE) {#nmbe}
 {: .anchor }
-The NMBE [%] is the normalized form of the MBE and is defined as:
+The NMBE is the normalized form of the MBE. Since it is normalized, NMBE is given as a percentage (%). The NMBE is defined as:
 
 $$ \text{NMBE} = \frac{100\%}{\text{norm}} \cdot \frac{1}{n} \sum_{i=1}^n (F_i - O_i) $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
+NMBE has the same intepretation as MBE. 
+
+
 ### Normalized Root Mean Square Error (NRMSE) {#nrmse}
 {: .anchor }
-The NRMSE [%] is the normalized form of the RMSE and is defined as:
+The NRMSE is the normalized form of the RMSE. Since it is normalized, NRMSE is given as a percentage (%). The NRMSE is defined as:
 
 $$ \text{NRMSE} = \frac{100\%}{\text{norm}} \cdot \sqrt{ \frac{1}{n} \sum_{i=1}^n (F_i - O_i)^2 } $$
 
 where norm is a constant upper bound on the value of the forecasted variable, e.g., the nameplate AC (DC) capacity of a PV plant when forecasting AC (DC) power.
 
+NRMSE has the same interpretation as RMSE.
+
 
 ### Centered (unbiased) Root Mean Square Error (CRMSE) {#crmse}
 {: .anchor }
-The CRMSE describes the variation in errors around the mean and is defined as:
+The CRMSE describes the variation in errors around the mean. The CRMSE is in the same units as the forecasted and observed values. CRMSE is defined as:
 
 $$ \text{CRMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n \left( (F_i - \bar{F}) - (O_i - \bar{O}) \right)^2 } $$
 
@@ -113,7 +130,7 @@ where $$ \sigma_F $$ and $$ \sigma_O $$ are the standard deviations of the forec
 
 ### Pearson Correlation Coefficient ($$ r $$) {#r}
 {: .anchor }
-Correlation indicates the strength and direction of a linear relationship between two variables. The Pearson correlation coefficient, aka, the sample correlation coefficient, measures the linear dependency between the forecasted and observed values, and is defined as the ratio of the covariance of the variables to the product of their standard deviation:
+Correlation indicates the strength and direction of a linear relationship between two variables. The Pearson correlation coefficient, aka, the sample correlation coefficient, measures the linear dependency between the forecasted and observed values. The Pearson correlation is unitless and is defined as the ratio of the covariance of the variables to the product of their standard deviation:
 
 $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
 \sqrt{ \sum_{i=1}^n (F_i - \bar{F})^2} \times \sqrt{ \sum_{i=1}^n (O_i - \bar{O})^2 } } $$
@@ -121,7 +138,7 @@ $$ r = \frac{ \sum_{i=1}^n (F_i - \bar{F}) (O_i - \bar{O}) }{
 
 ### Coefficient of Determination ($$ R^2 $$) {#r2}
 {: .anchor }
-The coefficient of determination measures the extent that the variability in the forecast errors is explained by variability in the observed values, and is defined as:
+The coefficient of determination measures the extent that the variability in the forecast errors is explained by variability in the observed values. It is defined as:
 
 $$ R^2 = 1 - \frac{ \sum_{i=1}^n (O_i - F_i)^2 }{ \sum_{i=1}^n (O_i - \bar{O})^2 } $$
 
@@ -157,7 +174,7 @@ Special cases include:
 
 ### Kolmogorov-Smirnov Test Integral (KSI) {#ksi}
 {: .anchor }
-The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)), and is defined as:
+The KSI quantifies the level of agreement between the cumulative distribution function (CDFs) of the forecasted and observed values ([Espinar09](#ref-espinar09)). The KSI is defined as:
 
 $$ \text{KSI} = \int_{p_{\text{min}}}^{p_{\text{max}}} D_n(p) dp $$
 
